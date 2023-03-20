@@ -1,0 +1,8 @@
+[console_scripts]
+blastresults_to_csv = digger.blastresults_to_csv:main
+compare_annotations = digger.compare_annotations:main
+digger = digger.digger:main
+find_alignments = digger.find_alignments:main
+merge_fasta = digger.merge_fasta:main
+merge_search_d = digger.merge_search_d:main
+parse_imgt_annotations = digger.parse_imgt_annotations:main

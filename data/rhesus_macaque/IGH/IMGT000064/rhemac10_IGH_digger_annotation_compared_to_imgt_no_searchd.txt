@@ -1,0 +1,34 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+1084763,1085058  imgt_match: IGHV3-67*01  imgt_func: pseudo digger_match: IGHV3-67*01  digger_func: functional  notes: 
+1376375,1376669  imgt_match: IGHV3-18*01  imgt_func: ORF digger_match: IGHV3-18*01  digger_func: functional  notes: BLAST alignment was truncated
+1476884,1477183  imgt_match: IGHV(II)-6*01  imgt_func: pseudo digger_match: IGHV4-122*01  digger_func: functional  notes: BLAST alignment was truncated
+
+Functional sequences reported by IMGT but not by digger:
+235627,235925  imgt_match: IGHV3-176*01  imgt_func: functional digger_match: IGHV3-176*01  digger_func: orf  notes: First cysteine not found
+965856,966151  imgt_match: IGHV4-81*01  imgt_func: functional digger_match: IGHV4-81*01  digger_func: orf  notes: First cysteine not found
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+1640044,1640063  imgt_match: IGHD5-18*01  imgt_func: ORF digger_match: IGHD5-12*01  digger_func: functional  notes: 
+
+Functional sequences reported by IMGT but not by digger:
+1702839,1702849  imgt_match: IGHD7-45*01  imgt_func: functional digger_match:   digger_func:   notes: 
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+1589637,1589686  imgt_match:   imgt_func:  digger_match: IGHJ5-2*01  digger_func: functional  notes: 
+1686558,1686599  imgt_match:   imgt_func:  digger_match: IGHJ4*01  digger_func: functional  notes: 
+1956381,1956422  imgt_match:   imgt_func:  digger_match: IGHJ4*01  digger_func: functional  notes: 
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
