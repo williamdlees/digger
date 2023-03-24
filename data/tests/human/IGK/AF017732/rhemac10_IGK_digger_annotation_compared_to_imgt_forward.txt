@@ -1,0 +1,24 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:

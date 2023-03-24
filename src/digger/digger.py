@@ -12,13 +12,17 @@ import subprocess
 from receptor_utils import simple_bio_seq as simple
 import pathlib
 import glob
-from digger.slugify import slugify
+try:
+    from slugify import slugify
+except:
+    from digger.slugify import slugify
 
 
 def get_parser():
     parser = argparse.ArgumentParser(description='Find functional and nonfunctional genes in a single assembly sequence')
     parser.add_argument('assembly_file', help='assembly sequence to search')
-    parser.add_argument('motif_dir', help='pathname to directory containing motif probability files')
+    parser.add_argument('-species', help='use motifs for the specified species provided with the package')
+    parser.add_argument('-motif_dir', help='pathname to directory containing motif probability files')
     parser.add_argument('-locus', help='locus (default is IGH)')
     parser.add_argument('-v_ref', help='set of V reference genes to use as starting point for search')
     parser.add_argument('-d_ref', help='set of D reference genes to use as starting point for search')
@@ -72,8 +76,17 @@ def main():
             print(f"{fn} - file not found")
             exit(1)
 
-    if not os.path.isdir(args.motif_dir):
-        print(f"{args.motif_dir} - file not found")
+    if not args.motif_dir and not args.species:
+        print('Error - please specify either -motif_dir or -species')
+        quit()
+
+    if args.motif_dir and args.species:
+        print('Error - please specify either -motif_dir or -species, not both')
+        quit()
+
+
+    if args.motif_dir and not os.path.isdir(args.motif_dir):
+        print(f"{args.motif_dir} - directory not found")
         exit(1)
 
     full_germline_set = {}
@@ -185,14 +198,24 @@ def main():
 
     # Run find_alignments
 
-    cmd = [
-        'find_alignments',
-        'full_germline_set.fasta',
-        'assembly.fasta',
-        f'blast_results_{assembly_name}.csv',
-        args.motif_dir,
-        '-locus', locus,
-        ]
+    if args.motif_dir:
+        cmd = [
+            'find_alignments',
+            'full_germline_set.fasta',
+            'assembly.fasta',
+            f'blast_results_{assembly_name}.csv',
+            '-motif_dir',  f'{args.motif_dir}',
+            '-locus', locus,
+            ]
+    else:
+        cmd = [
+            'find_alignments',
+            'full_germline_set.fasta',
+            'assembly.fasta',
+            f'blast_results_{assembly_name}.csv',
+            '-species', f'{args.species}',
+            '-locus', locus,
+            ]
 
     if args.ref_comp:
         for ref_arg in args.ref_comp:

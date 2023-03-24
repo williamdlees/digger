@@ -1,0 +1,31 @@
+
+
+type: V
+Functional sequences reported by digger but not by Watson et al.:
+74289,74590  imgt_match:   imgt_func:  digger_match: IGKV2-4*01  digger_func: functional  notes: Gene reversed
+271344,271645  imgt_match:   imgt_func:  digger_match: IGKV2-18*01  digger_func: functional  notes: Gene reversed
+
+Functional sequences reported by Watson et al. but not by digger:
+387419,387708  imgt_match: IGKV2-30*01  imgt_func: functional digger_match: IGKV2-30*01  digger_func: orf  notes: Gene reversed, Stop codon in leader, Leader missing initial ATG
+439902,440188  imgt_match: IGKV1-37*01  imgt_func: functional digger_match: IGKV1-37*01  digger_func: orf  notes: Gene reversed, Second cysteine not found
+472754,473043  imgt_match: IGKV2-40*01  imgt_func: functional digger_match: IGKV2-40*01  digger_func: orf  notes: Gene reversed, Stop codon in leader, Leader missing initial ATG
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by Watson et al.:
+
+Functional sequences reported by Watson et al. but not by digger:
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by Watson et al.:
+774280,774320  imgt_match:   imgt_func:  digger_match: IGKJ2*04  digger_func: functional  notes: Gene reversed
+1028935,1028986  imgt_match:   imgt_func:  digger_match: IGKJ2*02  digger_func: functional  notes: Gene reversed
+
+Functional sequences reported by Watson et al. but not by digger:
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:

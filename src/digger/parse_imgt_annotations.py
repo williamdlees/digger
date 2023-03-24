@@ -3,6 +3,8 @@
 # pull out the V-regions, functional/pseudo and locs
 
 import csv
+import os
+
 from Bio.Align import MultipleSeqAlignment, AlignInfo
 from Bio.SeqRecord import SeqRecord
 from collections import Counter
@@ -15,13 +17,12 @@ assembly = None
 
 def get_parser():
     parser = argparse.ArgumentParser(description='Given a set of IMGT annotations, build a CSV file containing gene names and co-ordinates')
-    parser.add_argument('imgt_url', help='URL of IMGT annotation, e.g. http://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000064, of name of text file containing its contents')
+    parser.add_argument('imgt_url', help='URL of IMGT annotation, e.g. http://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000064, or name of text file containing its contents')
     parser.add_argument('outfile', help='Output file (CSV)')
-    parser.add_argument('locus', help='IGH, IGK or IGL')
-    parser.add_argument('--save_download', help='Save download to specified file')
+    parser.add_argument('locus', help='one of IGH, IGK, IGL, TRA, TRB, TRD, TRG')
+    parser.add_argument('--save_download', help='Save contents of annotation to specified file')
     parser.add_argument('--save_sequence', help='Save sequence to specified file')
     parser.add_argument('--save_imgt_annots', help='Save IMGT annotations to specified file')
-    parser.add_argument('--summarise_motifs', help='Print motifs to stdout', action='store_true')
     return parser
 
 
@@ -31,8 +32,8 @@ def find_range(line):
 
 
     (start, end) = line[25:].split('..')
-    start = int(start)
-    end = int(end.replace('\n', ''))
+    start = int(start.replace('<', '').replace('>', ''))
+    end = int(end.replace('\n', '').replace('<', '').replace('>', ''))
     return (start, end)
 
 def find_seq(line, extra=0):
@@ -55,7 +56,7 @@ def find_seq(line, extra=0):
     return seq, sense
 
 
-def process_V(imgt_annots, parsed_genes, summarise_motifs):
+def process_V(imgt_annots, parsed_genes, accession):
     in_v_region = False
     l_part1s = []
     l_part2s = []
@@ -63,7 +64,7 @@ def process_V(imgt_annots, parsed_genes, summarise_motifs):
     v_nonamers = []
 
 
-    row = {'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None, 'sense': ''}
+    row = {'accessions': accession, 'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None, 'sense': ''}
 
     for line in imgt_annots:
         if 'FT   V-REGION' in line:
@@ -93,7 +94,7 @@ def process_V(imgt_annots, parsed_genes, summarise_motifs):
             for el in ['utr', 'l-part1', 'l-part2', 'v-heptamer', 'v-nonamer', 'v-region']:
                 row[el] = str(row[el]) if row[el] is not None else ''
             parsed_genes.append(row)
-            row = {'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None}
+            row = {'accessions': accession, 'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None}
 
         if in_v_region:
             if 'V-REGION' in line and '..' in line:
@@ -112,22 +113,8 @@ def process_V(imgt_annots, parsed_genes, summarise_motifs):
             elif '/ORF' in line:
                 row['functional'] = 'ORF'
 
-    if summarise_motifs:
-        for (name, val) in zip(['l_part1', 'l_part2', 'v_heptamer', 'v_nonamer'], [l_part1s, l_part2s, v_heptamers, v_nonamers]):
-            # chuck out any weird lengths
-            lengths = Counter([len(s) for s in val if s is not None])
-            l = lengths.most_common()[0][0]
-            val = [SeqRecord(v) for v in val if v is not None and len(v) == l]
-            alignment = MultipleSeqAlignment(val)
-            summary = AlignInfo.SummaryInfo(alignment)
-            consensus = summary.dumb_consensus(threshold=0.5)
-            for v in val:
-                print(str(v.seq))
-            print('%s consensus: %s' % (name, str(consensus)))
-        print('l-part1 consensus includes ending donor splice')
 
-
-def process_D(imgt_annots, parsed_genes, summarise_motifs):
+def process_D(imgt_annots, parsed_genes, accession):
     in_d_region = False
 
     d_3_heptamers = []
@@ -137,7 +124,7 @@ def process_D(imgt_annots, parsed_genes, summarise_motifs):
     d_5_nonamers = []
     d_5_spacers = []
 
-    row = {'d-3-nonamer': None, 'd-3-spacer': None, 'd-3-heptamer': None, 'd-5-heptamer': None, 'd-5-spacer': None, 'd-5-nonamer': None}
+    row = {'accessions': accession, 'd-3-nonamer': None, 'd-3-spacer': None, 'd-3-heptamer': None, 'd-5-heptamer': None, 'd-5-spacer': None, 'd-5-nonamer': None}
 
     for line in imgt_annots:
         if 'FT   D-REGION' in line:
@@ -168,7 +155,7 @@ def process_D(imgt_annots, parsed_genes, summarise_motifs):
             for el in ['d-3-nonamer', 'd-3-spacer', 'd-3-heptamer', 'd-5-heptamer', 'd-5-spacer', 'd-5-nonamer']:
                 row[el] = str(row[el]) if row[el] is not None else ''
             parsed_genes.append(row)
-            row = {'d-3-nonamer': None, 'd-3-spacer': None, 'd-3-heptamer': None, 'd-5-heptamer': None, 'd-5-spacer': None, 'd-5-nonamer': None}
+            row = {'accessions': accession, 'd-3-nonamer': None, 'd-3-spacer': None, 'd-3-heptamer': None, 'd-5-heptamer': None, 'd-5-spacer': None, 'd-5-nonamer': None}
 
         if in_d_region:
             if 'FT   D-REGION' in line and '..' in line:
@@ -188,39 +175,26 @@ def process_D(imgt_annots, parsed_genes, summarise_motifs):
             elif '/ORF' in line:
                 row['functional'] = 'ORF'
 
-    if summarise_motifs:
-        for (name, val) in zip(['d-3-nonamer', 'd-3-spacer', 'd-3-heptamer', 'd-5-heptamer', 'd-5-spacer', 'd-5-nonamer'],
-                               [d_3_nonamers, d_3_spacers, d_3_heptamers, d_5_heptamers, d_5_spacers, d_5_nonamers]):
-            # chuck out any weird lengths
-            lengths = Counter([len(s) for s in val if s is not None])
-            l = lengths.most_common()[0][0]
-            val = [SeqRecord(v) for v in val if v is not None and len(v) == l]
-            alignment = MultipleSeqAlignment(val)
-            summary = AlignInfo.SummaryInfo(alignment)
-            consensus = summary.dumb_consensus(threshold=0.5)
-            for v in val:
-                print(str(v.seq))
-            print('%s consensus: %s' % (name, str(consensus)))
 
-
-def process_J(imgt_annots, parsed_genes, summarise_motifs):
+def process_J(imgt_annots, parsed_genes, accession):
     in_j_region = False
-    in_j_heptamer = False
-    in_j_nonamer = False
-
+    in_j_gene = False
     j_heptamers = []
     j_nonamers = []
     j_spacers = []
 
-    row = {'start': None, 'end': None, 'allele': None, 'functional': None, 'j-nonamer': None, 'j-spacer': None, 'j-heptamer': None, 'j-region': None}
+    row = {'accessions': accession, 'start': None, 'end': None, 'allele': None, 'functional': None, 'j-nonamer': None, 'j-spacer': None, 'j-heptamer': None, 'j-region': None}
 
     for line in imgt_annots:
+        if 'FT   J-GENE ' in line:
+            in_j_gene = True
         if 'FT   J-REGION ' in line:
             in_j_region = True
         elif len(line) > 5 and line[5] != ' ' and in_j_region:
             in_j_region = False
+            in_j_gene = False
             parsed_genes.append(row)
-            row = {'start': None, 'end': None, 'allele': None, 'sense': None, 'functional': None, 'j-nonamer': None, 'j-spacer': None, 'j-heptamer': None, 'j-region': None}
+            row = {'accessions': accession, 'start': None, 'end': None, 'allele': None, 'sense': None, 'functional': None, 'j-nonamer': None, 'j-spacer': None, 'j-heptamer': None, 'j-region': None}
 
         if 'FT   J-HEPTAMER' in line:
             row['j-heptamer'], _ = find_seq(line)
@@ -237,7 +211,7 @@ def process_J(imgt_annots, parsed_genes, summarise_motifs):
             row['j-spacer'], _ = find_seq(line)
 
 
-        if in_j_region:
+        if in_j_region or in_j_gene:
             if 'FT   J-REGION ' in line and '..' in line:
                 reg = line.replace('FT   J-REGION ', '')
                 if 'complement' in reg:
@@ -255,22 +229,10 @@ def process_J(imgt_annots, parsed_genes, summarise_motifs):
             elif '/ORF' in line:
                 row['functional'] = 'ORF'
 
-    if summarise_motifs:
-        for (name, val) in zip(['j_heptamer', 'j-spacer', 'j_nonamer'], [j_heptamers, j_spacers, j_nonamers]):
-            # chuck out any weird lengths
-            lengths = Counter([len(s) for s in val if s is not None])
-            l = lengths.most_common()[0][0]
-            val = [SeqRecord(v) for v in val if v is not None and len(v) == l]
-            alignment = MultipleSeqAlignment(val)
-            summary = AlignInfo.SummaryInfo(alignment)
-            consensus = summary.dumb_consensus(threshold=0.5)
-            for v in val:
-                print(str(v.seq))
-            print('%s consensus: %s' % (name, str(consensus)))
-
 
 def main():
     global assembly
+    sequences = {}
     args = get_parser().parse_args()
 
     if args.locus not in ['IGH', 'IGK', 'IGL']:
@@ -288,55 +250,71 @@ def main():
         with open(args.imgt_url, 'r') as fi:
             imgt_text = fi.read()
 
+    all_annotations = []
+    parsed_genes = []
     annotations = []
     sequence = ""
     reading = 'preamble'
+    accessions = ''
 
     for line in imgt_text.split('\n'):
         if reading == 'preamble':
+            annotations.append(line)
             if len(line) > 1 and line[0:2] == 'FT':
-                annotations.append(line)
                 reading = 'annotations'
+            if len(line) > 5 and line[0:2] == 'AC':
+                accessions = line[5:]
+                print(f'Processing {accessions}')
 
         elif reading == 'annotations':
+            annotations.append(line)
             if len(line) < 2 or line[0:2] != 'FT':
                 reading = 'postamble'
-            else:
-                annotations.append(line)
 
         elif reading == 'postamble':
             if len(line) > 1 and line[0:2] == 'SQ':
                 reading = 'sequence'
+            else:
+                annotations.append(line)
 
         elif reading == 'sequence':
             if line[0:5] == '     ':
                 sequence += line[5:70].replace(' ', '')
             else:
-                break
+                assembly = sequence
 
-    assembly = sequence
+                #if accessions == 'AF017732;':
+                #    breakpoint()
 
-    if args.save_sequence:
-        simple.write_fasta({args.locus: sequence}, args.save_sequence)
+                if args.save_sequence and accessions:
+                    sequences[accessions] = assembly
+
+                process_V(annotations, parsed_genes, accessions)
+
+                if args.locus in ['IGH', 'TRB', 'TRD']:
+                    process_D(annotations, parsed_genes, accessions)
+
+                process_J(annotations, parsed_genes, accessions)
+
+                fieldnames = [
+                   'accessions', 'allele', 'functional',  'start', 'end', 'sense',
+                   'utr', 'l-part1', 'l-part2', 'v-region',  'v-nonamer', 'v-heptamer',
+                   'd-5-heptamer', 'd-5-spacer', 'd-5-nonamer', 'd-region','d-3-heptamer', 'd-3-spacer', 'd-3-nonamer',
+                   'j-region', 'j-heptamer', 'j-spacer', 'j-nonamer'
+                ]
+
+                sequence = ""
+                reading = 'preamble'
+                accessions = ''
+                all_annotations.extend(annotations)
+                annotations = []
 
     if args.save_imgt_annots:
         with open(args.save_imgt_annots, 'w') as fo:
-            fo.write('\n'.join(annotations))
+            fo.write('\n'.join(all_annotations))
 
-    parsed_genes = []
-    process_V(annotations, parsed_genes, args.summarise_motifs)
-
-    if args.locus == 'IGH':
-        process_D(annotations, parsed_genes, args.summarise_motifs)
-
-    process_J(annotations, parsed_genes, args.summarise_motifs)
-
-    fieldnames = [
-       'allele', 'functional',  'start', 'end', 'sense',
-       'utr', 'l-part1', 'l-part2', 'v-region',  'v-nonamer', 'v-heptamer',
-       'd-5-heptamer', 'd-5-spacer', 'd-5-nonamer', 'd-region','d-3-heptamer', 'd-3-spacer', 'd-3-nonamer',
-       'j-region', 'j-heptamer', 'j-spacer', 'j-nonamer'
-    ]
+    if args.save_sequence:
+        simple.write_fasta(sequences, args.save_sequence)
 
     with open(args.outfile, 'w', newline='') as fo:
         writer = csv.DictWriter(fo, fieldnames=fieldnames, restval='')

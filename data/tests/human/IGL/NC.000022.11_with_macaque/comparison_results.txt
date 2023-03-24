@@ -1,0 +1,33 @@
+
+
+type: V
+Functional sequences reported by digger but not by Watson et al.:
+62681,62977  imgt_match:   imgt_func:  digger_match: IGLV2-11*01  digger_func: functional  notes: 
+301443,301741  imgt_match: IGLV1-50*01  imgt_func: ORF digger_match: IGLV1-50*01  digger_func: functional  notes: 
+562317,562613  imgt_match: IGLV2-33*01  imgt_func: ORF digger_match: IGLV2-33*01  digger_func: functional  notes: 
+736201,736499  imgt_match:   imgt_func:  digger_match: IGLV3-13*01  digger_func: functional  notes: 
+830673,830985  imgt_match:   imgt_func:  digger_match: IGLV2-5*01  digger_func: functional  notes: 
+
+Functional sequences reported by Watson et al. but not by digger:
+686835,687124  imgt_match: IGLV3-21*02  imgt_func: functional digger_match: IGLV3-21*02  digger_func: orf  notes: Stop codon in leader, Leader missing initial ATG
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by Watson et al.:
+
+Functional sequences reported by Watson et al. but not by digger:
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by Watson et al.:
+884500,884535  imgt_match: IGLJ4*01  imgt_func: ORF digger_match: IGLJ4*01  digger_func: functional  notes: 
+888202,888237  imgt_match: IGLJ5*01  imgt_func: ORF digger_match: IGLJ5*01  digger_func: functional  notes: 
+
+Functional sequences reported by Watson et al. but not by digger:
+895332,895360  imgt_match: IGLJ7*01  imgt_func: functional digger_match: IGLJ7*01  digger_func: pseudo  notes: J-TRP not found
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:

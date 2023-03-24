@@ -1,0 +1,29 @@
+
+
+type: V
+Functional sequences reported by digger but not by Watson et al.:
+1195699,1196000  imgt_match:   imgt_func:  digger_match: IGKV2D-18*01  digger_func: functional  notes: 
+
+Functional sequences reported by Watson et al. but not by digger:
+1027570,1027856  imgt_match: IGKV1D-37*01  imgt_func: functional digger_match: IGKV1-37*01  digger_func: orf  notes: Second cysteine not found
+1080020,1080321  imgt_match: IGKV2D-30*01  imgt_func: functional digger_match: IGKV2D-30*01  digger_func: orf  notes: Stop codon in leader, Leader missing initial ATG
+1147970,1148271  imgt_match: IGKV2D-24*01  imgt_func: functional digger_match: IGKV2D-24*01  digger_func: orf  notes: First cysteine not found
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by Watson et al.:
+
+Functional sequences reported by Watson et al. but not by digger:
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by Watson et al.:
+438772,438823  imgt_match:   imgt_func:  digger_match: IGKJ2*02  digger_func: functional  notes: 
+
+Functional sequences reported by Watson et al. but not by digger:
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:

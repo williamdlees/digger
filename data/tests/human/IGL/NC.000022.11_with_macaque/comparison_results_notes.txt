@@ -1,0 +1,39 @@
+type: V
+Functional sequences reported by digger but not by Watson et al.:
+62654,62977  imgt_match:   imgt_func:  digger_match: IGLV5-37*02  digger_func: functional  notes: 
+...match score of 47.53 to IGLV5-37*02
+301443,301741  imgt_match: IGLV1-50*01  imgt_func: ORF digger_match: IGLV1-50*01  digger_func: functional  notes: 
+...imgt notes: Non-conserved OCTAMER sequence: ctgcacaa instead of atttgcat, non-conserved TATA_BOX, and unusual V-NONAMER sequence: agaagaacc instead of acaaaaacc
+...digger uses a more lenient filter
+562317,562613  imgt_match: IGLV2-33*01  imgt_func: ORF digger_match: IGLV2-33*01  digger_func: functional  notes: 
+...imgt notes: Unusual V-HEPTAMER sequence: catagtg instead of cacagtg
+736201,736499  imgt_match: IGLV3-13*01  imgt_func: P digger_match: IGLV3-13*01  digger_func: functional  notes: 
+...match score 100
+...STOP-CODON at position 109 in CDR3-IMGT.
+830673,830985  imgt_match:   imgt_func:  digger_match: IGLV2-5*01  digger_func: functional  notes: 
+...stop codon at position 103. Why is it marked functional ??
+
+Functional sequences reported by Watson et al. but not by digger:
+686835,687124  imgt_match: IGLV3-21*02  imgt_func: functional digger_match: IGLV3-21*02  digger_func: orf  notes: Stop codon in leader, Leader missing initial ATG
+..I can't see a sequence in the upstream region that matches the leader sequence IMGT have annotated for this gene.
+..This sequence occurs immediately upstram of the V-gene. Suspect an assembly error:
+AAGCCAACCTCTCTCTTATTTATTTATTTATTTATTTATTTATTTATTTATTTATTTTTATCTTTGCAGGCTCTGTGACCT
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by Watson et al.:
+
+Functional sequences reported by Watson et al. but not by digger:
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by Watson et al.:
+884500,884535  imgt_match: IGLJ4*01  imgt_func: ORF digger_match: IGLJ4*01  digger_func: functional  notes: 
+888202,888237  imgt_match: IGLJ5*01  imgt_func: ORF digger_match: IGLJ5*01  digger_func: functional  notes:
+...these are noted by IMGT as having non-canonical donor splices. Not checked by digger
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:

@@ -4,7 +4,7 @@ import argparse
 from collections import defaultdict
 import random
 
-from motif import Motif
+from digger.motif import Motif
 import csv
 
 
@@ -27,6 +27,20 @@ feats_in_feat_file = {
     "V-NONAMER": 'v-nonamer',
 }
 
+'''
+feats_in_feat_file = {
+    "J-HEPTAMER": 'j_heptamer',
+    "J-NONAMER": 'j_nonamer',
+    "5'D-HEPTAMER": 'd_5_heptamer',
+    "5'D-NONAMER": 'd_5_nonamer',
+    "3'D-HEPTAMER": 'd_3_heptamer',
+    "3'D-NONAMER": 'd_3_nonamer',
+    'L-PART1': 'l_part1',
+    'L-PART2': 'l_part2',
+    "V-HEPTAMER": 'v_heptamer',
+    "V-NONAMER": 'v_nonamer',
+}
+'''
 
 def random_seq(length):
     bases = ['A', 'C', 'G', 'T']
@@ -38,6 +52,7 @@ def random_seq(length):
 
 def main():
     args = get_parser().parse_args()
+    csv.field_size_limit(10000000)      # Reported UTRs can be very long sometimes
 
     with open(args.feat_file, 'r') as fi:
         reader = csv.DictReader(fi)
@@ -50,7 +65,7 @@ def main():
             fname = feats_in_feat_file[feature_name]
 
             for feature_row in feature_rows:
-                if fname in feature_row and len(feature_row[fname]) > 0 and feature_row['functional'] == 'functional':
+                if fname in feature_row and len(feature_row[fname]) > 0 and feature_row['functional'].lower() == 'functional':
                     gene_name = feature_row['allele'].split('*')[0] if '*' in feature_row['allele'] else str(gene_num)
                     gene_num += 1
                     if gene_name not in seqs:

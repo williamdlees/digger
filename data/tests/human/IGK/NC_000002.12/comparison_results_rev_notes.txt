@@ -1,0 +1,35 @@
+
+
+type: V
+Functional sequences reported by digger but not by Watson et al.:
+1164541,1164827  imgt_match: IGKV6D-21*02  imgt_func: ORF digger_match: IGKV6D-21*02  digger_func: functional  notes: 
+...Marked as ORF in Watson et al. but currently classified by IMGT as functional
+1195699,1196000  imgt_match:   imgt_func:  digger_match: IGKV2D-18*01  digger_func: functional  notes: 
+...Annotated by IMGT as P, having a corrupted leader, but the leader identified by digger appears to be feasible
+1212594,1212880  imgt_match: IGKV6D-41*01  imgt_func: ORF digger_match: IGKV6D-41*01  digger_func: functional  notes:
+...Annotated by IMGT as ORF having a non-canonical hepatmer: digger uses a more lenient filter 
+1333035,1333321  imgt_match: IGKV1D-42*02  imgt_func: ORF digger_match: IGKV1D-42*02  digger_func: functional  notes: 
+...Annotated by IMGT as ORF having non-canonical hepatmer and nonamer: digger uses a more lenient filter 
+	
+Functional sequences reported by Watson et al. but not by digger:
+1377512,1378069  imgt_match: IGKV3D-7*01  imgt_func: functional digger_match:   digger_func:   notes: 
+...3' end of sequence and RSS is outside the range of the sequence annotated by digger
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by Watson et al.:
+
+Functional sequences reported by Watson et al. but not by digger:
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by Watson et al.:
+438772,438823  imgt_match:   imgt_func:  digger_match: IGKJ2*02  digger_func: functional  notes: 
+
+Functional sequences reported by Watson et al. but not by digger:
+
+Functional sequences reported by both Watson et al. and digger but with different sequences:

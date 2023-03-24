@@ -1,0 +1,65 @@
+imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
+3205,3245,J,3205,3245,IGKJ5*01,IGKJ5*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,Gene reversed
+3523,3563,J,3523,3563,IGKJ4*01,IGKJ4*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,Gene reversed
+3858,3898,J,3858,3898,IGKJ3*01,IGKJ3*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,Gene reversed
+4162,4203,J,4162,4203,IGKJ2*04,IGKJ2*04,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,Gene reversed
+4523,4563,J,4523,4563,IGKJ1*01,IGKJ1*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,Gene reversed
+,,V,41676,41952,,IGKV1D-8*03,,pseudo,No,No,No,No,"Gene reversed, Leader not found, Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, Nonamer not found, BLAST alignment was truncated"
+,,V,57718,58016,,IGKV7-3*01,,ORF,No,No,No,No,"Gene reversed, Leader missing initial ATG, Stop codon in leader"
+,,V,74289,74590,,IGKV2-4*01,,Functional,No,No,No,No,Gene reversed
+89939,90225,V,89939,90225,IGKV1-5*03,IGKV1-5*03,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+108900,109186,V,108900,109186,IGKV1-6*02,IGKV1-6*02,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+121106,121395,V,121106,121395,IGKV3-7*04,IGKV3-7*04,functional,Functional,Yes,Yes,Yes,Yes,"Gene reversed, BLAST alignment was truncated"
+135047,135333,V,135047,135333,IGKV1-8*01,IGKV1-8*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+152620,152906,V,152620,152906,IGKV1-9*01,IGKV1-9*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,162632,162932,,IGKV2-28*01,,ORF,No,No,No,No,"Gene reversed, Leader missing initial ATG, Stop codon in leader, Second cysteine not found"
+169809,170095,V,169809,170095,IGKV3-11*01,IGKV3-11*01,functional,Functional,Yes,Yes,Yes,Yes,"Gene reversed, BLAST alignment was truncated"
+182862,183148,V,182862,183148,IGKV1-12*01,IGKV1-12*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,188628,188914,,IGKV1-13*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+,,V,205172,205470,,IGKV4-1*01,,pseudo,No,No,No,No,"Gene reversed, Leader not found, Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+,,V,220659,220959,,IGKV2D-29*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+227815,228101,V,227815,228101,IGKV3-15*01,IGKV3-15*01,functional,Functional,Yes,Yes,Yes,Yes,"Gene reversed, BLAST alignment was truncated"
+242497,242783,V,242497,242783,IGKV1-16*02,IGKV1-16*02,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+259980,260266,V,259980,260266,IGKV1-17*01,IGKV1-17*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,271344,271645,,IGKV2-18*01,,Functional,No,No,No,No,Gene reversed
+,,V,277619,277928,,IGKV2-30*02,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+285212,285501,V,285212,285501,IGKV3-20*01,IGKV3-20*01,functional,Functional,Yes,Yes,Yes,Yes,"Gene reversed, BLAST alignment was truncated"
+302389,302675,V,302389,302675,IGKV6-21*01,IGKV6-21*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,313383,313673,,IGKV1-27*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+,,V,314675,314967,,IGKV2-28*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+,,V,314860,315179,,IGKV2-18*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+318966,319255,V,318966,319267,IGKV2-24*01,IGKV2-24*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,324112,324406,,IGKV1-9*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+,,V,335092,335404,,IGKV3-15*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,335131,335436,,IGKV3D-11*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+,,V,338716,339018,,IGKV2D-26*03,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+,,V,346253,346544,,IGKV2-30*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+,,V,350874,351170,,IGKV6-21*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+356061,356347,V,356061,356347,IGKV1-27*01,IGKV1-27*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,361905,362229,,IGKV3/OR2-268*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, Nonamer not found, BLAST alignment was truncated"
+364336,364625,V,364336,364637,IGKV2-28*01,IGKV2-28*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,372984,373288,,IGKV3D-20*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, Nonamer not found, BLAST alignment was truncated"
+,,V,376823,377124,,IGKV2-29*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+387419,387708,V,387419,387720,IGKV2-30*01,IGKV2-30*01,functional,ORF,Yes,No,Yes,Yes,"Gene reversed, Stop codon in leader, Leader missing initial ATG"
+,,V,394836,395120,,IGKV3D-11*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+,,V,396181,396471,,IGKV1-27*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+410639,410925,V,410639,410925,IGKV1-33*01,IGKV1-33*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,416368,416678,,IGKV7-3*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found, BLAST alignment was truncated"
+,,V,417895,418182,,IGKV3D-11*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+,,V,422796,423093,,IGKV3D-11*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, Nonamer not found, BLAST alignment was truncated"
+,,V,429334,429620,,IGKV1-16*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+,,V,437849,438139,,IGKV2/OR22-4*01,,pseudo,No,No,No,No,"Gene reversed, Leader not found, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+439902,440188,V,439902,440188,IGKV1-37*01,IGKV1-37*01,functional,ORF,Yes,No,Yes,Yes,"Gene reversed, Second cysteine not found"
+,,V,452541,452834,,IGKV2-28*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+462263,462549,V,462263,462549,IGKV1-39*01,IGKV1-39*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,468162,468447,,IGKV3D-11*03,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+472754,473043,V,472754,473058,IGKV2-40*01,IGKV2-40*01,functional,ORF,Yes,No,Yes,Yes,"Gene reversed, Stop codon in leader, Leader missing initial ATG"
+,,J,774280,774320,,IGKJ2*04,,Functional,No,No,No,No,Gene reversed
+,,V,1003700,1003980,,IGKV3D-11*03,,pseudo,No,No,No,No,"Gene reversed, Leader not found, Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+,,J,1028935,1028986,,IGKJ2*02,,Functional,No,No,No,No,Gene reversed
+,,J,1069550,1069591,,IGKJ1*01,,pseudo,No,No,No,No,"Gene reversed, J-TRP not found"
+,,J,1099975,1100008,,IGKJ1*01,,pseudo,No,No,No,No,"Gene reversed, J-TRP not found"
+,,V,1189333,1189649,,IGKV2/OR22-4*01,,pseudo,No,No,No,No,"Gene reversed, Leader not found, Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found, BLAST alignment was truncated"
+,,V,1193550,1193857,,IGKV1/OR2-3*01,,pseudo,No,No,No,No,"Gene reversed, Leader not found, Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found, BLAST alignment was truncated"
+,,J,1196892,1196925,,IGKJ3*01,,pseudo,No,No,No,No,"Gene reversed, J-TRP not found"
+,,J,1281742,1281784,,IGKJ5*01,,pseudo,No,No,No,No,"Gene reversed, J-TRP not found"

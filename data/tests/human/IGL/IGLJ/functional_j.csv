@@ -1,0 +1,15 @@
+accessions,allele,functional,start,end,sense,utr,l-part1,l-part2,v-region,v-nonamer,v-heptamer,d-5-heptamer,d-5-spacer,d-5-nonamer,d-region,d-3-heptamer,d-3-spacer,d-3-nonamer,j-region,j-heptamer,j-spacer,j-nonamer
+M15642;,IGLJ3*01,functional,29,66,forward,,,,,,,,,,,,,,tgtggtattcggcggagggaccaagctgaccgtcctag,cacagtg,atgagcctgtgt,ggtttttgt
+D87023;,IGLJ1*01,functional,19380,19417,forward,,,,,,,,,,,,,,ttatgtcttcggaactgggaccaaggtcaccgtcctag,cactgtg,ctgagcctcagt,ggttttggt
+D87023;,IGLJ2*01,functional,25217,25254,forward,,,,,,,,,,,,,,tgtggtattcggcggagggaccaagctgaccgtcctag,cacagtg,atgagcctgtgt,ggtttttgt
+D87023;,IGLJ3*02,functional,30587,30624,forward,,,,,,,,,,,,,,ttgggtgttcggcggagggaccaagctgaccgtcctag,cacagtg,atgagcctgtgt,ggtttttgt
+M18338;,IGLJ6*01,functional,30,67,forward,,,,,,,,,,,,,,taatgtgttcggcagtggcaccaaggtgaccgtcctcg,cacagtg,gcagggttatat,ggtttgtgt
+D87017;,IGLJ6*01,functional,15279,15316,forward,,,,,,,,,,,,,,taatgtgttcggcagtggcaccaaggtgaccgtcctcg,cacagtg,gcagggttatat,ggtttgtgt
+D87017;,IGLJ7*02,functional,18513,18550,forward,,,,,,,,,,,,,,tgctgtgttcggaggaggcacccagctgaccgccctcg,cactgtg,gtggggctgtgt,ggtttgtgt
+M15641;,IGLJ2*01,functional,29,66,forward,,,,,,,,,,,,,,tgtggtattcggcggagggaccaagctgaccgtcctag,cacagtg,atgagcctgtgt,ggtttttgt
+X04457;,IGLJ1*01,functional,30,67,forward,,,,,,,,,,,,,,ttatgtcttcggaactgggaccaaggtcaccgtcctag,cactgtg,ctgagcctcagt,ggttttggt
+X51755;,IGLJ1*01,functional,2428,2465,forward,,,,,,,,,,,,,,ttatgtcttcggaactgggaccaaggtcaccgtcctag,cactgtg,ctgagcctcagt,ggttttggt
+X51755;,IGLJ2*01,functional,8249,8286,forward,,,,,,,,,,,,,,tgtggtattcggcggagggaccaagctgaccgtcctag,cacagtg,atgagcctgtgt,ggtttttgt
+X51755;,IGLJ3*01,functional,13639,13676,forward,,,,,,,,,,,,,,tgtggtattcggcggagggaccaagctgaccgtcctag,cacagtg,atgagcctgtgt,ggtttttgt
+X51755;,IGLJ6*01,functional,26799,26832,forward,,,,,,,,,,,,,,taatgtgtcggcatggaccaagtgaccgtcctcg,cacagtg,gcagggttatat,ggtttgtgt
+X51755;,IGLJ7*01,functional,30017,30054,forward,,,,,,,,,,,,,,tgctgtgttcggaggaggcacccagctgaccgtcctcg,cactgtg,gtggggctgtgt,ggtttgtgt

@@ -3,6 +3,7 @@ from operator import attrgetter, itemgetter
 from Bio import pairwise2
 import csv
 from collections import defaultdict
+from importlib.resources import files
 
 from receptor_utils.number_ighv import number_ighv, gap_nt_from_aa, nt_diff, gap_sequence
 from math import ceil
@@ -10,8 +11,15 @@ import glob
 import os.path
 import argparse
 from receptor_utils import simple_bio_seq as simple
-from digger.motif import Motif
-from digger.slugify import slugify
+try:
+    from motif import Motif
+except:
+    from digger.motif import Motif
+
+try:
+    from slugify import slugify
+except:
+    from digger.slugify import slugify
 
 
 def get_parser():
@@ -19,7 +27,8 @@ def get_parser():
     parser.add_argument('germline_file', help='reference set used to produce the blast matches')
     parser.add_argument('assembly_file', help='assembly or contig provided to blast')
     parser.add_argument('blast_file', help='results from blast in the format provided by blastresults_to_csv (can contain wildcards if there are multiple files, will be matched by glob)')
-    parser.add_argument('motif_dir', help='pathname to directory containing motif probability files')
+    parser.add_argument('-species', help='use motifs for the specified species provided with the package')
+    parser.add_argument('-motif_dir', help='use motif probability files present in the specified directory')
     parser.add_argument('-ref', help='ungapped reference to compare to: name and reference file separated by comma eg mouse,mouse.fasta (may be repeated multiple times)', action='append')
     parser.add_argument('-align', help='gapped reference file to use for V gene alignments (should contain V genes only), otherwise de novo alignment will be attempted')
     parser.add_argument('-locus', help='locus (default is IGH)')
@@ -34,6 +43,8 @@ germlines = None
 locus = None
 manual_sense = None
 J_TRP_MOTIF = None
+J_TRP_OFFSET = None
+J_SPLICE = None
 V_RSS_SPACING = None
 reference_sets = []
 v_gapped_ref = {}
@@ -65,6 +76,10 @@ class DAnnotation:
         self.end = end
         self.seq = assembly[start-1:end]
         self.notes = []
+        left_motif.notes = [f"5' {n}" for n in left_motif.notes]
+        right_motif.notes = [f"3' {n}" for n in right_motif.notes]
+        self.notes.extend(left_motif.notes)
+        self.notes.extend(right_motif.notes)
         self.functionality = None
         self.d_5_nonamer = left_motif.left
         self.d_5_heptamer = left_motif.right
@@ -77,8 +92,7 @@ class DAnnotation:
         self.likelihood = left_motif.likelihood * right_motif.likelihood
 
     def annotate(self):
-        self.functionality = 'Functional'
-        self.notes = []
+        self.functionality = 'Functional' if self.likelihood != 0 else 'pseudo'
 
 
 def process_d(start, end, best, matches):
@@ -217,10 +231,15 @@ class JAnnotation:
                 break
 
         if hit >= 0:
-            self.end = self.start + i + (hit + 11)*3      # include the donor splice
+            self.end = self.start + i + (hit + J_TRP_OFFSET)*3      # include the donor splice
             self.seq = assembly[self.start - 1:self.end]
-            self.j_frame = i
-            self.functionality = 'Functional'
+            if assembly[self.end - 1:self.end + 2] != J_SPLICE:
+                self.notes.append('Donor splice not found')
+                self.j_frame = 0
+                self.functionality = 'pseudo'
+            else:
+                self.j_frame = i
+                self.functionality = 'functional'
         else:
             self.notes.append('J-TRP not found')
             self.j_frame = 0
@@ -319,27 +338,17 @@ class VAnnotation:
 # then find all possible rss within range
 # evaluate every combination - joint prob and functionality
 def process_v(start, end, best, matches, v_parsing_errors):
-    #if start == 1236539:
+    #if start == 686835:
     #    breakpoint()
 
-    leaders = find_compound_motif(motifs['L-PART1'], motifs['L-PART2'], 10, 400, 8, end=start-1)
+    leaders = find_compound_motif(motifs['L-PART1'], motifs['L-PART2'], 10, 400, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
 
     # restrain length to between 270 and 320 nt, allow a window anywhere within that range
     rights = find_compound_motif(motifs['V-HEPTAMER'], motifs['V-NONAMER'], V_RSS_SPACING-1, V_RSS_SPACING, 25, start=start+295)
 
     # put in a dummy leader if we found an RSS but no leader
 
-    add_dummy = False
     if rights and not leaders:
-        add_dummy = True
-
-    # put in a dummy leader at the BLAST start position if we  found no leader there (this will take priority if it gives a functional sequence and nothing else does)
-
-    ends = [l.end for l in leaders]
-    if start-1 not in ends:
-        add_dummy = True
-
-    if add_dummy:
         leaders.append(MotifResult(motifs['L-PART1'],
                                    0,
                                    start-len(motifs['L-PART2'].consensus)-10-len(motifs['L-PART2'].consensus),
@@ -382,7 +391,7 @@ def process_v(start, end, best, matches, v_parsing_errors):
             v_annot.annotate()
             v_annot.likelihood = left.likelihood * right.likelihood
 
-            if v_annot.functionality == 'Functional' and left.left[0:3].lower() == 'atg':
+            if v_annot.functionality == 'Functional':
                 results.append((left, v_annot, right))
             if max_likelihood_rec is None or v_annot.likelihood > max_likelihood_rec[1].likelihood:
                 max_likelihood_rec = (left, v_annot, right)
@@ -397,12 +406,14 @@ def process_v(start, end, best, matches, v_parsing_errors):
     rows = []
 
     for leader, v_gene, rss in results:
-        # Mark the gene as non-functional if there is a problem in the leader.
-        # Done here so as not to interfere with RSS selection
+        # Mark the gene as non-functional if there is a problem in the leader or RSS.
 
         if v_gene.functionality == 'Functional':
             for note in leader.notes:
                 if 'not found' in note.lower() or 'stop codon' in note.lower():
+                    v_gene.functionality = 'ORF'
+            for note in rss.notes:
+                if 'not found' in note.lower():
                     v_gene.functionality = 'ORF'
 
         best_match, best_score, best_nt_diffs = calc_best_match_score(best, v_gene.ungapped)
@@ -473,6 +484,10 @@ def check_seq(seq, start, end, rev):
     if end < start:
         end, start = start, end
 
+    if end >= len(assembly) or start <= 0:
+        return  # allow co-ords to go off the end - can happen if we're extrapolating the leader, say.
+                # TODO - fix this, but it's not that big an issue
+
     if not rev:
         if seq != assembly[start-1:end]:
             print('Error: sequence at (%d, %d) failed co-ordinate check.' % (start, end))
@@ -517,7 +532,9 @@ def find_single_motif(motif, min_start, max_start):
 # start co-ord, end co-ord: 1-based co-ordinates of either the desired ending position of left, or starting position of right (specify ome or the other)
 # window - the function will look either for a left that ends at end +/- window, or a right that starts at start +/- window
 # returns [{start, end, left_seq, gap_seq, right_seq, likelihood}] for each left, right combination that meets the threshold criterion
-def find_compound_motif(left, right, min_gap, max_gap, window, start=None, end=None):
+# If force has a value, always report a right starting at that position, with the best available left. This is used to force an L-PART2 to be discovered
+# at the point that the BLAST alignment indicates the v-region should start
+def find_compound_motif(left, right, min_gap, max_gap, window, start=None, end=None, right_force=None):
     max_length = len(left.consensus) + max_gap + len(right.consensus)
     min_length = len(left.consensus) + min_gap + len(right.consensus)
 
@@ -529,6 +546,12 @@ def find_compound_motif(left, right, min_gap, max_gap, window, start=None, end=N
 
     min_end = min_start + min_length
     max_end = max_start + max_length
+
+    if min_end > len(assembly):
+        return []
+
+    if max_end > len(assembly):
+        max_end = len(assembly)
 
     # start by finding the motif with the highest threshold
 
@@ -557,6 +580,11 @@ def find_compound_motif(left, right, min_gap, max_gap, window, start=None, end=N
         else:
             right_positions = find_single_motif(right, min_end - len(right.consensus), max_end - len(right.consensus))
 
+        # if right_force is set, if necessary, force discovery of a right motif at the forced position
+
+        if right_force and right_force not in [r for r in right_positions]:
+            right_positions.append((right_force, 0))
+
         for right_position, right_likelihood in right_positions:
             left_positions = find_single_motif(left, right_position - max_gap - len(left.consensus), right_position - min_gap - len(left.consensus))
             for left_position, left_likelihood in left_positions:
@@ -567,6 +595,7 @@ def find_compound_motif(left, right, min_gap, max_gap, window, start=None, end=N
             best_right = sorted(right_positions, key=itemgetter(1), reverse=True)[0]
             missing_name = 'Heptamer' if len(left.consensus) == 7 else 'Nonamer'
             res.append(MotifResult(left, 0, best_right[0] - min_gap - len(left.consensus), right, best_right[1], best_right[0], [missing_name + ' not found']))
+
     return res
 
 
@@ -705,6 +734,8 @@ def process_file(this_blast_file, writer):
     global assembly
     global assembly_rc
     global J_TRP_MOTIF
+    global J_TRP_OFFSET
+    global J_SPLICE
 
     assembly_rc = simple.reverse_complement(assembly)
 
@@ -826,8 +857,8 @@ def process_file(this_blast_file, writer):
 
             # make sure we take an alignment length of 90% or more if available, otherwise flag a warning
 
-            if min(scores) > 99:
-                notes.append('BLAST alignment was truncated')
+            #if min(scores) > 99:
+            #    notes.append('BLAST alignment was truncated')
 
             if locus + 'C' not in best['subject']:
                 gene_type = locus + best['subject'].split(locus)[1][0]
@@ -901,7 +932,7 @@ def process_file(this_blast_file, writer):
 
 
 def main():
-    global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, V_RSS_SPACING, reference_sets
+    global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, V_RSS_SPACING, reference_sets
     global v_gapped_ref
 
     args = get_parser().parse_args()
@@ -918,19 +949,47 @@ def main():
             print("Error - sense must be 'forward' or 'reverse'")
             exit(0)
 
-    if locus not in ['IGH', 'TRB', 'TRG']:
+    if locus in ['IGK']:
         J_TRP_MOTIF = 'FGXG'
+        J_TRP_OFFSET = 10
+        J_SPLICE = 'CGT'
+    elif locus in ['IGL']:
+        J_TRP_MOTIF = 'FGXG'
+        J_TRP_OFFSET = 10
+        J_SPLICE = 'GGT'
     else:
         J_TRP_MOTIF = 'WGXG'
+        J_TRP_OFFSET = 11
+        J_SPLICE = 'GGT'
 
     if locus not in ['IGK']:
         V_RSS_SPACING = 23
     else:
         V_RSS_SPACING = 12
 
-    for motif_name in ["J-HEPTAMER", "J-NONAMER", "5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER"]:
-        with open(args.motif_dir + '/' + motif_name + '_prob.csv', 'r') as fi:
+    if not args.motif_dir and not args.species:
+        print('Error - please specify either -motif_dir or -species')
+        exit(1)
+
+    if args.motif_dir and args.species:
+        print('Error - please specify either -motif_dir or -species, not both')
+        exit(1)
+
+    motif_dir = args.motif_dir
+
+    if args.species:
+        motif_dir = files('digger.motifs').joinpath(f'{args.species}/{locus}')
+
+    print(f'Using motif files from {motif_dir}')
+
+    for motif_name in ["J-HEPTAMER", "J-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER"]:
+        with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
             motifs[motif_name] = Motif(stream=fi)
+
+    if locus in ['IGH', 'TRB', 'TRG']:
+        for motif_name in ["5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER"]:
+            with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
+                motifs[motif_name] = Motif(stream=fi)
 
     for ref in args.ref:
         if ',' in ref:

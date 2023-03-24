@@ -18,6 +18,7 @@ def get_parser():
     parser.add_argument('outfile', help='Output file name (will create .csv, .jpg, .txt')
     parser.add_argument('-nc', help='include sequences for leader and rss', action='store_true')
     parser.add_argument('--filter_annot', help='filter IMGT annotations by sense (forward or reverse)')
+    parser.add_argument('--comp_name', help='name to use for comparison (default IMGT)')
     return parser
 
 
@@ -61,11 +62,11 @@ def main():
         c_end = 'end_rev'
 
     results = create_results(c_end, c_start, candidate, output + '.csv', reference, args.nc, args.filter_annot)
-    plot_results(results, output + '.jpg')
-    report_results(results, output + '.txt')
+    plot_results(results, output + '.jpg', args.comp_name if args.comp_name else 'IMGT')
+    report_results(results, output + '.txt', args.comp_name if args.comp_name else 'IMGT')
 
 
-def plot_results(results, plotfile):
+def plot_results(results, plotfile, comp_name):
     fig = plt.figure(figsize=(10, 10))
 
     i = 0
@@ -75,7 +76,7 @@ def plot_results(results, plotfile):
 
         if len(imgt_starts) > 0 or len(digger_starts) > 0:
             fig.add_subplot(2, 2, i + 1)
-            venn2_unweighted([imgt_starts, digger_starts], ('IMGT', 'digger'))
+            venn2_unweighted([imgt_starts, digger_starts], (comp_name, 'digger'))
             plt.title(f'{chain} - start co-ords')
             i += 1
 
@@ -91,17 +92,17 @@ def report_result_set(result_set, chain, fo):
         fo.write(f"{start},{end}  imgt_match: {result['imgt_allele']}  imgt_func: {result['imgt_func']} digger_match: {result['digger_allele']}  digger_func: {result['digger_func'].lower()}  notes: {result['digger_notes']}\n")
 
 
-def report_results(results, reportfile):
+def report_results(results, reportfile, comp_name):
     with open(reportfile, 'w') as fo:
         for chain in 'V', 'D', 'J':
             fo.write(f"\n\ntype: {chain}\n")
-            fo.write('Functional sequences reported by digger but not by IMGT:\n')
+            fo.write(f'Functional sequences reported by digger but not by {comp_name}:\n')
             report_result_set([r for r in results if r['digger_func'].lower() == 'functional' and r['imgt_func'].lower() != 'functional' and r['type'] == chain], chain, fo)
 
-            fo.write('\nFunctional sequences reported by IMGT but not by digger:\n')
+            fo.write(f'\nFunctional sequences reported by {comp_name} but not by digger:\n')
             report_result_set([r for r in results if r['digger_func'].lower() != 'functional' and r['imgt_func'].lower() == 'functional' and r['type'] == chain], chain, fo)
 
-            fo.write('\nFunctional sequences reported by both IMGT and digger but with different sequences:\n')
+            fo.write(f'\nFunctional sequences reported by both {comp_name} and digger but with different sequences:\n')
             report_result_set([r for r in results if r['digger_func'].lower() == 'functional' and r['imgt_func'].lower() == 'functional' and r['seq_matches'] == 'N' and r['type'] == chain], chain, fo)
 
 
@@ -209,15 +210,19 @@ def create_results(c_end, c_start, candidate, output, reference, show_non_coding
                     'func_matches': func_matches,
                     'seq_matches': seq_matches,
                     'start_matches': start_matches,
-                    'imgt_l_part1': ref_row['l-part1'],
-                    'digger_l_part1': cand_row['l_part1'],
-                    'imgt_l_part2': ref_row['l-part2'],
-                    'digger_l_part2': cand_row['l_part2'],
-                    'imgt_heptamer': ref_row['v-heptamer'],
-                    'imgt_nonamer': ref_row['v-nonamer'],
-                    'digger_heptamer': cand_row['v_heptamer'],
-                    'digger_nonamer': cand_row['v_nonamer'],
                 }
+
+                if show_non_coding:
+                    res += {
+                        'imgt_l_part1': ref_row['l-part1'],
+                        'digger_l_part1': cand_row['l_part1'],
+                        'imgt_l_part2': ref_row['l-part2'],
+                        'digger_l_part2': cand_row['l_part2'],
+                        'imgt_heptamer': ref_row['v-heptamer'],
+                        'imgt_nonamer': ref_row['v-nonamer'],
+                        'digger_heptamer': cand_row['v_heptamer'],
+                        'digger_nonamer': cand_row['v_nonamer'],
+                    }
 
                 results.append(res)
                 cand_row = next(cand_iter)

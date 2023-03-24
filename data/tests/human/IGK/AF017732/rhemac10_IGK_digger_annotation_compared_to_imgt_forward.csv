@@ -1,0 +1,10 @@
+imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
+4786,5084,V,4786,5084,IGKV7-3*01,IGKV7-3*01,pseudo,ORF,Yes,No,Yes,Yes,"Leader missing initial ATG, Stop codon in leader"
+,,V,20850,21126,,IGKV1D-8*03,,pseudo,No,No,No,No,"Leader not found, Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, Nonamer not found, BLAST alignment was truncated"
+,,V,33815,34092,,IGKV1-17*02,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, BLAST alignment was truncated"
+58221,58258,J,58221,58261,IGKJ1*01,IGKJ1*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,
+58581,58619,J,58581,58622,IGKJ2*01,IGKJ2*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,
+58886,58923,J,58886,58926,IGKJ3*01,IGKJ3*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,
+59221,59258,J,59221,59261,IGKJ4*01,IGKJ4*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,
+59539,59576,J,59539,59579,IGKJ5*01,IGKJ5*01,functional,Functional,Yes,Yes,Digger is longer by 3 nt,Yes,
+,,J,65951,65990,,IGKJ1*01,,pseudo,No,No,No,No,J-TRP not found

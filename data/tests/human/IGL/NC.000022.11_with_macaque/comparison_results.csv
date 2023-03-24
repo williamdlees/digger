@@ -1,0 +1,126 @@
+imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
+,,V,186,478,,IGLV1-44*04,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+5099,5397,V,5099,5397,IGLV4-69*01,IGLV4-69*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,6838,7130,,IGLV1-50*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,12734,13011,,IGLV1-50*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,17545,17839,,IGLV10-54*04,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,20171,20484,,IGLV6-57*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,32415,32730,,IGLV5-48*01,,ORF,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Conserved Trp not found"
+,,V,35174,35496,,IGLV4-3*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,44322,44620,,IGLV5-48*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,47762,48044,,IGLV2-11*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,49289,49595,,IGLV5-45*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,53862,54158,,IGLV1-40*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,60652,60949,,IGLV1-62*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,61741,62047,,IGLV5-48*02,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,62681,62977,,IGLV2-11*01,,Functional,No,No,No,No,
+,,V,71833,72141,,IGLV9-49*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+72842,73137,V,72842,73137,IGLV8-61*01,IGLV8-61*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,76388,76676,,IGLV2-11*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,80384,80672,,IGLV10-54*03,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,85510,85831,,IGLV5-45*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,131268,131587,,IGLV7-46*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+136308,136606,V,136308,136606,IGLV4-60*02,IGLV4-60*02,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,137501,137794,,IGLV2-33*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,140646,140906,,IGLV1-62*01,,ORF,No,No,No,No,Sequence truncated before second cysteine
+,,V,142282,142565,,IGLV7-46*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,153113,153426,,IGLV5-52*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,156508,156819,,IGLV4-3*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+169906,170201,V,169906,170201,IGLV6-57*02,IGLV6-57*02,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,172644,172919,,IGLV10-54*06,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,172940,173249,,IGLV5-48*02,,ORF,No,No,No,No,Nonamer not found
+175775,176086,V,175775,176086,IGLV11-55*02,IGLV11-55*02,ORF,ORF,Yes,Yes,Yes,Yes,Nonamer not found
+,,V,180206,180491,,IGLV2-18*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+188901,189196,V,188901,189196,IGLV10-54*02,IGLV10-54*02,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,193738,194058,,IGLV5-48*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,194896,195178,,IGLV2-34*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,218874,219163,,IGLV5-37*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+292835,293151,V,292835,293151,IGLV5-52*01,IGLV5-52*01,functional,Functional,Yes,Yes,Yes,Yes,
+296599,296894,V,296599,296894,IGLV1-51*01,IGLV1-51*01,functional,Functional,Yes,Yes,Yes,Yes,
+301443,301741,V,301443,301741,IGLV1-50*01,IGLV1-50*01,ORF,Functional,Yes,No,Yes,Yes,
+317337,317659,V,317337,317659,IGLV9-49*01,IGLV9-49*01,functional,Functional,Yes,Yes,Digger is longer by 6 nt,Yes,
+,,V,321745,322060,,IGLV2-11*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,J,322068,322106,,IGLJ1*01,,pseudo,No,No,No,No,J-TRP not found
+327047,327358,V,327047,327358,IGLV5-48*02,IGLV5-48*02,P,pseudo,Yes,No,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
+,,V,328198,328485,,IGLV10-54*06,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+331892,332187,V,331892,332187,IGLV1-47*02,IGLV1-47*02,functional,Functional,Yes,Yes,Yes,Yes,
+343719,344012,V,343719,344012,IGLV7-46*02,IGLV7-46*02,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,344760,345048,,IGLV2-11*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+350119,350430,V,350119,350430,IGLV5-45*04,IGLV5-45*04,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,351319,351590,,IGLV2-34*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+354977,355272,V,354977,355272,IGLV1-44*01,IGLV1-44*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,J,359955,359993,,IGLJ4*01,,pseudo,No,No,No,No,J-TRP not found
+369121,369414,V,369121,369414,IGLV7-43*01,IGLV7-43*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,371125,371413,,IGLV2-11*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,372675,372958,,IGLV1-40*01,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
+,,V,378351,378646,,IGLV1-41*02,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,J,378954,378990,,IGLJ5*02,,pseudo,No,No,No,No,J-TRP not found
+383909,384207,V,383909,384207,IGLV1-40*01,IGLV1-40*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,399894,400203,,IGLV2-5*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+401649,401960,V,401649,401960,IGLV5-37*01,IGLV5-37*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,402799,403060,,IGLV1-40*03,,ORF,No,No,No,No,"Sequence truncated before second cysteine, Nonamer not found"
+406095,406390,V,406095,406390,IGLV1-36*01,IGLV1-36*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,424276,424577,,IGLV7-46*02,,ORF,No,No,No,No,First cysteine not found
+,,V,439580,439887,,IGLV2-5*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,506823,507102,,IGLV2-5*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,J,522315,522352,,IGLJ5*02,,pseudo,No,No,No,No,J-TRP not found
+,,V,529472,529761,,IGLV2-11*02,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,538887,539205,,IGLV2-11*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,553941,554237,,IGLV2-34*02,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+562317,562613,V,562317,562613,IGLV2-33*01,IGLV2-33*01,ORF,Functional,Yes,No,Yes,Yes,
+568692,568981,V,568692,568981,IGLV3-32*01,IGLV3-32*01,ORF,ORF,Yes,Yes,Yes,Yes,Second cysteine not found
+,,V,572230,572546,,IGLV9-49*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,578821,579110,,IGLV3-31*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,586956,587251,,IGLV2-14*04,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,592842,593136,,IGLV3-1*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,J,616579,616611,,IGLJ7*01,,pseudo,No,No,No,No,J-TRP not found
+,,V,635223,635502,,IGLV3-9*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,638572,638856,,IGLV2-14*05,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,639437,639729,,IGLV7-43*01,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+642450,642733,V,642450,642733,IGLV3-27*01,IGLV3-27*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,647266,647562,,IGLV3-19*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,653033,653300,,IGLV2-14*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+660917,661206,V,660917,661206,IGLV3-25*03,IGLV3-25*03,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,663638,663949,,IGLV3-9*02,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,668712,668995,,IGLV3-21*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+672050,672346,V,672050,672346,IGLV2-23*03,IGLV2-23*03,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,674677,674944,,IGLV2-14*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,675422,675700,,IGLV7-43*01,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
+678460,678743,V,678460,678743,IGLV3-22*01,IGLV3-22*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,682898,683212,,IGLV5-39*02,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+686835,687124,V,686835,687124,IGLV3-21*02,IGLV3-21*02,functional,ORF,Yes,No,Yes,Yes,"Stop codon in leader, Leader missing initial ATG"
+,,V,689083,689368,,IGLV2-14*05,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+694791,695080,V,694791,695080,IGLV3-19*01,IGLV3-19*01,functional,Functional,Yes,Yes,Yes,Yes,
+708718,709014,V,708718,709014,IGLV2-18*01,IGLV2-18*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,712836,713116,,IGLV3-19*01,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
+,,V,718904,719212,,IGLV1-40*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+721557,721846,V,721557,721846,IGLV3-16*01,IGLV3-16*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,724274,724573,,IGLV3-1*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,729470,729762,,IGLV3-21*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+732840,733136,V,732840,733136,IGLV2-14*01,IGLV2-14*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,736201,736499,,IGLV3-13*01,,Functional,No,No,No,No,
+,,V,741071,741386,,IGLV2-11*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+746218,746507,V,746218,746507,IGLV3-12*02,IGLV3-12*02,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,748326,748610,,IGLV2-11*02,,ORF,No,No,No,No,First cysteine not found
+766632,766928,V,766632,766928,IGLV2-11*01,IGLV2-11*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,776955,777243,,IGLV4-3*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+785917,786206,V,785917,786206,IGLV3-10*01,IGLV3-10*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,788568,788892,,IGLV3-9*02,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+793393,793677,V,793393,793677,IGLV3-9*01,IGLV3-9*01,functional,Functional,Yes,Yes,Yes,Yes,
+796918,797214,V,796918,797214,IGLV2-8*01,IGLV2-8*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,803760,804030,,IGLV3-27*01,,pseudo,No,No,No,No,"Nonamer not found, Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, Nonamer not found"
+,,V,808783,809090,,IGLV4-3*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,812526,812813,,IGLV3-31*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,824281,824581,,IGLV3-25*03,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
+,,V,830673,830985,,IGLV2-5*01,,Functional,No,No,No,No,
+,,V,831948,832227,,IGLV3-32*01,,ORF,No,No,No,No,Second cysteine not found
+845647,845960,V,845647,845960,IGLV4-3*01,IGLV4-3*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,847135,847418,,IGLV3-31*01,,ORF,No,No,No,No,Conserved Trp not found
+855033,855317,V,855033,855317,IGLV3-1*01,IGLV3-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+867706,867746,J,867706,867743,IGLJ1*01,IGLJ1*01,functional,functional,Yes,Yes,Yes,Yes,
+873545,873583,J,873545,873580,IGLJ2*01,IGLJ2*01,functional,functional,Yes,Yes,Digger is shorter by 2 nt,Yes,
+878913,878953,J,878913,878950,IGLJ3*02,IGLJ3*02,functional,functional,Yes,Yes,Yes,Yes,
+884500,884535,J,884500,884532,IGLJ4*01,IGLJ4*01,ORF,functional,Yes,No,Digger is shorter by 5 nt,Yes,
+888202,888237,J,888202,888234,IGLJ5*01,IGLJ5*01,ORF,functional,Yes,No,Digger is shorter by 5 nt,Yes,
+892096,892129,J,892096,892126,IGLJ6*01,IGLJ6*01,functional,functional,Yes,Yes,Digger is shorter by 7 nt,Yes,
+895332,895360,J,895332,895360,IGLJ7*01,IGLJ7*01,functional,pseudo,Yes,No,Digger is shorter by 9 nt,Yes,J-TRP not found

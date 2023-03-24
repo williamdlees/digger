@@ -1,0 +1,8 @@
+accessions,allele,functional,start,end,sense,utr,l-part1,l-part2,v-region,v-nonamer,v-heptamer,d-5-heptamer,d-5-spacer,d-5-nonamer,d-region,d-3-heptamer,d-3-spacer,d-3-nonamer,j-region,j-heptamer,j-spacer,j-nonamer
+X51755;,IGLJ1*01,,2428,2465,forward,,,,,,,,,,,,,,ttatgtcttcggaactgggaccaaggtcaccgtcctag,cactgtg,ctgagcctcagt,ggttttggt
+X51755;,IGLJ2*01,,8249,8286,forward,,,,,,,,,,,,,,tgtggtattcggcggagggaccaagctgaccgtcctag,cacagtg,atgagcctgtgt,ggtttttgt
+X51755;,IGLJ3*01,,13639,13676,forward,,,,,,,,,,,,,,tgtggtattcggcggagggaccaagctgaccgtcctag,cacagtg,atgagcctgtgt,ggtttttgt
+X51755;,IGLJ4*01,,19209,19246,forward,,,,,,,,,,,,,,ttttgtatttggtggaggaacccagctgatcattttag,caccgca,atgaacctgtgt,agtttttgt
+X51755;,IGLJ5*01,,22918,22955,forward,,,,,,,,,,,,,,ctgggtgtttggtgaggggaccgagctgaccgtcctag,cacagca,atgagcctgtgt,ggtttttgt
+X51755;,IGLJ6*01,,26799,26832,forward,,,,,,,,,,,,,,taatgtgtcggcatggaccaagtgaccgtcctcg,cacagtg,gcagggttatat,ggtttgtgt
+X51755;,IGLJ7*01,,30017,30054,forward,,,,,,,,,,,,,,tgctgtgttcggaggaggcacccagctgaccgtcctcg,cactgtg,gtggggctgtgt,ggtttgtgt
