@@ -95,7 +95,7 @@ def main():
                     break
 
             seqs = [list(s) for s in seqs if len(s) == maj_length]
-            matrix = Motif(seqs)
+            matrix = Motif(feature_name, seqs)
             print('%s    %s    %0.4f    %s    %0.2f' % (feature_name, matrix.consensus, matrix.consensus_prob, matrix.conserved_consensus, matrix.calc_prob(matrix.conserved_consensus)))
 
             probs = []

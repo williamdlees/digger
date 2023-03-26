@@ -4,7 +4,8 @@ import csv
 
 
 class Motif:
-    def __init__(self, seqs=None, stream=None):
+    def __init__(self, name, seqs=None, stream=None):
+        self.name = name
         self.matrix = []
         self.consensus = None
         self.conserved_consensus = None
@@ -90,3 +91,15 @@ class Motif:
     def calc_likelihood(self, seq):
         return self.calc_prob(seq) / self.consensus_prob
 
+
+    def find_non_conserved(self, seq):
+        non_conserved = 0
+        res = ''
+        for s, ref in zip(list(seq), list(self.conserved_consensus)):
+            if ref != '-' and s != ref:
+                non_conserved += 1
+                res += s
+            else:
+                res += '-'
+
+        return non_conserved, res

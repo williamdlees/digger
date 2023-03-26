@@ -94,10 +94,16 @@ class DAnnotation:
     def annotate(self):
         self.functionality = 'Functional' if self.likelihood != 0 else 'pseudo'
 
+        for note in self.notes:
+            note = note.lower()
+            if 'not found' in note or 'conserved' in note:
+                self.functionality = 'ORF'
+                break
+
 
 def process_d(start, end, best, matches):
-    left_rss = find_compound_motif(motifs["5'D-NONAMER"], motifs["5'D-HEPTAMER"], 12, 12, 5, end=start-1)
-    right_rss = find_compound_motif(motifs["3'D-HEPTAMER"], motifs["3'D-NONAMER"], 12, 12, 5, start=end)
+    left_rss = find_compound_motif("5'D-NONAMER", "5'D-HEPTAMER", 12, 12, 5, end=start-1)
+    right_rss = find_compound_motif("3'D-HEPTAMER", "3'D-NONAMER", 12, 12, 5, start=end)
 
     results = []
 
@@ -239,14 +245,14 @@ class JAnnotation:
                 self.functionality = 'pseudo'
             else:
                 self.j_frame = i
-                self.functionality = 'functional'
+                self.functionality = 'Functional'
         else:
             self.notes.append('J-TRP not found')
             self.j_frame = 0
             self.functionality = 'pseudo'
 
 def process_j(start, end, best, matches):
-    j_rss = find_compound_motif(motifs['J-NONAMER'], motifs['J-HEPTAMER'], 22, 23, 5, end=start-1)
+    j_rss = find_compound_motif('J-NONAMER', 'J-HEPTAMER', 22, 23, 5, end=start-1)
 
     if len(j_rss) == 0:
         return []
@@ -341,10 +347,10 @@ def process_v(start, end, best, matches, v_parsing_errors):
     #if start == 686835:
     #    breakpoint()
 
-    leaders = find_compound_motif(motifs['L-PART1'], motifs['L-PART2'], 10, 400, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
+    leaders = find_compound_motif('L-PART1', 'L-PART2', 10, 400, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
 
     # restrain length to between 270 and 320 nt, allow a window anywhere within that range
-    rights = find_compound_motif(motifs['V-HEPTAMER'], motifs['V-NONAMER'], V_RSS_SPACING-1, V_RSS_SPACING, 25, start=start+295)
+    rights = find_compound_motif('V-HEPTAMER', 'V-NONAMER', V_RSS_SPACING-1, V_RSS_SPACING, 25, start=start+295)
 
     # put in a dummy leader if we found an RSS but no leader
 
@@ -410,10 +416,10 @@ def process_v(start, end, best, matches, v_parsing_errors):
 
         if v_gene.functionality == 'Functional':
             for note in leader.notes:
-                if 'not found' in note.lower() or 'stop codon' in note.lower():
+                if 'not found' in note.lower() or 'stop codon' in note.lower() or 'conserved' in note.lower():
                     v_gene.functionality = 'ORF'
             for note in rss.notes:
-                if 'not found' in note.lower():
+                if 'not found' in note.lower() or 'conserved' in note.lower():
                     v_gene.functionality = 'ORF'
 
         best_match, best_score, best_nt_diffs = calc_best_match_score(best, v_gene.ungapped)
@@ -507,23 +513,57 @@ def find_single_motif(motif, min_start, max_start):
     consensus_len = len(motif.consensus)
     for p in range(min_start, max_start+1):
         seq = assembly[p-1:p-1 + consensus_len]
-        #if 'N' not in seq:
         likelihood = motif.calc_likelihood(seq)
 
         if likelihood > max_found:
             max_found = likelihood
-            #max_hit = assembly[p-1:p-1 + len(motif.consensus)]
 
         if likelihood >= motif.likelihood_threshold:
-            res.append((p, likelihood))
-            #fs = '-'*(p-min_start) + assembly[p-1:p-1 + len(motif.consensus)]
-            #fs = fs + '-'*(max_start - min_start + len(motif.consensus) - len(fs) + 1)
-            # print('found %s (%.4E)' % (fs, likelihood))
-
-    #if len(res) == 0:
-    #    print('no hits. Max likelihood: %.4E (%s)/ %.4E' % (max_found, max_hit, motif.likelihood_threshold))
+            res.append(SingleMotifResult(motif, p, likelihood))
 
     return res
+
+
+class SingleMotifResult:
+    def __init__(self, motif, position, likelihood):
+        self.start = position
+        self.name = motif.name
+        self.end = position + len(motif.consensus) - 1
+        self.seq = assembly[position - 1:position - 1 + len(motif.consensus)]
+        self.likelihood = likelihood
+        self.notes = []
+
+        if likelihood:      # don't check dummy motifs
+            self.check_motif_consensus()
+
+
+    # check residues that are strongly conserved across all loci
+    def check_motif_consensus(self):
+        cons = None
+
+        if 'V-HEPTAMER' in self.name:
+            cons = 'C-C----'
+        elif "5'D-HEPTAMER" in self.name:
+            cons = '-A--GT-'
+        elif "5'D-NONAMER" in self.name:
+            cons = '---T-----'
+        elif "3'D-HEPTAMER" in self.name:
+            cons = 'CAC----'
+        elif 'J-HEPTAMER' in self.name:
+            cons = '------G'
+
+        non_conserved = 0
+        res = ''
+        if cons:
+            for s, ref in zip(list(self.seq), list(cons)):
+                if ref != '-' and s != ref:
+                    res += s
+                    non_conserved += 1
+                else:
+                    res += '-'
+
+        if non_conserved:
+            self.notes.append(f'{self.name} has variation at strongly conserved residue(s): {res}')
 
 
 # Find compound motifs - ie heptamer plus nonamer, or l-part1 and l-part2.
@@ -534,9 +574,11 @@ def find_single_motif(motif, min_start, max_start):
 # returns [{start, end, left_seq, gap_seq, right_seq, likelihood}] for each left, right combination that meets the threshold criterion
 # If force has a value, always report a right starting at that position, with the best available left. This is used to force an L-PART2 to be discovered
 # at the point that the BLAST alignment indicates the v-region should start
-def find_compound_motif(left, right, min_gap, max_gap, window, start=None, end=None, right_force=None):
-    max_length = len(left.consensus) + max_gap + len(right.consensus)
-    min_length = len(left.consensus) + min_gap + len(right.consensus)
+def find_compound_motif(left_motif_name, right_motif_name, min_gap, max_gap, window, start=None, end=None, right_force=None):
+    left_motif = motifs[left_motif_name]
+    right_motif = motifs[right_motif_name]
+    max_length = len(left_motif.consensus) + max_gap + len(right_motif.consensus)
+    min_length = len(left_motif.consensus) + min_gap + len(right_motif.consensus)
 
     if start is None:
         min_start = end - max_length - window
@@ -557,57 +599,63 @@ def find_compound_motif(left, right, min_gap, max_gap, window, start=None, end=N
 
     res = []
 
-    if left.likelihood_threshold > right.likelihood_threshold:
+    if left_motif.likelihood_threshold > right_motif.likelihood_threshold:
         # use the specified start position if we have one, otherwise extrapolate from the end and min/max gaps - less accurate
         if start is not None:
-            left_positions = find_single_motif(left, start - window, start + window)
+            left_results = find_single_motif(left_motif, start - window, start + window)
         else:
-            left_positions = find_single_motif(left, min_start, min_start + 2*window)
+            left_results = find_single_motif(left_motif, min_start, min_start + 2*window)
 
-        for left_position, left_likelihood in left_positions:
-            right_positions = find_single_motif(right, left_position + len(left.consensus) + min_gap, left_position + len(left.consensus) + max_gap)
-            for right_position, right_likelihood in right_positions:
-                res.append(MotifResult(left, left_likelihood, left_position, right, right_likelihood, right_position, []))
+        right_results = []
+        for left_result in left_results:
+            right_results = find_single_motif(right_motif, left_result.start + len(left_motif.consensus) + min_gap, left_result.start + len(left_result.seq) + max_gap)
+            for right_result in right_results:
+                res.append(MotifResult(left_result, right_result))
 
         # put in a dummy if we missed the lower likelihood motif
-        if left_positions and not right_positions:
-            best_left = sorted(left_positions, key=itemgetter(1), reverse=True)[0]
-            missing_name = 'Heptamer' if len(right.consensus) == 7 else 'Nonamer'
-            res.append(MotifResult(left, best_left[1], best_left[0], right, 0, best_left[0] + len(left.consensus) + min_gap, [missing_name + ' not found']))
+        if left_results and not right_results:
+            best_left = sorted(left_results, key=attrgetter('likelihood'), reverse=True)[0]
+            res.append(MotifResult(best_left, SingleMotifResult(right_motif, best_left.start + len(best_left.seq) + min_gap, 0), notes=[f'{right_motif.name} not found']))
     else:
         if end is not None:
-            right_positions = find_single_motif(right, end - len(right.consensus) - window, end + window)
+            right_results = find_single_motif(right_motif, end - len(right_motif.consensus) - window, end + window)
         else:
-            right_positions = find_single_motif(right, min_end - len(right.consensus), max_end - len(right.consensus))
+            right_results = find_single_motif(right_motif, min_end - len(right_motif.consensus), max_end - len(right_motif.consensus))
 
         # if right_force is set, if necessary, force discovery of a right motif at the forced position
 
-        if right_force and right_force not in [r for r in right_positions]:
-            right_positions.append((right_force, 0))
+        if right_force and right_force not in [r.start for r in right_results]:
+            right_results.append(SingleMotifResult(right_motif, right_force, 0))
 
-        for right_position, right_likelihood in right_positions:
-            left_positions = find_single_motif(left, right_position - max_gap - len(left.consensus), right_position - min_gap - len(left.consensus))
-            for left_position, left_likelihood in left_positions:
-                res.append(MotifResult(left, left_likelihood, left_position, right, right_likelihood, right_position, []))
+        left_results = []
+        for right_result in right_results:
+            left_results = find_single_motif(left_motif, right_result.start - max_gap - len(left_motif.consensus), right_result.start - min_gap - len(left_motif.consensus))
+            for left_result in left_results:
+                res.append(MotifResult(left_result, right_result))
 
         # put in a dummy if we missed the lower likelihood motif
-        if right_positions and not left_positions:
-            best_right = sorted(right_positions, key=itemgetter(1), reverse=True)[0]
-            missing_name = 'Heptamer' if len(left.consensus) == 7 else 'Nonamer'
-            res.append(MotifResult(left, 0, best_right[0] - min_gap - len(left.consensus), right, best_right[1], best_right[0], [missing_name + ' not found']))
+        if right_results and not left_results:
+            best_right = sorted(right_results, key=attrgetter('likelihood'), reverse=True)[0]
+            res.append(MotifResult(SingleMotifResult(left_motif, best_right.start - min_gap - len(left_motif.consensus), 0), best_right, notes=[f'{left_motif.name} not found']))
 
     return res
 
 
 class MotifResult:
-    def __init__(self, left, left_likelihood, left_position, right, right_likelihood, right_position, notes=[]):
-        self.start = left_position
-        self.end = right_position + len(right.consensus) - 1
-        self.left = assembly[left_position - 1:left_position - 1 + len(left.consensus)]
-        self.gap = assembly[left_position + len(left.consensus):right_position - 1]
-        self.right = assembly[right_position - 1:right_position - 1 + len(right.consensus)]
-        self.likelihood = left_likelihood * right_likelihood
-        self.notes = notes
+    def __init__(self, left_motif, right_motif, notes=None):
+        self.start = left_motif.start
+        self.end = right_motif.start + len(right_motif.seq) - 1
+        self.left = left_motif.seq
+        self.gap = assembly[self.start + len(self.left):right_motif.start - 1]
+        self.right = right_motif.seq
+        self.likelihood = left_motif.likelihood * right_motif.likelihood
+        if notes:
+            self.notes = [n for n in notes]
+        else:
+            self.notes = []
+        self.notes.extend(left_motif.notes)
+        self.notes.extend(right_motif.notes)
+
 
 
 # find the best leader PART1 for each PART2 starting position:
@@ -812,42 +860,6 @@ def process_file(this_blast_file, writer):
             else:
                 return 100
 
-        '''
-        j_nonamers = find_single_motif(motifs['J-NONAMER'], 100, len(assembly)-100)
-
-        j_rss = []
-        for n_start, n_likelihood in j_nonamers:
-            res = find_compound_motif(motifs['J-NONAMER'], motifs['J-HEPTAMER'], 22, 23, 1, start=n_start)
-            j_rss.extend(res)
-
-        annots = []
-        for j_rs in j_rss:
-            result = (JAnnotation(j_rs.end + 1, j_rs.end+60, j_rs))
-            result.annotate()
-            if result.functionality == 'Functional':
-                annots.append(result)
-
-        header = ['start', 'end', 'end_rev', 'start_rev', 'notes', 'seq', 'j_heptamer', 'j_nonamer', 'j_frame', 'aa']
-        with open('j_finder.csv', 'w', newline='') as fo:
-            j_writer = csv.DictWriter(fo, fieldnames=header)
-            j_writer.writeheader()
-            for result in annots:
-                if 'X' not in result.aa:
-                    row = {
-                        'start': result.start,
-                        'end': result.end,
-                        'end_rev': assembly_length - result.start + 1,
-                        'start_rev': assembly_length - result.end + 1,
-                        'notes': ', '.join(result.notes),
-                        'seq': result.seq,
-                        'j_heptamer': result.heptamer,
-                        'j_nonamer': result.nonamer,
-                        'j_frame': result.j_frame,
-                        'aa': result.aa
-                    }
-                    j_writer.writerow(row)
-        '''
-
         v_parsing_errors = {}
 
         for end, matches in gene_alignments.items():
@@ -984,12 +996,12 @@ def main():
 
     for motif_name in ["J-HEPTAMER", "J-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER"]:
         with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
-            motifs[motif_name] = Motif(stream=fi)
+            motifs[motif_name] = Motif(motif_name, stream=fi)
 
     if locus in ['IGH', 'TRB', 'TRG']:
         for motif_name in ["5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER"]:
             with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
-                motifs[motif_name] = Motif(stream=fi)
+                motifs[motif_name] = Motif(motif_name, stream=fi)
 
     for ref in args.ref:
         if ',' in ref:

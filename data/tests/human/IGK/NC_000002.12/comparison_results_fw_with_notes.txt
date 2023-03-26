@@ -6,6 +6,8 @@ Functional sequences reported by digger but not by Watson et al.:
 ...Annotated by IMGT as P, having a corrupted leader, but the leader identified by digger appears to be feasible
 121106,121395  imgt_match: IGKV3-7*04  imgt_func: ORF digger_match: IGKV3-7*04  digger_func: functional  notes: Gene reversed
 ...Marked as ORF in Watson et al. and currently classified by IMGT as ORF on the basis of an incomplete sequence
+220659,220960  imgt_match:   imgt_func:  digger_match: IGKV2D-29*01  digger_func: functional  notes: Gene reversed
+..imgt: 2-29*01 annotated as P because of STOP-CODON at position 88 in FR3-IMGT but our sequence looks ok
 271344,271645  imgt_match:   imgt_func:  digger_match: IGKV2-18*01  digger_func: functional  notes: Gene reversed
 ...Not found by Watson et al
 302389,302675  imgt_match: IGKV6-21*01  imgt_func: ORF digger_match: IGKV6-21*01  digger_func: functional  notes: Gene reversed
@@ -28,8 +30,6 @@ Functional sequences reported by both Watson et al. and digger but with differen
 
 type: J
 Functional sequences reported by digger but not by Watson et al.:
-774280,774320  imgt_match:   imgt_func:  digger_match: IGKJ2*04  digger_func: functional  notes: Gene reversed
-1028935,1028986  imgt_match:   imgt_func:  digger_match: IGKJ2*02  digger_func: functional  notes: Gene reversed
 
 Functional sequences reported by Watson et al. but not by digger:
 
