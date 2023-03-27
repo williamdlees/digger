@@ -30,7 +30,6 @@ def get_parser():
     parser.add_argument('-v_ref_gapped', help='IMGT-gapped v-reference set used to determine alignment of novel sequences')
     parser.add_argument('-ref_comp', help='ungapped reference set(s) to compare to: name and reference file separated by comma eg mouse,mouse.fasta (may be repeated multiple times)', action='append')
     parser.add_argument('-sense', help='sense in which to read the assembly (forward or reverse) (if omitted will select automatically)')
-    parser.add_argument('-searchd', help='directory in which SEARCHD can be found (if specified, this will be used for finding D genes in place of blastn)')
     parser.add_argument('-keepwf', help='keep working files after processing has completed', action='store_true')
     parser.add_argument('output_file', help='output file (csv)')
     return parser
@@ -39,7 +38,7 @@ def get_parser():
 # A function to remove intermediate files
 
 def remove_working_files():
-    for fn in ['full_germline_set.fasta', 'assembly.fasta', 'assembly_rc.fasta', 'blast_results_assembly.csv', 'results_ex_searchd.csv', 'searchd_results.fasta']:
+    for fn in ['full_germline_set.fasta', 'assembly.fasta', 'assembly_rc.fasta', 'blast_results_assembly.csv']:
         if os.path.isfile(fn):
             os.remove(fn)
 
@@ -57,19 +56,12 @@ def main():
     args = get_parser().parse_args()
 
     cwd = pathlib.Path().resolve()
-    searchd_path = None
     remove_working_files()
 
     if os.path.isfile(args.output_file):
         os.remove(args.output_file)
 
     # check arguments
-
-    if args.searchd:
-        searchd_path = os.path.join(args.searchd, 'search_d.py')
-        if not os.path.isfile(searchd_path):
-            print(f"{searchd_path} - file not found")
-            exit(1)
 
     for fn in [args.assembly_file, args.v_ref]:
         if not os.path.isfile(fn):
@@ -151,10 +143,6 @@ def main():
 
     for fn, gene_type in [(args.v_ref, 'V'), (args.d_ref, 'D'), (args.j_ref, 'J')]:
         if fn:
-            if gene_type == 'D' and searchd_path:
-                print('skipping BLAST of D genes as SEARCHD has been specified')
-                continue
-
             if gene_type == 'J':
                 word_size = '7'
             else:
@@ -238,70 +226,10 @@ def main():
         print(f'Result file {args.output_file} was not produced by find_alignments.py')
         exit(1)
 
-    if not args.searchd:
-        if not args.keepwf:
-            remove_working_files()
-        exit(0)
-
-    # Run SEARCH-D if requested
-
-    os.rename(args.output_file, 'results_ex_searchd.csv')
-
-    if reverse_sense:
-        simple.write_fasta({'assembly_rc': simple.reverse_complement(list(assembly_contents.values())[0])}, 'assembly_rc.fasta')
-        abs_assembly = os.path.abspath('assembly_rc.fasta')
-    else:
-        abs_assembly = os.path.abspath('assembly.fasta')
-
-    abs_res = os.path.abspath('searchd_results.fasta')
-    os.chdir(args.searchd)
-
-    cmd = [
-        'python',
-        'search_d.py',
-        abs_assembly,
-        abs_res,
-    ]
-
-    print(f"\n-- executing {' '.join(cmd)}\n")
-    process = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-
-    os.chdir(cwd)
-
-    if not os.path.isfile('searchd_results.fasta'):
-        print('SEARCH-D results not found - quitting')
-        exit(1)
-
-    if reverse_sense:
-        cmd = [
-            'merge_search_d',
-            'results_ex_searchd.csv',
-            'searchd_results.fasta',
-            '-',
-            f"{assembly_length}", '1', f"{assembly_length}",
-            'assembly.fasta',
-            args.output_file,
-        ]
-    else:
-        cmd = [
-            'merge_search_d',
-            'results_ex_searchd.csv',
-            'searchd_results.fasta',
-            '+',
-            '1', f"{assembly_length}", f"{assembly_length}",
-            'assembly.fasta',
-            args.output_file,
-        ]
-
-    if args.ref_comp:
-        for ref_arg in args.ref_comp:
-            cmd.extend(['-ref', ref_arg])
-
-    print(f"\n-- executing {' '.join(cmd)}\n")
-    process = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-
     if not args.keepwf:
         remove_working_files()
+    exit(0)
+
 
 if __name__ == "__main__":
     main()

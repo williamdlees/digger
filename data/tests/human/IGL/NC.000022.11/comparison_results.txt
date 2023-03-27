@@ -8,7 +8,7 @@ Functional sequences reported by digger but not by Watson et al.:
 830673,830985  imgt_match:   imgt_func:  digger_match: IGLV2-5*01  digger_func: functional  notes: 
 
 Functional sequences reported by Watson et al. but not by digger:
-686835,687124  imgt_match: IGLV3-21*02  imgt_func: functional digger_match: IGLV3-21*02  digger_func: orf  notes: Stop codon in leader, Leader missing initial ATG
+686835,687124  imgt_match: IGLV3-21*02  imgt_func: functional digger_match: IGLV3-21*02  digger_func: pseudo  notes: Stop codon in leader, Leader missing initial ATG
 
 Functional sequences reported by both Watson et al. and digger but with different sequences:
 

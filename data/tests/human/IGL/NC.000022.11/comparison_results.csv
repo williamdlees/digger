@@ -5,7 +5,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,12734,13011,,IGLV1-50*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
 ,,V,17545,17828,,IGLV10-54*04,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
 ,,V,20171,20484,,IGLV6-57*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
-,,V,32415,32730,,IGLV5-48*01,,ORF,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Conserved Trp not found"
+,,V,32415,32730,,IGLV5-48*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Conserved Trp not found"
 ,,V,35174,35496,,IGLV4-3*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
 ,,V,44324,44620,,IGLV5-48*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
 ,,V,47762,48067,,IGLV2-11*02,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
@@ -89,7 +89,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,675422,675700,,IGLV7-43*01,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
 678460,678743,V,678460,678743,IGLV3-22*01,IGLV3-22*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,682898,683212,,IGLV5-39*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): G------"
-686835,687124,V,686835,687124,IGLV3-21*02,IGLV3-21*02,functional,ORF,Yes,No,Yes,Yes,"Stop codon in leader, Leader missing initial ATG"
+686835,687124,V,686835,687124,IGLV3-21*02,IGLV3-21*02,functional,pseudo,Yes,No,Yes,Yes,"Stop codon in leader, Leader missing initial ATG"
 ,,V,689083,689368,,IGLV2-14*05,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
 694791,695080,V,694791,695080,IGLV3-19*01,IGLV3-19*01,functional,Functional,Yes,Yes,Yes,Yes,
 708718,709014,V,708718,709014,IGLV2-18*01,IGLV2-18*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -118,10 +118,10 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 845647,845960,V,845647,845960,IGLV4-3*01,IGLV4-3*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,847135,847418,,IGLV3-31*01,,ORF,No,No,No,No,Conserved Trp not found
 855033,855317,V,855033,855317,IGLV3-1*01,IGLV3-1*01,functional,Functional,Yes,Yes,Yes,Yes,
-867706,867746,J,867706,867743,IGLJ1*01,IGLJ1*01,functional,functional,Yes,Yes,Yes,Yes,
-873545,873583,J,873543,873580,IGLJ2*01,IGLJ2*01,functional,functional,Yes,Yes,Yes,No,
-878913,878953,J,878913,878950,IGLJ3*02,IGLJ3*02,functional,functional,Yes,Yes,Yes,Yes,
+867706,867746,J,867706,867743,IGLJ1*01,IGLJ1*01,functional,Functional,Yes,Yes,Yes,Yes,
+873545,873583,J,873543,873580,IGLJ2*01,IGLJ2*01,functional,Functional,Yes,Yes,Yes,No,
+878913,878953,J,878913,878950,IGLJ3*02,IGLJ3*02,functional,Functional,Yes,Yes,Yes,Yes,
 884500,884535,J,884500,884532,IGLJ4*01,IGLJ4*01,ORF,pseudo,Yes,No,Digger is shorter by 5 nt,Yes,Donor splice not found
 888202,888237,J,888202,888234,IGLJ5*01,IGLJ5*01,ORF,pseudo,Yes,No,Digger is shorter by 5 nt,Yes,Donor splice not found
-892096,892129,J,892089,892126,IGLJ6*01,IGLJ6*01,functional,functional,Yes,Yes,Yes,No,
-895332,895360,J,895323,895360,IGLJ7*01,IGLJ7*01,functional,functional,Yes,Yes,Yes,No,
+892096,892129,J,892089,892126,IGLJ6*01,IGLJ6*01,functional,Functional,Yes,Yes,Yes,No,
+895332,895360,J,895323,895360,IGLJ7*01,IGLJ7*01,functional,Functional,Yes,Yes,Yes,No,

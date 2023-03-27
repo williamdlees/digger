@@ -71,8 +71,8 @@ def plot_results(results, plotfile, comp_name):
 
     i = 0
     for chain in 'V', 'D', 'J':
-        imgt_starts = set([r['imgt_start'] for r in results if r['type'] == chain and r['imgt_start'] and r['imgt_func'] == 'functional'])
-        digger_starts = set([r['digger_start'] for r in results if r['type'] == chain and r['digger_start'] and r['digger_func'].lower() == 'functional'])
+        imgt_starts = set([r['imgt_start'] for r in results if r['type'] == chain and r['imgt_start'] and r['imgt_func'] in ['functional']])
+        digger_starts = set([r['digger_start'] for r in results if r['type'] == chain and r['digger_start'] and r['digger_func'].lower() in ['functional']])
 
         if len(imgt_starts) > 0 or len(digger_starts) > 0:
             fig.add_subplot(2, 2, i + 1)

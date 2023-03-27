@@ -16,7 +16,6 @@ type: D
 Functional sequences reported by digger but not by IMGT:
 
 Functional sequences reported by IMGT but not by digger:
-998289,998306  imgt_match: IGHD6-25*01  imgt_func: functional digger_match: IGHD6-25*01  digger_func: orf  notes: 5' 5'D-HEPTAMER has variation at strongly conserved residue(s): ------C
 1014284,1014294  imgt_match: IGHD7-27*01  imgt_func: functional digger_match:   digger_func:   notes: 
 
 Functional sequences reported by both IMGT and digger but with different sequences:

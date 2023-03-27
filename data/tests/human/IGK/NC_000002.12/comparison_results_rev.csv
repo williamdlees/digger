@@ -9,14 +9,14 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,J,398126,398167,,IGKJ1*01,,pseudo,No,No,No,No,J-TRP not found
 ,,J,438772,438820,,IGKJ1*01,,pseudo,No,No,No,No,Donor splice not found
 ,,J,687530,687570,,IGKJ2*04,,pseudo,No,No,No,No,J-TRP not found
-,,V,986421,986705,,IGKV1-17*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): A------"
+,,V,986421,986705,,IGKV1-17*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
 994829,995133,V,994829,995133,IGKV2D-40*01,IGKV2-40*01,functional,Functional,No,Yes,Yes,Yes,
-,,V,999439,999724,,IGKV3D-11*03,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+,,V,999439,999724,,IGKV3D-11*03,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
 1005335,1005621,V,1005335,1005621,IGKV1D-39*01,IGKV1-39*01,functional,Functional,No,Yes,Yes,Yes,
 ,,V,1015051,1015344,,IGKV2-28*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
 1027570,1027856,V,1027570,1027856,IGKV1D-37*01,IGKV1-37*01,ORF,ORF,No,Yes,Yes,Yes,Second cysteine not found
 ,,V,1038144,1038430,,IGKV1-16*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
-,,V,1044733,1045020,,IGKV3-7*02,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): A-T----"
+,,V,1044733,1045020,,IGKV3-7*02,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
 ,,V,1049644,1049931,,IGKV3D-11*02,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
 ,,V,1051139,1051458,,IGKV7-3*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
 1056901,1057187,V,1056901,1057187,IGKV1D-33*01,IGKV1-33*01,functional,Functional,No,Yes,Yes,Yes,
@@ -24,21 +24,21 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,1072597,1072881,,IGKV3D-11*02,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
 1080020,1080321,V,1080020,1080321,IGKV2D-30*01,IGKV2D-30*01,functional,Functional,Yes,Yes,Yes,Yes,
 1090610,1090911,V,1090610,1090911,IGKV2D-29*01,IGKV2D-29*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,1094439,1094757,,IGKV3D-20*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+,,V,1094439,1094757,,IGKV3D-20*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
 1103089,1103390,V,1103089,1103390,IGKV2D-28*01,IGKV2-28*01,functional,Functional,No,Yes,Yes,Yes,
-,,V,1105499,1105823,,IGKV3D-11*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+,,V,1105499,1105823,,IGKV3D-11*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
 ,,V,1111699,1111986,,IGKV1-27*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
-,,V,1116892,1117192,,IGKV6-21*02,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): A------"
-,,V,1121501,1121812,,IGKV2-30*02,,ORF,No,No,No,No,"First cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): T------"
+,,V,1116892,1117192,,IGKV6-21*02,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
+,,V,1121501,1121812,,IGKV2-30*02,,ORF,No,No,No,No,First cysteine not found
 1129043,1129344,V,1129043,1129344,IGKV2D-26*03,IGKV2D-26*03,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,1132601,1132898,,IGKV3-11*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): --T----"
-,,V,1142834,1143141,,IGKV1-9*01,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+,,V,1132601,1132898,,IGKV3-11*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
+,,V,1142834,1143141,,IGKV1-9*01,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
 1147970,1148271,V,1147970,1148271,IGKV2D-24*01,IGKV2D-24*01,ORF,ORF,Yes,Yes,Yes,Yes,First cysteine not found
 ,,V,1152253,1152558,,IGKV2-28*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
-,,V,1153573,1153850,,IGKV1-27*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): T-G----"
+,,V,1153573,1153850,,IGKV1-27*01,,pseudo,No,No,No,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
 1164541,1164827,V,1164541,1164827,IGKV6D-21*02,IGKV6D-21*02,ORF,Functional,Yes,No,Yes,Yes,
 1181832,1182121,V,1181832,1182121,IGKV3D-20*01,IGKV3D-20*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,1189413,1189714,,IGKV2-30*02,,ORF,No,No,No,No,"Stop codon in leader, Leader missing initial ATG"
+,,V,1189413,1189714,,IGKV2-30*02,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG"
 ,,V,1195699,1196000,,IGKV2D-18*01,,Functional,No,No,No,No,
 1212594,1212880,V,1212594,1212880,IGKV6D-41*01,IGKV6D-41*01,ORF,Functional,Yes,No,Yes,Yes,
 ,,V,1217540,1217836,,IGKV3-15*01,,pseudo,No,No,No,No,"Stop codon in leader, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"

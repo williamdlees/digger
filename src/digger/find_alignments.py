@@ -53,6 +53,7 @@ assembly = ''
 assembly_rc = ''
 assembly_length = 0
 motifs = {}
+conserved_motif_seqs = {}
 
 
 def find_all_matches(seq, pattern, thresh=0.7):
@@ -92,8 +93,7 @@ class DAnnotation:
         self.likelihood = left_motif.likelihood * right_motif.likelihood
 
     def annotate(self):
-        self.functionality = 'Functional' if self.likelihood != 0 else 'pseudo'
-
+        self.functionality = 'Functional'
         for note in self.notes:
             note = note.lower()
             if 'not found' in note or 'conserved' in note:
@@ -414,13 +414,19 @@ def process_v(start, end, best, matches, v_parsing_errors):
     for leader, v_gene, rss in results:
         # Mark the gene as non-functional if there is a problem in the leader or RSS.
 
-        if v_gene.functionality == 'Functional':
+        if v_gene.functionality != 'pseudo':
             for note in leader.notes:
-                if 'not found' in note.lower() or 'stop codon' in note.lower() or 'conserved' in note.lower():
+                note = note.lower()
+                if 'not found' in note or 'conserved' in note:
                     v_gene.functionality = 'ORF'
             for note in rss.notes:
-                if 'not found' in note.lower() or 'conserved' in note.lower():
+                note = note.lower()
+                if 'conserved' in note or 'not found' in note:
                     v_gene.functionality = 'ORF'
+            for note in leader.notes:
+                note = note.lower()
+                if 'stop codon' in note or 'atg' in note:
+                    v_gene.functionality = 'pseudo'
 
         best_match, best_score, best_nt_diffs = calc_best_match_score(best, v_gene.ungapped)
 
@@ -541,29 +547,21 @@ class SingleMotifResult:
     def check_motif_consensus(self):
         cons = None
 
-        if 'V-HEPTAMER' in self.name:
-            cons = 'C-C----'
-        elif "5'D-HEPTAMER" in self.name:
-            cons = '-A--GT-'
-        elif "5'D-NONAMER" in self.name:
-            cons = '---T-----'
-        elif "3'D-HEPTAMER" in self.name:
-            cons = 'CAC----'
-        elif 'J-HEPTAMER' in self.name:
-            cons = '------G'
+        if self.name in conserved_motif_seqs:
+            cons = conserved_motif_seqs[self.name]
 
-        non_conserved = 0
-        res = ''
-        if cons:
-            for s, ref in zip(list(self.seq), list(cons)):
-                if ref != '-' and s != ref:
-                    res += s
-                    non_conserved += 1
-                else:
-                    res += '-'
+            non_conserved = 0
+            res = ''
+            if cons:
+                for s, ref in zip(list(self.seq), list(cons)):
+                    if ref != '-' and s != ref:
+                        res += s
+                        non_conserved += 1
+                    else:
+                        res += '-'
 
-        if non_conserved:
-            self.notes.append(f'{self.name} has variation at strongly conserved residue(s): {res}')
+            if non_conserved:
+                self.notes.append(f'{self.name} has variation at strongly conserved residue(s): {res}')
 
 
 # Find compound motifs - ie heptamer plus nonamer, or l-part1 and l-part2.
@@ -944,7 +942,7 @@ def process_file(this_blast_file, writer):
 
 
 def main():
-    global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, V_RSS_SPACING, reference_sets
+    global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, V_RSS_SPACING, reference_sets, conserved_motif_seqs
     global v_gapped_ref
 
     args = get_parser().parse_args()
@@ -1002,6 +1000,10 @@ def main():
         for motif_name in ["5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER"]:
             with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
                 motifs[motif_name] = Motif(motif_name, stream=fi)
+
+    conserved_motif_file = os.path.join(motif_dir, 'conserved_motifs.fasta')
+    if os.path.isfile(conserved_motif_file):
+        conserved_motif_seqs = simple.read_fasta(conserved_motif_file)
 
     for ref in args.ref:
         if ',' in ref:
