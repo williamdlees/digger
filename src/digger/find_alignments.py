@@ -1021,7 +1021,7 @@ def main():
             v_ungapped_ref[name] = seq.replace('.', '')
 
     with open(match_file, 'w', newline='') as fo:
-        fieldnames = ['contig', 'start', 'end', 'start_rev', 'end_rev', 'sense', 'evalue', 'matches', 'gene_type', 'blast_match', 'blast_score', 'blast_nt_diffs']
+        fieldnames = ['contig', 'start', 'end', 'start_rev', 'end_rev', 'sense']
         for ref in reference_sets:
             fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_match', ref['name'] + '_nt_diffs'])
 
@@ -1030,6 +1030,8 @@ def main():
             'functional', 'notes', 'aa', 'v-gene_aligned_aa', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
             '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
             'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev'])
+
+        fieldnames.extend(['matches', 'gene_type', 'blast_match', 'blast_score', 'blast_nt_diffs', 'evalue'])
 
         writer = csv.DictWriter(fo, fieldnames=fieldnames, restval='')
         writer.writeheader()
