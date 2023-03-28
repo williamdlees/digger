@@ -1,0 +1,7 @@
+Tool	Description
+:ref:`blastresults_to_csv`	Convert the result of a BLAST search to a simple tabular format
+:ref:`calc_motifs`	Determine PWMs from a list of gene features
+:ref:`compare_annotations`	Compare two sets of annotations
+:ref:`digger`	Run the annotation pipeline
+:ref:`find_alignments`	Produce the annotation file, given tabulated BLAST results and other inputs
+:ref:`parse_imgt_annotations`	Download and parse an annotation file from IMGT

@@ -1,0 +1,47 @@
+Column Name	Meaning
+contig	ID of the sequence in which the gene or pseudogene was found
+start	start co-ord of the coding region
+end	end co-ord of the coding region
+start_rev	start co-ord in the reverse-primed sequence
+end_rev	end co-ord in the reverse-primed sequence
+sense	sense (relative to the input sequence)
+gene_type	gene type (e.g. IGHV)
+likelihood	likelihood that the RSS is that of a functional gene (compared to a random sequence)
+l_part1	leader part 1 equence
+l_part2	leader part 2 sequence
+v_heptamer	v-heptamer sequence
+v_nonamer	v-nonamer sequence
+j_heptamer	j-heptamer sequence
+j_nonamer	j-nonamer sequence
+j_frame	coding frame of the first nucleotide of the j region (0, 1 or 2)
+d_3_heptamer	3-prime d-heptamer sequence
+d_3_nonamer	3-prime d-nonamer sequence
+d_5_heptamer	5-prime d-heptamer sequence
+d_5_nonamer	5-prime d-nonamer sequence
+functional	functionality (see below)
+notes	annotation notes
+aa	amino acid translation of the coding region
+v-gene_aligned_aa	IMGT-gapped amino acid translation of the coding sequence (for V-genes)
+seq	sequence of the coding region
+seq_gapped	IMGT-gapped sequence of the coding region (V-genes only)
+5_rss_start	co-ordinates of the 5-prime RSS 
+5_rss_start_rev	 
+5_rss_end	 
+5_rss_end_rev	 
+3_rss_start	co-ordinates of the 3-prime RSS
+3_rss_start_rev	 
+3_rss_end	 
+3_rss_end_rev	 
+l_part1_start	co-ordinates of the leader part 1
+l_part1_start_rev	 
+l_part1_end	 
+l_part1_end_rev	 
+l_part2_start	co-ordinates of the leader part 2
+l_part2_start_rev	 
+l_part2_end	 
+l_part2_end_rev	 
+matches	number of matches to this start/end region that were produced in the BLAST analysis
+blast_match	gene in the reference file with the highest match score in this start/end region
+blast_score	the highest BLAST match score in this start/end region
+blast_nt_diffs	the number of nucleotides differing from the most highly scoring reference sequence in this BLAST match
+evalue	evalue of the most highly scoring BLAST match in this start/end region

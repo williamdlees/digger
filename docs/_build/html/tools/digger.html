@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>digger &mdash; Digger 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Digger
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Digger</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">digger</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tools/digger.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="digger">
+<span id="id1"></span><h1>digger<a class="headerlink" href="#digger" title="Permalink to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">digger</span></code> annotates a single reference assembly, using BLAST to search the assembly for potential germline sequences. It requires an initial reference set
+for BLAST to use: this could come from a similar species, or a former annotation.</p>
+<p><p>Find functional and nonfunctional genes in a single assembly sequence</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">digger</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">locus</span> <span class="n">LOCUS</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v_ref</span> <span class="n">V_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d_ref</span> <span class="n">D_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">j_ref</span> <span class="n">J_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v_ref_gapped</span> <span class="n">V_REF_GAPPED</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">ref_comp</span> <span class="n">REF_COMP</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">-</span><span class="n">sense</span> <span class="n">SENSE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">keepwf</span><span class="p">]</span>
+              <span class="n">assembly_file</span> <span class="n">output_file</span>
+</pre></div>
+</div>
+<section id="positional-arguments">
+<h2>Positional Arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this heading"></a></h2>
+<dl class="option-list">
+<dt><kbd>assembly_file</kbd></dt>
+<dd><p>assembly sequence to search</p>
+</dd>
+<dt><kbd>output_file</kbd></dt>
+<dd><p>output file (csv)</p>
+</dd>
+</dl>
+</section>
+<section id="named-arguments">
+<h2>Named Arguments<a class="headerlink" href="#named-arguments" title="Permalink to this heading"></a></h2>
+<dl class="option-list">
+<dt><kbd>-species</kbd></dt>
+<dd><p>use motifs for the specified species provided with the package</p>
+</dd>
+<dt><kbd>-motif_dir</kbd></dt>
+<dd><p>pathname to directory containing motif probability files</p>
+</dd>
+<dt><kbd>-locus</kbd></dt>
+<dd><p>locus (default is IGH)</p>
+</dd>
+<dt><kbd>-v_ref</kbd></dt>
+<dd><p>set of V reference genes to use as starting point for search</p>
+</dd>
+<dt><kbd>-d_ref</kbd></dt>
+<dd><p>set of D reference genes to use as starting point for search</p>
+</dd>
+<dt><kbd>-j_ref</kbd></dt>
+<dd><p>set of J reference genes to use as starting point for search</p>
+</dd>
+<dt><kbd>-v_ref_gapped</kbd></dt>
+<dd><p>IMGT-gapped v-reference set used to determine alignment of novel sequences</p>
+</dd>
+<dt><kbd>-ref_comp</kbd></dt>
+<dd><p>ungapped reference set(s) to compare to: name and reference file separated by comma eg mouse,mouse.fasta (may be repeated multiple times)</p>
+</dd>
+<dt><kbd>-sense</kbd></dt>
+<dd><p>sense in which to read the assembly (forward or reverse) (if omitted will select automatically)</p>
+</dd>
+<dt><kbd>-keepwf</kbd></dt>
+<dd><p>keep working files after processing has completed</p>
+<p>Default: False</p>
+</dd>
+</dl>
+</section>
+<p>At least one file containing reference genes must be provided. You can, for example, supply <code class="docutils literal notranslate"><span class="pre">v_ref</span></code>, <code class="docutils literal notranslate"><span class="pre">d_ref</span></code> and <code class="docutils literal notranslate"><span class="pre">j_ref</span></code>, or just <code class="docutils literal notranslate"><span class="pre">v_ref</span></code>. Digger will annotate whatever genes are discovered with the corresponding set(s).
+In practice, the sets do not have to be that good a match: BLAST will identify partial matches, and Digger’s logic will extend the match to a full gene, including canonical RSS and leader (using the <code class="docutils literal notranslate"><span class="pre">motif</span></code> folder).</p>
+<p><code class="docutils literal notranslate"><span class="pre">v_ref_gapped</span></code> is used to gep v-sequences correctly in order to identify conserved codons and so on. Again these sequences do not need to be that good a match in practice. The sequences <strong>must be IMGT aligned with
+no extraneous codons</strong>. Note in particular that IMGT has introduced insertions into macaque alignments in recent years. <strong>Sets with these insertions should not be used</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ref_comp</span></code> allows you to specify that you would like annotated sequences to be compared with sequences in a set. You can include as many different sets as you wish. The output file will contain columns
+for each of these, listing the closest sequence found and the proximity (%, and number of nucleotides).</p>
+<p>If you choose not to specify the <code class="docutils literal notranslate"><span class="pre">sense</span></code>, Digger will select the sense that elicits the highest evalue (results are shown in the output so that you can decide whether it has made the right choice,
+and whether you wish to annotate in both senses)</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">searchd</span></code> is specified, Digger will infer D genes using SEARCH-D rather than BLAST. In this case, <code class="docutils literal notranslate"><span class="pre">d_ref</span></code> is not used. <code class="docutils literal notranslate"><span class="pre">searchd</span></code> <strong>must specify the path to the forked version of SEARCHD</strong> at x. This generates
+co-ordinates for each gene, which are not provided by the original code.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, William Lees.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

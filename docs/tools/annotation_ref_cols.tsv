@@ -1,0 +1,4 @@
+Column Name	Meaning
+_match	ID of the closest matching reference gene
+_score	score of the closest match
+_nt_diffs	number of nucleotides differing from the closest reference sequence
