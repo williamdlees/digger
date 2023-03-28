@@ -102,14 +102,16 @@ class DAnnotation:
 
 
 def process_d(start, end, best, matches):
-    left_rss = find_compound_motif("5'D-NONAMER", "5'D-HEPTAMER", 12, 12, 5, end=start-1)
-    right_rss = find_compound_motif("3'D-HEPTAMER", "3'D-NONAMER", 12, 12, 5, start=end)
+    left_rss = find_compound_motif("5'D-NONAMER", "5'D-HEPTAMER", 12, 12, 15, end=start-1)
+    right_rss = find_compound_motif("3'D-HEPTAMER", "3'D-NONAMER", 12, 12, 15, start=end)
 
     results = []
 
     for left in left_rss:
         for right in right_rss:
-            results.append(DAnnotation(left.end + 1, right.start - 1, left, right))
+            annot = DAnnotation(left.end + 1, right.start - 1, left, right)
+            if annot.likelihood:
+                results.append(annot)    # explicitly don't add Ds with missing RSS components, there are too many
 
     rows = []
     for result in results:
@@ -217,7 +219,7 @@ class JAnnotation:
         self.end = end
         self.aa = ''
         self.seq = assembly[start-1:end]
-        self.notes = []
+        self.notes = motif.notes
         self.functionality = None
         self.j_frame = None
         self.nonamer = motif.left
@@ -252,7 +254,7 @@ class JAnnotation:
             self.functionality = 'pseudo'
 
 def process_j(start, end, best, matches):
-    j_rss = find_compound_motif('J-NONAMER', 'J-HEPTAMER', 22, 23, 5, end=start-1)
+    j_rss = find_compound_motif('J-NONAMER', 'J-HEPTAMER', 22, 23, 15, end=start-1)
 
     if len(j_rss) == 0:
         return []
@@ -704,7 +706,6 @@ def calc_matched_refs(row):
     for ref in reference_sets:
         row[ref['name'] + '_match'] = ''
         row[ref['name'] + '_score'] = 0
-        row[ref['name'] + '_nt_match'] = ''
         row[ref['name'] + '_nt_diffs'] = 999
 
         for ref_name, ref_seq in ref['seqs'].items():
@@ -720,10 +721,6 @@ def calc_matched_refs(row):
                     score = nt_diff(row['seq'], ref_seq)
                 if score < row[ref['name'] + '_nt_diffs']:
                     row[ref['name'] + '_nt_diffs'] = score
-
-        #if row[ref['name'] + '_nt_match'] != '':
-        #    print('%s / %s\nseq: %s\nref: %s\ndiff: %d\n\n' %
-        #      (row['best'], row[ref['name'] + '_nt_match'], row['seq'], ref['seqs'][row[ref['name'] + '_nt_match']], row[ref['name'] + '_nt_diffs']))
 
         if row[ref['name'] + '_nt_diffs'] == 999:
             row[ref['name'] + '_nt_diffs'] = 0
@@ -988,7 +985,8 @@ def main():
     motif_dir = args.motif_dir
 
     if args.species:
-        motif_dir = files('digger.motifs').joinpath(f'{args.species}/{locus}')
+        dm = files('digger')
+        motif_dir = dm.joinpath(f'motifs/{args.species}/{locus}')
 
     print(f'Using motif files from {motif_dir}')
 
@@ -1021,9 +1019,9 @@ def main():
             v_ungapped_ref[name] = seq.replace('.', '')
 
     with open(match_file, 'w', newline='') as fo:
-        fieldnames = ['contig', 'start', 'end', 'start_rev', 'end_rev', 'sense']
+        fieldnames = ['contig', 'start', 'end', 'start_rev', 'end_rev', 'sense', 'gene_type']
         for ref in reference_sets:
-            fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_match', ref['name'] + '_nt_diffs'])
+            fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_diffs'])
 
         fieldnames.extend(
             ['likelihood', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer',
@@ -1031,7 +1029,7 @@ def main():
             '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
             'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev'])
 
-        fieldnames.extend(['matches', 'gene_type', 'blast_match', 'blast_score', 'blast_nt_diffs', 'evalue'])
+        fieldnames.extend(['matches', 'blast_match', 'blast_score', 'blast_nt_diffs', 'evalue'])
 
         writer = csv.DictWriter(fo, fieldnames=fieldnames, restval='')
         writer.writeheader()

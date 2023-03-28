@@ -4,3 +4,9 @@ include src/digger/motifs/human/IGL/*.csv
 include src/digger/motifs/rhesus_macaque/IGH/*.csv
 include src/digger/motifs/rhesus_macaque/IGK/*.csv
 include src/digger/motifs/rhesus_macaque/IGL/*.csv
+include src/digger/motifs/human/IGH/*.fasta
+include src/digger/motifs/human/IGK/*.fasta
+include src/digger/motifs/human/IGL/*.fasta
+include src/digger/motifs/rhesus_macaque/IGH/*.fasta
+include src/digger/motifs/rhesus_macaque/IGK/*.fasta
+include src/digger/motifs/rhesus_macaque/IGL/*.fasta

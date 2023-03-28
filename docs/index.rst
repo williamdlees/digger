@@ -1,23 +1,33 @@
-.. Digger documentation master file, created by
-   sphinx-quickstart on Tue Jan 31 10:11:29 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Digger documentation master file
 
 Digger: tools for annotating genomic assemblies of the IG/TR receptor loci
 ============================================================================
+Digger is a toolkit for the automatic annotation of unrearranged V,D and J genes in B- and T- cell receptor genomic loci. It can be used to annotate both entire assemblies or large fragments of a locus, 
+or small fragments, such as Sanger sequences of single genes. 
+
 
 .. toctree::
   :maxdepth: 1
-  :caption: Contents:
+  :caption: Getting Started
 
-  introduction
-  digger
-  blastresults_to_csv
-  calc_motifs
-  compare_annotations
-  find_alignments
-  merge_search-d
-  parse_imgt_annotations
+  overview	
+  install
+  news
+  
+  
+.. toctree::
+  :maxdepth: 1
+  :caption: Examples
+
+  examples/human_igh
+  
+.. toctree::
+  :maxdepth: 1
+  :caption: Usage Documentation
+
+  usage
+  tools/annotation
+  
 
 Indices and tables
 ==================

@@ -58,6 +58,7 @@ def find_seq(line, extra=0):
 
 def process_V(imgt_annots, parsed_genes, accession):
     in_v_region = False
+    parsing_gene = False
     l_part1s = []
     l_part2s = []
     v_heptamers = []
@@ -69,6 +70,15 @@ def process_V(imgt_annots, parsed_genes, accession):
     for line in imgt_annots:
         if 'FT   V-REGION' in line:
             in_v_region = True
+
+            if parsing_gene:
+                # We have a partially parsed truncated gene
+                for el in ['utr', 'l-part1', 'l-part2', 'v-heptamer', 'v-nonamer', 'v-region']:
+                    row[el] = str(row[el]) if row[el] is not None else ''
+                parsed_genes.append(row)
+                row = {'accessions': accession, 'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None}
+
+            parsing_gene = True
             row['v-region'], row['sense'] = find_seq(line.replace('<', '').replace('>', ''))
         elif len(line) > 5 and line[5] != ' ' and in_v_region:
             in_v_region = False
@@ -95,6 +105,7 @@ def process_V(imgt_annots, parsed_genes, accession):
                 row[el] = str(row[el]) if row[el] is not None else ''
             parsed_genes.append(row)
             row = {'accessions': accession, 'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None}
+            parsing_gene = False
 
         if in_v_region:
             if 'V-REGION' in line and '..' in line:
@@ -113,9 +124,15 @@ def process_V(imgt_annots, parsed_genes, accession):
             elif '/ORF' in line:
                 row['functional'] = 'ORF'
 
+    if parsing_gene:
+        # We have a partially parsed truncated gene
+        for el in ['utr', 'l-part1', 'l-part2', 'v-heptamer', 'v-nonamer', 'v-region']:
+            row[el] = str(row[el]) if row[el] is not None else ''
+        parsed_genes.append(row)
 
 def process_D(imgt_annots, parsed_genes, accession):
     in_d_region = False
+    parsing_gene = False
 
     d_3_heptamers = []
     d_3_nonamers = []
@@ -128,6 +145,13 @@ def process_D(imgt_annots, parsed_genes, accession):
 
     for line in imgt_annots:
         if 'FT   D-REGION' in line:
+            if parsing_gene:
+                for el in ['d-3-nonamer', 'd-3-spacer', 'd-3-heptamer', 'd-5-heptamer', 'd-5-spacer', 'd-5-nonamer']:
+                    row[el] = str(row[el]) if row[el] is not None else ''
+                parsed_genes.append(row)
+                row = {'accessions': accession, 'd-3-nonamer': None, 'd-3-spacer': None, 'd-3-heptamer': None, 'd-5-heptamer': None, 'd-5-spacer': None,
+                       'd-5-nonamer': None}
+            parsing_gene = True
             in_d_region = True
         elif len(line) > 5 and line[5] != ' ' and in_d_region:
             in_d_region = False
@@ -156,6 +180,7 @@ def process_D(imgt_annots, parsed_genes, accession):
                 row[el] = str(row[el]) if row[el] is not None else ''
             parsed_genes.append(row)
             row = {'accessions': accession, 'd-3-nonamer': None, 'd-3-spacer': None, 'd-3-heptamer': None, 'd-5-heptamer': None, 'd-5-spacer': None, 'd-5-nonamer': None}
+            parsing_gene = False
 
         if in_d_region:
             if 'FT   D-REGION' in line and '..' in line:
@@ -174,6 +199,11 @@ def process_D(imgt_annots, parsed_genes, accession):
                 row['functional'] = 'pseudo'
             elif '/ORF' in line:
                 row['functional'] = 'ORF'
+
+    if parsing_gene:
+        for el in ['d-3-nonamer', 'd-3-spacer', 'd-3-heptamer', 'd-5-heptamer', 'd-5-spacer', 'd-5-nonamer']:
+            row[el] = str(row[el]) if row[el] is not None else ''
+        parsed_genes.append(row)
 
 
 def process_J(imgt_annots, parsed_genes, accession):

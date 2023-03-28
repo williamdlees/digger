@@ -143,10 +143,15 @@ def main():
 
     for fn, gene_type in [(args.v_ref, 'V'), (args.d_ref, 'D'), (args.j_ref, 'J')]:
         if fn:
-            if gene_type == 'J':
+            if gene_type == 'J' or gene_type == 'D':
                 word_size = '7'
             else:
                 word_size = '11'
+
+            if gene_type == 'D':
+                evalue = '100'
+            else:
+                evalue = '10'
 
             cmd = [
                 'blastn',
@@ -158,6 +163,7 @@ def main():
                 '-gapextend', '5',
                 '-penalty', '-1',
                 '-word_size', word_size,
+                '-evalue', evalue,
             ]
             print(f"\n-- executing {' '.join(cmd)}\n")
             process = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

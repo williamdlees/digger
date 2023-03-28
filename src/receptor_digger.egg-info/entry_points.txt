@@ -4,5 +4,4 @@ calc_motifs = digger.calc_motifs:main
 compare_annotations = digger.compare_annotations:main
 digger = digger.digger:main
 find_alignments = digger.find_alignments:main
-merge_search_d = digger.merge_search_d:main
 parse_imgt_annotations = digger.parse_imgt_annotations:main

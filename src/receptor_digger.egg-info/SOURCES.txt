@@ -10,7 +10,6 @@ src/digger/cirelli_to_fasta.py
 src/digger/compare_annotations.py
 src/digger/digger.py
 src/digger/find_alignments.py
-src/digger/merge_search_d.py
 src/digger/motif.py
 src/digger/parse_imgt_annotations.py
 src/digger/slugify.py
@@ -24,6 +23,7 @@ src/digger/motifs/human/IGH/L-PART1_prob.csv
 src/digger/motifs/human/IGH/L-PART2_prob.csv
 src/digger/motifs/human/IGH/V-HEPTAMER_prob.csv
 src/digger/motifs/human/IGH/V-NONAMER_prob.csv
+src/digger/motifs/human/IGH/conserved_motifs.fasta
 src/digger/motifs/human/IGK/J-HEPTAMER_prob.csv
 src/digger/motifs/human/IGK/J-NONAMER_prob.csv
 src/digger/motifs/human/IGK/L-PART1_prob.csv
@@ -31,12 +31,14 @@ src/digger/motifs/human/IGK/L-PART2_prob.csv
 src/digger/motifs/human/IGK/NC_000002.12_fw_rev.csv
 src/digger/motifs/human/IGK/V-HEPTAMER_prob.csv
 src/digger/motifs/human/IGK/V-NONAMER_prob.csv
+src/digger/motifs/human/IGK/conserved_motifs.fasta
 src/digger/motifs/human/IGL/J-HEPTAMER_prob.csv
 src/digger/motifs/human/IGL/J-NONAMER_prob.csv
 src/digger/motifs/human/IGL/L-PART1_prob.csv
 src/digger/motifs/human/IGL/L-PART2_prob.csv
 src/digger/motifs/human/IGL/V-HEPTAMER_prob.csv
 src/digger/motifs/human/IGL/V-NONAMER_prob.csv
+src/digger/motifs/human/IGL/conserved_motifs.fasta
 src/digger/motifs/rhesus_macaque/IGH/3'D-HEPTAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGH/3'D-NONAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGH/5'D-HEPTAMER_prob.csv
