@@ -352,6 +352,8 @@ class VAnnotation:
 # then find all possible rss within range
 # evaluate every combination - joint prob and functionality
 def process_v(start, end, best, matches, v_parsing_errors):
+    #if start == 291597:
+    #    breakpoint()
 
     leaders = find_compound_motif('L-PART1', 'L-PART2', 10, 400, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
 
@@ -431,7 +433,7 @@ def process_v(start, end, best, matches, v_parsing_errors):
                     v_gene.functionality = 'ORF'
             for note in leader.notes:
                 note = note.lower()
-                if 'stop codon' in note or 'atg' in note:
+                if 'stop codon' in note or 'atg' in note or 'donor-splice' in note or 'acceptor-splice' in note:
                     v_gene.functionality = 'pseudo'
 
         best_match, best_score, best_nt_diffs = calc_best_match_score(best, v_gene.ungapped)
@@ -666,6 +668,15 @@ class MotifResult:
 # if PART2 is in-frame: the in-frame PART1 giving best likelihood
 # otherwise, the PART1 giving best likelihood regardless of frame
 def find_best_leaders(leaders):
+    # return the needed change in the size of the right, to keep in frame with a change in the size of the left
+    # i.e. change_in_right + change_in_left = [some multiple of 3 up to a limit]
+    def change_in_right(change_in_left):
+        ret = []
+        for i in [-6, -3, 0, 3, 6]:
+            if abs(i - change_in_left) < 4:
+                ret.append(i - change_in_left)
+        return ret
+
     leader_choices = defaultdict(list)
     for leader in leaders:
         leader_choices[leader.end].append(leader)
@@ -676,22 +687,35 @@ def find_best_leaders(leaders):
         bad_leaders = []
 
         for choice in choices:
-            bad_start = choice.left[:3] != 'ATG'
-            donor = assembly[choice.start - 1 + len(choice.left):choice.start - 1 + len(choice.left) + 2]
-            bad_donor = donor != 'GT'
+            try:
+                bad_start = choice.left[:3] != 'ATG'
+            except:
+                print('foo')
 
-            # see whether we can fit a longer or shorter L-PART1
+            if position == 291596 and not bad_start:
+                print('foo')
 
-            if bad_donor and not bad_start:
-                for i in [-1, 1]:
-                    donor = assembly[choice.start - 1 + len(choice.left) + i*3:choice.start - 1 + len(choice.left) + 2 + i*3]
-                    if donor == 'GT':
-                        bad_donor = False
-                        choice.left = assembly[choice.start - 1:choice.start - 1 + len(choice.left) + i*3]
-                        choice.notes.append(f'L-PART1 extended by {i} codons')
+            for i in [0, -1, 1, -2, 2, -3, 3]:
+                donor = assembly[choice.start - 1 + len(choice.left) + i:choice.start - 1 + len(choice.left) + 2 + i]
+                bad_donor = donor != 'GT'
+                bad_acceptor = None
 
-            acceptor = assembly[choice.end - 1 - len(choice.right) - 1:choice.end - 1 - len(choice.right) + 1]
-            bad_acceptor = acceptor != 'AG'
+                if not bad_donor:
+                    for j in change_in_right(i):
+                        acceptor = assembly[choice.end - len(choice.right) - j:choice.end - len(choice.right) - j + 2]
+                        bad_acceptor = acceptor != 'AG'
+                        if not bad_acceptor:
+                            choice.left = assembly[choice.start - 1:choice.start - 1 + len(choice.left) + i]
+                            choice.right = assembly[choice.end - len(choice.right) - j: choice.end]
+                            break
+
+                if bad_acceptor is not None:     # we found a solution
+                    break
+
+            if bad_acceptor is None:    # we didn't find a solution: just annotate the right as it stands, knowing the left is bad
+                acceptor = assembly[choice.end - len(choice.right):choice.end - len(choice.right) + 2]
+                bad_acceptor = acceptor != 'AG'
+
             l12p = simple.translate(choice.left + choice.right)
             stop_codon = 'X' in l12p or '*' in l12p
 
