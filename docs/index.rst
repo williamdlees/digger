@@ -20,6 +20,7 @@ or small fragments, such as Sanger sequences of single genes.
   :caption: Examples
 
   examples/human_igh
+  examples/rhesus_igh
   
 .. toctree::
   :maxdepth: 1

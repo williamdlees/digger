@@ -1,7 +1,7 @@
 # Convert blast file format 7 to one or more CSVs
 
 import argparse
-import sys
+import os
 from digger.slugify import slugify
 
 
@@ -26,7 +26,7 @@ def main():
                 if fo is not None:
                     fo.close()
                 fn = slugify(args.out_prefix + row.replace('# Query: ', '').split(' ')[0].replace('\n', '').replace('|', '')) + '.csv'
-                if args.append:
+                if args.append and os.path.isfile(fn):
                     fo = open(fn, 'a')
                 else:
                     fo = open(fn, 'w')

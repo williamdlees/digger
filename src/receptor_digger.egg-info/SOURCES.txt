@@ -49,6 +49,7 @@ src/digger/motifs/rhesus_macaque/IGH/L-PART1_prob.csv
 src/digger/motifs/rhesus_macaque/IGH/L-PART2_prob.csv
 src/digger/motifs/rhesus_macaque/IGH/V-HEPTAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGH/V-NONAMER_prob.csv
+src/digger/motifs/rhesus_macaque/IGH/conserved_motifs.fasta
 src/digger/motifs/rhesus_macaque/IGK/3'D-HEPTAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGK/3'D-NONAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGK/5'D-HEPTAMER_prob.csv
@@ -60,6 +61,7 @@ src/digger/motifs/rhesus_macaque/IGK/L-PART1_prob.csv
 src/digger/motifs/rhesus_macaque/IGK/L-PART2_prob.csv
 src/digger/motifs/rhesus_macaque/IGK/V-HEPTAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGK/V-NONAMER_prob.csv
+src/digger/motifs/rhesus_macaque/IGK/conserved_motifs.fasta
 src/digger/motifs/rhesus_macaque/IGK/features.csv
 src/digger/motifs/rhesus_macaque/IGL/3'D-HEPTAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGL/3'D-NONAMER_prob.csv
@@ -71,6 +73,7 @@ src/digger/motifs/rhesus_macaque/IGL/L-PART1_prob.csv
 src/digger/motifs/rhesus_macaque/IGL/L-PART2_prob.csv
 src/digger/motifs/rhesus_macaque/IGL/V-HEPTAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGL/V-NONAMER_prob.csv
+src/digger/motifs/rhesus_macaque/IGL/conserved_motifs.fasta
 src/digger/motifs/rhesus_macaque/IGL/features.csv
 src/receptor_digger.egg-info/PKG-INFO
 src/receptor_digger.egg-info/SOURCES.txt

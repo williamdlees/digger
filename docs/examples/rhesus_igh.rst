@@ -1,93 +1,147 @@
 .. human_igh:
 
-Annotating the human IGH locus
-==============================
+Annotating the rhesus macaque IGH locus
+=======================================
 
-The IGHV locus in the human reference assembly GRCh38.p12 has been annotated by IMGT. In this example, we will annotate with Digger and compare results.
+The IGH locus in the rhemac10 reference assembly has been annotated by IMGT, but here we will annotate a locus sequenced by Cirelli et al. (2019), as an
+example showing how to annotate a locus that is sequenced as multiple contigs.
+
 
 Data
 ****
 
-The locus and IMGT annotations can be downloaded and parsed with :ref:`parse_imgt_annotations`::
+The contigs are available from GenBank under ID `SBKD00000000 <https://www.ncbi.nlm.nih.gov/nuccore/SBKD00000000>`__, but, for convenience, are available for download here
+`<https://github.com/williamdlees/digger/blob/main/data/tests/rhesus_macaque/IGH/LJI/>`__ with the filename  ``LJI_Rh.PacBio_All.IGH.Contigs.fasta`` . We will use that
+filename in this example. All other files mentioned in the example are available at the same location.
 
+As in the previous example, the rhesus IGH reference set can be downloaded from IMGT with the `receptor_utils <https://williamdlees.github.io/receptor_utils/_build/html/introduction.html>`__ command 
+``extract_refs`` (receptor_utils is installed as part of digger's installation). However, the rhesus IG gapped V-genes provided by IMGT contain additional inserted codons relative to
+the conventional IMGT alignment. As digger (alongside other tools) expects the conventional alignment, a further step is needed to realign the gapped sequences, using the receptor_utils 
+tool ``fix_macaque_gaps``. The following commands will prepare the reference data::
+
+   > extract_refs -L IGH "Macaca mulatta"
+   > fix_macaque_gaps Macaca_mulatta_IGHV_gapped.fasta \
+       Macaca_mulatta_IGHV_gapped_fixed.fasta IGH
+   > cat Macaca_mulatta_IGHV.fasta Macaca_mulatta_IGHD.fasta Macaca_mulatta_IGHJ.fasta \
+       > Macaca_mulatta_IGHVDJ.fasta
+	   
+We will additionally use the reference set published in the 2019 study. The FASTA files are available at the location provided above. The sequences are extracted from Table S1 of the study.
+Due to particulars of the study protocol, the assembly contigs are only expected to include sequences inferred from the 'primary' annotation type, not those from the 'alternate'.
+
+
+Preparing position-weighted matrices
+************************************
+
+Digger already has PWMs for rhesus IGH, but for the purpose of this example, we will create a set using the features listed in IMGT's annotation of the rhemac10 IGH locus, which 
+has the IMGT accession number IMGT000064. This is how digger's built-in rhesus PWMs were created. The following commands download the annotation, determine the features, and calculate the PWMs from 
+features of functional annotations::
+
+   > mkdir motifs
+   > cd motifs
    > parse_imgt_annotations \
-       --save_sequence IMGT000035.fasta \
-	   "http://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000035" \
-	   IMGT000035_genes.csv \
-	   IGH 
-
-This will create two files: ``IMGT000035.fasta``, containing the assembly sequence, and ``IMGT000035_genes.csv``, containing the co-ordinates of the IMGT-annotated genes, and sequences of their flanking regions.
-
-The human IGH reference set can be downloaded from IMGT with the `receptor_utils <https://williamdlees.github.io/receptor_utils/_build/html/introduction.html>`__ command ``extract_refs`` (receptor_utils is installed as part of Digger's installation)::
-
-   > extract_refs -L IGH "Homo sapiens"
+	   "http://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000064" \
+	   IMGT000064_genes.csv IGH
+   > calc_motifs IMGT000064_genes.csv
    
-This creates the reference sets ``Homo_sapiens_IGHV_gapped.fasta``, ``Homo_sapiens_IGHV.fasta``, ``Homo_sapiens_IGHD.fasta``, ``Homo_sapiens_IGHJ.fasta``, ``Homo_sapiens_CH.fasta``
-   
-Lastly, we need to make a combined file containing all the IGH V, D and J reference genes::
+``calc_motifs`` will create 10 motif files in the directory.
 
-   > cat Homo_sapiens_IGHV.fasta Homo_sapiens_IGHD.fasta Homo_sapiens_IGHJ.fasta \
-       > Homo_sapiens_IGHVDJ.fasta
+The motifs directory may optionally contain a FASTA file ``conserved_motifs.fasta`` defining strongly-conserved nucleotides in the RSS and leader. Only those features 
+with conserved residues need to be listed in the file. The names follow the filenames used for the PWMs.
+The following sequences were derived from Figure 3 of Ngoune et al. (2022) and will be used in this example::
+
+   >V-HEPTAMER
+   CAC---G
+   >V-NONAMER
+   -----AACC
+   >5'D-HEPTAMER
+   ----GTG
+   >5'D-NONAMER
+   ---T-----
+   >3'D-HEPTAMER
+   C-C---G
+   >3'D-NONAMER
+   -C----A--
+   >J-HEPTAMER
+   C--TGTG
+   >J-NONAMER
+   -GTT--TG-
    
+Again, this file is provided for download at the location provided near the top of this example.
+   
+While the presence or absence of conserved residues can be a useful guide to the likely functionality of a sequence, please bear in mind that it is a guide only:
+exceptions can be expected, particularly where the definitions have been built on limited data.
 
 Annotating the Assembly
 ***********************
 
-With the data in place, we can instruct :ref:`digger` to perform the annotation::
+The digger command is not able to handle multiple contigs, so we will call the underlying tools directly. We start by creating the blast databases and querying against the assembly, 
+using the reference genes determined in the study::
 
-   > digger IMGT000035.fasta \
-       -v_ref Homo_sapiens_IGHV.fasta \
-	   -d_ref Homo_sapiens_IGHD.fasta \
-	   -j_ref Homo_sapiens_IGHJ.fasta \
-	   -v_ref_gapped Homo_sapiens_IGHV_gapped.fasta \
-	   -ref imgt,Homo_sapiens_IGHVDJ.fasta \
-	   -species human \
-	   -locus IGH \
-	   IMGT000035.csv
+   > makeblastdb -in cirelli_IGHV.fasta -dbtype nucl
+   > makeblastdb -in cirelli_IGHD.fasta -dbtype nucl
+   > makeblastdb -in cirelli_IGHJ.fasta -dbtype nucl
 
-``-v_ref, -d_ref, -j_ref, -v_ref_gapped`` provide the reference assembly sequences. 
+   > blastn -db cirelli_IGHV.fasta -query LJI_Rh.PacBio_All.IGH.Contigs.fasta -out LJI_IGHV.out -outfmt 7 -gapopen 5 -gapextend 5 -penalty -1 -word_size 11
+   > blastn -db cirelli_IGHD.fasta -query LJI_Rh.PacBio_All.IGH.Contigs.fasta -out LJI_IGHD.out -outfmt 7 -gapopen 5 -gapextend 5 -penalty -1 -word_size 7 -evalue 100
+   > blastn -db cirelli_IGHJ.fasta -query LJI_Rh.PacBio_All.IGH.Contigs.fasta -out LJI_IGHJ.out -outfmt 7 -gapopen 5 -gapextend 5 -penalty -1 -word_size 7
 
-``-ref imgt,Homo_sapiens_IGHVDJ.fasta`` instructs Digger to compare any sequences it identifies in the assembly with those in the combined reference
-set. It will create columns in the output assembly containing the nearest reference sequence found, % identity and so on. These columns will be prefixed ``imgt`` as specified in this argument. Multiple ``-ref`` arguments can be 
-passed, allowing comparison with multiple reference sets.
+Note that a higher evalue is used for the D genes, as they can be quite short.
 
-``-species`` tells Digger to use its internal position-weighted matrices for human loci, and ``-locus`` specifies the locus.
+Next we call ``blastresults_to_csv`` to convert to a more convenient format::
 
-The output file will be ``IMGT000035.csv``.
+   > blastresults_to_csv LJI_IGHV.out lji_ighvdj_   
+   > blastresults_to_csv LJI_IGHD.out lji_ighvdj_ -a
+   > blastresults_to_csv LJI_IGHJ.out lji_ighvdj_ -a
 
-Digger will summarise progress as it runs. It will call the following tools:
+The commands instruct the tool to create merged files containing V,D and J hits. This is achieved by specifying the same prefix on each command ``(lji_ighvdj_)`` and using the ``-a`` (append) option.
+The records created by blastn contain the name of the contig in which a hit was found. ``blastresults_to_csv`` will create one file per contig. The names contain the ID of the contig in 
+``LJI_Rh.PacBio_All.IGH.Contigs.fasta``, except that they are processed to ensure file system compatibility.
 
-* makeblastdb to create BLAST databases for the reference genes
-* blastn to run these databases against the reference sequence
-* :ref:`blastresults_to_csv` to convert the BLAST output to a simpler format
-* :ref:`find_alignments` to annotate gene alignments found in the assembly
+We now call find_alignments to process the annotations::
 
-Comparing the output to IMGT's annotation
-*****************************************
+   > find_alignments.py cirelli_IGHVDJ.fasta \
+        LJI_Rh.PacBio_All.IGH.Contigs.fasta \
+		"LJI_IGHVDJ_*.csv" \
+		-ref imgt,Macaca_mulatta_IGHVDJ.fasta \
+		-ref cirelli,cirelli_IGHVDJ.fasta \
+		-align Macaca_mulatta_IGHV_gapped_fixed.fasta \
+		-motif_dir motifs \
+		cirelli_annotations.csv
 
-:ref:`compare_annotations` compares the output of a digger run with a summary annotation file. Here we use it to compare the results of digger's annotation with IMGT's::
+Note that the third argument, ``"LJI_IGHVDJ_*.csv"``, contains a wildcard that will match all the files produced in the previous step. It is quoted to avoid expansion by the shell. The 
+-ref arguments will cause the output
+file to report the nearest sequence in both the IMGT and Cirelli germline sets, and V-genes in the annotation will be gapped using the fixed IMGT gapped set as a template.
+``find_alignments`` will attempt to deduce the sense in which to annotate each segment. This is helpful in this case as the contigs vary in their orientation.  Note that we are
+specifying the location of the motifs directory created in the previous step rather than the species and locus, which would cause digger to use the built-in tables.
 
-   > compare_annotations IMGT000035.csv IMGT000035_genes.csv forward comparison_results
-   
-The final argument specifies that the results should be put into files named ``comparison_results``. Three files are produced with differing extensions: a summary graphic (.jpg), a text file listing differences 
-in sequences annotated as functional (.txt), and a detailed line-by-line comparison (.csv).
 
-``comparison_results.jpg`` summarises functional annotations found by digger and IMGT, according to which, digger annotated as functional all genes so annotated by IMGT, and annotated an additional 4 V-genes and
-one J-gene as functional. Turning to ``comparison_results.txt``, we see that two of these additional V-genes, and the additional J-gene,
-were annotated by IMGT as ORF rather than functional. The other two additional V-genes, at 28439 and 682852, are listed in the IMGT annotations as pseudogenes.  
-In these two cases, digger identified a leader that passed the PWM threshold, and a V-region sequence that matched the IMGT reference sequence of the functional allele.
+Comparing the output to the study's annotation
+**********************************************
 
-There is not, at present, a clear set of accepted criteria for categorisation of functionality, and differences are therefore to be expected. Over the next few years, we expect to see comparisons of genomic 
-sequencing of the loci with the expressed repertoire across multiple subjects, and this should allow a deeper understanding to develop. Overall, the comparison of digger results with the manually supervised curation
-at IMGT shows a good level of agreement. It is possible that results may change from those noted here, as they are based on downloaded data which may be revised over time.
+The script ``compare_cirelli.py``, which will be found with the other files mentioned in this example, creates two files showing the correspondence between the original annotation in the study and
+that provided by digger using the process above::
 
- 
+   > python compare_cirelli.py  cirelli_table_s1.csv cirelli_annotations.csv IGH
+
+The output file ``cirelli_table_s1_with_digger_hits.csv`` recapitulates the relevant data from the study table S1, with an additional column showing whether and where where the sequence was found in the digger annotation.
+It shows that all genes identified in the study's annotation of the IGH locus using the 'primary' method of annotation were listed also by digger, with the exception of one D gene, LJI.Rh_IGHD4.22.
+This gene sequence was identified by BLAST in the digger run, but was not listed in the file as neither 3' nor 5' RSS passed the PWM threshold and were therefore both regarded as invalid. As D gene
+sequences are short, a sequence match with invalid RSS at each end is a frequent false positive. 
+
+Of the remaining 112 genes, which were all classified as F/ORF in the study, digger categorised 97 as functional, 13 as ORF and 2 as pseudogenes.  Among the functional and ORF genes, the length of the
+coding sequence assigned by digger differed from that in Table S1 on 12 occasions, indicating differences in the identification of the RSS.
+Of the two that digger classed as pseudogenes,
+LJI.Rh_IGHV1.138 is noted as 'Leader missing initial ATG, Stop codon in leader' and LJI.Rh_IGHV3.107 as 'Stop codon in leader, First cysteine not found'. Interestingly, LJI.Rh_IGHV1.138
+was observed in repertoires during the course of the study, suggesting either an error in digger's annotation, or a sequencing error. 
+
+The output file ``digger_F_ORF_with_cirelli_annots.csv`` lists 3 functional V-genes and 7 functional D-genes identified by digger but not in Table S1. Three of the D-genes and two of the V-genes have exact
+matches in the IMGT reference set.
+
+Overall, the results are in good agreement, with, nevertheless, some interesting points of detail that merit further examination.
 
 References
 **********
 
-Lefranc et al., 2015, IMGT®, the international ImMunoGeneTics information system® 25 years on. *Nucleic Acids Res.* `doi: 10.1093/nar/gku1056 <https://doi.org/10.1093%2Fnar%2Fgku1056>`__.
+Cirelli et al., 2019, Slow Delivery Immunization Enhances HIV Neutralizing Antibody and Germinal Center Responses via Modulation of Immunodominance. *Cell* `doi: 10.1016/j.cell.2019.04.012 <https://doi.org/10.1016/j.cell.2019.04.012>`__.
 
-Watson et al., 2013, Complete haplotype sequence of the human immunoglobulin heavy-chain variable, diversity, and joining genes and characterization of allelic and copy-number variation. *Am J Hum Genet* `doi: 10.1016/j.ajhg.2013.03.004 <http://dx.doi.org/10.1016/j.ajhg.2013.03.004>`__
-
-Schneider et al., 2017, Evaluation of GRCh38 and de novo haploid genome assemblies demonstrates the enduring quality of the reference assembly. *Genome Research* `doi: 10.1101/gr.213611.116 <https://genome.cshlp.org/content/27/5/849>`__
+Ngoune et al., 2022, IMGT® Biocuration and Analysis of the Rhesus Monkey IG Loci. *Vaccines* `doi: 10.3390/vaccines10030394 <https://www.mdpi.com/2076-393X/10/3/394#>`__.

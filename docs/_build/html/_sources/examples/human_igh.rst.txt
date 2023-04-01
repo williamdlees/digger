@@ -73,7 +73,7 @@ The final argument specifies that the results should be put into files named ``c
 in sequences annotated as functional (.txt), and a detailed line-by-line comparison (.csv).
 
 ``comparison_results.jpg`` summarises functional annotations found by digger and IMGT, according to which, digger annotated as functional all genes so annotated by IMGT, and annotated an additional 4 V-genes and
-one J-gene as functional. Turning to ``comparison_results.txt``, we see that one of the additional four V-genes, with a start location of 28424, was not identified by IMGT. Two other V-genes, and the additional J-gene,
+one J-gene as functional. Turning to ``comparison_results.txt``, we see that one of the additional four V-genes, with a start location of 28424, was not identified in the IMGT annotation. Two other V-genes, and the additional J-gene,
 were annotated by IMGT as ORF rather than functional, and one, at 682852, as a pseudogene: this can be found in line-by-line comparison in ``comparison_results.csv``. The IMGT annotations, which can be checked on line,
 indicate that no leader was identified. Digger identified a leader that passed the PWM threshold, and a V-region sequence that matches the IMGT reference sequence for IGHV3-19*01.
 

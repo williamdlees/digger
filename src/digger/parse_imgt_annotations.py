@@ -65,7 +65,7 @@ def process_V(imgt_annots, parsed_genes, accession):
     v_nonamers = []
 
 
-    row = {'accessions': accession, 'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None, 'sense': ''}
+    row = {'accessions': accession, 'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None, 'sense': '', 'v-donor-splice': None, 'v-acceptor-splice': None}
 
     for line in imgt_annots:
         if 'FT   V-REGION' in line:
@@ -94,6 +94,12 @@ def process_V(imgt_annots, parsed_genes, accession):
 
         if 'FT   V-HEPTAMER' in line:
             row['v-heptamer'], _ = find_seq(line)
+
+        if 'FT   DONOR-SPLICE' in line:
+            row['v-donor-splice'], _ = find_seq(line)
+
+        if 'FT   ACCEPTOR-SPLICE' in line:
+            row['v-acceptor-splice'], _ = find_seq(line)
 
         if 'FT   V-NONAMER' in line:
             row['v-nonamer'], _ = find_seq(line)
@@ -286,6 +292,7 @@ def main():
     sequence = ""
     reading = 'preamble'
     accessions = ''
+    fieldnames = None
 
     for line in imgt_text.split('\n'):
         if reading == 'preamble':
@@ -313,9 +320,6 @@ def main():
             else:
                 assembly = sequence
 
-                #if accessions == 'AF017732;':
-                #    breakpoint()
-
                 if args.save_sequence and accessions:
                     sequences[accessions] = assembly
 
@@ -328,9 +332,9 @@ def main():
 
                 fieldnames = [
                    'accessions', 'allele', 'functional',  'start', 'end', 'sense',
-                   'utr', 'l-part1', 'l-part2', 'v-region',  'v-nonamer', 'v-heptamer',
+                   'utr', 'l-part1', 'l-part2', 'v-region',  'v-nonamer', 'v-heptamer', 'v-donor-splice', 'v-acceptor-splice',
                    'd-5-heptamer', 'd-5-spacer', 'd-5-nonamer', 'd-region','d-3-heptamer', 'd-3-spacer', 'd-3-nonamer',
-                   'j-region', 'j-heptamer', 'j-spacer', 'j-nonamer'
+                   'j-region', 'j-heptamer', 'j-spacer', 'j-nonamer',
                 ]
 
                 sequence = ""
@@ -346,11 +350,14 @@ def main():
     if args.save_sequence:
         simple.write_fasta(sequences, args.save_sequence)
 
-    with open(args.outfile, 'w', newline='') as fo:
-        writer = csv.DictWriter(fo, fieldnames=fieldnames, restval='')
-        writer.writeheader()
-        for parsed_gene in parsed_genes:
-            writer.writerow(parsed_gene)
+    if fieldnames:
+        with open(args.outfile, 'w', newline='') as fo:
+            writer = csv.DictWriter(fo, fieldnames=fieldnames, restval='')
+            writer.writeheader()
+            for parsed_gene in parsed_genes:
+                writer.writerow(parsed_gene)
+    else:
+        print("No annotation records found.")
 
 
 if __name__ == "__main__":

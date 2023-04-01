@@ -19,7 +19,9 @@
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Anotation format" href="annotation.html" />
+    <link rel="prev" title="find_alignments" href="find_alignments.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,6 +45,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/human_igh.html">Annotating the human IGH locus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/rhesus_igh.html">Annotating the rhesus macaque IGH locus</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../usage.html">Commandline Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blastresults_to_csv.html">blastresults_to_csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calc_motifs.html">calc_motifs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compare_annotations.html">compare_annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="digger.html">digger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="find_alignments.html">find_alignments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">parse_imgt_annotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#positional-arguments">Positional Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#named-arguments">Named Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotation.html">Anotation format</a></li>
+</ul>
 
         </div>
       </div>
@@ -58,6 +82,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../usage.html">Commandline Usage</a></li>
       <li class="breadcrumb-item active">parse_imgt_annotations</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tools/parse_imgt_annotations.rst.txt" rel="nofollow"> View page source</a>
@@ -74,7 +99,9 @@
 Optionally it will also store the file downloaded, and create a FASTA file containing the annotated assembly.</p>
 <p><p>Given a set of IMGT annotations, build a CSV file containing gene names and co-ordinates</p>
 </p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">parse_imgt_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_download</span> <span class="n">SAVE_DOWNLOAD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_sequence</span> <span class="n">SAVE_SEQUENCE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_imgt_annots</span> <span class="n">SAVE_IMGT_ANNOTS</span><span class="p">]</span> <span class="n">imgt_url</span> <span class="n">outfile</span> <span class="n">locus</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">parse_imgt_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_download</span> <span class="n">SAVE_DOWNLOAD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_sequence</span> <span class="n">SAVE_SEQUENCE</span><span class="p">]</span>
+                              <span class="p">[</span><span class="o">--</span><span class="n">save_imgt_annots</span> <span class="n">SAVE_IMGT_ANNOTS</span><span class="p">]</span>
+                              <span class="n">imgt_url</span> <span class="n">outfile</span> <span class="n">locus</span>
 </pre></div>
 </div>
 <section id="positional-arguments">
@@ -110,7 +137,10 @@ Optionally it will also store the file downloaded, and create a FASTA file conta
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="find_alignments.html" class="btn btn-neutral float-left" title="find_alignments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="annotation.html" class="btn btn-neutral float-right" title="Anotation format" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

@@ -33,6 +33,7 @@ def get_parser():
     parser.add_argument('-align', help='gapped reference file to use for V gene alignments (should contain V genes only), otherwise de novo alignment will be attempted')
     parser.add_argument('-locus', help='locus (default is IGH)')
     parser.add_argument('-sense', help='sense in which to read the assembly (forward or reverse) (will select automatically)')
+    parser.add_argument('-debug', help='produce parsing_errors file with debug information', action='store_true')
     parser.add_argument('output_file', help='output file (csv)')
     return parser
 
@@ -248,6 +249,10 @@ class JAnnotation:
             else:
                 self.j_frame = i
                 self.functionality = 'Functional'
+                for note in self.notes:
+                    if 'conserved' in note:
+                        self.functionality = 'ORF'
+                        break
         else:
             self.notes.append('J-TRP not found')
             self.j_frame = 0
@@ -258,6 +263,7 @@ def process_j(start, end, best, matches):
 
     if len(j_rss) == 0:
         return []
+
 
     # we need to make a call between the rss on the basis of likelihood
     # otherwise we'll get overlapping rss and call js that only differ in a bp or two at the 5' end
@@ -346,8 +352,6 @@ class VAnnotation:
 # then find all possible rss within range
 # evaluate every combination - joint prob and functionality
 def process_v(start, end, best, matches, v_parsing_errors):
-    #if start == 686835:
-    #    breakpoint()
 
     leaders = find_compound_motif('L-PART1', 'L-PART2', 10, 400, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
 
@@ -665,26 +669,58 @@ def find_best_leaders(leaders):
     leader_choices = defaultdict(list)
     for leader in leaders:
         leader_choices[leader.end].append(leader)
+
     best_leaders = {}
     for position, choices in leader_choices.items():
-        l2p = simple.translate(choices[0].right[2:])
-        choices.sort(key=attrgetter('likelihood'), reverse=True)
-        if 'X' not in l2p and '*' not in l2p:
-            for choice in choices:
-                l12p = simple.translate(choice.left + choice.right)
-                if 'X' not in l12p and '*' not in l12p and l12p[0] == 'M':
-                    best_leaders[position] = choice
-                    break
-                else:
-                    if 'X' in l12p or '*' in l12p and 'Stop codon in leader' not in choice.notes:
-                        choice.notes.append('Stop codon in leader')
-                    if l12p[0] != 'M':
-                        choice.notes.append('Leader missing initial ATG')
-        if position not in best_leaders:
-            best_leaders[position] = choices[0]
-            if 'Stop codon in leader' not in best_leaders[position].notes:
-                best_leaders[position].notes.append('Stop codon in leader')
+        good_leaders = []
+        bad_leaders = []
 
+        for choice in choices:
+            bad_start = choice.left[:3] != 'ATG'
+            donor = assembly[choice.start - 1 + len(choice.left):choice.start - 1 + len(choice.left) + 2]
+            bad_donor = donor != 'GT'
+
+            # see whether we can fit a longer or shorter L-PART1
+
+            if bad_donor and not bad_start:
+                for i in [-1, 1]:
+                    donor = assembly[choice.start - 1 + len(choice.left) + i*3:choice.start - 1 + len(choice.left) + 2 + i*3]
+                    if donor == 'GT':
+                        bad_donor = False
+                        choice.left = assembly[choice.start - 1:choice.start - 1 + len(choice.left) + i*3]
+                        choice.notes.append(f'L-PART1 extended by {i} codons')
+
+            acceptor = assembly[choice.end - 1 - len(choice.right) - 1:choice.end - 1 - len(choice.right) + 1]
+            bad_acceptor = acceptor != 'AG'
+            l12p = simple.translate(choice.left + choice.right)
+            stop_codon = 'X' in l12p or '*' in l12p
+
+
+            if bad_start:
+                choice.notes.append('Leader missing initial ATG')
+            if bad_donor:
+                choice.notes.append(f'Bad DONOR-SPLICE: {donor}')
+            if bad_acceptor:
+                choice.notes.append(f'Bad ACCEPTOR-SPLICE: {acceptor}')
+            if stop_codon:
+                choice.notes.append('Stop codon in leader')
+
+            if bad_start or bad_donor or bad_acceptor or stop_codon:
+                bad_leaders.append(choice)
+            else:
+                good_leaders.append(choice)
+
+        if good_leaders:
+            best_leaders[position] = sorted(good_leaders, key=attrgetter('likelihood'), reverse=True)[0]
+        else:
+            bad_leaders.sort(key=attrgetter('likelihood'), reverse=True)
+            for leader in bad_leaders:
+                l2p = simple.translate(leader.right[2:])
+                if not ('X' in l12p or '*' in l12p):
+                    best_leaders[position] = leader
+                    break
+            if position not in best_leaders:
+                best_leaders[position] = bad_leaders[0]
 
     return best_leaders
 
@@ -773,7 +809,7 @@ def reverse_coords(row):
         row[end], row[start_rev] = row[start_rev], row[end]
 
 
-def process_file(this_blast_file, writer):
+def process_file(this_blast_file, writer, write_parsing_errors):
     global assembly
     global assembly_rc
     global J_TRP_MOTIF
@@ -824,15 +860,18 @@ def process_file(this_blast_file, writer):
 
             return count, (total / count) if count > 0 else 99
 
-        print('%d forward alignments, mean evalue %0.2g' % mean_score(forward_gene_alignments))
-        print('%d reverse alignments, mean evalue %0.2g' % mean_score(reverse_gene_alignments))
+        fw_count, fw_score = mean_score(forward_gene_alignments)
+        rev_count, rev_score = mean_score(reverse_gene_alignments)
+
+        print('%d forward alignments, mean evalue %0.2g' % (fw_count, fw_score))
+        print('%d reverse alignments, mean evalue %0.2g' % (rev_count, rev_score))
 
         if manual_sense:
             print(f"Using {manual_sense} sense by request")
 
         co_ordinates_reversed = False
 
-        if manual_sense == 'forward' or (manual_sense is None and len(forward_gene_alignments) > len(reverse_gene_alignments)):
+        if manual_sense == 'forward' or (manual_sense is None and fw_count > rev_count):
             gene_alignments = forward_gene_alignments
             print('Using forward alignments')
         else:
@@ -932,10 +971,11 @@ def process_file(this_blast_file, writer):
         for key in sorted(results.keys()):
             writer.writerow(results[key])
 
-        with open(this_blast_file.replace('.', '_v_parsing_errors.'), 'w', newline='') as fo:
-            writer = csv.writer(fo)
-            for start in sorted(v_parsing_errors.keys()):
-                writer.writerow(v_parsing_errors[start])
+        if write_parsing_errors:
+            with open(this_blast_file.replace('.', '_v_parsing_errors.'), 'w', newline='') as fo:
+                writer = csv.writer(fo)
+                for start in sorted(v_parsing_errors.keys()):
+                    writer.writerow(v_parsing_errors[start])
 
 
 def main():
@@ -1024,8 +1064,8 @@ def main():
             fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_diffs'])
 
         fieldnames.extend(
-            ['likelihood', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer',
-            'functional', 'notes', 'aa', 'v-gene_aligned_aa', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
+            ['functional', 'notes', 'likelihood', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer',
+            'aa', 'v-gene_aligned_aa', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
             '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
             'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev'])
 
@@ -1037,7 +1077,7 @@ def main():
         if '*' not in blast_file:
             assembly = simple.read_single_fasta(assembly_file)
             assembly_length = len(assembly)
-            process_file(blast_file, writer)
+            process_file(blast_file, writer, args.debug)
         else:
             assemblies = {}
             for name, seq in simple.read_fasta(assembly_file).items():
@@ -1054,7 +1094,7 @@ def main():
                         break
 
                 if assembly is not None:
-                    process_file(blast_file_name, writer)
+                    process_file(blast_file_name, writer, args.debug)
                 else:
                     print('no corresponding assembly found for output file %s' % blast_file_name)
 

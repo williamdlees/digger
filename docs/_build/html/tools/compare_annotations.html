@@ -19,7 +19,9 @@
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="digger" href="digger.html" />
+    <link rel="prev" title="calc_motifs" href="calc_motifs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,6 +45,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/human_igh.html">Annotating the human IGH locus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/rhesus_igh.html">Annotating the rhesus macaque IGH locus</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../usage.html">Commandline Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blastresults_to_csv.html">blastresults_to_csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calc_motifs.html">calc_motifs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">compare_annotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#positional-arguments">Positional Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#named-arguments">Named Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="digger.html">digger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="find_alignments.html">find_alignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parse_imgt_annotations.html">parse_imgt_annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotation.html">Anotation format</a></li>
+</ul>
 
         </div>
       </div>
@@ -58,6 +82,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../usage.html">Commandline Usage</a></li>
       <li class="breadcrumb-item active">compare_annotations</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tools/compare_annotations.rst.txt" rel="nofollow"> View page source</a>
@@ -76,7 +101,8 @@
 - a .csv file listing agreements and differences of all sequences annotated by either mmethod</p>
 <p><p>Compare digger results to an IMGT annotation</p>
 </p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">compare_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">nc</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">filter_annot</span> <span class="n">FILTER_ANNOT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">comp_name</span> <span class="n">COMP_NAME</span><span class="p">]</span> <span class="n">digger_results</span> <span class="n">annotation_file</span> <span class="n">sense</span> <span class="n">outfile</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">compare_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">nc</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">filter_annot</span> <span class="n">FILTER_ANNOT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">comp_name</span> <span class="n">COMP_NAME</span><span class="p">]</span>
+                           <span class="n">digger_results</span> <span class="n">annotation_file</span> <span class="n">sense</span> <span class="n">outfile</span>
 </pre></div>
 </div>
 <section id="positional-arguments">
@@ -116,7 +142,10 @@
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calc_motifs.html" class="btn btn-neutral float-left" title="calc_motifs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="digger.html" class="btn btn-neutral float-right" title="digger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
