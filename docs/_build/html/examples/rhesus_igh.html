@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annotating the rhesus macaque IGH locus &mdash; Digger 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Commandline Usage" href="../usage.html" />
+    <link rel="prev" title="Annotating the human IGH locus" href="human_igh.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Digger
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="human_igh.html">Annotating the human IGH locus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Annotating the rhesus macaque IGH locus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-position-weighted-matrices">Preparing position-weighted matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotating-the-assembly">Annotating the Assembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comparing-the-output-to-the-study-s-annotation">Comparing the output to the study’s annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Commandline Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/annotation.html">Anotation format</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Digger</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Annotating the rhesus macaque IGH locus</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/rhesus_igh.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="annotating-the-rhesus-macaque-igh-locus">
+<h1>Annotating the rhesus macaque IGH locus<a class="headerlink" href="#annotating-the-rhesus-macaque-igh-locus" title="Permalink to this heading"></a></h1>
+<p>The IGH locus in the rhemac10 reference assembly has been annotated by IMGT, but here we will annotate a locus sequenced by Cirelli et al. (2019), as an
+example showing how to annotate a locus that is sequenced as multiple contigs.</p>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading"></a></h2>
+<p>The contigs are available from GenBank under ID <a class="reference external" href="https://www.ncbi.nlm.nih.gov/nuccore/SBKD00000000">SBKD00000000</a>, but, for convenience, are available for download here
+<a class="reference external" href="https://github.com/williamdlees/digger/blob/main/data/tests/rhesus_macaque/IGH/LJI/">https://github.com/williamdlees/digger/blob/main/data/tests/rhesus_macaque/IGH/LJI/</a> with the filename  <code class="docutils literal notranslate"><span class="pre">LJI_Rh.PacBio_All.IGH.Contigs.fasta</span></code> . We will use that
+filename in this example. All other files mentioned in the example are available at the same location.</p>
+<p>As in the previous example, the rhesus IGH reference set can be downloaded from IMGT with the <a class="reference external" href="https://williamdlees.github.io/receptor_utils/_build/html/introduction.html">receptor_utils</a> command
+<code class="docutils literal notranslate"><span class="pre">extract_refs</span></code> (receptor_utils is installed as part of Digger’s installation). However, the rhesus IG gapped V-genes provided by IMGT contain additional inserted codons relative to
+the conventional IMGT alignment. As digger (alongside other tools) expects the conventional alignment, a further step is needed to realign the gapped sequences, using the receptor_utils
+tool <code class="docutils literal notranslate"><span class="pre">fix_macaque_gaps</span></code>. The following commands will prepare the reference data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">extract_refs</span> <span class="o">-</span><span class="n">L</span> <span class="n">IGH</span> <span class="s2">&quot;Macaca mulatta&quot;</span>
+<span class="o">&gt;</span> <span class="n">fix_macaque_gaps</span> <span class="n">Macaca_mulatta_IGHV_gapped</span><span class="o">.</span><span class="n">fasta</span> \
+    <span class="n">Macaca_mulatta_IGHV_gapped_fixed</span><span class="o">.</span><span class="n">fasta</span> <span class="n">IGH</span>
+<span class="o">&gt;</span> <span class="n">cat</span> <span class="n">Macaca_mulatta_IGHV</span><span class="o">.</span><span class="n">fasta</span> <span class="n">Macaca_mulatta_IGHD</span><span class="o">.</span><span class="n">fasta</span> <span class="n">Macaca_mulatta_IGHJ</span><span class="o">.</span><span class="n">fasta</span> \
+    <span class="o">&gt;</span> <span class="n">Macaca_mulatta_IGHVDJ</span><span class="o">.</span><span class="n">fasta</span>
+</pre></div>
+</div>
+<p>We will additionally use the reference set published in the 2019 study. The FASTA files are available at the location provided above. The sequences are extracted from Table S1 of the study.
+Due to particulars of the study protocol, the assembly contigs are only expected to include sequences inferred from the ‘primary’ annotation type, not those from the ‘alternate’.</p>
+</section>
+<section id="preparing-position-weighted-matrices">
+<h2>Preparing position-weighted matrices<a class="headerlink" href="#preparing-position-weighted-matrices" title="Permalink to this heading"></a></h2>
+<p>Digger already has PWMs for rhesus IGH, but for the purpose of this example, we will create a set using the features listed in IMGT’s annotation of the rhemac10 IGH locus, which
+has the IMGT accession number IMGT000064. This is how digger’s built-in rhesus PWMs were created. The following commands download the annotation, determine the features, and calculate the PWMs from
+features of functional annotations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">mkdir</span> <span class="n">motifs</span>
+<span class="o">&gt;</span> <span class="n">cd</span> <span class="n">motifs</span>
+<span class="o">&gt;</span> <span class="n">parse_imgt_annotations</span> \
+        <span class="s2">&quot;http://www.imgt.org/ligmdb/view?format=IMGT&amp;id=IMGT000064&quot;</span> \
+        <span class="n">IMGT000064_genes</span><span class="o">.</span><span class="n">csv</span> <span class="n">IGH</span>
+<span class="o">&gt;</span> <span class="n">calc_motifs</span> <span class="n">IMGT000064_genes</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">calc_motifs</span></code> will create 10 motif files in the directory.</p>
+<p>The motifs directory may optionally contain a FASTA file <code class="docutils literal notranslate"><span class="pre">conserved_motifs.fasta</span></code> defining strongly-conserved nucleotides in the RSS and leader. Only those features
+with conserved residues need to be listed in the file. The names follow the filenames used for the PWMs.
+The following sequences were derived from Figure 3 of Ngoune et al. (2022) and will be used in this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">V</span><span class="o">-</span><span class="n">HEPTAMER</span>
+<span class="n">CAC</span><span class="o">---</span><span class="n">G</span>
+<span class="o">&gt;</span><span class="n">V</span><span class="o">-</span><span class="n">NONAMER</span>
+<span class="o">-----</span><span class="n">AACC</span>
+<span class="o">&gt;</span><span class="mi">5</span><span class="s1">&#39;D-HEPTAMER</span>
+<span class="o">----</span><span class="n">GTG</span>
+<span class="o">&gt;</span><span class="mi">5</span><span class="s1">&#39;D-NONAMER</span>
+<span class="o">---</span><span class="n">T</span><span class="o">-----</span>
+<span class="o">&gt;</span><span class="mi">3</span><span class="s1">&#39;D-HEPTAMER</span>
+<span class="n">C</span><span class="o">-</span><span class="n">C</span><span class="o">---</span><span class="n">G</span>
+<span class="o">&gt;</span><span class="mi">3</span><span class="s1">&#39;D-NONAMER</span>
+<span class="o">-</span><span class="n">C</span><span class="o">----</span><span class="n">A</span><span class="o">--</span>
+<span class="o">&gt;</span><span class="n">J</span><span class="o">-</span><span class="n">HEPTAMER</span>
+<span class="n">C</span><span class="o">--</span><span class="n">TGTG</span>
+<span class="o">&gt;</span><span class="n">J</span><span class="o">-</span><span class="n">NONAMER</span>
+<span class="o">-</span><span class="n">GTT</span><span class="o">--</span><span class="n">TG</span><span class="o">-</span>
+</pre></div>
+</div>
+<p>Again, this file is provided for download at the location provided near the top of this example.</p>
+<p>While the presence or absence of conserved residues can be a useful guide to the likely functionality of a sequence, please bear in mind that it is a guide only:
+exceptions can be expected, particularly where the definitions have been built on limited data.</p>
+</section>
+<section id="annotating-the-assembly">
+<h2>Annotating the Assembly<a class="headerlink" href="#annotating-the-assembly" title="Permalink to this heading"></a></h2>
+<p>The digger command is not able to handle multiple contigs, so we will call the underlying tools directly. We start by creating the blast databases and querying against the assembly,
+using the reference genes determined in the study:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cirelli_IGHV</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">nucl</span>
+<span class="o">&gt;</span> <span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cirelli_IGHD</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">nucl</span>
+<span class="o">&gt;</span> <span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">cirelli_IGHJ</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">nucl</span>
+
+<span class="o">&gt;</span> <span class="n">blastn</span> <span class="o">-</span><span class="n">db</span> <span class="n">cirelli_IGHV</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">query</span> <span class="n">LJI_Rh</span><span class="o">.</span><span class="n">PacBio_All</span><span class="o">.</span><span class="n">IGH</span><span class="o">.</span><span class="n">Contigs</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">out</span> <span class="n">LJI_IGHV</span><span class="o">.</span><span class="n">out</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">7</span> <span class="o">-</span><span class="n">gapopen</span> <span class="mi">5</span> <span class="o">-</span><span class="n">gapextend</span> <span class="mi">5</span> <span class="o">-</span><span class="n">penalty</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">word_size</span> <span class="mi">11</span>
+<span class="o">&gt;</span> <span class="n">blastn</span> <span class="o">-</span><span class="n">db</span> <span class="n">cirelli_IGHD</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">query</span> <span class="n">LJI_Rh</span><span class="o">.</span><span class="n">PacBio_All</span><span class="o">.</span><span class="n">IGH</span><span class="o">.</span><span class="n">Contigs</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">out</span> <span class="n">LJI_IGHD</span><span class="o">.</span><span class="n">out</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">7</span> <span class="o">-</span><span class="n">gapopen</span> <span class="mi">5</span> <span class="o">-</span><span class="n">gapextend</span> <span class="mi">5</span> <span class="o">-</span><span class="n">penalty</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">word_size</span> <span class="mi">7</span> <span class="o">-</span><span class="n">evalue</span> <span class="mi">100</span>
+<span class="o">&gt;</span> <span class="n">blastn</span> <span class="o">-</span><span class="n">db</span> <span class="n">cirelli_IGHJ</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">query</span> <span class="n">LJI_Rh</span><span class="o">.</span><span class="n">PacBio_All</span><span class="o">.</span><span class="n">IGH</span><span class="o">.</span><span class="n">Contigs</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">out</span> <span class="n">LJI_IGHJ</span><span class="o">.</span><span class="n">out</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">7</span> <span class="o">-</span><span class="n">gapopen</span> <span class="mi">5</span> <span class="o">-</span><span class="n">gapextend</span> <span class="mi">5</span> <span class="o">-</span><span class="n">penalty</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">word_size</span> <span class="mi">7</span>
+</pre></div>
+</div>
+<p>Note that a higher evalue is used for the D genes, as they can be quite short.</p>
+<p>Next we call <code class="docutils literal notranslate"><span class="pre">blastresults_to_csv</span></code> to convert to a more convenient format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">blastresults_to_csv</span> <span class="n">LJI_IGHV</span><span class="o">.</span><span class="n">out</span> <span class="n">lji_ighvdj_</span>
+<span class="o">&gt;</span> <span class="n">blastresults_to_csv</span> <span class="n">LJI_IGHD</span><span class="o">.</span><span class="n">out</span> <span class="n">lji_ighvdj_</span> <span class="o">-</span><span class="n">a</span>
+<span class="o">&gt;</span> <span class="n">blastresults_to_csv</span> <span class="n">LJI_IGHJ</span><span class="o">.</span><span class="n">out</span> <span class="n">lji_ighvdj_</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>The commands instruct the tool to create merged files containing V,D and J hits. This is achieved by specifying the same prefix on each command <code class="docutils literal notranslate"><span class="pre">(lji_ighvdj_)</span></code> and using the -a (append) option.
+The records created by blastn contain the name of the contig in which a hit was found. <code class="docutils literal notranslate"><span class="pre">blastresults_to_csv</span></code> will create one file per contig. The names contain the ID of the contig in
+<code class="docutils literal notranslate"><span class="pre">LJI_Rh.PacBio_All.IGH.Contigs.fasta</span></code>, except that they are processed to ensure file system compatibility.</p>
+<p>We now call find_alignments to process the annotations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">find_alignments</span><span class="o">.</span><span class="n">py</span> <span class="n">cirelli_IGHVDJ</span><span class="o">.</span><span class="n">fasta</span> \
+     <span class="n">LJI_Rh</span><span class="o">.</span><span class="n">PacBio_All</span><span class="o">.</span><span class="n">IGH</span><span class="o">.</span><span class="n">Contigs</span><span class="o">.</span><span class="n">fasta</span> \
+             <span class="s2">&quot;LJI_IGHVDJ_*.csv&quot;</span> \
+             <span class="o">-</span><span class="n">ref</span> <span class="n">imgt</span><span class="p">,</span><span class="n">Macaca_mulatta_IGHVDJ</span><span class="o">.</span><span class="n">fasta</span> \
+             <span class="o">-</span><span class="n">ref</span> <span class="n">cirelli</span><span class="p">,</span><span class="n">cirelli_IGHVDJ</span><span class="o">.</span><span class="n">fasta</span> \
+             <span class="o">-</span><span class="n">align</span> <span class="n">Macaca_mulatta_IGHV_gapped_fixed</span><span class="o">.</span><span class="n">fasta</span> \
+             <span class="o">-</span><span class="n">motif_dir</span> <span class="n">motifs</span> \
+             <span class="n">cirelli_annotations</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+<p>Note that the third argument, <code class="docutils literal notranslate"><span class="pre">&quot;LJI_IGHVDJ_*.csv&quot;</span></code>, contains a wildcard that will match all the files produced in the previous step. It is quoted to avoid expansion by the shell. The
+-ref arguments will cause the output
+file to report the nearest sequence in both the IMGT and Cirelli germline sets, and V-genes in the annotation will be gapped using the fixed IMGT gapped set as a template.
+<code class="docutils literal notranslate"><span class="pre">find_alignments</span></code> will attempt to deduce the sense in which to annotate each segment. This is helpful in this case as the contigs vary in their orientation.  Note that we are
+specifying the location of the motifs directory created in the previous step rather than the species and locus, which would cause digger to use the built-in tables.</p>
+</section>
+<section id="comparing-the-output-to-the-study-s-annotation">
+<h2>Comparing the output to the study’s annotation<a class="headerlink" href="#comparing-the-output-to-the-study-s-annotation" title="Permalink to this heading"></a></h2>
+<p>The script <code class="docutils literal notranslate"><span class="pre">compare_cirelli.py</span></code>, which will be found with the other files mentioned in this example, creates two files showing the correspondence between the original annotation in the study and
+that provided by digger using the process above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="n">compare_cirelli</span><span class="o">.</span><span class="n">py</span>  <span class="n">cirelli_table_s1</span><span class="o">.</span><span class="n">csv</span> <span class="n">cirelli_annotations</span><span class="o">.</span><span class="n">csv</span> <span class="n">IGH</span>
+</pre></div>
+</div>
+<p>The output file <code class="docutils literal notranslate"><span class="pre">cirelli_table_s1_with_digger_hits.csv</span></code> recapitulates the relevant data from the study table S1, with an additional column showing whether and where where the sequence was found in the digger annotation.
+It shows that all genes identified in the study’s annotation of the IGH locus using the ‘primary’ method of annotation were listed also by digger, with the exception of one D gene, LJI.Rh_IGHD4.22.
+This gene sequence was identified by BLAST in the digger run, but was not listed in the file as neither 3’ nor 5’ RSS passed the PWM threshold and were therefore both regarded as invalid. As D gene
+sequences are short, a sequence match with invalid RSS at each end is a frequent false positive.</p>
+<p>Of the remaining 112 genes, which were all classified as F/ORF in the study, digger categorised 97 as functional, 13 as ORF and 2 as pseudogenes.  Among the functional and ORF genes, the length of the
+coding sequence assigned by digger differed from that in Table S1 on 12 occasions, indicating differences in the identification of the RSS.
+Of the two that digger classed as pseudogenes,
+LJI.Rh_IGHV1.138 is noted as ‘Leader missing initial ATG, Stop codon in leader’ and LJI.Rh_IGHV3.107 as ‘Stop codon in leader, First cysteine not found’. Interestingly, LJI.Rh_IGHV1.138
+was observed in repertoires during the course of the study, suggesting either an error in digger’s annotation, or a sequencing error.</p>
+<p>The output file <code class="docutils literal notranslate"><span class="pre">digger_F_ORF_with_cirelli_annots.csv</span></code> lists 3 functional V-genes and 7 functional D-genes identified by digger but not in Table S1. Three of the D-genes and two of the V-genes have exact
+matches in the IMGT reference set.</p>
+<p>Overall, the results are in good agreement, with, nevertheless, some interesting points of detail that merit further examination.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<p>Cirelli et al., 2019, Slow Delivery Immunization Enhances HIV Neutralizing Antibody and Germinal Center Responses via Modulation of Immunodominance. <em>Cell</em> <a class="reference external" href="https://doi.org/10.1016/j.cell.2019.04.012">doi: 10.1016/j.cell.2019.04.012</a>.</p>
+<p>Ngoune et al., 2022, IMGT® Biocuration and Analysis of the Rhesus Monkey IG Loci. <em>Vaccines</em> <a class="reference external" href="https://www.mdpi.com/2076-393X/10/3/394#">doi: 10.3390/vaccines10030394</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="human_igh.html" class="btn btn-neutral float-left" title="Annotating the human IGH locus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../usage.html" class="btn btn-neutral float-right" title="Commandline Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, William Lees.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

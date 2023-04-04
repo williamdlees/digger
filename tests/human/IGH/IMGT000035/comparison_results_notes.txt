@@ -1,0 +1,34 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+4969,5264  imgt_match: IGHV7-81*01  imgt_func: ORF digger_match: IGHV7-81*01  digger_func: functional  notes: 
+..imgt: unusual heptamer
+28424,28751  imgt_match:   imgt_func:  digger_match: IGHV5-78*01  digger_func: functional  notes: 
+..deletion in IMGT's annotated sequence affecting RSS but this assembly has a finctional RSS
+469062,469353  imgt_match: IGHV3-38*02  imgt_func: ORF digger_match: IGHV3-38*02  digger_func: functional  notes: 
+..imgt annotation: ORF because this gene has not been found rearranged.
+
+Functional sequences reported by IMGT but not by digger:
+603004,603299  imgt_match:  imgt_func: functional digger_match: IGHV1-24*01  digger_func: pseudo  notes: Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: GC
+...IMGT notes: noncanonical DONOR-SPLICE: ngc instead of FT                       ngt, however this V-GENE has been seen rearranged in FT                       vivo
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+1014594,1014646  imgt_match: IGHJ2*01  imgt_func: ORF digger_match: IGHJ2*01  digger_func: functional  notes: 
+...now annotatedin the IMGT system as functional
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:

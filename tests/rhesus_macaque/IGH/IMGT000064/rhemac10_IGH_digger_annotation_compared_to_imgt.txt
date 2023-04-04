@@ -1,0 +1,38 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+1139361,1139658  imgt_match: IGHV4-57*01  imgt_func: pseudo digger_match: IGHV4-57*02  digger_func: functional  notes: 
+
+Functional sequences reported by IMGT but not by digger:
+3205,3502  imgt_match: IGHV3-201*01  imgt_func: functional digger_match: IGHV3-201*01  digger_func: orf  notes: V-NONAMER has variation at strongly conserved residue(s): --------G
+80078,80373  imgt_match: IGHV7-193*01  imgt_func: functional digger_match: IGHV7-193*01  digger_func: pseudo  notes: Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: GT
+235627,235925  imgt_match: IGHV3-176*01  imgt_func: functional digger_match: IGHV3-176*01  digger_func: orf  notes: First cysteine not found
+737126,737421  imgt_match: IGHV7-114*01  imgt_func: functional digger_match: IGHV7-114*01  digger_func: orf  notes: V-NONAMER has variation at strongly conserved residue(s): ------G--
+753595,753890  imgt_match: IGHV1-111*01  imgt_func: functional digger_match: IGHV1-111*01  digger_func: pseudo  notes: Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: GC
+1062793,1063088  imgt_match: IGHV1-70*01  imgt_func: functional digger_match: IGHV1-70*01  digger_func: pseudo  notes: Bad DONOR-SPLICE: TA, Bad ACCEPTOR-SPLICE: GG
+1432197,1432486  imgt_match: IGHV3-12*01  imgt_func: functional digger_match: IGHV3-12*01  digger_func: orf  notes: V-NONAMER has variation at strongly conserved residue(s): -----CCT-
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+135706,135742  imgt_match:   imgt_func:  digger_match: IGHD2-27*01  digger_func: functional  notes: 
+
+Functional sequences reported by IMGT but not by digger:
+1628631,1628645  imgt_match: IGHD4-11*01  imgt_func: functional digger_match: IGHD4-11*01  digger_func: orf  notes: 5' 5'D-HEPTAMER has variation at strongly conserved residue(s): ----A--, 3' 3'D-HEPTAMER has variation at strongly conserved residue(s): --A----
+1638176,1638191  imgt_match: IGHD4-17*01  imgt_func: functional digger_match:   digger_func:   notes: 
+1672047,1672063  imgt_match: IGHD1-38*01  imgt_func: functional digger_match:   digger_func: orf  notes: 5' 5'D-HEPTAMER has variation at strongly conserved residue(s): -----CA, 3' 3'D-NONAMER has variation at strongly conserved residue(s): -A-------
+1678577,1678599  imgt_match: IGHD5-42*01  imgt_func: functional digger_match:   digger_func:   notes: 
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+1703148,1703200  imgt_match: IGHJ2*01  imgt_func: functional digger_match: IGHJ2*01  digger_func: orf  notes: J-HEPTAMER has variation at strongly conserved residue(s): G------
+
+Functional sequences reported by both IMGT and digger but with different sequences:

@@ -1,0 +1,40 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+269349,269650  imgt_match: IGKV2-83*01  imgt_func: pseudo digger_match: IGKV2-83*01  digger_func: functional  notes: 
+...imgt notes: STOP-CODON in V-REGION: position 110. 
+...Digger allows stop codons after position 104 as they may be excised during junction formation
+582014,582300  imgt_match: IGKV1-52*01  imgt_func: ORF digger_match: IGKV1-52*01  digger_func: functional  notes: 
+...imgt notes: noncanonical V-HEPTAMER: cacgctg instead of cacagtg
+...digger has a less stringent consensus check
+829837,830138  imgt_match: IGKV2-34*01  imgt_func: pseudo digger_match: IGKV2-34*01  digger_func: functional  notes: 
+...imgt notes: no INIT-CODON: Ile instead of Met, frameshift in L-PART1
+...digger identified a functional L-PART1 that met the PWM likelihood threshold
+1194603,1194892  imgt_match: IGKV3-12*01  imgt_func: pseudo digger_match: IGKV3-12*01  digger_func: functional  notes: 
+...imgt notes: no L-PART1
+...digger identified a functional L-PART1 that met the PWM likelihood threshold
+
+Functional sequences reported by IMGT but not by digger:
+724925,725211  imgt_match: IGKV1-41*01  imgt_func: functional digger_match: IGKV1-41*01  digger_func: pseudo  notes: Leader missing initial ATG
+...IMGT's identified leader has a likelihood below digger's PWM likelihood threshold threshold
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+1343426,1343463  imgt_match: IGKJ5*01  imgt_func: functional digger_match: IGKJ5*01  digger_func: orf  notes: J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): T------
+...IMGT notes: unexpected J-SPACER length: 19 nt instead of 23 nt, however this J-GENE has been found rearranged
+
+Functional sequences reported by both IMGT and digger but with different sequences:

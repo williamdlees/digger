@@ -1,0 +1,30 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+269349,269650  imgt_match: IGKV2-83*01  imgt_func: pseudo digger_match: IGKV2-83*01  digger_func: functional  notes: 
+582014,582300  imgt_match: IGKV1-52*01  imgt_func: ORF digger_match: IGKV1-52*01  digger_func: functional  notes: 
+829837,830138  imgt_match: IGKV2-34*01  imgt_func: pseudo digger_match: IGKV2-34*01  digger_func: functional  notes: 
+1194603,1194892  imgt_match: IGKV3-12*01  imgt_func: pseudo digger_match: IGKV3-12*01  digger_func: functional  notes: 
+
+Functional sequences reported by IMGT but not by digger:
+724925,725211  imgt_match: IGKV1-41*01  imgt_func: functional digger_match: IGKV1-41*01  digger_func: pseudo  notes: Leader missing initial ATG
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+1343426,1343463  imgt_match: IGKJ5*01  imgt_func: functional digger_match: IGKJ5*01  digger_func: orf  notes: J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): T------
+
+Functional sequences reported by both IMGT and digger but with different sequences:

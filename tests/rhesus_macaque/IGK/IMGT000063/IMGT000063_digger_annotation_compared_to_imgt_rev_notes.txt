@@ -1,0 +1,27 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+18428,18730  imgt_match: IGKV2-103*01  imgt_func: pseudo digger_match: IGKV2-103*01  digger_func: functional  notes: Gene reversed
+...imgt notes: STOP-CODON in V-REGION: position 110. 
+...Digger allows stop codons after position 104 as they may be excised during junction formation
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:

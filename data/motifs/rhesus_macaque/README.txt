@@ -1,1 +1,0 @@
-IGK and IGL matrices for V genes are based on sequences extracted from IMGT annotation of rhemac10. Other matrices are identical to human. 

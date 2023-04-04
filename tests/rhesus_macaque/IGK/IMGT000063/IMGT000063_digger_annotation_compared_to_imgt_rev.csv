@@ -1,0 +1,46 @@
+imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
+10001,10309,V,10001,10309,IGKV2-105*01,IGKV2-78*01,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+13545,13849,V,13545,13849,IGKV2-104*01,IGKV2-104*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+18428,18730,V,18428,18730,IGKV2-103*01,IGKV2-103*01,pseudo,Functional,Yes,No,Yes,Yes,Gene reversed
+29843,30127,V,29843,30124,IGKV3-102*01,IGKV3S9*01,pseudo,pseudo,No,Yes,Digger is shorter by 3 nt,Yes,"Gene reversed, Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): A-T----"
+,,J,31030,31048,,,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): -C-A-G-, J-TRP not found"
+,,V,34391,34718,,IGKV4-1*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+,,V,34409,34724,,IGKV4-1*02,,pseudo,No,No,No,No,"Gene reversed, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): ------T"
+46222,46508,V,46222,46508,IGKV1-101*01,IGKV1-101*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+58394,58691,V,58394,58691,IGKV2-100*01,IGKV2-78*01,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
+,,V,72022,72305,,IGKV3S9*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+,,V,77089,77375,,IGKV1-74*01,,ORF,No,No,No,No,"Gene reversed, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,V,136907,137187,,IGKV1-74*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): --A---A, V-NONAMER has variation at strongly conserved residue(s): G--------"
+254180,254487,V,254163,254487,IGKV2-85*01,IGKV2-91*01,pseudo,pseudo,No,Yes,Digger is longer by 17 nt,No,"Gene reversed, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: GA, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
+,,V,323215,323495,,IGKV1-19*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: AA, Bad ACCEPTOR-SPLICE: CA, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): T------, V-NONAMER has variation at strongly conserved residue(s): -----G---"
+,,J,326792,326817,,IGKJ1*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-TRP not found"
+,,J,342628,342676,,IGKJ2*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): G-----C, J-TRP not found"
+,,J,482715,482742,,IGKJ1*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER has variation at strongly conserved residue(s): -----GCCG, J-HEPTAMER has variation at strongly conserved residue(s): GT-----, J-TRP not found"
+,,V,597393,597669,,IGKV6-67*01,,pseudo,No,No,No,No,"Gene reversed, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AT, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found"
+,,V,676595,676875,,IGKV1-94*01,,ORF,No,No,No,No,"Gene reversed, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,V,696057,696331,,IGKV1-74*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,J,736907,736927,,IGKJ1*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER has variation at strongly conserved residue(s): ---GC---G, J-HEPTAMER has variation at strongly conserved residue(s): -T---A-, J-TRP not found"
+,,J,769824,769860,,IGKJ3*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): G------, J-TRP not found"
+,,V,787459,787740,,IGKV1-94*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad ACCEPTOR-SPLICE: CT, Stop codon in leader, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,V,804456,804727,,IGKV1-37*02,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,V,864263,864549,,IGKV2-2*02,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: CC, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,V,961892,962175,,IGKV1-74*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,J,1026226,1026277,,IGKJ1*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): -----AC, J-TRP not found"
+,,V,1034227,1034516,,IGKV1-6*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TT, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,V,1109863,1110152,,IGKV1-6*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad ACCEPTOR-SPLICE: GT, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,V,1126989,1127272,,IGKV1-94*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine, V-NONAMER has variation at strongly conserved residue(s): G--------"
+,,V,1153886,1154199,,IGKV2-58*02,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: AA, Bad ACCEPTOR-SPLICE: TG, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+1201994,1202280,V,1201994,1202280,IGKV5-11*01,IGKV5-11*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+1211190,1211476,V,1211190,1211476,IGKV3-10*01,IGKV3-10*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,V,1213722,1214029,,IGKV3-10*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad ACCEPTOR-SPLICE: TT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): -----A-"
+1213885,1214029,V,,,IGKV(II)-9*01,,pseudo,,No,No,No,No,
+1229225,1229520,V,1229225,1229520,IGKV2-7*01,IGKV2-7*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+,,V,1236633,1236923,,IGKV2S3*01,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+,,V,1239296,1239584,,IGKV1-25*02,,pseudo,No,No,No,No,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): T------"
+1257951,1258237,V,1257951,1258237,IGKV1-6*01,IGKV1-6*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+1269201,1269487,V,1269201,1269487,IGKV5-5*01,IGKV5-5*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+1292396,1292692,V,1292396,1292692,IGKV(II)-4*01,IGKV4-1*01,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
+1303712,1303991,V,1303712,1303992,IGKV4-3*01,IGKV4-1*01,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): T------, V-NONAMER has variation at strongly conserved residue(s): -----GT--"
+1318585,1318889,V,1318585,1318889,IGKV4-1*01,IGKV4-1*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,J,1331716,1331751,,IGKJ3*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): G------, J-TRP not found"
+,,J,1352893,1352939,,IGKJ1*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER has variation at strongly conserved residue(s): -A-G-A---, J-HEPTAMER has variation at strongly conserved residue(s): -----A-, J-TRP not found"
