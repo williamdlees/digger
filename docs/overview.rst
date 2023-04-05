@@ -14,7 +14,7 @@ Digger starts by searching the sequence for approximate matches to sequences in 
 at either end is then checked for the expected flanking sequences (e.g. leader, RSS). These are identified by means of position weight matrices (PWMs). The flanking sequences have a well-established 
 'canonical' form that is conserved between species. Digger contains PWMs for human and rhesus macaque IG loci, and these can be used as a starting point for other species. However, as some variation
 is observed between species, Digger also contains tools for deriving tailored PWMs for a species of interest. These can be obtained from an existing annotation of the locus, or from an initial
-annotation conducted with the human or rhseus PWMs.
+annotation conducted with the human or rhesus PWMs.
 
 A brief summary of the tools contained in the package is given below. In most cases, annotation can be performed with the `digger` tool. This will call subsidiary tools as necessary. Please refer 
 to the Examples section for more information.

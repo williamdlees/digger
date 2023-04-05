@@ -352,7 +352,7 @@ class VAnnotation:
 # then find all possible rss within range
 # evaluate every combination - joint prob and functionality
 def process_v(start, end, best, matches, v_parsing_errors):
-    #if start == 724925:
+    #if start == 80078:
     #    breakpoint()
 
     leaders = find_compound_motif('L-PART1', 'L-PART2', 10, 600, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
@@ -681,8 +681,10 @@ def find_best_leaders(leaders):
     # i.e. change_in_right + change_in_left = [some multiple of 3 up to a limit]
     def change_in_right(change_in_left):
         ret = []
-        for i in spread(9, 3):
-            ret.append(0 - (change_in_left % 3) + i)
+        for i in spread(12, 3):
+            c = i - (change_in_left % 3)
+            if c > -7:
+                ret.append(c)
         return list(ret)
 
     leader_choices = defaultdict(list)
@@ -700,7 +702,7 @@ def find_best_leaders(leaders):
             except:
                 print('bar')
 
-            #if position == 686834 and not bad_start:
+            #if position == 829836 and not bad_start and choice.start == 829451:
             #    breakpoint()
 
             for i in spread(10):
@@ -709,17 +711,16 @@ def find_best_leaders(leaders):
                 bad_acceptor = None
 
                 if not bad_donor:
-                    for j in change_in_right(i):
-                        acceptor = assembly[choice.end - len(choice.right) - j:choice.end - len(choice.right) - j + 2]
+                    # a negative j should make the right smaller, i.e. the start co-ordinate bigger
+                    for j in change_in_right(len(choice.left) + len(choice.right) + i):
+                        acceptor = assembly[choice.end - len(choice.right) - j - 2:choice.end - len(choice.right) - j]
                         bad_acceptor = acceptor != 'AG'
                         if not bad_acceptor:
                             cl = assembly[choice.start - 1:choice.start - 1 + len(choice.left) + i]
-                            cr = assembly[choice.end - len(choice.right) - j + 2: choice.end]
+                            cr = assembly[choice.end - len(choice.right) - j: choice.end]
                             l12p = simple.translate(cl + cr)
 
-                            # assume L-PART2 length should not fall below 2 codons
-
-                            if len(cr) >= 6 and not ('X' in l12p or '*' in l12p):
+                            if not ('X' in l12p or '*' in l12p):
                                 choice.right = cr
                                 choice.left = cl
                                 break
@@ -733,7 +734,6 @@ def find_best_leaders(leaders):
 
             l12p = simple.translate(choice.left + choice.right)
             stop_codon = 'X' in l12p or '*' in l12p
-
 
             if bad_start:
                 choice.notes.append('Leader missing initial ATG')

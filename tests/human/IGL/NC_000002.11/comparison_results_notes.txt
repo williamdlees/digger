@@ -1,12 +1,18 @@
 
+The comparison here is with Supplementary Table 2 from Watson et al., 2015, "Sequencing of the human IG light chain loci from a hydatidiform mole BAC library 
+reveals locus-specific signatures of genetic diversity." Genes Immun., doi: 10.1038/gene.2014.56. 
+ 
+Watson et al. derived the gene functionality from IMGT's database, hence the notes here refer both to Watson et al.'s annotation and IMGT's classification
+
 
 type: V
 Functional sequences reported by digger but not by Watson et al.:
 62654,62977  imgt_match:   imgt_func:  digger_match: IGLV5-37*02  digger_func: functional  notes: 
 ...no allele was found at this location in the annotation by Watson et al. 
-...IGLV5-37*02 is in the OMGT reference set, but is not listed in the gene table.IGLV5-37*01 is listed as functional
+...IGLV5-37*02 is in the IMGT reference set, but is not listed in the IMGT gene table. IGLV5-37*01 is listed as functional
 301443,301741  imgt_match: IGLV1-50*01  imgt_func: ORF digger_match: IGLV1-50*01  digger_func: functional  notes:
 ..imgt: Non-conserved OCTAMER sequence: ctgcacaa instead of atttgcat, non-conserved TATA_BOX, and unusual V-NONAMER sequence: agaagaacc instead of acaaaaacc 
+...digger currently uses a more lenient filter for the V-NONAMER, and does not check the L-PART1 OCTAMER motif.
 
 Functional sequences reported by Watson et al. but not by digger:
 
