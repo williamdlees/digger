@@ -9,7 +9,7 @@
 project = 'Digger'
 copyright = '2023, William Lees'
 author = 'William Lees'
-release = '0.1'
+release = '0.5.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

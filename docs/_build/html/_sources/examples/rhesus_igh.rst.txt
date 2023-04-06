@@ -1,4 +1,4 @@
-.. _ rhesus_igh:
+.. _rhesus_igh:
 
 Annotating the rhesus macaque IGH locus
 =======================================

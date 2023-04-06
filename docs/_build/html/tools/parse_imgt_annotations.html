@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>parse_imgt_annotations &mdash; Digger 0.1 documentation</title>
+  <title>parse_imgt_annotations &mdash; Digger 0.5.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -49,6 +49,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/human_igh.html">Annotating the human IGH locus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/rhesus_igh.html">Annotating the rhesus macaque IGH locus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/additional_examples.html">Additional Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Usage Documentation</span></p>
 <ul class="current">
@@ -97,7 +98,7 @@
 <span id="id1"></span><h1>parse_imgt_annotations<a class="headerlink" href="#parse-imgt-annotations" title="Permalink to this heading"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">parse_imgt_annotations</span></code> downloads an IMGT annotation file or or uses a file already downloaded. It parses the file to provide a list of annotated features.
 Optionally it will also store the file downloaded, and create a FASTA file containing the annotated assembly.
-Please refer to <span class="xref std std-ref">human_igh</span> for example usage.</p>
+Please refer to <a class="reference internal" href="../examples/human_igh.html#human-igh"><span class="std std-ref">Annotating the human IGH locus</span></a> for example usage.</p>
 <p><p>Given a set of IMGT annotations, build a CSV file containing gene names and co-ordinates</p>
 </p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">parse_imgt_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_download</span> <span class="n">SAVE_DOWNLOAD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_sequence</span> <span class="n">SAVE_SEQUENCE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_imgt_annots</span> <span class="n">SAVE_IMGT_ANNOTS</span><span class="p">]</span> <span class="n">imgt_url</span> <span class="n">outfile</span> <span class="n">locus</span>
