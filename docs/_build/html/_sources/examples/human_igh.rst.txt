@@ -1,9 +1,10 @@
-.. human_igh:
+.. _human_igh:
 
 Annotating the human IGH locus
 ==============================
 
 The IGHV locus in the human reference assembly GRCh38.p12 has been annotated by IMGT. In this example, we will annotate with Digger and compare results.
+The comparison, and a script to reproduce it using the steps below, can be found `in digger's Git repository <https://github.com/williamdlees/digger/tree/main/tests/human/IGH/IMGT000035>`__.
 
 Data
 ****
@@ -72,12 +73,18 @@ Comparing the output to IMGT's annotation
 The final argument specifies that the results should be put into files named ``comparison_results``. Three files are produced with differing extensions: a summary graphic (.jpg), a text file listing differences 
 in sequences annotated as functional (.txt), and a detailed line-by-line comparison (.csv).
 
-``comparison_results.jpg`` summarises functional annotations found by digger and IMGT, according to which, digger annotated as functional all genes so annotated by IMGT, and annotated an additional 4 V-genes and
-one J-gene as functional. Turning to ``comparison_results.txt``, we see that one of the additional four V-genes, with a start location of 28424, was not identified in the IMGT annotation. Two other V-genes, and the additional J-gene,
-were annotated by IMGT as ORF rather than functional, and one, at 682852, as a pseudogene: this can be found in line-by-line comparison in ``comparison_results.csv``. The IMGT annotations, which can be checked on line,
-indicate that no leader was identified. Digger identified a leader that passed the PWM threshold, and a V-region sequence that matches the IMGT reference sequence for IGHV3-19*01.
+`comparison_results.jpg <https://github.com/williamdlees/digger/blob/main/tests/human/IGH/IMGT000035/comparison_results.jpg>`__ summarises functional annotations found by digger and IMGT, according to which, 
+digger annotated as functional all genes so annotated by IMGT, and annotated an additional 2 V-genes and one J-gene as functional.
 
-There is not, at present, a clear set of accepted criteria for categorisation of functionality, and differences are therefore to be expected. Over the next few years, we expect to see comparisons of genomic 
+.. image:: igh_results.jpg
+   :width: 600
+
+`comparison_results.txt <https://github.com/williamdlees/digger/blob/main/tests/human/IGH/IMGT000035/comparison_results.txt>`__ lists the differences in functional analysis in detail.
+`comparison_results_notes.txt <https://github.com/williamdlees/digger/blob/main/tests/human/IGH/IMGT000035/comparison_results_notes.txt>`__ adds some commentary: of the two additional
+V-genes annotated by digger as functional, one has unusual variations in the RSS, causing IMGT to annotate it as ORF. The other is annotated as ORF on the grounds that it has not been
+seen rearranged. The additional J-gene is currently annotated by IMGT in the assembly as ORF, although it is listed in the IMGT gene table as functional.
+
+There is not, at present, a clear set of accepted criteria for categorisation of functionality, and minor differences of this nature are to be expected. Over the next few years, we expect to see comparisons of genomic 
 sequencing of the loci with the expressed repertoire across multiple subjects, and this should allow a deeper understanding to develop. Overall, the comparison of digger results with the manually supervised curation
 at IMGT shows a good level of agreement. It is possible that results may change from those noted here, as they are based on downloaded data which may be revised over time.
 

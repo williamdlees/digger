@@ -7,9 +7,6 @@ Watson et al. derived the gene functionality from IMGT's database, hence the not
 
 type: V
 Functional sequences reported by digger but not by Watson et al.:
-121106,121395  imgt_match:  imgt_func: ORF digger_match: IGKV3-7*04  digger_func: functional  notes: Gene reversed
-...IMGT notes on curated sequence: In the absence of complete sequence the functionality ORF has been assigned based on the other alleles.
-...IMGT's classification was based on a different assembly. In this assembly we have the complete sequence.
 220659,220960  imgt_match:   imgt_func:  digger_match: IGKV2D-29*01  digger_func: functional  notes: Gene reversed
 ..imgt: 2-29*01 annotated as P because of STOP-CODON at position 88 in FR3-IMGT.
 ..IMGT's classification was based on a different assembly. In this assembly there is no stop codon.

@@ -1,20 +1,22 @@
-.. human_igh:
+.. _ rhesus_igh:
 
 Annotating the rhesus macaque IGH locus
 =======================================
 
 In this example we will see how to:
-- How to create PWMs from existing IMGT annotations
-- Use the underlying commands that digger calls, and how they might be useful when annotating multiple contigs or scaffolds
 
-IMGT has identified scaffolds in the 2006 rhesus macaque reference assembly, Mmul_051212, which lie within the IGH locus. Here we will bring them together in a single file and annotate them with PWMs derived from the current reference assembly, rhemac10 (Mmul_10).
+* Create position weight matrices from existing IMGT annotations
+* Use the underlying commands that digger calls, and understand how they might be useful when annotating multiple contigs or scaffolds
+
+IMGT has identified scaffolds in the 2006 rhesus macaque reference assembly, Mmul_051212, which lie within the IGH locus. Here we will bring them together in a single file and annotate them with motifs derived from the current reference assembly, rhemac10 (Mmul_10).
 While this example is somewhat artificial, in that the scaffolds could equally well be handled individually using the digger command, the approach is useful where the number of sequences to be processed
-is large. It also serves to show how the individual commands in the package can be used. This provides some additional flexibility, for example in tuning the blast searches, and also illsutates how they work together.
+is large. The example also serves to show how the individual commands in the package can be used. This provides some additional flexibility, for example in tuning the blast searches, and also illustrates how they work together.
+The comparison with IMGT's annotation of Mmul_051212, and a script to reproduce this example using the steps below, can be found `in digger's Git repository <https://github.com/williamdlees/digger/tree/main/tests/rhesus_macaque/IGH/Mmul_521212>`__.
 
 Data
 ****
 
-As in the previous example, the rhesus IGH reference set can be downloaded from IMGT with the `receptor_utils <https://williamdlees.github.io/receptor_utils/_build/html/introduction.html>`__ command 
+As in the previous example, the rhesus IGH germline reference set can be downloaded from IMGT with the `receptor_utils <https://williamdlees.github.io/receptor_utils/_build/html/introduction.html>`__ command 
 ``extract_refs`` (receptor_utils is installed as part of digger's installation). However, the rhesus IG gapped V-genes provided by IMGT contain additional inserted codons relative to
 the conventional IMGT alignment. As digger (alongside other tools) expects the conventional alignment, a further step is needed to realign the gapped sequences, using the receptor_utils 
 tool ``fix_macaque_gaps``. The following commands will prepare the reference data::
@@ -25,7 +27,7 @@ tool ``fix_macaque_gaps``. The following commands will prepare the reference dat
    > cat Macaca_mulatta_IGHV.fasta Macaca_mulatta_IGHD.fasta Macaca_mulatta_IGHJ.fasta \
        > Macaca_mulatta_IGHVDJ.fasta
 	   
-The Mmul_51212 can be downloaded from IMGT as follows::
+The Mmul_51212 scaffolds can be downloaded from IMGT as follows::
 
    > parse_imgt_annotations --save_sequence NW_001157919.fasta \
       "https://www.imgt.org/ligmdb/view.action?format=IMGT&id=NW_001157919" \
@@ -52,7 +54,7 @@ Preparing position-weighted matrices
 ************************************
 
 Digger already has PWMs for rhesus IGH, but for the purpose of this example, we will create a set using the features listed in IMGT's annotation of the rhemac10 IGH locus, which 
-has the IMGT accession number IMGT000064. This is how digger's built-in rhesus PWMs were created. The following commands download the annotation, determine the features, and calculate the PWMs from 
+has the IMGT accession number IMGT000064. The following commands download the annotation, determine the features, and calculate the PWMs from 
 features of functional annotations::
 
    > mkdir motifs
@@ -120,7 +122,7 @@ The commands instruct the tool to create merged files containing V,D and J hits.
 The records created by blastn contain the name of the contig in which a hit was found. ``blastresults_to_csv`` will create one file per contig. The names contain the ID of the contig in 
 ``Mmul_051212.fasta``, except that they are modified where necessary to ensure file system compatibility.
 
-We now call find_alignments to process the annotations::
+We now call ``find_alignments`` to process the annotations::
 
     > find_alignments Macaca_mulatta_IGHVDJ.fasta \
 	   Mmul_051212.fasta \
@@ -165,26 +167,26 @@ Comparing the output to the study's annotation
     > compare_annotations NW_001121240_digger.csv NW_001121240_genes.csv forward NW_001121240_comp
 
 
+Scaffold-by-scaffold comparisons are provided in `Github <https://github.com/williamdlees/digger/tree/main/tests/rhesus_macaque/IGH/Mmul_051212>`__.
+and an overall comparison is provided `here <https://github.com/williamdlees/digger/tree/main/tests/rhesus_macaque/IGH/Mmul_051212/comparison_notes.txt>`__.
+One sequence, in NW_001121240, is annotated as functional by digger but not by IMGT, who report no V-RS. Digger identifies a different start co-ordinate for the V-REGION, 
+and finds a potentially functional RSS. Two V-sequences are identified as functional by IMGT but not by digger; one of thes has Ns in the leader, while the other 
+lies at the extreme 5' end of the scaffold and the RSS is not fully represented: these issues caused digger not to annotate the sequences as functional.
 
-The output file ``cirelli_table_s1_with_digger_hits.csv`` recapitulates the relevant data from the study table S1, with an additional column showing whether and where where the sequence was found in the digger annotation.
-It shows that all genes identified in the study's annotation of the IGH locus using the 'primary' method of annotation were listed also by digger, with the exception of one D gene, LJI.Rh_IGHD4.22.
-This gene sequence was identified by BLAST in the digger run, but was not listed in the file as neither 3' nor 5' RSS passed the PWM threshold and were therefore both regarded as invalid. As D gene
-sequences are short, a sequence match with invalid RSS at each end is a frequent false positive. 
+Digger identified a total of 13 potentially functional D-genes not annotated by IMGT, across four of the five scaffolds, while IMGT annotated D-genes only in NW_001121239. The macaque IGHD genes are known 
+to occupy a small, distinct, region towards the 3' end of the IGH locus. It would therefore be reasonable to expect them to be located in a single scaffold, and to be 
+distinct from the V-genes. However, given the sequencing technology available for sequencing and assembly when the scaffolds were created, and bearing
+in mind the short length of the D-genes, it is possible that the D-locus was not correctly assembled. Another reason for suspecting this is that two of the D-sequences 
+identified by Digger are extremely short, at 3nt and 1nt, and yet appear to be flanked by functional RSS. In contrast, in an 
+`annotation of the rhemac10 assembly <https://github.com/williamdlees/digger/tree/main/tests/rhesus_macaque/IGH/IMGT000064>`__, Digger identified only one D-gene 
+not annotated by IMGT (this was also outside the D locus).
 
-Of the remaining 112 genes, which were all classified as F/ORF in the study, digger categorised 97 as functional, 13 as ORF and 2 as pseudogenes.  Among the functional and ORF genes, the length of the
-coding sequence assigned by digger differed from that in Table S1 on 12 occasions, indicating differences in the identification of the RSS.
-Of the two that digger classed as pseudogenes,
-LJI.Rh_IGHV1.138 is noted as 'Leader missing initial ATG, Stop codon in leader' and LJI.Rh_IGHV3.107 as 'Stop codon in leader, First cysteine not found'. Interestingly, LJI.Rh_IGHV1.138
-was observed in repertoires during the course of the study, suggesting either an error in digger's annotation, or a sequencing error. 
-
-The output file ``digger_F_ORF_with_cirelli_annots.csv`` lists 3 functional V-genes and 7 functional D-genes identified by digger but not in Table S1. Three of the D-genes and two of the V-genes have exact
-matches in the IMGT reference set.
-
-Overall, the results are in good agreement, with, nevertheless, some interesting points of detail that merit further examination.
 
 References
 **********
 
-Cirelli et al., 2019, Slow Delivery Immunization Enhances HIV Neutralizing Antibody and Germinal Center Responses via Modulation of Immunodominance. *Cell* `doi: 10.1016/j.cell.2019.04.012 <https://doi.org/10.1016/j.cell.2019.04.012>`__.
-
 Ngoune et al., 2022, IMGT® Biocuration and Analysis of the Rhesus Monkey IG Loci. *Vaccines* `doi: 10.3390/vaccines10030394 <https://www.mdpi.com/2076-393X/10/3/394#>`__.
+
+Warren et al., 2020, Sequence Diversity Analyses of an Improved Rhesus Macaque Genome Enhance Its Biomedical Utility. *Science* `doi: 10.1126/science.abc6617 <https://doi.org/10.1126/science.abc6617>`__.
+
+Gibbs et al., 2007, Evolutionary and biomedical insights from the rhesus macaque genome. *Science* `doi: 10.1126/science.1139247 <https://doi.org/10.1126/science.1139247>`__.

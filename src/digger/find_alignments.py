@@ -700,15 +700,12 @@ def find_best_leaders(leaders):
         bad_leaders = []
 
         for choice in choices:
-            try:
-                bad_start = choice.left[:3] != 'ATG'
-            except:
-                print('bar')
+            bad_start = choice.left[:3] != 'ATG'
 
-            #if position == 829836 and not bad_start and choice.start == 829451:
+            #if position == 742228 and choice.start == 742085:
             #    breakpoint()
 
-            for i in spread(10):
+            for i in spread(16):
                 donor = assembly[choice.start - 1 + len(choice.left) + i:choice.start - 1 + len(choice.left) + 2 + i]
                 bad_donor = donor != 'GT'
                 bad_acceptor = None

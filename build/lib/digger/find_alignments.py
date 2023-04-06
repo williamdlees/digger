@@ -103,6 +103,9 @@ class DAnnotation:
 
 
 def process_d(start, end, best, matches):
+    #if start == 1678577:
+    #   breakpoint()
+
     left_rss = find_compound_motif("5'D-NONAMER", "5'D-HEPTAMER", 12, 12, 15, end=start-1)
     right_rss = find_compound_motif("3'D-HEPTAMER", "3'D-NONAMER", 12, 12, 15, start=end)
 
@@ -697,15 +700,12 @@ def find_best_leaders(leaders):
         bad_leaders = []
 
         for choice in choices:
-            try:
-                bad_start = choice.left[:3] != 'ATG'
-            except:
-                print('bar')
+            bad_start = choice.left[:3] != 'ATG'
 
-            #if position == 829836 and not bad_start and choice.start == 829451:
+            #if position == 742228 and choice.start == 742085:
             #    breakpoint()
 
-            for i in spread(10):
+            for i in spread(16):
                 donor = assembly[choice.start - 1 + len(choice.left) + i:choice.start - 1 + len(choice.left) + 2 + i]
                 bad_donor = donor != 'GT'
                 bad_acceptor = None
@@ -872,6 +872,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                 quit()
 
             row = strings_to_num(row, ['identity', 'alignment length', 'mismatches', 'gap opens', 'q start', 'q end', 's start', 's end', 'evalue', 'bit score'])
+
             if row['s end'] < row['s start']:
                 row['sense'] = '-'
                 row['q start'], row['q end'] = assembly_length - row['q end'] + 1, assembly_length - row['q start'] + 1

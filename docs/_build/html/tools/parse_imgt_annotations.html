@@ -96,12 +96,11 @@
   <section id="parse-imgt-annotations">
 <span id="id1"></span><h1>parse_imgt_annotations<a class="headerlink" href="#parse-imgt-annotations" title="Permalink to this heading"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">parse_imgt_annotations</span></code> downloads an IMGT annotation file or or uses a file already downloaded. It parses the file to provide a list of annotated features.
-Optionally it will also store the file downloaded, and create a FASTA file containing the annotated assembly.</p>
+Optionally it will also store the file downloaded, and create a FASTA file containing the annotated assembly.
+Please refer to <span class="xref std std-ref">human_igh</span> for example usage.</p>
 <p><p>Given a set of IMGT annotations, build a CSV file containing gene names and co-ordinates</p>
 </p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">parse_imgt_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_download</span> <span class="n">SAVE_DOWNLOAD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_sequence</span> <span class="n">SAVE_SEQUENCE</span><span class="p">]</span>
-                              <span class="p">[</span><span class="o">--</span><span class="n">save_imgt_annots</span> <span class="n">SAVE_IMGT_ANNOTS</span><span class="p">]</span>
-                              <span class="n">imgt_url</span> <span class="n">outfile</span> <span class="n">locus</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">parse_imgt_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_download</span> <span class="n">SAVE_DOWNLOAD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_sequence</span> <span class="n">SAVE_SEQUENCE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_imgt_annots</span> <span class="n">SAVE_IMGT_ANNOTS</span><span class="p">]</span> <span class="n">imgt_url</span> <span class="n">outfile</span> <span class="n">locus</span>
 </pre></div>
 </div>
 <section id="positional-arguments">
