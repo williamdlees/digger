@@ -1,0 +1,30 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+187218,187519  imgt_match: IGHV3-116*02  imgt_func: functional digger_match: IGHV3-116*02  digger_func: pseudo  notes: Leader missing initial ATG, Bad DONOR-SPLICE: NN, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+178295,178319  imgt_match:   imgt_func:  digger_match: IGHD3-28*01  digger_func: functional  notes: 
+216776,216821  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
+341342,341384  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
+706735,706777  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
+731083,731093  imgt_match:   imgt_func:  digger_match: IGHD4-11*01  digger_func: functional  notes: 
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:

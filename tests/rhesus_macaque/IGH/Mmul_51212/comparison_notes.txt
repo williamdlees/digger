@@ -1,0 +1,45 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+NW_001121240: 204228,204521  imgt_match: IGHV5-189*02  imgt_func: pseudo digger_match: IGHV5-189*02  digger_func: functional  notes: Gene reversed
+...imgt notes: no V-RS
+...digger identifies a  functional gene at start location 204211
+
+Functional sequences reported by IMGT but not by digger:
+NW_001122023: 187218,187519  imgt_match: IGHV3-116*02  imgt_func: functional digger_match: IGHV3-116*02  digger_func: pseudo  notes: Leader missing initial ATG, Bad DONOR-SPLICE: NN, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader
+...the NNs in the leader cause digger to classify this as pseudo
+NW_001122024: 1,296  imgt_match: IGHV1-156*01  imgt_func: functional digger_match:   digger_func:   notes: 
+
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+...IMGT only annotates D-genes in NW_001121239
+NW_001157919: 381,383  imgt_match:   imgt_func:  digger_match:   digger_func: functional  notes: Gene reversed
+NW_001122023: 178295,178319  imgt_match:   imgt_func:  digger_match: IGHD3-28*01  digger_func: functional  notes: 
+NW_001122023: 216776,216821  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
+NW_001122023: 341342,341384  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
+NW_001122023: 706735,706777  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
+NW_001122023: 731083,731093  imgt_match:   imgt_func:  digger_match: IGHD4-11*01  digger_func: functional  notes:
+NW_001121239: 28432,28465  imgt_match:   imgt_func:  digger_match: IGHD3-9*01  digger_func: functional  notes: Gene reversed
+NW_001121239: 55880,55901  imgt_match:   imgt_func:  digger_match: IGHD5-12*01  digger_func: functional  notes: Gene reversed
+NW_001121239: 89041,89077  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: Gene reversed
+NW_001121240: 88270,88270  imgt_match:   imgt_func:  digger_match:   digger_func: functional  notes: 
+NW_001121240: 169717,169753  imgt_match:   imgt_func:  digger_match: IGHD2-27*01  digger_func: functional  notes: Gene reversed
+NW_001121240: 229399,229457  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: Gene reversed
+NW_001121240: 248519,248582  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: Gene reversed
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
