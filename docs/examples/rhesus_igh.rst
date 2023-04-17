@@ -67,7 +67,7 @@ features of functional annotations::
 ``calc_motifs`` will create 10 motif files in the directory.
 
 The motifs directory may optionally contain a FASTA file ``conserved_motifs.fasta`` defining strongly-conserved nucleotides in the RSS and leader. Only those features 
-with conserved residues need to be listed in the file. The names follow the filenames used for the PWMs.
+with conserved nucleotides need to be listed in the file. The names follow the filenames used for the PWMs.
 The following sequences were derived from Figure 3 of Ngoune et al. (2022) and will be used in this example::
 
    >V-HEPTAMER
@@ -89,7 +89,7 @@ The following sequences were derived from Figure 3 of Ngoune et al. (2022) and w
    
 Again, this file is provided for download at the location provided near the top of this example.
    
-While the presence or absence of conserved residues can be a useful guide to the likely functionality of a sequence, please bear in mind that it is a guide only:
+While the presence or absence of conserved nucleotides can be a useful guide to the likely functionality of a sequence, please bear in mind that it is a guide only:
 exceptions can be expected, particularly where the definitions have been built on limited data.
 
 Annotating the Assembly

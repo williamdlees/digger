@@ -33,10 +33,10 @@ Functionality is assigned as follows:
 Functional
 
 * RSS and leader meet or exceed position-weighted matrix threshold
-* Highly-conserved residues agree with the definition for the locus, if a definition has been specified
+* Highly-conserved nucleotides agree with the definition for the locus, if a definition has been specified
 * If a V-gene, leader starts with ATG, and spliced leader has no stop codons
 * If a V-gene, coding region has no stop codons before the cysteine at IMGT position 104
-* If a V-gene, conserved residues are at the expected locations
+* If a V-gene, conserved nucleotides are at the expected locations
 * If a J-gene, donor splice is as expected and coding region has no stop codons
 
 ORF

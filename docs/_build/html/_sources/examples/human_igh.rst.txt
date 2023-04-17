@@ -46,7 +46,7 @@ With the data in place, we can instruct :ref:`digger` to perform the annotation:
 	   -locus IGH \
 	   IMGT000035.csv
 
-``-v_ref, -d_ref, -j_ref, -v_ref_gapped`` provide the reference assembly sequences. 
+``-v_ref, -d_ref, -j_ref, -v_ref_gapped`` provide the germline reference sequences.
 
 ``-ref imgt,Homo_sapiens_IGHVDJ.fasta`` instructs Digger to compare any sequences it identifies in the assembly with those in the combined reference
 set. It will create columns in the output assembly containing the nearest reference sequence found, % identity and so on. These columns will be prefixed ``imgt`` as specified in this argument. Multiple ``-ref`` arguments can be 
