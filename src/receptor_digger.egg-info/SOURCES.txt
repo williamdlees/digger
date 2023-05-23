@@ -8,6 +8,8 @@ src/digger/calc_motifs.py
 src/digger/cirelli_contig_matches.py
 src/digger/cirelli_to_fasta.py
 src/digger/compare_annotations.py
+src/digger/dig_sequence.py
+src/digger/dig_utils.py
 src/digger/digger.py
 src/digger/find_alignments.py
 src/digger/motif.py

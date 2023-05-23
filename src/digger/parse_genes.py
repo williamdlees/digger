@@ -652,6 +652,16 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
                    ['Leader not found'])
         )
 
+    # put in a dummy RSS if we found leader but no RSS
+
+    if leaders and not rights:
+        rights.append(
+            MotifResult(assembly,
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], end, 0),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-NONAMER'], end+V_RSS_SPACING, 0),
+                   ['RSS not found'])
+        )
+
     best_rights = find_best_rss(rights)
     best_leaders = find_best_leaders(assembly, leaders)
 
@@ -662,10 +672,15 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
     # if none, report the non-functional sequence with highest combined (leader, rss) likelihood
 
     if len(best_leaders) == 0:
-        v_parsing_errors[start] = ((start, end, best['subject'], 'leader not found', assembly[start-500:start]))
+        err_seq = assembly[max(start-500, 0):start]
+        v_parsing_errors[start] = ((start, end, best['subject'], 'leader not found', err_seq))
 
     if len(best_rights) == 0:
-        v_parsing_errors[start] = ((start, end, best['subject'], 'rss not found', assembly[end+1:end+24]))
+        if len(assembly) >= end+24:
+            err_seq = assembly[end+1:end+24]
+        else:
+            err_seq = assembly[end+1:]
+        v_parsing_errors[start] = ((start, end, best['subject'], 'rss not found', err_seq))
 
     # if we have multiple possible rights, discard any that are substantially weaker than the best
 
