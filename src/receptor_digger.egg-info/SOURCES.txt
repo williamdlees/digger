@@ -8,10 +8,14 @@ src/digger/calc_motifs.py
 src/digger/cirelli_contig_matches.py
 src/digger/cirelli_to_fasta.py
 src/digger/compare_annotations.py
+src/digger/dig_sequence.py
+src/digger/dig_utils.py
 src/digger/digger.py
 src/digger/find_alignments.py
 src/digger/motif.py
+src/digger/parse_genes.py
 src/digger/parse_imgt_annotations.py
+src/digger/search_motifs.py
 src/digger/slugify.py
 src/digger/motifs/human/IGH/3'D-HEPTAMER_prob.csv
 src/digger/motifs/human/IGH/3'D-NONAMER_prob.csv

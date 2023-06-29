@@ -2,7 +2,8 @@
 
 type: V
 Functional sequences reported by digger but not by IMGT:
-77810,78108  imgt_match: IGLV1-123*01  imgt_func: pseudo digger_match: IGLV1-64*01  digger_func: functional  notes: 
+268773,269089  imgt_match: IGLV5-99*01  imgt_func: ORF digger_match: IGLV5-99*01  digger_func: functional  notes: 
+674097,674405  imgt_match: IGLV5-57*01  imgt_func: pseudo digger_match: IGLV5-57*01  digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:
 992786,993082  imgt_match: IGLV2-26*01  imgt_func: functional digger_match: IGLV2-26*01  digger_func: pseudo  notes: Bad DONOR-SPLICE: AC, Bad ACCEPTOR-SPLICE: GA
@@ -22,5 +23,6 @@ type: J
 Functional sequences reported by digger but not by IMGT:
 
 Functional sequences reported by IMGT but not by digger:
+1272513,1272550  imgt_match: IGLJ3*01  imgt_func: functional digger_match: IGLJ2*01  digger_func: orf  notes: J-NONAMER has variation at strongly conserved residue(s): -T-----A-
 
 Functional sequences reported by both IMGT and digger but with different sequences:

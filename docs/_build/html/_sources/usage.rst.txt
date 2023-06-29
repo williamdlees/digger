@@ -10,6 +10,7 @@ Commandline Usage
    tools/calc_motifs
    tools/compare_annotations
    tools/digger
+   tools/dig_sequence
    tools/find_alignments
    tools/parse_imgt_annotations
    

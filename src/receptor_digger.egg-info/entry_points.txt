@@ -2,6 +2,7 @@
 blastresults_to_csv = digger.blastresults_to_csv:main
 calc_motifs = digger.calc_motifs:main
 compare_annotations = digger.compare_annotations:main
+dig_sequence = digger.dig_sequence:main
 digger = digger.digger:main
 find_alignments = digger.find_alignments:main
 parse_imgt_annotations = digger.parse_imgt_annotations:main

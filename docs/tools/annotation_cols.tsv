@@ -6,6 +6,10 @@ start_rev	start co-ord in the reverse-primed sequence
 end_rev	end co-ord in the reverse-primed sequence
 sense	sense (relative to the input sequence)
 gene_type	gene type (e.g. IGHV)
+gene_start start co-ord of the entire gene including flanking regions
+gene_end end co-ord of the entire gene including flanking regions
+gene_start start co-ord of the entire gene including flanking regions in the reverse-primed sequence
+gene_end end co-ord of the entire gene including flanking regions in the reverse-primed sequence
 likelihood	likelihood that the RSS is that of a functional gene (compared to a random sequence)
 l_part1	leader part 1 equence
 l_part2	leader part 2 sequence

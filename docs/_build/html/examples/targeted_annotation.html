@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Targeted Annotation &mdash; Digger 0.5.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Additional Examples" href="additional_examples.html" />
+    <link rel="prev" title="Annotating the rhesus macaque IGH locus" href="rhesus_igh.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Digger
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="human_igh.html">Annotating the human IGH locus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhesus_igh.html">Annotating the rhesus macaque IGH locus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Targeted Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional_examples.html">Additional Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Commandline Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/annotation.html">Anotation format</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Digger</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Targeted Annotation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/targeted_annotation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="targeted-annotation">
+<span id="id1"></span><h1>Targeted Annotation<a class="headerlink" href="#targeted-annotation" title="Permalink to this heading"></a></h1>
+<p>In the examples covered so far, <a class="reference internal" href="../tools/digger.html#digger"><span class="std std-ref">digger</span></a> has been used to identify as many receptor genes as possible, wide-ranging BLAST searches. A companion tool, <a class="reference internal" href="../tools/dig_sequence.html#dig-sequence"><span class="std std-ref">dig_sequence</span></a>, can be used to identify and annotate the closest match to a single specified
+sequence.</p>
+<p>As an example of its use, a BLAST search identifies a 100% sequence match to the human receptor gene IGHV1-18*04 at
+Genbank accession number <a class="reference external" href="https://www.ncbi.nlm.nih.gov/nucleotide/KC713938.1?report%253Dgenbank">KC713938</a>. This can be annotated by the <code class="docutils literal notranslate"><span class="pre">dig_sequence</span> <span class="pre">single</span></code> command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;dig_sequence single -align Homo_sapiens_IGHV_gapped.fasta -species human IGHV1-18*01 Homo_sapiens_IGHV.fasta KC713938</span>
+<span class="go">Using motif files from C:\Users\William\miniconda3\envs\digby_genomics310\lib\site-packages\digger\motifs\human\IGH</span>
+<span class="go">target_allele: IGHV1-18*01</span>
+<span class="go">genbank_acc: KC713938</span>
+<span class="go">genbank_seq: length: 935nt</span>
+<span class="go">gene_seq: ATGGACTGGACCTGGAGCATCCTTTTCTTGGTGGCAGCAGCAACAGGTAACGGACTCCCCAGTCCCAGGGCTGAGAGAGAAACCAGGCCAGTCATGTGAGACTTCACCCACTCCTGTGTCCTCTCCACAGGTGCCCACTCCCAGGTTCAGCTGGTGCAGTCTGGAGCTGAGGTGAAGAAGCCTGGGGCCTCAGTGAAGGTCTCCTGCAAGGCTTCTGGTTACACCTTTACCAGCTACGGTATCAGCTGGGTGCGACAGGCCCCTGGACAAGGGCTTGAGTGGATGGGATGGATCAGCGCTTACAATGGTAACACAAACTATGCACAGAAGCTCCAGGGCAGAGTCACCATGACCACAGACACATCCACGAGCACAGCCTACATGGAGCTGAGGAGCCTGAGATCTGACGACACGGCCGTGTATTACTGTGCGAGAGACACAGTGTGAAAACCCACATCCTGAGGGTTTCAGAAACC</span>
+<span class="go">seq: CAGGTTCAGCTGGTGCAGTCTGGAGCTGAGGTGAAGAAGCCTGGGGCCTCAGTGAAGGTCTCCTGCAAGGCTTCTGGTTACACCTTTACCAGCTACGGTATCAGCTGGGTGCGACAGGCCCCTGGACAAGGGCTTGAGTGGATGGGATGGATCAGCGCTTACAATGGTAACACAAACTATGCACAGAAGCTCCAGGGCAGAGTCACCATGACCACAGACACATCCACGAGCACAGCCTACATGGAGCTGAGGAGCCTGAGATCTGACGACACGGCCGTGTATTACTGTGCGAGAGA</span>
+<span class="go">alignment_score: 99.7</span>
+<span class="go">nt_diff: 1</span>
+<span class="go">snps: _t111c</span>
+<span class="go">start: 392</span>
+<span class="go">end: 687</span>
+<span class="go">sense: +</span>
+<span class="go">functional: Functional</span>
+<span class="go">notes:</span>
+<span class="go">l_part1: ATGGACTGGACCTGGAGCATCCTTTTCTTGGTGGCAGCAGCAACAG</span>
+<span class="go">l_part2: GTGCCCACTCC</span>
+<span class="go">v_heptamer: CACAGTG</span>
+<span class="go">v_nonamer: TCAGAAACC</span>
+</pre></div>
+</div>
+<p>The command takes as arguments the id of the target sequence to search for (in this case IGHV1-18*01) and the fasta file in which the sequence can be found, and the Genbank ID to search. Optional arguments include the species (otherwise human is assumed) and a file of gapped reference sequences, which is used as a guide to gap V sequences. If an output file is specified
+with the <code class="docutils literal notranslate"><span class="pre">-out_file</span></code> argument, the output is written there in CSV format, with information matching that provided by
+<code class="docutils literal notranslate"><span class="pre">digger</span></code>. Otherwise a summary is provided to standard output.</p>
+<p>In response, the command searches the specified Genbank accession for the closest match to the target sequenece (in this case
+differing by a single nucleotide), and returns annotation details. These will include regulatory regions where they are
+available.</p>
+<p>Variants of <a class="reference internal" href="../tools/dig_sequence.html#dig-sequence"><span class="std std-ref">dig_sequence</span></a> allow the sequence to be specified directly rather than by Genbank accession number, and
+allow multiple searches to be specified in a csv file.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rhesus_igh.html" class="btn btn-neutral float-left" title="Annotating the rhesus macaque IGH locus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="additional_examples.html" class="btn btn-neutral float-right" title="Additional Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, William Lees.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
