@@ -52,6 +52,7 @@ J_TRP_MOTIF = None
 J_TRP_OFFSET = None
 J_SPLICE = None
 V_RSS_SPACING = None
+J_RSS_SPACING = None
 reference_sets = []
 v_gapped_ref = {}
 v_ungapped_ref = {}
@@ -230,7 +231,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                     continue
                 rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, start, end, best, matches, args.align, V_RSS_SPACING, v_parsing_errors)
             elif 'J' in gene_type:
-                rows = process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE)
+                rows = process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE, J_RSS_SPACING)
             elif 'D' in gene_type:
                 rows = process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches)
             elif 'C' in gene_type:
@@ -249,16 +250,23 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                             row['notes'] = ', '.join(notes)
 
                     add_rec = True
+                    if row['start'] < row['end']:
+                        row_length = row['end'] - row['start'] + 1
+                    else:
+                        row_length = row['start'] - row['end'] + 1
                     for k, result in list(results.items()):
+                        if result['start'] < result['end']:
+                            result_length = result['end'] - result['start'] + 1
+                        else:
+                            result_length = result['start'] - result['end'] + 1
+
+                        if row['start'] > row['end']:
+                            breakpoint()
+
                         # if this row overlaps with one already stored in results, keep the one that is longer provided it is functional and there are no 'not found' elements
-                        if result['start'] <= row['start'] <= result['end'] or result['start'] <= row['end'] <= result['end']:
-                            # if row['likelihood'] > result['likelihood']:
-
-                            #if 'not found' in results[k]['notes'] or 'not found' in row['notes']:
-                            #    breakpoint()
-
+                        if row['start'] < row['end'] and (result['start'] <= row['start'] <= result['end'] or result['start'] <= row['end'] <= result['end']):
                             if row['functional'] == 'Functional' \
-                                    and (row['end'] - row['start'] > result['end'] - result['start'] or result['functional'] != 'Functional')\
+                                    and (row_length > result_length or result['functional'] != 'Functional')\
                                     and ('not found' in results[k]['notes'] or 'not found' not in row['notes']):
                                 del(results[k])
                             else:
@@ -266,10 +274,16 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                                 break
 
                     if add_rec:
-                        row['sense'] = '-' if co_ordinates_reversed else '+'
-                        if co_ordinates_reversed:
-                            reverse_coords(row)
+                        row['sense'] = '+'
                         results[row['start']] = row
+
+        if co_ordinates_reversed:
+            reversed_results = {}
+            for row in results.values():
+                reverse_coords(row)
+                row['sense'] = '-'
+                reversed_results[row['start']] = row
+            results = reversed_results
 
         for row in results.values():
             calc_matched_refs(row)
@@ -286,7 +300,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
 
 
 def main():
-    global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, V_RSS_SPACING, reference_sets, conserved_motif_seqs
+    global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, J_RSS_SPACING, V_RSS_SPACING, reference_sets, conserved_motif_seqs
     global v_gapped_ref
 
     args = get_parser().parse_args()
@@ -320,6 +334,11 @@ def main():
         V_RSS_SPACING = 23
     else:
         V_RSS_SPACING = 12
+
+    if locus not in ['IGL']:
+        J_RSS_SPACING = 23
+    else:
+        J_RSS_SPACING = 12
 
     if not args.motif_dir and not args.species:
         print('Error - please specify either -motif_dir or -species')
@@ -366,13 +385,13 @@ def main():
             v_ungapped_ref[name] = seq.replace('.', '')
 
     with open(match_file, 'w', newline='') as fo:
-        fieldnames = ['contig', 'start', 'end', 'start_rev', 'end_rev', 'sense', 'gene_type']
+        fieldnames = ['contig', 'start', 'end', 'start_rev', 'end_rev', 'sense', 'gene_type', 'gene_start', 'gene_end', 'gene_start_rev', 'gene_end_rev']
         for ref in reference_sets:
             fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_diffs'])
 
         fieldnames.extend(
             ['functional', 'notes', 'likelihood', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer',
-            'aa', 'v-gene_aligned_aa', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
+            'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
             '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
             'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev'])
 

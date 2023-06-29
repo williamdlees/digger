@@ -181,6 +181,7 @@ def process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
         row['5_rss_end'] = result.d_5_rss_end
         row['5_rss_start_rev'], row['5_rss_end_rev'] = len(assembly) - row['5_rss_end'] + 1, len(assembly) - row['5_rss_start'] + 1
 
+        add_gene_coords(row, assembly)
         rows.append(row)
 
     for row in rows:
@@ -304,6 +305,7 @@ def process_c(assembly, assembly_rc, germlines, start, end, best, matches):
         'seq': result_seq,
     }
 
+    add_gene_coords(row, assembly)
 
     check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], False)
     check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], True)
@@ -414,7 +416,7 @@ class JAnnotation:
             self.j_frame = 0
             self.functionality = 'pseudo'
 
-def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE):
+def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE, J_RSS_SPACING):
     """
     Process J-segment annotations.
 
@@ -450,7 +452,7 @@ def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
         - `check_seq`: Function for checking a sequence.
 
     """
-    j_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs['J-NONAMER'], motifs['J-HEPTAMER'], 22, 23, 15, end=start-1)
+    j_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs['J-NONAMER'], motifs['J-HEPTAMER'], J_RSS_SPACING-1, J_RSS_SPACING, 15, end=start-1)
 
     if len(j_rss) == 0:
         return []
@@ -490,6 +492,8 @@ def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
     row['5_rss_start'] = result.rss_start
     row['5_rss_end'] = result.rss_end
     row['5_rss_start_rev'], row['5_rss_end_rev'] = len(assembly) - row['5_rss_end'] + 1, len(assembly) - row['5_rss_start'] + 1
+
+    add_gene_coords(row, assembly)
 
     check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], False)
     check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], True)
@@ -606,9 +610,9 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
      :type conserved_motif_seqs: dict
      :param motifs: Dictionary containing motifs.
      :type motifs: dict
-     :param start: The starting position of the V-segment search.
+     :param start: The starting position of the V-segment search (1-based).
      :type start: int
-     :param end: The ending position of the V-segment search.
+     :param end: The ending position of the V-segment search (1-based).
      :type end: int
      :param best: The best match information.
      :type best: dict
@@ -634,10 +638,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
          - `calc_best_match_score`: Function for calculating the best match score.
          - `check_seq`: Function for checking a sequence.
    """
-    #if start == 80078:
-    #    breakpoint()
-
-    leaders = find_compound_motif(assembly, conserved_motif_seqs, motifs['L-PART1'], motifs['L-PART2'], 10, 600, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
+    leaders = find_compound_motif(assembly, conserved_motif_seqs, motifs['L-PART1'], motifs['L-PART2'], 10, 800, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
 
     # restrain length to between 270 and 320 nt, allow a window anywhere within that range
     rights = find_compound_motif(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], motifs['V-NONAMER'], V_RSS_SPACING-1, V_RSS_SPACING, 25, start=start+295)
@@ -657,8 +658,8 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
     if leaders and not rights:
         rights.append(
             MotifResult(assembly,
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], end, 0),
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-NONAMER'], end+V_RSS_SPACING, 0),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], end+1, 0),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-NONAMER'], end+V_RSS_SPACING+1, 0),
                    ['RSS not found'])
         )
 
@@ -666,6 +667,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
     best_leaders = find_best_leaders(assembly, leaders)
 
     max_likelihood_rec = None
+    max_likelihood_rec_at_start = None
     results = []
 
     # report one or more functional V-GENEs found between the identified leaders and rss.
@@ -705,7 +707,12 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
                 results.append((left, v_annot, right))
             if max_likelihood_rec is None or v_annot.likelihood > max_likelihood_rec[1].likelihood:
                 max_likelihood_rec = (left, v_annot, right)
+            if v_annot.start == start + 1 and (max_likelihood_rec_at_start is None or v_annot.likelihood > max_likelihood_rec[1].likelihood):
+                max_likelihood_rec_at_start = (left, v_annot, right)
 
+    # If we don't have any functional results, favour the one with the suggested start position.
+    if len(results) == 0 and max_likelihood_rec_at_start is not None:
+        results = [max_likelihood_rec_at_start]
 
     if len(results) == 0 and max_likelihood_rec is not None:
         results = [max_likelihood_rec]
@@ -774,6 +781,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
 
         row['aa'] = simple.translate(v_gene.ungapped)
 
+        add_gene_coords(row, assembly)
         rows.append(row)
 
     for row in rows:
@@ -812,6 +820,23 @@ def check_seq(assembly, assembly_rc, seq, start, end, rev):
             print('Error: reverse sequence at (%d, %d) failed co-ordinate check.' % (start, end))
 
 
+# Find all 'start' or 'end' coords in a record
+def find_coords(rec, keyword):
+    coords = []
+
+    for k in rec.keys():
+        if keyword in k and 'rev' not in k:
+            coords.append(int(rec[k]))
+
+    return coords
+
+
+# Add overall gene coordinates to a row
+def add_gene_coords(row, assembly):
+    row['gene_start'] = max(min(find_coords(row, 'start')), 1)
+    row['gene_end'] = min(max(find_coords(row, 'end')), len(assembly))
+    row['gene_start_rev'], row['gene_end_rev'] = len(assembly) - row['gene_end'] + 1, len(assembly) - row['gene_start'] + 1
+    row['gene_seq'] = assembly[row['gene_start'] - 1:row['gene_end']]
 
 
 # find the best leader PART1 for each PART2 starting position:

@@ -17,9 +17,9 @@ except:
     from digger.parse_genes import process_v, process_d, process_j, process_c, VAnnotation
 
 
-def find_target_sequence(assembly, target_seq):
+def find_target_sequence(assembly, target_seq, mode='local'):
     aligner = Align.PairwiseAligner()
-    aligner.mode = 'local'  # Set alignment mode to global
+    aligner.mode = mode  # Set alignment mode to global
     aligner.open_gap_score = -5
     aligner.extend_gap_score = -1
     aligner.match_score = 2
@@ -36,19 +36,32 @@ def find_target_sequence(assembly, target_seq):
 def get_genbank_sequence(acc):
     Entrez.email = 'william@lees.org.uk'
     handle = Entrez.efetch(db='nucleotide', id=acc, rettype='fasta', retmode='text')
+    patch = None
 
     if ',' in acc:
         seq_records = SeqIO.parse(handle, "fasta")
         seqs = {}
         for seq_record in seq_records:
-            seqs[seq_record.id.split('.')[0]] = (str(seq_record.seq))
+            if '.' in seq_record.id:
+                patch = seq_record.id.split('.')[-1:][0]
+                accession_id = '.'.join(seq_record.id.split('.')[:-1])
+            else:
+                patch = ''
+                accession_id = seq_record.id
+            seqs[accession_id] = {'acc': accession_id, 'seq': str(seq_record.seq), 'patch': patch}
         return seqs
     else:
         seq_record = SeqIO.read(handle, "fasta")
-        return str(seq_record.seq)
+        if '.' in seq_record.id:
+            patch = seq_record.id.split('.')[-1:][0]
+            accession_id = '.'.join(seq_record.id.split('.')[:-1])
+        else:
+            patch = ''
+            accession_id = seq_record.id
+        return {accession_id: {'acc': accession_id, 'seq': str(seq_record.seq), 'patch': patch}}
 
 
-def process_sequence(assembly, genbank_acc, target, germlines, v_gapped_ref, v_ungapped_ref, motifs, conserved_motif_seqs, motif_params):
+def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_ref, v_ungapped_ref, motifs, conserved_motif_seqs, motif_params):
     gene_type = target[3]
     target_seq = germlines[target]
     sense = '+'
@@ -75,6 +88,7 @@ def process_sequence(assembly, genbank_acc, target, germlines, v_gapped_ref, v_u
         row = {
             'target_allele': target,
             'genbank_acc': genbank_acc,
+            'patch': patch,
             'genbank_seq': assembly,
             'alignment_score': score,
             'nt_diff': 'NA',
@@ -82,12 +96,16 @@ def process_sequence(assembly, genbank_acc, target, germlines, v_gapped_ref, v_u
             'end': 'NA',
             'end_rev': 'NA',
             'start_rev': 'NA',
+            'gene_start': 'NA',
+            'gene_end': 'NA',
+            'gene_end_rev': 'NA',
+            'gene_start_rev': 'NA',
             'sense': sense,
             'gene_type': gene_type,
             'notes': ','.join(notes),
             'snps': 'NA',
         }
-        return [row]
+        return row
 
     if len(target_seq) > (end - start):
         notes.append('Aligned sequence is truncated compared to reference')
@@ -95,11 +113,11 @@ def process_sequence(assembly, genbank_acc, target, germlines, v_gapped_ref, v_u
     if start == 0:
         notes.append("Sequence to be annotated does not contain 5' regulatory region")
 
-    if end == len(assembly):
+    if end == len(assembly) and gene_type in ['V', 'D']:
         notes.append("Sequence to be annotated does not contain 3' regulatory region")
 
     # handle 'naked' V-regions separately to avoid spurious RSS hunting
-    if gene_type == 'V' and start == 0 and end == len(assembly):
+    if gene_type == 'V' and start == 0 and abs(end - len(assembly)) < 4:
         target_gapped_ref = {target: v_gapped_ref[target]}
         target_ungapped_ref = {target: v_ungapped_ref[target]}
         v_annot = VAnnotation(assembly, 1, len(assembly), refs=[target_gapped_ref, target_ungapped_ref])
@@ -116,23 +134,29 @@ def process_sequence(assembly, genbank_acc, target, germlines, v_gapped_ref, v_u
             'target_allele': target,
             'snps': snps,
             'genbank_acc': genbank_acc,
+            'patch': patch,
             'genbank_seq': assembly,
             'alignment_score': score,
             'nt_diff': nt_diff,
-            'start': 0,
+            'start': 1,
             'end': end,
-            'end_rev': rev_start,
+            'end_rev': rev_start+1,
             'start_rev': rev_end,
             'sense': sense,
             'gene_type': gene_type,
+            'gene_start': 1,
+            'gene_end': end,
+            'gene_end_rev': rev_start+1,
+            'gene_start_rev': rev_end,
             'notes': ', '.join(notes),
             'aa': v_annot.gapped_aa.replace('.', ''),
             'v-gene_aligned_aa': v_annot.gapped_aa,
             'seq': v_annot.ungapped,
+            'gene_seq': v_annot.ungapped,
             'seq_gapped': v_annot.gapped,
 
         }
-        return [row]
+        return row
 
 
     nt_diff = simple.nt_diff(assembly[start:end], target_seq)
@@ -148,49 +172,98 @@ def process_sequence(assembly, genbank_acc, target, germlines, v_gapped_ref, v_u
         if v_gapped_ref is None:
             print('Error - please specify a gapped reference set for V gene analysis')
             exit(1)
-        rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, start, end, best, matches, align,
+        rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, start+1, end, best, matches, align,
                          motif_params['V_RSS_SPACING'], v_parsing_errors)
     elif gene_type == 'J':
-        rows = process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches,
-                         motif_params['J_TRP_MOTIF'], motif_params['J_TRP_OFFSET'], motif_params['J_SPLICE'])
+        rows = process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start+1, end, best, matches,
+                         motif_params['J_TRP_MOTIF'], motif_params['J_TRP_OFFSET'], motif_params['J_SPLICE'], motif_params['J_RSS_SPACING'])
     elif gene_type == 'D':
-        rows = process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches)
+        rows = process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start+1, end, best, matches)
     elif gene_type == 'C':
         rows = process_c(assembly, assembly_rc, germlines, start, end, best, matches)
 
-    for row in rows:
-        row['target_allele'] = target
-        row['genbank_acc'] = genbank_acc
-        row['genbank_seq'] = assembly
-        row['alignment_score'] = score
-        row['sense'] = sense
-        row['nt_diff'] = nt_diff
+    if len(rows) == 0:
+        # report on the basis of sequence nt match
+        row = {
+            'seq': assembly[start:end],
+            'gene_seq': assembly[start:end],
+            'start': start + 1,
+            'end': end,
+            'end_rev': rev_start,
+            'start_rev': rev_end,
+            'gene_start': 0,
+            'gene_end': end,
+            'gene_end_rev': rev_start,
+            'gene_start_rev': rev_end,
+            'notes': "Sequence to be annotated does not contain recognisable 3' or 5' regulatory regions",
+        }
+    else:
+        # find row with best alignment
+        diffs = []
+        for row in rows:
+            diff = simple.nt_diff(row['seq'], target_seq)
+            diffs.append(diff)
 
-        snps = ''
-        if nt_diff > 0:
-            if gene_type == 'V':
-                target_gapped_ref = {target: v_gapped_ref[target]}
-            else:
-                target_gapped_ref = {target: germlines[target]}
-            if 'seq_gapped' in row and row['seq_gapped']:
-                snps = name_novel(row['seq_gapped'], target_gapped_ref, True)[0]
-            else:
-                snps = name_novel(row['seq'], target_gapped_ref, True)[0]
-            snps = snps.replace(target, '')
+        row = rows[diffs.index(min(diffs))]
 
-        row['snps'] = snps
+        if min(diffs) > nt_diff + 2:       # a much worse score suggests we shouldn't really trust the regulatory regions
+            row = {
+                'seq': row['seq'],
+                'gene_seq': row['seq'],
+                'seq_gapped': row['seq_gapped'] if 'seq_gapped' in row else '',
+                'v-gene_aligned_aa': row['v-gene_aligned_aa'] if 'v-gene_aligned_aa' in row else '',
+                'start': start+1,
+                'end': end,
+                'end_rev': rev_start,
+                'start_rev': rev_end,
+                'gene_start': start + 1,
+                'gene_end': end,
+                'gene_end_rev': rev_start,
+                'gene_start_rev': rev_end,
+                'notes': "Sequence to be annotated does not contain recognisable 3' or 5' regulatory regions",
+                'functional': row['functional']
+            }
+        else:
+            nt_diff = min(diffs)
+            start, end, score = find_target_sequence(row['seq'], target_seq, 'local')
 
-        if notes:
-            row['notes'] = ', '.join(notes) + ',' + row['notes']
+            score = (100*score)/(2*len(target_seq))
+            score = round(score, 1)
 
-    return rows
+    row['target_allele'] = target
+    row['genbank_acc'] = genbank_acc
+    row['patch'] = patch
+    row['genbank_seq'] = assembly
+    row['alignment_score'] = score
+    row['sense'] = sense
+    row['nt_diff'] = nt_diff
+    row['gene_type'] = gene_type
+
+    snps = ''
+    if nt_diff > 0:
+        if gene_type == 'V':
+            target_gapped_ref = {target: v_gapped_ref[target]}
+        else:
+            target_gapped_ref = {target: germlines[target]}
+        if 'seq_gapped' in row and row['seq_gapped']:
+            snps = name_novel(row['seq_gapped'], target_gapped_ref, True)[0]
+        else:
+            snps = name_novel(row['seq'], target_gapped_ref, True)[0]
+        snps = snps.replace(target, '')
+
+    row['snps'] = snps
+
+    if notes:
+        row['notes'] = ', '.join(notes) + ',' + row['notes']
+
+    return row
 
 
 def print_result(row):
-    for field in ['target_allele', 'genbank_acc', 'genbank_seq', 'alignment_score', 'nt_diff', 'snps', 'start', 'end', 'sense']:
+    for field in ['target_allele', 'genbank_acc', 'genbank_seq', 'gene_seq', 'seq', 'alignment_score', 'nt_diff', 'snps', 'start', 'end', 'sense', 'functional', 'notes']:
         if field == 'genbank_seq' and len(row['genbank_seq']) > 750:
             row['genbank_seq'] = f'length: {len(row["genbank_seq"])}nt'
-        print(f'{field}: {row[field]}')
+        print(f'{field}: {row[field] if field in row else ""}')
 
     for field in ['l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer', 'notes']:
         if field in row and row[field]:
@@ -200,18 +273,22 @@ def print_result(row):
 
 
 def process_output(args, rows):
-    fieldnames = ['target_allele', 'genbank_acc', 'alignment_score', 'nt_diff', 'snps', 'start', 'end', 'start_rev', 'end_rev', 'sense', 'gene_type']
+    fieldnames = ['target_allele', 'genbank_acc', 'patch', 'alignment_score', 'nt_diff', 'snps', 'start', 'end', 'start_rev', 'end_rev', 'sense', 'gene_type',
+                  'gene_start', 'gene_end', 'gene_start_rev', 'gene_end_rev']
     fieldnames.extend(
         ['functional', 'notes', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer',
          'd_5_heptamer', 'd_5_nonamer',
-         'aa', 'v-gene_aligned_aa', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
+         'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
          '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
          'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev'])
     if args.out_file:
         with open(args.out_file, 'w', newline='\n') as fo:
             writer = csv.DictWriter(fo, fieldnames=fieldnames, extrasaction='ignore')
             writer.writeheader()
-            writer.writerows(rows)
+            try:
+                writer.writerows(rows)
+            except:
+                breakpoint()
     else:
         for row in rows:
             print_result(row)
@@ -272,10 +349,16 @@ def set_motif_params(locus):
     else:
         V_RSS_SPACING = 12
 
+    if locus not in ['IGL']:
+        J_RSS_SPACING = 23
+    else:
+        J_RSS_SPACING = 12
+
     return {
         'J_TRP_MOTIF': J_TRP_MOTIF,
         'J_TRP_OFFSET': J_TRP_OFFSET,
         'J_SPLICE': J_SPLICE,
-        'V_RSS_SPACING': V_RSS_SPACING
+        'V_RSS_SPACING': V_RSS_SPACING,
+        'J_RSS_SPACING': J_RSS_SPACING,
     }
 

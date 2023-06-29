@@ -12,16 +12,16 @@ class SingleMotifResult:
     :type conserved_motif_seqs: dict
     :param motif: The motif object.
     :type motif: Motif
-    :param position: The starting position of the motif.
+    :param position: The starting position of the motif (1-based).
     :type position: int
     :param likelihood: The likelihood value.
     :type likelihood: float
 
-    :ivar start: The starting position of the motif.
+    :ivar start: The starting position of the motif  (1-based).
     :vartype start: int
     :ivar name: The name of the motif.
     :vartype name: str
-    :ivar end: The ending position of the motif.
+    :ivar end: The ending position of the motif  (1-based).
     :vartype end: int
     :ivar seq: The sequence of the motif.
     :vartype seq: str
@@ -197,7 +197,7 @@ def find_compound_motif(assembly, conserved_motif_seqs, left_motif, right_motif,
     :type start: int, optional
     :param end: The ending position (1-based coordinate) for the right motif or None. (default: None)
     :type end: int, optional
-    :param right_force: The forced starting position for the right motif or None. (default: None)
+    :param right_force: The forced starting position (1-based coordinate) for the right motif or None. (default: None)
     :type right_force: int, optional
 
     :return: List of compound motif results.

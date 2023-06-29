@@ -21,6 +21,7 @@ or small fragments. It is designed for use with entire gene sequences, including
 
   examples/human_igh
   examples/rhesus_igh
+  examples/targeted_annotation
   examples/additional_examples
   
 .. toctree::

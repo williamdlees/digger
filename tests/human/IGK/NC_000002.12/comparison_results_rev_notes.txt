@@ -11,8 +11,7 @@ Functional sequences reported by digger but not by Watson et al.:
 1212594,1212880  imgt_match: IGKV6D-41*01  imgt_func: ORF digger_match: IGKV6D-41*01  digger_func: functional  notes:
 ...imgt: Non canonical V-HEPTAMER: CACTGTG instead of CACAGTG: digger uses a more lenient filter 
 1264891,1265192  imgt_match:   imgt_func:  digger_match: IGKV2D-29*01  digger_func: functional  notes: 
-..currently imgt classify 2-29*01 as P because of a STOP-CODON at position 88 in FR3-IMGT
-..IMGT's classification was based on a different assembly. In this assembly there is no stop codon.
+...Annotated by IMGT as IGKV2-14D*01 (P) (Genbank X27810)
 1333035,1333321  imgt_match: IGKV1D-42*02  imgt_func: ORF digger_match: IGKV1D-42*02  digger_func: functional  notes: 
 ...imgt: TTTGCTT instead of TTTGCAT in the core sequence of the DECAMER, and altered V-HEPTAMER: CACAGGG instead of CACAGTG
 ...digger currently uses a more lenient filter for the V-HEPTAMER, and does not check the L-PART1 DECAMER motif.

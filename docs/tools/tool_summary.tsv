@@ -3,5 +3,6 @@ Tool	Description
 :ref:`calc_motifs`	Determine PWMs from a list of gene features
 :ref:`compare_annotations`	Compare two sets of annotations
 :ref:`digger`	Run the annotation pipeline
+:ref:`dig_sequence`	Targeted annotation of specific sequences
 :ref:`find_alignments`	Produce the annotation file, given tabulated BLAST results and other inputs
 :ref:`parse_imgt_annotations`	Download and parse an annotation file from IMGT

@@ -2,9 +2,9 @@
 
 type: V
 Functional sequences reported by digger but not by IMGT:
-269349,269650  imgt_match: IGKV2-83*01  imgt_func: pseudo digger_match: IGKV2-83*01  digger_func: functional  notes: 
 582014,582300  imgt_match: IGKV1-52*01  imgt_func: ORF digger_match: IGKV1-52*01  digger_func: functional  notes: 
 829837,830138  imgt_match: IGKV2-34*01  imgt_func: pseudo digger_match: IGKV2-34*01  digger_func: functional  notes: 
+1176743,1177041  imgt_match: IGKV7-13*01  imgt_func: pseudo digger_match: IGKV7-13*01  digger_func: functional  notes: 
 1194603,1194892  imgt_match: IGKV3-12*01  imgt_func: pseudo digger_match: IGKV3-12*01  digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:
