@@ -84,9 +84,10 @@
              
   <section id="targeted-annotation">
 <span id="id1"></span><h1>Targeted Annotation<a class="headerlink" href="#targeted-annotation" title="Permalink to this heading"></a></h1>
-<p>In the examples covered so far, <a class="reference internal" href="../tools/digger.html#digger"><span class="std std-ref">digger</span></a> has been used to identify as many receptor genes as possible, wide-ranging BLAST searches. A companion tool, <a class="reference internal" href="../tools/dig_sequence.html#dig-sequence"><span class="std std-ref">dig_sequence</span></a>, can be used to identify and annotate the closest match to a single specified
+<p>In the examples covered so far, <a class="reference internal" href="../tools/digger.html#digger"><span class="std std-ref">digger</span></a> has been used to identify as many receptor genes as possible,
+using wide-ranging BLAST searches. A companion tool, <a class="reference internal" href="../tools/dig_sequence.html#dig-sequence"><span class="std std-ref">dig_sequence</span></a>, can be used to identify and annotate the closest match to a single specified
 sequence.</p>
-<p>As an example of its use, a BLAST search identifies a 100% sequence match to the human receptor gene IGHV1-18*04 at
+<p>As an example of its use, an online <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST search</a> identifies a 100% sequence match to the human receptor gene IGHV1-18*04 at
 Genbank accession number <a class="reference external" href="https://www.ncbi.nlm.nih.gov/nucleotide/KC713938.1?report%253Dgenbank">KC713938</a>. This can be annotated by the <code class="docutils literal notranslate"><span class="pre">dig_sequence</span> <span class="pre">single</span></code> command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;dig_sequence single -align Homo_sapiens_IGHV_gapped.fasta -species human IGHV1-18*01 Homo_sapiens_IGHV.fasta KC713938</span>
 <span class="go">Using motif files from C:\Users\William\miniconda3\envs\digby_genomics310\lib\site-packages\digger\motifs\human\IGH</span>
@@ -109,12 +110,15 @@ Genbank accession number <a class="reference external" href="https://www.ncbi.nl
 <span class="go">v_nonamer: TCAGAAACC</span>
 </pre></div>
 </div>
-<p>The command takes as arguments the id of the target sequence to search for (in this case IGHV1-18*01) and the fasta file in which the sequence can be found, and the Genbank ID to search. Optional arguments include the species (otherwise human is assumed) and a file of gapped reference sequences, which is used as a guide to gap V sequences. If an output file is specified
+<p>The command takes as arguments the id of the target sequence to search for (in this case IGHV1-18*01), the fasta file in
+which the sequence can be found, and the Genbank ID to search. Optional arguments include the species (otherwise human
+is assumed) and a file of gapped reference sequences, which is used as a guide to gap V sequences. If an output file
+is specified
 with the <code class="docutils literal notranslate"><span class="pre">-out_file</span></code> argument, the output is written there in CSV format, with information matching that provided by
 <code class="docutils literal notranslate"><span class="pre">digger</span></code>. Otherwise a summary is provided to standard output.</p>
-<p>In response, the command searches the specified Genbank accession for the closest match to the target sequenece (in this case
+<p>The command searches the specified Genbank accession for the closest match to the target sequenece (in this case
 differing by a single nucleotide), and returns annotation details. These will include regulatory regions where they are
-available.</p>
+available. Only a single closest-match sequence is annotated.</p>
 <p>Variants of <a class="reference internal" href="../tools/dig_sequence.html#dig-sequence"><span class="std std-ref">dig_sequence</span></a> allow the sequence to be specified directly rather than by Genbank accession number, and
 allow multiple searches to be specified in a csv file.</p>
 </section>
