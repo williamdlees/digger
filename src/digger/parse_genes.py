@@ -707,7 +707,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
                 results.append((left, v_annot, right))
             if max_likelihood_rec is None or v_annot.likelihood > max_likelihood_rec[1].likelihood:
                 max_likelihood_rec = (left, v_annot, right)
-            if v_annot.start == start + 1 and (max_likelihood_rec_at_start is None or v_annot.likelihood > max_likelihood_rec[1].likelihood):
+            if v_annot.start == start and (max_likelihood_rec_at_start is None or v_annot.likelihood > max_likelihood_rec[1].likelihood):
                 max_likelihood_rec_at_start = (left, v_annot, right)
 
     # If we don't have any functional results, favour the one with the suggested start position.

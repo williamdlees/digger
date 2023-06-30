@@ -223,12 +223,12 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
                 'notes': "Sequence to be annotated does not contain recognisable 3' or 5' regulatory regions",
                 'functional': row['functional']
             }
-        else:
-            nt_diff = min(diffs)
-            start, end, score = find_target_sequence(row['seq'], target_seq, 'local')
 
-            score = (100*score)/(2*len(target_seq))
-            score = round(score, 1)
+        nt_diff = min(diffs)
+        start, end, score = find_target_sequence(row['seq'], target_seq, 'local')
+
+        score = (100*score)/(2*len(target_seq))
+        score = round(score, 1)
 
     row['target_allele'] = target
     row['genbank_acc'] = genbank_acc

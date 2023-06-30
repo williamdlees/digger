@@ -2,7 +2,9 @@
 
 type: V
 Functional sequences reported by digger but not by IMGT:
-77810,78108  imgt_match: IGLV1-123*01  imgt_func: pseudo digger_match: IGLV1-64*01  digger_func: functional  notes: 
+268773,269089  imgt_match: IGLV5-99*01  imgt_func: ORF digger_match: IGLV5-99*01  digger_func: functional  notes: 
+...digger identified a functional leader that met the PWM likelihood threshold
+674097,674405  imgt_match: IGLV5-57*01  imgt_func: pseudo digger_match: IGLV5-57*01  digger_func: functional  notes: 
 ...digger identified a functional leader that met the PWM likelihood threshold
 
 Functional sequences reported by IMGT but not by digger:
