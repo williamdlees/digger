@@ -30,6 +30,7 @@ def find_target_sequence(assembly, target_seq, mode='local'):
     # Extract the best alignment from the alignments list
     best_alignment = alignments[0]
 
+    # return 0-based start, end and score
     return best_alignment.aligned[0][0][0], alignments[0].aligned[0][-1][-1], best_alignment.score
 
 # Fetch a sequence from genbank given the accession number
@@ -63,17 +64,30 @@ def get_genbank_sequence(acc):
 
 def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_ref, v_ungapped_ref, motifs, conserved_motif_seqs, motif_params):
     gene_type = target[3]
-    target_seq = germlines[target]
+    target_seq = germlines[target].upper()
     sense = '+'
     notes = []
+    assembly = assembly.upper()
+    score = 0
 
-    start, end, score = find_target_sequence(assembly, target_seq)
-    rev_start, rev_end, rev_score = find_target_sequence(simple.reverse_complement(assembly), target_seq)
-
-    if rev_score > score:
-        start, end, score = rev_start, rev_end, rev_score
+    # try for perfect match
+    if target_seq in assembly:
+        start, end, score =  assembly.index(target_seq), assembly.index(target_seq) + len(target_seq), len(target_seq)*2
+    elif target_seq in simple.reverse_complement(assembly):
         assembly = simple.reverse_complement(assembly)
-        sense = '-'
+        start, end, score = assembly.index(target_seq), assembly.index(target_seq) + len(target_seq), len(target_seq)*2
+    else:
+        start, end, score = find_target_sequence(assembly, target_seq)
+        if score < 2*len(target_seq):
+            rev_start, rev_end, rev_score = find_target_sequence(simple.reverse_complement(assembly), target_seq)
+
+            if rev_score > score:
+                start, end, score = rev_start, rev_end, rev_score
+                assembly = simple.reverse_complement(assembly)
+                sense = '-'
+
+    rev_start = len(assembly) - end + 1
+    rev_end = len(assembly) - start + 1
 
     score = (100*score)/(2*len(target_seq))
     score = round(score, 1)
@@ -225,7 +239,10 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
             }
 
         nt_diff = min(diffs)
-        start, end, score = find_target_sequence(row['seq'], target_seq, 'local')
+        if target_seq in assembly:
+            start, end, score = assembly.index(target_seq), assembly.index(target_seq) + len(target_seq), len(target_seq) * 2
+        else:
+            start, end, score = find_target_sequence(row['seq'], target_seq, 'local')
 
         score = (100*score)/(2*len(target_seq))
         score = round(score, 1)

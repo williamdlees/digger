@@ -369,12 +369,13 @@ def main():
     if os.path.isfile(conserved_motif_file):
         conserved_motif_seqs = simple.read_fasta(conserved_motif_file)
 
-    for ref in args.ref:
-        if ',' in ref:
-            species, filename = ref.split(',')
-            reference_sets.append({'name': species, 'file': filename})
-        else:
-            print('ref argument should consist of a species name and filename separated by a comma')
+    if args.ref:
+        for ref in args.ref:
+            if ',' in ref:
+                species, filename = ref.split(',')
+                reference_sets.append({'name': species, 'file': filename})
+            else:
+                print('ref argument should consist of a species name and filename separated by a comma')
 
     for ref in reference_sets:
         ref['seqs'] = simple.read_fasta(ref['file'])
