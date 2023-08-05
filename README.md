@@ -3,6 +3,9 @@ A toolkit for the automatic annotation of V,D and J genes and associated feature
 
 For more details, please see the [documentation](https://williamdlees.github.io/digger/index.html).
 
+Changes in v 0.5.6:
+- compatibility update for receptor_utils 0.0.40
+
 Changes in v 0.5.5:
 - speed optimisation for dig_sequence
 - allow find_alignments to be called without a -ref parameter

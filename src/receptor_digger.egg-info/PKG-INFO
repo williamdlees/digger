@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: receptor-digger
-Version: 0.5.5
+Version: 0.5.6
 Summary: Tools for de novo discovery of genomic germline IG and TR receptor sequences
 Home-page: https://github.com/williamdlees/digger
 Author: William Lees
@@ -16,6 +16,10 @@ Description-Content-Type: text/markdown
 A toolkit for the automatic annotation of V,D and J genes and associated features in IG receptor genomic loci.
 
 For more details, please see the [documentation](https://williamdlees.github.io/digger/index.html).
+
+Changes in v 0.5.6:
+- compatibility update for receptor_utils 0.0.40
+- allow find_alignments to be called without a -ref parameter
 
 Changes in v 0.5.5:
 - speed optimisation for dig_sequence
