@@ -4,7 +4,7 @@ from operator import attrgetter
 
 from Bio import pairwise2
 from receptor_utils import simple_bio_seq as simple
-from receptor_utils.number_ighv import gap_sequence, number_ighv, gap_nt_from_aa
+from receptor_utils.number_v import gap_sequence, number_ighv, gap_nt_from_aa
 
 try:
     from motif import Motif

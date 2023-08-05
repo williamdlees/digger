@@ -90,7 +90,7 @@ def main():
         if fn:
             full_germline_set |= simple.read_fasta(fn)
 
-    simple.write_fasta(full_germline_set, 'full_germline_set.fasta')
+    simple.write_fasta('full_germline_set.fasta', full_germline_set)
 
     if args.ref_comp:
         for ref_arg in args.ref_comp:
@@ -109,7 +109,7 @@ def main():
         print('The assembly file must contain exactly one sequence.')
         exit(1)
 
-    simple.write_fasta({list(assembly_contents.keys())[0]: list(assembly_contents.values())[0]}, 'assembly.fasta')
+    simple.write_fasta('assembly.fasta', {list(assembly_contents.keys())[0]: list(assembly_contents.values())[0]})
     assembly_name = slugify(list(assembly_contents.keys())[0])
     assembly_length = len(list(assembly_contents.values())[0])
 

@@ -5,7 +5,7 @@ import csv
 from collections import defaultdict
 from importlib.resources import files
 
-from receptor_utils.number_ighv import number_ighv, gap_nt_from_aa, nt_diff, gap_sequence
+from receptor_utils.number_v import number_ighv, gap_nt_from_aa, nt_diff, gap_sequence
 from math import ceil
 import glob
 import os.path

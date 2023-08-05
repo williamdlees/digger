@@ -348,7 +348,7 @@ def main():
             fo.write('\n'.join(all_annotations))
 
     if args.save_sequence:
-        simple.write_fasta(sequences, args.save_sequence)
+        simple.write_fasta(args.save_sequence, sequences)
 
     if fieldnames:
         with open(args.outfile, 'w', newline='') as fo:
