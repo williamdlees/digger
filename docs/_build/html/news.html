@@ -44,9 +44,14 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-v-0-5-7">Changes in v 0.5.7:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-v-0-5-6">Changes in v 0.5.6:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-v-0-5-5">Changes in v 0.5.5:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-v-0-5-4">Changes in V 0.5.4:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-v-0-5-3">Changes in V 0.5.3:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-v-0-5-2">Changes in V 0.5.2:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-v-0-5-1">Changes in V 0.5.1:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-5-april-2023">Version 0.5: April 2023</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#version-0-5-1-april-2023">Version 0.5.1: April 2023</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#version-0-5-2-may-2023">Version 0.5.2: May 2023</a></li>
 </ul>
 </li>
 </ul>
@@ -89,19 +94,53 @@
              
   <section id="release-notes">
 <span id="news"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading"></a></h1>
+<section id="changes-in-v-0-5-7">
+<h2>Changes in v 0.5.7:<a class="headerlink" href="#changes-in-v-0-5-7" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>modified reporting of nt_diff so that it reports the number of nt differences between the query and the reference, including any length differences.</p></li>
+<li><p>updated the code to use Bio.Align rather than Bio.pairwise2, which is deprecated.</p></li>
+</ul>
+</section>
+<section id="changes-in-v-0-5-6">
+<h2>Changes in v 0.5.6:<a class="headerlink" href="#changes-in-v-0-5-6" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>compatibility update for receptor_utils 0.0.40</p></li>
+</ul>
+</section>
+<section id="changes-in-v-0-5-5">
+<h2>Changes in v 0.5.5:<a class="headerlink" href="#changes-in-v-0-5-5" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>speed optimisation for dig_sequence</p></li>
+<li><p>allow find_alignments to be called without a -ref parameter</p></li>
+</ul>
+</section>
+<section id="changes-in-v-0-5-4">
+<h2>Changes in V 0.5.4:<a class="headerlink" href="#changes-in-v-0-5-4" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Minor fixes to handling of non-functional sequences</p></li>
+</ul>
+</section>
+<section id="changes-in-v-0-5-3">
+<h2>Changes in V 0.5.3:<a class="headerlink" href="#changes-in-v-0-5-3" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fixes to annotation in reverse-sense: false positives were not being filtered correctly</p></li>
+</ul>
+</section>
+<section id="changes-in-v-0-5-2">
+<h2>Changes in V 0.5.2:<a class="headerlink" href="#changes-in-v-0-5-2" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added dig_sequence command, which allows a sequence stored locally or in Genbank to be searched for a specific allele. The closest match will be annotated.</p></li>
+</ul>
+</section>
+<section id="changes-in-v-0-5-1">
+<h2>Changes in V 0.5.1:<a class="headerlink" href="#changes-in-v-0-5-1" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Refactored elements of the code to make it more modular and easier to maintain.</p></li>
+</ul>
+</section>
 <section id="version-0-5-april-2023">
 <h2>Version 0.5: April 2023<a class="headerlink" href="#version-0-5-april-2023" title="Permalink to this heading"></a></h2>
 <p>First public version.</p>
-</section>
-<section id="version-0-5-1-april-2023">
-<h2>Version 0.5.1: April 2023<a class="headerlink" href="#version-0-5-1-april-2023" title="Permalink to this heading"></a></h2>
-<p>Minor fixes.</p>
-<p>First public version.</p>
-</section>
-<section id="version-0-5-2-may-2023">
-<h2>Version 0.5.2: May 2023<a class="headerlink" href="#version-0-5-2-may-2023" title="Permalink to this heading"></a></h2>
-<p>Added dig_sequence command, which allows a sequence stored locally or in Genbank to be searched for a specific
-allele. The closest match will be annotated.</p>
 </section>
 </section>
 

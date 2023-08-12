@@ -25,8 +25,7 @@ Changes in V 0.5.3:
 
 Changes in V 0.5.2:
 *******************
-- Added dig_sequence command, which allows a sequence stored locally or in Genbank to be searched for a specific
-allele. The closest match will be annotated.
+- Added dig_sequence command, which allows a sequence stored locally or in Genbank to be searched for a specific allele. The closest match will be annotated.
 
 Changes in V 0.5.1:
 *******************
