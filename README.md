@@ -3,6 +3,10 @@ A toolkit for the automatic annotation of V,D and J genes and associated feature
 
 For more details, please see the [documentation](https://williamdlees.github.io/digger/index.html).
 
+Changes in v 0.5.7:
+- modified reporting of nt_diff so that it reports the number of nt differences between the query and the reference, including any length differences.
+- updated the code to use Bio.Align rather than Bio.pairwise2, which is deprecated.
+
 Changes in v 0.5.6:
 - compatibility update for receptor_utils 0.0.40
 

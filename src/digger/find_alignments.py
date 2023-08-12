@@ -1,6 +1,6 @@
 from operator import attrgetter, itemgetter
 
-from Bio import pairwise2
+from Bio.Align import PairwiseAligner
 import csv
 from collections import defaultdict
 from importlib.resources import files
@@ -64,25 +64,33 @@ conserved_motif_seqs = {}
 
 
 
+aligner_global = PairwiseAligner(
+    mode = 'global',
+    open_gap_score = -1,
+    extend_gap_score = -1,
+    match_score = 1,
+    mismatch_score = 0
+)
+
 def calc_matched_refs(row):
     for ref in reference_sets:
         row[ref['name'] + '_match'] = ''
         row[ref['name'] + '_score'] = 0
         row[ref['name'] + '_nt_diffs'] = 999
+        best_ref_seq = ''
 
         for ref_name, ref_seq in ref['seqs'].items():
             if row['gene_type'] in ref_name:
-                score = pairwise2.align.globalms(row['seq'], ref_seq, 1, 0, -1, -1, score_only=True)
-                if isinstance(score, float) and score > row[ref['name'] + '_score']:
-                    row[ref['name'] + '_score'] = score
-                    row[ref['name'] + '_match'] = ref_name
-
-                if 'V' in row['gene_type'] and len(row['seq']) > 290 and len(ref_seq) > 290:
-                    score = nt_diff(row['seq'][:291], ref_seq[:291])
-                else:
-                    score = nt_diff(row['seq'], ref_seq)
-                if score < row[ref['name'] + '_nt_diffs']:
-                    row[ref['name'] + '_nt_diffs'] = score
+                if row['seq'] and ref_seq:
+                    alignment = aligner_global.align(row['seq'], ref_seq)[0]
+                    score = alignment.score
+                
+                    if score > row[ref['name'] + '_score']:
+                        row[ref['name'] + '_score'] = score
+                        row[ref['name'] + '_match'] = ref_name
+                        c = alignment.counts()
+                        row[ref['name'] + '_nt_diffs'] = max(len(row['seq']), len(ref_seq)) - c.identities
+                        best_ref_seq = ref_seq
 
         if row[ref['name'] + '_nt_diffs'] == 999:
             row[ref['name'] + '_nt_diffs'] = 0
@@ -90,6 +98,14 @@ def calc_matched_refs(row):
         if row[ref['name'] + '_score'] > 0:
             row[ref['name'] + '_score'] = round(row[ref['name'] + '_score'] * 100.0 / len(row['seq']), 2)
 
+        # if we get a 100% score, check that there are no diffs and that the two strings are identical
+        if row[ref['name'] + '_score'] == 100:
+            if row[ref['name'] + '_nt_diffs'] != 0:
+                print(f'WARNING: 100% match but nt_diff is nonzero: {row}')
+            if row['seq'] != best_ref_seq:
+                print(f'WARNING: 100% match reported but sequences are not identical: {row}')
+        if row[ref['name'] + '_match'] and row[ref['name'] + '_nt_diffs'] == 0 and row[ref['name'] + '_score'] != 100:
+            print(f'WARNING: nt_diff is zero but score is not 100%: {row}')
 
 
 def strings_to_num(row, fields):

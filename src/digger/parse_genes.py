@@ -2,7 +2,7 @@ from collections import defaultdict
 from math import ceil
 from operator import attrgetter
 
-from Bio import pairwise2
+from Bio.Align import PairwiseAligner
 from receptor_utils import simple_bio_seq as simple
 from receptor_utils.number_v import gap_sequence, number_ighv, gap_nt_from_aa
 
@@ -948,8 +948,21 @@ def find_best_rss(rights):
     return best_rights
 
 
+aligner_global = PairwiseAligner(
+    mode = 'global',
+    open_gap_score = -1,
+    extend_gap_score = -1,
+    match_score = 1,
+    mismatch_score = 0
+)
+
+
 def calc_best_match_score(germlines, best, seq):
-    score = pairwise2.align.globalms(seq, germlines[best['subject']], 1, 0, -1, -1, score_only=True)
+    if not seq or not best['subject']:
+        return '', 0.0, 0
+
+    score = aligner_global.align(seq, germlines[best['subject']]).score
+    
     if isinstance(score, float) and score > 0:
         best_score = round(100 * score / len(seq), 2)
         best_match = best['subject']
