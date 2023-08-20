@@ -25,6 +25,6 @@ type: J
 Functional sequences reported by digger but not by IMGT:
 
 Functional sequences reported by IMGT but not by digger:
-1343426,1343463  imgt_match: IGKJ5*01  imgt_func: functional digger_match: IGKJ5*01  digger_func: orf  notes: J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): T------
+1343426,1343463  imgt_match: IGKJ5*01  imgt_func: functional digger_match: IGKJ5*01  digger_func: orf  notes: J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -AC-G-G-A, J-HEPTAMER has variation at strongly conserved residue(s): T------
 
 Functional sequences reported by both IMGT and digger but with different sequences:

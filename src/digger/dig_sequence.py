@@ -158,6 +158,7 @@ def multi_driver(args, genomic):
         if target_allele in germlines:
             for req in reqs:
                 if 'seq' in req and req['seq']:
+                    print(f'Processing {target_allele} {req["accession"]}')
                     row = process_sequence(req['seq'], req['accession'], req['patch'], target_allele, germlines, v_gapped_ref, v_ungapped_ref, motifs, conserved_motif_seqs, motif_params)
                     rows.append(row)
 

@@ -185,14 +185,14 @@ def process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
         rows.append(row)
 
     for row in rows:
-        check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], False)
-        check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], True)
-        check_seq(assembly, assembly_rc, row['d_5_nonamer'], row['5_rss_start'], row['5_rss_start'] + 8, False)
-        check_seq(assembly, assembly_rc, row['d_5_heptamer'], row['5_rss_end'] - 6, row['5_rss_end'], False)
-        check_seq(assembly, assembly_rc, assembly[row['5_rss_start'] - 1:row['5_rss_end']], row['5_rss_start_rev'], row['5_rss_end_rev'], True)
-        check_seq(assembly, assembly_rc, row['d_3_heptamer'], row['3_rss_start'], row['3_rss_start'] + 6, False)
-        check_seq(assembly, assembly_rc, row['d_3_nonamer'], row['3_rss_end'], row['3_rss_end'] - 8, False)
-        check_seq(assembly, assembly_rc, assembly[row['3_rss_start'] - 1:row['3_rss_end']], row['3_rss_start_rev'], row['3_rss_end_rev'], True)
+        check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], 'seq', False)
+        check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], 'seq', True)
+        check_seq(assembly, assembly_rc, row['d_5_nonamer'], row['5_rss_start'], row['5_rss_start'] + 8, 'd_5_nonamer', False)
+        check_seq(assembly, assembly_rc, row['d_5_heptamer'], row['5_rss_end'] - 6, row['5_rss_end'], 'd_5_heptamer', False)
+        check_seq(assembly, assembly_rc, assembly[row['5_rss_start'] - 1:row['5_rss_end']], row['5_rss_start_rev'], row['5_rss_end_rev'], '5_rss', True)
+        check_seq(assembly, assembly_rc, row['d_3_heptamer'], row['3_rss_start'], row['3_rss_start'] + 6, 'd_3_heptamer', False)
+        check_seq(assembly, assembly_rc, row['d_3_nonamer'], row['3_rss_end'], row['3_rss_end'] - 8, 'd_3_nonamer', False)
+        check_seq(assembly, assembly_rc, assembly[row['3_rss_start'] - 1:row['3_rss_end']], row['3_rss_start_rev'], row['3_rss_end_rev'], '3_rss', True)
 
     return rows
 
@@ -307,8 +307,8 @@ def process_c(assembly, assembly_rc, germlines, start, end, best, matches):
 
     add_gene_coords(row, assembly)
 
-    check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], False)
-    check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], True)
+    check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], 'seq', False)
+    check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], 'seq', True)
 
     return[row]
 
@@ -375,7 +375,7 @@ class JAnnotation:
         self.rss_end = motif.end
         self.likelihood = motif.likelihood
 
-    def annotate(self, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE):
+    def annotate(self, assembly, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE):
         """
         Annotate the J-segment by determining its functionality.
 
@@ -398,7 +398,7 @@ class JAnnotation:
                 break
 
         if hit >= 0:
-            self.end = self.start + i + (hit + J_TRP_OFFSET)*3      # include the donor splice
+            self.end = min(self.start + i + (hit + J_TRP_OFFSET)*3, len(assembly))      # include the donor splice
             self.seq = self.assembly[self.start - 1:self.end]
             if self.assembly[self.end - 1:self.end + 2] != J_SPLICE:
                 self.notes.append('Donor splice not found')
@@ -465,7 +465,7 @@ def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
     j_rs = j_rss[0]
 
     result = (JAnnotation(assembly, j_rs.end + 1, end, j_rs))
-    result.annotate(J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE)
+    result.annotate(assembly, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE)
 
     best_match, best_score, best_nt_diffs = calc_best_match_score(germlines, best, result.seq)
 
@@ -495,11 +495,11 @@ def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
 
     add_gene_coords(row, assembly)
 
-    check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], False)
-    check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], True)
-    check_seq(assembly, assembly_rc, row['j_nonamer'], row['5_rss_start'], row['5_rss_start'] + 8, False)
-    check_seq(assembly, assembly_rc, row['j_heptamer'], row['5_rss_end'] - 6, row['5_rss_end'], False)
-    check_seq(assembly, assembly_rc, assembly[row['5_rss_start'] - 1:row['5_rss_end']], row['5_rss_start_rev'], row['5_rss_end_rev'], True)
+    check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], 'seq', False)
+    check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], 'seq', True)
+    check_seq(assembly, assembly_rc, row['j_nonamer'], row['5_rss_start'], row['5_rss_start'] + 8, 'j_nonamer', False)
+    check_seq(assembly, assembly_rc, row['j_heptamer'], row['5_rss_end'] - 6, row['5_rss_end'], 'j_heptamer', False)
+    check_seq(assembly, assembly_rc, assembly[row['5_rss_start'] - 1:row['5_rss_end']], row['5_rss_start_rev'], row['5_rss_end_rev'], '5_rss', True)
 
     return [row]
 
@@ -648,8 +648,8 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
     if rights and not leaders:
         leaders.append(
             MotifResult(assembly,
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['L-PART1'], start-len(motifs['L-PART1'].consensus)-10-len(motifs['L-PART2'].consensus), 0),
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['L-PART2'], start-len(motifs['L-PART2'].consensus), 0),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['L-PART1'], start-len(motifs['L-PART1'].consensus)-10-len(motifs['L-PART2'].consensus), 0.1),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['L-PART2'], start-len(motifs['L-PART2'].consensus), 0.1),
                    ['Leader not found'])
         )
 
@@ -658,8 +658,8 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
     if leaders and not rights:
         rights.append(
             MotifResult(assembly,
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], end+1, 0),
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-NONAMER'], end+V_RSS_SPACING+1, 0),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], min(end+1, len(assembly)), 0),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-NONAMER'], min(end+V_RSS_SPACING+1, len(assembly)), 0),
                    ['RSS not found'])
         )
 
@@ -782,18 +782,20 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
         row['aa'] = simple.translate(v_gene.ungapped)
 
         add_gene_coords(row, assembly)
+
         rows.append(row)
 
     for row in rows:
-        check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], False)
-        check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], True)
-        check_seq(assembly, assembly_rc, row['v_heptamer'], row['3_rss_start'], row['3_rss_start'] + 6, False)
-        check_seq(assembly, assembly_rc, row['v_nonamer'], row['3_rss_end'], row['3_rss_end'] - 8, False)
-        check_seq(assembly, assembly_rc, assembly[row['3_rss_start'] - 1:row['3_rss_end']], row['3_rss_start_rev'], row['3_rss_end_rev'], True)
-        check_seq(assembly, assembly_rc, row['l_part1'], row['l_part1_start'], row['l_part1_end'], False)
-        check_seq(assembly, assembly_rc, assembly[row['l_part1_start'] - 1:row['l_part1_end']], row['l_part1_start_rev'], row['l_part1_end_rev'], True)
-        check_seq(assembly, assembly_rc, row['l_part2'], row['l_part2_start'], row['l_part2_end'], False)
-        check_seq(assembly, assembly_rc, assembly[row['l_part2_start'] - 1:row['l_part2_end']], row['l_part2_start_rev'], row['l_part2_end_rev'], True)
+        check_seq(assembly, assembly_rc, row['seq'], row['start'], row['end'], 'seq', False)
+        check_seq(assembly, assembly_rc, row['seq'], row['start_rev'], row['end_rev'], 'seq', True)
+        check_seq(assembly, assembly_rc, row['v_heptamer'], row['3_rss_start'], row['3_rss_start'] + 6, 'v_heptamer', False)
+        check_seq(assembly, assembly_rc, row['v_nonamer'], row['3_rss_end'], row['3_rss_end'] - 8, 'v_nonamer', False)
+        check_seq(assembly, assembly_rc, assembly[row['3_rss_start'] - 1:row['3_rss_end']], row['3_rss_start_rev'], row['3_rss_end_rev'], '3_rss', True)
+        check_seq(assembly, assembly_rc, row['l_part1'], row['l_part1_start'], row['l_part1_end'], 'l_part1', False)
+        check_seq(assembly, assembly_rc, assembly[row['l_part1_start'] - 1:row['l_part1_end']], row['l_part1_start_rev'], row['l_part1_end_rev'], 'l_part1', True)
+        check_seq(assembly, assembly_rc, row['l_part2'], row['l_part2_start'], row['l_part2_end'], 'l_part2', False)
+        check_seq(assembly, assembly_rc, assembly[row['l_part2_start'] - 1:row['l_part2_end']], row['l_part2_start_rev'], row['l_part2_end_rev'], 'l_part1', True)
+        remove_notfound_coords(row)
 
     return rows
 
@@ -801,42 +803,20 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
 # check co-ordinates of each element for sanity
 # all co-ordinates should be 1-based!
 
-def check_seq(assembly, assembly_rc, seq, start, end, rev):
+def check_seq(assembly, assembly_rc, seq, start, end, name, rev):
     if len(seq) == 0:
         return  #   allow empty sequences which may occur if the assembly is truncated
 
     if end < start:
         end, start = start, end
 
-    if end >= len(assembly) or start <= 0:
-        return  # allow co-ords to go off the end - can happen if we're extrapolating the leader, say.
-                # TODO - fix this, but it's not that big an issue
-
     if not rev:
         if seq != assembly[start-1:end]:
-            print('Error: sequence at (%d, %d) failed co-ordinate check.' % (start, end))
+            print(f'Error: sequence {name} ({start}, {end}) failed co-ordinate check.')
     else:
         if simple.reverse_complement(seq) != assembly_rc[start-1:end]:
-            print('Error: reverse sequence at (%d, %d) failed co-ordinate check.' % (start, end))
+            print(f'Error: reverse sequence {name} ({start}, {end}) failed co-ordinate check.')
 
-
-# Find all 'start' or 'end' coords in a record
-def find_coords(rec, keyword):
-    coords = []
-
-    for k in rec.keys():
-        if keyword in k and 'rev' not in k:
-            coords.append(int(rec[k]))
-
-    return coords
-
-
-# Add overall gene coordinates to a row
-def add_gene_coords(row, assembly):
-    row['gene_start'] = max(min(find_coords(row, 'start')), 1)
-    row['gene_end'] = min(max(find_coords(row, 'end')), len(assembly))
-    row['gene_start_rev'], row['gene_end_rev'] = len(assembly) - row['gene_end'] + 1, len(assembly) - row['gene_start'] + 1
-    row['gene_seq'] = assembly[row['gene_start'] - 1:row['gene_end']]
 
 
 # find the best leader PART1 for each PART2 starting position:
@@ -871,33 +851,38 @@ def find_best_leaders(assembly, leaders):
         bad_leaders = []
 
         for choice in choices:
-            bad_start = choice.left[:3] != 'ATG'
+            if choice.left:
+                bad_start = choice.left[:3] != 'ATG'
 
-            #if position == 742228 and choice.start == 742085:
-            #    breakpoint()
+                #if position == 742228 and choice.start == 742085:
+                #    breakpoint()
 
-            for i in spread(16):
-                donor = assembly[choice.start - 1 + len(choice.left) + i:choice.start - 1 + len(choice.left) + 2 + i]
-                bad_donor = donor != 'GT'
-                bad_acceptor = None
+                for i in spread(16):
+                    donor = assembly[choice.start - 1 + len(choice.left) + i:choice.start - 1 + len(choice.left) + 2 + i]
+                    bad_donor = donor != 'GT'
+                    bad_acceptor = None
 
-                if not bad_donor:
-                    # a negative j should make the right smaller, i.e. the start co-ordinate bigger
-                    for j in change_in_right(len(choice.left) + len(choice.right) + i):
-                        acceptor = assembly[choice.end - len(choice.right) - j - 2:choice.end - len(choice.right) - j]
-                        bad_acceptor = acceptor != 'AG'
-                        if not bad_acceptor:
-                            cl = assembly[choice.start - 1:choice.start - 1 + len(choice.left) + i]
-                            cr = assembly[choice.end - len(choice.right) - j: choice.end]
-                            l12p = simple.translate(cl + cr)
+                    if not bad_donor:
+                        # a negative j should make the right smaller, i.e. the start co-ordinate bigger
+                        for j in change_in_right(len(choice.left) + len(choice.right) + i):
+                            acceptor = assembly[choice.end - len(choice.right) - j - 2:choice.end - len(choice.right) - j]
+                            bad_acceptor = acceptor != 'AG'
+                            if not bad_acceptor:
+                                cl = assembly[choice.start - 1:choice.start - 1 + len(choice.left) + i]
+                                cr = assembly[choice.end - len(choice.right) - j: choice.end]
+                                l12p = simple.translate(cl + cr)
 
-                            if not ('X' in l12p or '*' in l12p):
-                                choice.right = cr
-                                choice.left = cl
-                                break
+                                if not ('X' in l12p or '*' in l12p):
+                                    choice.right = cr
+                                    choice.left = cl
+                                    break
 
-                if not bad_acceptor and not bad_donor:     # we found a solution
-                    break
+                    if not bad_acceptor and not bad_donor:     # we found a solution
+                        break
+            else:
+                bad_donor = True
+                bad_start = True
+                donor = ''
 
             if bad_donor:    # we didn't find a solution: just annotate the right as it stands, knowing the left is bad
                 acceptor = assembly[choice.end - len(choice.right):choice.end - len(choice.right) + 2]
@@ -906,9 +891,9 @@ def find_best_leaders(assembly, leaders):
             l12p = simple.translate(choice.left + choice.right)
             stop_codon = 'X' in l12p or '*' in l12p
 
-            if bad_start:
+            if bad_start and choice.left:
                 choice.notes.append('Leader missing initial ATG')
-            if bad_donor:
+            if bad_donor and choice.left:
                 choice.notes.append(f'Bad DONOR-SPLICE: {donor}')
             if bad_acceptor:
                 choice.notes.append(f'Bad ACCEPTOR-SPLICE: {acceptor}')
@@ -999,4 +984,44 @@ def find_all_matches(seq, pattern, thresh=0.7):
 
     return dists
 
+
+# Find all 'start' or 'end' coords in a record
+def find_coords(rec, keyword):
+    coords = []
+
+    for k in rec.keys():
+        if keyword in k and 'rev' not in k:
+            coords.append(int(rec[k]))
+
+    return coords
+
+
+# Add overall gene coordinates to a row
+def add_gene_coords(row, assembly):
+    row['gene_start'] = max(min(find_coords(row, 'start')), 1)
+    row['gene_end'] = min(max(find_coords(row, 'end')), len(assembly))
+    row['gene_start_rev'], row['gene_end_rev'] = len(assembly) - row['gene_end'] + 1, len(assembly) - row['gene_start'] + 1
+    row['gene_seq'] = assembly[row['gene_start'] - 1:row['gene_end']]
+
+
+def reverse_coords(row):
+    start_revs = [x for x in row.keys() if 'start_rev' in x]
+    for start_rev in start_revs:
+        end_rev = start_rev.replace('start', 'end')
+        start = start_rev.replace('_rev', '')
+        end = end_rev.replace('_rev', '')
+        row[start], row[start_rev] = row[start_rev], row[start]
+        row[end], row[end_rev] = row[end_rev], row[end]
+
+
+# Remove any coordinates for sequences that were not found
+def remove_notfound_coords(row):
+    start_revs = [x for x in row.keys() if 'start_rev' in x]
+    for start_rev in start_revs:
+        seq_name = start_rev.replace('_start_rev', '')
+        if seq_name in row and not row[seq_name]:
+            del row[start_rev]
+            del row[start_rev.replace('start_rev', 'end_rev')]
+            del row[start_rev.replace('start_rev', 'start')]
+            del row[start_rev.replace('start_rev', 'end')]
 

@@ -1,6 +1,16 @@
 Release Notes
 =============
 
+Changes in v 0.5.9:
+*******************
+- fixed erroneous reporting of leader1 sequence and co-ordinates when leader1 was not included in the query sequence
+
+Changes in v 0.5.8:
+*******************
+- fixed various issues with end effects leading to the reporting of negative coordinates
+- fixed an issue with targeted annotation which caused negative sense not to be properly reported
+- changed IMGT urls to use https as http is no longer utilised
+
 Changes in v 0.5.7:
 *******************
 - modified reporting of nt_diff so that it reports the number of nt differences between the query and the reference, including any length differences.

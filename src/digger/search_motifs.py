@@ -44,13 +44,15 @@ class SingleMotifResult:
     def __init__(self, assembly, conserved_motif_seqs, motif, position, likelihood):
         self.start = position
         self.name = motif.name
-        self.end = position + len(motif.consensus) - 1
-        self.seq = assembly[position - 1:position - 1 + len(motif.consensus)]
+        self.end = min(position + len(motif.consensus) - 1, len(assembly))
         self.likelihood = likelihood
         self.notes = []
 
-        if likelihood:      # don't check dummy motifs
+        if self.end - self.start + 1 == len(motif.consensus) and likelihood != 0:
+            self.seq = assembly[position - 1:position - 1 + len(motif.consensus)]
             self.check_motif_consensus(conserved_motif_seqs)
+        else:
+            self.seq = ''
 
 
     # check residues that are strongly conserved across all loci
@@ -107,10 +109,25 @@ class MotifResult:
         Otherwise, an empty list will be used as the initial value.
     """
     def __init__(self, assembly, left_motif, right_motif, notes=None):
-        self.start = left_motif.start
-        self.end = right_motif.start + len(right_motif.seq) - 1
+        if left_motif.start:
+            self.start = left_motif.start
+        elif right_motif.start:
+            self.start = right_motif.start
+        else:
+            self.start = 0
+
+        if right_motif.start:
+            self.end = min(right_motif.start + len(right_motif.seq) - 1, len(assembly))
+        elif left_motif.start:
+            self.end = min(left_motif.start + len(left_motif.seq) - 1, len(assembly))
+        else:
+            self.end = 0
+
         self.left = left_motif.seq
-        self.gap = assembly[self.start + len(self.left):right_motif.start - 1]
+        if self.start and right_motif.start:
+            self.gap = assembly[self.start + len(self.left):right_motif.start - 1]
+        else:
+            self.gap = ''
         self.right = right_motif.seq
         self.likelihood = left_motif.likelihood * right_motif.likelihood
         if notes:
@@ -153,14 +170,15 @@ def find_single_motif(assembly, conserved_motif_seqs, motif, min_start, max_star
     consensus_len = len(motif.consensus)
 
     for p in range(min_start, max_start+1):
-        seq = assembly[p-1:p-1 + consensus_len]
-        likelihood = motif.calc_likelihood(seq)
+        if p >= 1 and p + consensus_len - 1 <= len(assembly):
+            seq = assembly[p-1:p-1 + consensus_len]
+            likelihood = motif.calc_likelihood(seq)
 
-        if likelihood > max_found:
-            max_found = likelihood
+            if likelihood > max_found:
+                max_found = likelihood
 
-        if likelihood >= motif.likelihood_threshold:
-            res.append(SingleMotifResult(assembly, conserved_motif_seqs, motif, p, likelihood))
+            if likelihood >= motif.likelihood_threshold:
+                res.append(SingleMotifResult(assembly, conserved_motif_seqs, motif, p, likelihood))
 
     return res
 
@@ -242,14 +260,15 @@ def find_compound_motif(assembly, conserved_motif_seqs, left_motif, right_motif,
 
         right_results = []
         for left_result in left_results:
-            right_results = find_single_motif(assembly, conserved_motif_seqs, right_motif, left_result.start + len(left_motif.consensus) + min_gap, left_result.start + len(left_result.seq) + max_gap)
-            for right_result in right_results:
-                res.append(MotifResult(assembly, left_result, right_result))
+            if left_result.likelihood:
+                right_results = find_single_motif(assembly, conserved_motif_seqs, right_motif, left_result.start + len(left_motif.consensus) + min_gap, left_result.start + len(left_result.seq) + max_gap)
+                for right_result in right_results:
+                    res.append(MotifResult(assembly, left_result, right_result))
 
         # put in a dummy if we missed the lower likelihood motif
         if left_results and not right_results:
             best_left = sorted(left_results, key=attrgetter('likelihood'), reverse=True)[0]
-            res.append(MotifResult(assembly, best_left, SingleMotifResult(assembly, conserved_motif_seqs, right_motif, best_left.start + len(best_left.seq) + min_gap, 0), notes=[f'{right_motif.name} not found']))
+            res.append(MotifResult(assembly, best_left, SingleMotifResult(assembly, conserved_motif_seqs, right_motif, max(best_left.start + len(best_left.seq) + min_gap, 1), 0), notes=[f'{right_motif.name} not found']))
     else:
         if end is not None:
             right_results = find_single_motif(assembly, conserved_motif_seqs, right_motif, end - len(right_motif.consensus) - window, end + window)
@@ -259,18 +278,19 @@ def find_compound_motif(assembly, conserved_motif_seqs, left_motif, right_motif,
         # if right_force is set, if necessary, force discovery of a right motif at the forced position
 
         if right_force and right_force not in [r.start for r in right_results]:
-            right_results.append(SingleMotifResult(assembly, conserved_motif_seqs, right_motif, right_force, 0))
+            right_results.append(SingleMotifResult(assembly, conserved_motif_seqs, right_motif, right_force, 0.1))
 
         left_results = []
         for right_result in right_results:
-            left_results = find_single_motif(assembly, conserved_motif_seqs, left_motif, right_result.start - max_gap - len(left_motif.consensus), right_result.start - min_gap - len(left_motif.consensus))
-            for left_result in left_results:
-                res.append(MotifResult(assembly, left_result, right_result))
+            if right_result.likelihood:
+                left_results = find_single_motif(assembly, conserved_motif_seqs, left_motif, right_result.start - max_gap - len(left_motif.consensus), right_result.start - min_gap - len(left_motif.consensus))
+                for left_result in left_results:
+                    res.append(MotifResult(assembly, left_result, right_result))
 
         # put in a dummy if we missed the lower likelihood motif
         if right_results and not left_results:
             best_right = sorted(right_results, key=attrgetter('likelihood'), reverse=True)[0]
-            res.append(MotifResult(assembly, SingleMotifResult(assembly, conserved_motif_seqs, left_motif, best_right.start - min_gap - len(left_motif.consensus), 0), best_right, notes=[f'{left_motif.name} not found']))
+            res.append(MotifResult(assembly, SingleMotifResult(assembly, conserved_motif_seqs, left_motif, best_right.start, 0), best_right, notes=[f'{left_motif.name} not found']))
 
     return res
 

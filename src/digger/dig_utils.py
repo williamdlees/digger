@@ -10,11 +10,11 @@ from receptor_utils.novel_allele_name import name_novel
 try:
     from motif import Motif
     from search_motifs import find_compound_motif, MotifResult, SingleMotifResult
-    from parse_genes import process_v, process_d, process_j, process_c, VAnnotation
+    from parse_genes import process_v, process_d, process_j, process_c, VAnnotation, reverse_coords
 except:
     from digger.motif import Motif
     from digger.search_motifs import find_compound_motif, MotifResult, SingleMotifResult
-    from digger.parse_genes import process_v, process_d, process_j, process_c, VAnnotation
+    from digger.parse_genes import process_v, process_d, process_j, process_c, VAnnotation, reverse_coords
 
 
 def find_target_sequence(assembly, target_seq, mode='local'):
@@ -76,6 +76,7 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
     elif target_seq in simple.reverse_complement(assembly):
         assembly = simple.reverse_complement(assembly)
         start, end, score = assembly.index(target_seq), assembly.index(target_seq) + len(target_seq), len(target_seq)*2
+        sense = '-'
     else:
         start, end, score = find_target_sequence(assembly, target_seq)
         if score < 2*len(target_seq):
@@ -170,8 +171,11 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
             'seq_gapped': v_annot.gapped,
 
         }
-        return row
 
+        if sense == '-':
+            reverse_coords(row)
+
+        return row
 
     nt_diff = simple.nt_diff(assembly[start:end], target_seq)
     best = {}
@@ -272,6 +276,9 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
 
     if notes:
         row['notes'] = ', '.join(notes) + ',' + row['notes']
+
+    if sense == '-':
+        reverse_coords(row)
 
     return row
 

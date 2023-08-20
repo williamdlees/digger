@@ -2,12 +2,12 @@
 
 type: V
 Functional sequences reported by digger but not by Watson et al.:
-74289,74590  imgt_match:   imgt_func:  digger_match: IGKV2-4*01  digger_func: functional  notes: Gene reversed
-220659,220960  imgt_match:   imgt_func:  digger_match: IGKV2D-29*01  digger_func: functional  notes: Gene reversed
-302389,302675  imgt_match: IGKV6-21*01  imgt_func: ORF digger_match: IGKV6-21*01  digger_func: functional  notes: Gene reversed
+74289,74590  imgt_match:   imgt_func:  digger_match: IGKV2-4*01  digger_func: functional  notes: 
+220659,220960  imgt_match:   imgt_func:  digger_match: IGKV2D-29*01  digger_func: functional  notes: 
+302389,302675  imgt_match: IGKV6-21*01  imgt_func: ORF digger_match: IGKV6-21*01  digger_func: functional  notes: 
 
 Functional sequences reported by Watson et al. but not by digger:
-472754,473043  imgt_match: IGKV2-40*01  imgt_func: functional digger_match: IGKV2-40*01  digger_func: pseudo  notes: Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: NN, Bad ACCEPTOR-SPLICE: GA, Stop codon in leader
+472754,473043  imgt_match: IGKV2-40*01  imgt_func: functional digger_match: IGKV2-40*01  digger_func: pseudo  notes: Leader missing initial ATG, Bad DONOR-SPLICE: NN, Bad ACCEPTOR-SPLICE: GA, Stop codon in leader
 
 Functional sequences reported by both Watson et al. and digger but with different sequences:
 

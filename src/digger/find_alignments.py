@@ -13,13 +13,18 @@ import argparse
 from receptor_utils import simple_bio_seq as simple
 
 try:
-    from motif import Motif
     from search_motifs import find_compound_motif, MotifResult, SingleMotifResult
     from parse_genes import process_v, process_d, process_j, process_c
-except:
-    from digger.motif import Motif
+    from dig_utils import reverse_coords
+except Exception as e:
     from digger.search_motifs import find_compound_motif, MotifResult, SingleMotifResult
     from digger.parse_genes import process_v, process_d, process_j, process_c
+    from digger.dig_utils import reverse_coords
+
+try:
+    from motif import Motif
+except:
+    from digger.motif import Motif
 
 try:
     from slugify import slugify
@@ -115,17 +120,6 @@ def strings_to_num(row, fields):
         else:
             row[field] = int(row[field])
     return row
-
-
-
-def reverse_coords(row):
-    start_revs = [x for x in row.keys() if 'start_rev' in x]
-    for start_rev in start_revs:
-        end_rev = start_rev.replace('start', 'end')
-        start = start_rev.replace('_rev', '')
-        end = end_rev.replace('_rev', '')
-        row[start], row[end_rev] = row[end_rev], row[start]
-        row[end], row[start_rev] = row[start_rev], row[end]
 
 
 def process_file(this_blast_file, writer, write_parsing_errors):
@@ -243,7 +237,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
 
             if 'V' in gene_type:
                 # don't process obviously very truncated records
-                if abs(end - start) < 250:
+                if abs(end - start) < 250 or start < 1 or end > assembly_length:
                     continue
                 rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, start, end, best, matches, args.align, V_RSS_SPACING, v_parsing_errors)
             elif 'J' in gene_type:
