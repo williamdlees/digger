@@ -270,8 +270,8 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                         else:
                             result_length = result['start'] - result['end'] + 1
 
-                        if row['start'] > row['end']:
-                            breakpoint()
+                        #if row['start'] > row['end']:
+                        #    breakpoint()
 
                         # if this row overlaps with one already stored in results, keep the one that is longer provided it is functional and there are no 'not found' elements
                         if row['start'] < row['end'] and (result['start'] <= row['start'] <= result['end'] or result['start'] <= row['end'] <= result['end']):
