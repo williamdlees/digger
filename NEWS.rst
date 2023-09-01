@@ -1,6 +1,10 @@
 Release Notes
 =============
 
+Changes in v 0.5.10:
+*******************
+- fixed unintended breakpoint in find_alignments which could fire under some circumstances
+
 Changes in v 0.5.9:
 *******************
 - fixed erroneous reporting of leader1 sequence and co-ordinates when leader1 was not included in the query sequence
