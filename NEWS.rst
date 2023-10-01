@@ -1,6 +1,10 @@
 Release Notes
 =============
 
+Changes in 0.6.0
+****************
+- added support for TRA, TRB, TRD, TRG and test cases and motifs for human TR loci
+
 Changes in v 0.5.10:
 *******************
 - fixed unintended breakpoint in find_alignments which could fire under some circumstances
