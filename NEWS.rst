@@ -1,6 +1,10 @@
 Release Notes
 =============
 
+Changes in 0.6.1
+****************
+- bump required version of receptor-utils
+
 Changes in 0.6.0
 ****************
 - added support for TRA, TRB, TRD, TRG and test cases and motifs for human TR loci
