@@ -1,21 +1,21 @@
 imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
 0,1082582,V,,,IGHV(II)-68*01,,pseudo,,No,No,No,No,
-,,V,727,1026,,IGHV4-122*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+,,V,737,1054,,IGHV4-122*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): TGG----"
 804,1026,V,,,IGHV(II)-202*01,,pseudo,,No,No,No,No,
 3205,3502,V,3205,3502,IGHV3-201*01,IGHV3-201*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,J,5912,5945,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -CA---GT-, J-TRP not found"
+,,J,5912,5942,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 14814,15109,V,14814,15109,IGHV1-200*01,IGHV1-200*01,functional,Functional,Yes,Yes,Yes,Yes,
-24170,24462,V,24169,24450,IGHV(III)-199*01,IGHV3-183*02,pseudo,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): T------"
+24170,24462,V,24168,24450,IGHV(III)-199*01,IGHV3-183*02,pseudo,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): T------"
 33617,33912,V,33617,33912,IGHV1-198*01,IGHV1-198*01,functional,Functional,Yes,Yes,Yes,Yes,
 43226,43521,V,43226,43521,IGHV1-197*01,IGHV1-197*01,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
-46834,47130,V,46835,47136,IGHV(III)-196*01,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, RSS not found, V-HEPTAMER has variation at strongly conserved residue(s): --A---A"
+46834,47130,V,46835,47136,IGHV(III)-196*01,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, RSS not found"
 61804,62097,V,61804,62097,IGHV3-195*01,IGHV3-119*04,pseudo,pseudo,No,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
 71644,71939,V,71640,71937,IGHV(III)-194*01,IGHV3-49*01,pseudo,pseudo,No,Yes,No,No,"Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: CA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 ,,V,75622,75923,,IGHV6-1*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): A-----A"
 80078,80373,V,80078,80373,IGHV7-193*01,IGHV7-193*01,functional,Functional,Yes,Yes,Yes,Yes,
-83714,84026,V,83722,84026,IGHV4-192*01,IGHV4-57*03,pseudo,pseudo,No,Yes,Digger is shorter by 8 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+83714,84026,V,83714,84026,IGHV4-192*01,IGHV4-57*03,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 88904,89200,V,88904,89176,IGHV3-191*01,IGHV3-102*03,pseudo,ORF,No,No,Digger is shorter by 24 nt,Yes,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): -TG----"
-90916,91207,V,90914,91207,IGHV(II)-190*01,IGHV4-122*02,pseudo,pseudo,No,Yes,Digger is longer by 2 nt,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+90916,91207,V,90909,91207,IGHV(II)-190*01,IGHV4-122*03,pseudo,pseudo,No,Yes,Digger is longer by 7 nt,No,"Bad DONOR-SPLICE: AA, Bad ACCEPTOR-SPLICE: AC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 102716,103009,V,102716,102987,IGHV5-189*01,IGHV5-189*01,pseudo,ORF,Yes,No,Digger is shorter by 22 nt,Yes,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): -G-----"
 121704,121999,V,121703,121999,IGHV(III)-188*01,IGHV3-37*01,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): ------T"
 125167,125458,V,125167,125458,IGHV3-187*01,IGHV3-100*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
@@ -27,7 +27,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 169659,169955,V,169659,169955,IGHV3-182*01,IGHV3-182*05,pseudo,pseudo,No,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
 210242,210536,V,210239,210522,IGHV(III)-181*01,IGHV3-110*01,pseudo,pseudo,No,Yes,No,No,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GC, Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): T------"
 217338,217633,V,217338,217633,IGHV1-180*01,IGHV1-180*01,functional,Functional,Yes,Yes,Yes,Yes,
-220879,221172,V,220877,221158,IGHV(III)-179*01,IGHV3-110*03,pseudo,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): ------A"
+220879,221172,V,220874,221158,IGHV(III)-179*01,IGHV3-110*03,pseudo,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): ------A"
 223991,224286,V,223991,224286,IGHV3-178*01,IGHV3-178*01,functional,Functional,Yes,Yes,Yes,Yes,
 229417,229713,V,229417,229713,IGHV(II)-177*01,IGHV4-122*03,pseudo,ORF,No,No,Yes,Yes,"Conserved Trp not found, Second cysteine not found"
 235627,235925,V,235630,235925,IGHV3-176*01,IGHV3-176*01,functional,Functional,Yes,Yes,Digger is shorter by 3 nt,No,
@@ -35,7 +35,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 251451,251751,V,251451,251751,IGHV2-174*01,IGHV2-174*01,functional,Functional,Yes,Yes,Yes,Yes,
 266120,266415,V,266120,266415,IGHV4-173*01,IGHV4-173*01,functional,Functional,Yes,Yes,Yes,Yes,
 274469,274764,V,274469,274748,IGHV(I)-172*01,IGHV1-89*01,pseudo,ORF,No,No,Digger is shorter by 16 nt,Yes,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): AT-----"
-278410,278703,V,278411,278712,IGHV(III)-171*01,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, RSS not found, V-HEPTAMER has variation at strongly conserved residue(s): A-A----"
+278410,278703,V,278411,278712,IGHV(III)-171*01,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, RSS not found"
 281874,282165,V,281874,282165,IGHV3-170*01,IGHV3-162*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 291932,292226,V,291932,292226,IGHV4-169*01,IGHV4-169*01,functional,Functional,Yes,Yes,Yes,Yes,
 293118,293414,V,293118,293414,IGHV3-168*01,IGHV3-168*03,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): -CA----"
@@ -43,21 +43,21 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 302911,303210,V,302913,303208,IGHV7-166*01,IGHV7-166*05,pseudo,pseudo,No,Yes,Digger is shorter by 4 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found"
 306584,306879,V,306584,306879,IGHV4-165*01,IGHV4-165*01,functional,Functional,Yes,Yes,Yes,Yes,
 314024,314319,V,314024,314303,IGHV(I)-164*01,IGHV1-89*01,pseudo,ORF,No,No,Digger is shorter by 16 nt,Yes,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): AT-----"
-317293,317589,V,317294,317564,IGHV(III)-163*01,IGHV3-118*04,pseudo,ORF,No,No,Digger is shorter by 26 nt,No,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): ------T"
+317293,317589,V,317291,317564,IGHV(III)-163*01,IGHV3-118*04,pseudo,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): ------T"
 320798,321089,V,320798,321089,IGHV3-162*01,IGHV3-162*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, First cysteine not found, Conserved Trp not found"
 335190,335483,V,335190,335483,IGHV3-157D*01,IGHV3-119*04,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
-,,J,338709,338772,,IGHJ5-1*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -ACC--GT-, J-HEPTAMER has variation at strongly conserved residue(s): ---C---, J-TRP not found"
+,,J,338709,338739,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): ---C---, J-TRP not found"
 342699,342994,V,342699,342994,IGHV1-156D*01,IGHV1-156D*01,functional,Functional,Yes,Yes,Yes,Yes,
-345164,345460,V,345164,345447,IGHV(III)-155D*01,IGHV3-110*04,pseudo,pseudo,No,Yes,Digger is shorter by 13 nt,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: CC, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+345164,345460,V,345163,345447,IGHV(III)-155D*01,IGHV3-110*04,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: TC, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 358369,358666,V,358369,358666,IGHV(II)-154D*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 363863,364164,V,363863,364164,IGHV3-153D*01,IGHV3-153D*01,functional,Functional,Yes,Yes,Yes,Yes,
 368783,369083,V,368783,369083,IGHV2-161*01,IGHV2-161*01,functional,Functional,Yes,Yes,Yes,Yes,
 383466,383761,V,383466,383761,IGHV4-160*01,IGHV4-160*01,functional,Functional,Yes,Yes,Yes,Yes,
 391802,392101,V,391802,392080,IGHV(I)-159*01,IGHV1-138*04,pseudo,ORF,No,No,Digger is shorter by 21 nt,Yes,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): AT-----"
-395748,396040,V,395749,396050,IGHV(III)-158*01,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, RSS not found, V-HEPTAMER has variation at strongly conserved residue(s): A-A----"
+395748,396040,V,395749,396050,IGHV(III)-158*01,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, RSS not found"
 452742,453035,V,452742,453035,IGHV3-157*01,IGHV3-119*04,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
 460137,460432,V,460137,460432,IGHV1-156*01,IGHV1-156*01,functional,Functional,Yes,Yes,Yes,Yes,
-462589,462885,V,462589,462872,IGHV(III)-155*01,IGHV3-110*04,pseudo,pseudo,No,Yes,Digger is shorter by 13 nt,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: CC, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+462589,462885,V,462588,462872,IGHV(III)-155*01,IGHV3-110*04,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: TC, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 468089,468386,V,468089,468386,IGHV(II)-154*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 473609,473910,V,473609,473910,IGHV3-153*01,IGHV3-153*01,functional,Functional,Yes,Yes,Yes,Yes,
 478539,478839,V,478539,478839,IGHV2-152*01,IGHV2-152*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -68,21 +68,21 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,D,511947,511984,,IGHD3-40*01,,ORF,No,No,No,No,"5' 5'D-HEPTAMER has variation at strongly conserved residue(s): ------T, 3' 3'D-HEPTAMER has variation at strongly conserved residue(s): ------T, 3' 3'D-NONAMER has variation at strongly conserved residue(s): -A-------"
 515409,515704,V,515409,515704,IGHV4-147*01,IGHV4-147*01,functional,Functional,Yes,Yes,Yes,Yes,
 516603,516900,V,516603,516900,IGHV3-146*01,IGHV3-146*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): -CA----"
-518292,518566,V,518291,518566,IGHV(II)-145*01,IGHV4-106*01,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: CC, Stop codon in leader, Sequence truncated before second cysteine"
+518292,518566,V,518287,518566,IGHV(II)-145*01,IGHV4-106*01,pseudo,pseudo,No,Yes,Digger is longer by 5 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Stop codon in leader, Sequence truncated before second cysteine"
 532278,532575,V,532280,532575,IGHV7-144*01,IGHV7-166*05,pseudo,pseudo,No,Yes,Digger is shorter by 2 nt,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found"
 535948,536246,V,535948,536246,IGHV4-143*01,IGHV4-143*01,functional,Functional,Yes,Yes,Yes,Yes,
 543418,543713,V,543418,543697,IGHV(I)-142*01,IGHV1-89*01,pseudo,pseudo,No,Yes,Digger is shorter by 16 nt,Yes,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: TA, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): AT-----"
-546703,546999,V,546704,546975,IGHV(III)-141*01,IGHV3-46*06,pseudo,ORF,No,No,Digger is shorter by 25 nt,No,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): ------T"
-550042,550328,V,550042,550328,IGHV(III)-140*01,IGHV3-162*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Sequence truncated before second cysteine"
+546703,546999,V,546701,546975,IGHV(III)-141*01,IGHV3-46*06,pseudo,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): ------T"
+550042,550328,V,550039,550328,IGHV(III)-140*01,IGHV3-162*01,pseudo,pseudo,No,Yes,Digger is longer by 3 nt,No,"Leader missing initial ATG, Sequence truncated before second cysteine"
 573387,573683,V,573387,573683,IGHV3-139*01,IGHV3-119*04,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
-,,J,576893,576956,,IGHJ5-1*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -AAC--GT-, J-HEPTAMER has variation at strongly conserved residue(s): ---C---, J-TRP not found"
+,,J,576893,576923,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): ---C---, J-TRP not found"
 580938,581233,V,580938,581233,IGHV1-138*01,IGHV1-138*01,functional,Functional,Yes,Yes,Yes,Yes,
 583845,584146,V,583845,584146,IGHV3-137*01,IGHV3-137*01,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
 590621,590916,V,590621,590916,IGHV3-136*01,IGHV3-136*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,602322,602641,,IGHV4-122*03,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): -T-----"
 602397,602587,V,,,IGHV(II)-135*01,,pseudo,,No,No,No,No,
 604795,605090,V,604795,605090,IGHV3-134*01,IGHV3-134*01,functional,Functional,Yes,Yes,Yes,Yes,
-617053,617342,V,617050,617342,IGHV(III)-133*01,IGHV3-46*02,pseudo,pseudo,No,Yes,Digger is longer by 3 nt,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+617053,617342,V,617043,617342,IGHV(III)-133*01,IGHV3-46*02,pseudo,pseudo,No,Yes,Digger is longer by 10 nt,No,"Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 626134,626426,V,626134,626426,IGHV3-132*01,IGHV3-132*01,functional,Functional,Yes,Yes,Yes,Yes,
 628651,628810,V,628651,628957,IGHV(II)-131*01,IGHV4S13*02,pseudo,pseudo,No,Yes,Digger is longer by 147 nt,Yes,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: AC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --T----"
 629940,630237,V,629940,630237,IGHV1-130*01,IGHV1-130*01,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
@@ -90,23 +90,23 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,637844,638118,,IGHV4-122*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 639979,640274,V,639979,640274,IGHV7-128*01,IGHV7-128*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): -G-----"
 643195,643493,V,643195,643493,IGHV4-127*01,IGHV4-127*01,functional,Functional,Yes,Yes,Yes,Yes,
-650948,651242,V,650948,651240,IGHV1-126*01,IGHV1-197*03,pseudo,pseudo,No,Yes,Digger is shorter by 2 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
-654458,654630,V,654460,654741,IGHV(III)-125*01,IGHV3-110*02,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: AT, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found"
+650948,651242,V,650944,651240,IGHV1-126*01,IGHV1-197*03,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+654458,654630,V,654457,654741,IGHV(III)-125*01,IGHV3-110*02,pseudo,pseudo,No,Yes,Digger is longer by 112 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found"
 657993,658285,V,657993,658285,IGHV3-124*01,IGHV3-124*01,functional,Functional,Yes,Yes,Yes,Yes,
 663916,664064,V,663916,664226,IGHV(II)-123*01,IGHV4S18*01,pseudo,pseudo,No,Yes,Digger is longer by 162 nt,Yes,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): A-T----"
 ,,V,671791,672103,,IGHV4S27*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): A------"
 674569,674870,V,674569,674870,IGHV4-122*01,IGHV4-122*01,functional,Functional,Yes,Yes,Yes,Yes,
-682222,682509,V,682222,682509,IGHV1-121*01,IGHV1-200*02,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
+682222,682509,V,682211,682509,IGHV1-121*01,IGHV1-200*02,pseudo,pseudo,No,Yes,Digger is longer by 11 nt,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: CT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found"
 686350,686634,V,686332,686634,IGHV(III)-120*01,IGHV3-59*04,pseudo,pseudo,No,Yes,Digger is longer by 18 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 695611,695906,V,695611,695906,IGHV3-119*01,IGHV3-119*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,J,699361,699421,,IGHJ2*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -AA---CT-, J-HEPTAMER has variation at strongly conserved residue(s): G-----C, J-TRP not found"
+,,J,699361,699391,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): G-----C, J-TRP not found"
 703439,703740,V,703439,703740,IGHV3-118*01,IGHV3-118*01,functional,Functional,Yes,Yes,Yes,Yes,
 707072,707367,V,707072,707367,IGHV3-117*01,IGHV3-117*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: AA, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader"
 714557,714858,V,714557,714858,IGHV3-116*01,IGHV3-116*01,functional,Functional,Yes,Yes,Yes,Yes,
 731174,731469,V,731174,731469,IGHV3-115*01,IGHV3-115*01,functional,Functional,Yes,Yes,Yes,Yes,
 737126,737421,V,737126,737421,IGHV7-114*01,IGHV7-114*01,functional,Functional,Yes,Yes,Yes,Yes,
-743669,743964,V,743669,743964,IGHV1-113*01,IGHV1-113*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found"
-746819,747114,V,746820,747112,IGHV(III)-112*01,IGHV3-58*05,pseudo,pseudo,No,Yes,Digger is shorter by 3 nt,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+743669,743964,V,743666,743964,IGHV1-113*01,IGHV1-113*01,pseudo,pseudo,Yes,Yes,Digger is longer by 3 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found"
+746819,747114,V,746817,747112,IGHV(III)-112*01,IGHV3-58*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 753595,753890,V,753595,753890,IGHV1-111*01,IGHV1-111*01,functional,Functional,Yes,Yes,Yes,Yes,
 761724,762022,V,761724,762022,IGHV3-110*01,IGHV3-110*01,functional,Functional,Yes,Yes,Yes,Yes,
 767503,767804,V,767503,767804,IGHV(II)-109*01,IGHV4-122*02,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: CT, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
@@ -121,38 +121,37 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 815505,815800,V,815505,815800,IGHV3-100*01,IGHV3-100*01,functional,Functional,Yes,Yes,Yes,Yes,
 819469,819767,V,819469,819767,IGHV4-99*01,IGHV4-99*01,functional,Functional,Yes,Yes,Yes,Yes,
 827040,827335,V,827040,827319,IGHV(I)-98*01,IGHV1-89*03,pseudo,ORF,No,No,Digger is shorter by 16 nt,Yes,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): AT-----"
-830726,0,V,830727,831039,IGHV(III)-97*01,IGHV3-116*02,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): ------C"
+830726,0,V,830724,831039,IGHV(III)-97*01,IGHV3-116*02,pseudo,pseudo,No,Yes,Digger is longer by 140 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): ------C"
 832141,832412,V,832139,832412,IGHV(III)-96*01,IGHV3-102*03,pseudo,pseudo,No,Yes,Digger is longer by 2 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: CC, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): -TA----"
 835712,836012,V,835712,836012,IGHV2-95*01,IGHV2-95*01,functional,Functional,Yes,Yes,Yes,Yes,
 856373,856668,V,856373,856668,IGHV7-94*01,IGHV7-94*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Bad DONOR-SPLICE: CG, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): --T----"
 860197,860495,V,860197,860495,IGHV4-93*01,IGHV4-93*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,868748,869047,,IGHV6-1*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 875233,875531,V,875233,875531,IGHV4-92*01,IGHV4-92*01,functional,Functional,Yes,Yes,Yes,Yes,
-883235,883529,V,,,IGHV1-91*01,,pseudo,,No,No,No,No,
-,,V,883269,883544,,IGHV1-197*02,,pseudo,No,No,No,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GG, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): ------C"
+883235,883529,V,883231,883529,IGHV1-91*01,IGHV1-200*02,pseudo,pseudo,No,Yes,Digger is longer by 4 nt,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: AC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, V-NONAMER not found"
 ,,D,895675,895726,,IGHD3-40*01,,ORF,No,No,No,No,3' 3'D-HEPTAMER has variation at strongly conserved residue(s): T------
-898356,898655,V,898360,898655,IGHV1-90*01,IGHV1-151*01,pseudo,pseudo,No,Yes,Digger is shorter by 4 nt,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: CC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found"
+898356,898655,V,898356,898655,IGHV1-90*01,IGHV1-151*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 907492,907787,V,907492,907787,IGHV1-89*01,IGHV1-89*01,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
-911285,911580,V,911285,911575,IGHV(III)-88*01,IGHV3-16*03,pseudo,pseudo,No,Yes,Digger is shorter by 5 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+911285,911580,V,911284,911575,IGHV(III)-88*01,IGHV3-16*03,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 ,,V,915656,915931,,IGHV4-147*01,,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 919986,920281,V,919986,920281,IGHV7-87*01,IGHV7-87*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): --T----"
 923213,923510,V,923213,923510,IGHV4-86*01,IGHV4S15*03,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
-931309,931594,V,931299,931570,IGHV1-85*01,IGHV1-200*02,pseudo,pseudo,No,Yes,No,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: CT, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): GG-----"
-935137,935427,V,935134,935427,IGHV(III)-84*01,IGHV3-37*04,pseudo,pseudo,No,Yes,Digger is longer by 3 nt,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, V-NONAMER not found"
-,,V,952801,953092,,IGHV4-122*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+931309,931594,V,931309,931594,IGHV1-85*01,IGHV1-200*02,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
+935137,935427,V,935131,935427,IGHV(III)-84*01,IGHV3-37*04,pseudo,pseudo,No,Yes,Digger is longer by 6 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-NONAMER not found"
+,,V,952795,953092,,IGHV4-122*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
 952867,953092,V,,,IGHV(II)-83*01,,pseudo,,No,No,No,No,
-,,J,955833,955866,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -CA---GT-, J-TRP not found"
+,,J,955833,955863,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 962648,962941,V,962648,962941,IGHV7-82*01,IGHV7-128*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 965856,966151,V,965856,966151,IGHV4-81*01,IGHV4-81*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,974378,974671,,IGHV1-138*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 980561,980856,V,980561,980856,IGHV4-80*01,IGHV4-80*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,995066,995357,,IGHV4-122*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+,,V,995060,995357,,IGHV4-122*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
 995132,995357,V,,,IGHV(II)-79*01,,pseudo,,No,No,No,No,
 997537,997832,V,997537,997832,IGHV3-78*01,IGHV3-78*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,J,1000123,1000156,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -CA---GT-, J-TRP not found"
+,,J,1000123,1000153,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 1010437,1010732,V,1010437,1010732,IGHV7-77*01,IGHV7-77*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine"
 1013645,1013943,V,1013645,1013943,IGHV4-76*01,IGHV4-76*01,functional,Functional,Yes,Yes,Yes,Yes,
-1022059,1022353,V,1022059,1022353,IGHV1-75*01,IGHV1-200*02,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
+1022059,1022353,V,1022055,1022353,IGHV1-75*01,IGHV1-200*02,pseudo,pseudo,No,Yes,Digger is longer by 4 nt,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: AC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found"
 1025533,1025824,V,1025530,1025824,IGHV(III)-74*01,IGHV3-59*02,pseudo,pseudo,No,Yes,Digger is longer by 3 nt,No,"Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: CA, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 ,,V,1027040,1027333,,IGHV3-46*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 1033288,1033586,V,1033288,1033586,IGHV4-73*01,IGHV4-73*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -160,18 +159,18 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1055553,1055845,V,1055553,1055845,IGHV3-72*01,IGHV3-72*01,functional,Functional,Yes,Yes,Yes,Yes,
 1058063,1058211,V,1058063,1058344,IGHV(II)-71*01,IGHV4-106*01,pseudo,pseudo,No,Yes,Digger is longer by 133 nt,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: AT, Sequence truncated before second cysteine, V-NONAMER not found"
 1062793,1063088,V,1062793,1063088,IGHV1-70*01,IGHV1-70*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,J,1064528,1064579,,IGHJ5-1*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -AC---A--, J-HEPTAMER has variation at strongly conserved residue(s): -----CA, J-TRP not found"
+,,J,1064528,1064558,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): -----CA, J-TRP not found"
 1066896,1067191,V,1066896,1067191,IGHV1-69*01,IGHV1-69*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,1082291,1082582,,IGHV4-122*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad ACCEPTOR-SPLICE: AA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+,,V,1082285,1082582,,IGHV4-122*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
 1084763,1085058,V,1084763,1085058,IGHV3-67*01,IGHV3-67*01,pseudo,Functional,Yes,No,Yes,Yes,
-,,J,1087426,1087459,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -CA---GT-, J-TRP not found"
+,,J,1087426,1087456,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 1097724,1098019,V,1097724,1098019,IGHV7-66*01,IGHV7-66*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine"
 1100956,1101254,V,1100956,1101254,IGHV4-65*01,IGHV4-65*01,functional,Functional,Yes,Yes,Yes,Yes,
 1108731,1109026,V,1108731,1109010,IGHV(I)-64*01,IGHV1-89*03,pseudo,ORF,No,No,Digger is shorter by 16 nt,Yes,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): AT-----"
-1112339,1112632,V,1112340,1112641,IGHV(III)-63*01,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, RSS not found, V-HEPTAMER has variation at strongly conserved residue(s): A-A----"
+1112339,1112632,V,1112340,1112641,IGHV(III)-63*01,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, RSS not found"
 1115800,1116092,V,1115800,1116092,IGHV3-62*01,IGHV3-162*01,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 1121596,1121869,V,1121596,1121912,IGHV(III)-61*01,IGHV3-102*03,pseudo,pseudo,No,Yes,Digger is longer by 43 nt,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: TG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
-1124551,1124844,V,1124550,1124829,IGHV(III)-60*01,IGHV3-46*05,pseudo,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found"
+1124551,1124844,V,1124549,1124829,IGHV(III)-60*01,IGHV3-46*04,pseudo,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found"
 1128066,1128361,V,1128066,1128361,IGHV3-59*01,IGHV3-59*01,functional,Functional,Yes,Yes,Yes,Yes,
 1135853,1136154,V,1135853,1136154,IGHV3-58*01,IGHV3-58*01,functional,Functional,Yes,Yes,Yes,Yes,
 1139361,1139658,V,1139360,1139658,IGHV4-57*01,IGHV4-57*04,pseudo,Functional,No,No,Digger is longer by 1 nt,No,
@@ -182,7 +181,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1160754,1161050,V,1160754,1161050,IGHV3-53*01,IGHV3-53*03,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): -CA----"
 1162446,1162726,V,1162445,1162726,IGHV(II)-52*01,IGHV4-127*01,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: CC, Stop codon in leader, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): A------"
 1176089,1176384,V,1176088,1176384,IGHV(III)-51*01,IGHV3-59*04,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TA, Bad ACCEPTOR-SPLICE: GG, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): G-----T"
-1184692,1185003,V,1184710,1185003,IGHV3-50*01,IGHV3-119*01,pseudo,pseudo,No,Yes,Digger is shorter by 18 nt,No,"Bad DONOR-SPLICE: TC, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): TC-----"
+1184692,1185003,V,1184688,1185003,IGHV3-50*01,IGHV3-119*04,pseudo,pseudo,No,Yes,Digger is longer by 4 nt,No,"Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: AC, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): TC-----"
 1188159,1188452,V,1188159,1188450,IGHV3-49*01,IGHV3-49*01,pseudo,pseudo,Yes,Yes,Digger is shorter by 2 nt,Yes,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: TC, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 1190943,1191240,V,1190943,1191240,IGHV3-48*01,IGHV3-48*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): -CA----"
 1192625,1192903,V,1192625,1192903,IGHV(II)-47*01,IGHV4-122*03,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: CC, Stop codon in leader, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): AG-----"
@@ -192,16 +191,16 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1204988,1205283,V,1204988,1205283,IGHV5-43*01,IGHV5-43*01,functional,Functional,Yes,Yes,Yes,Yes,
 1208472,1208767,V,1208471,1208767,IGHV(III)-42*01,IGHV3-37*04,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): -T----T"
 1212121,1212412,V,1212121,1212412,IGHV3-41*01,IGHV3-100*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
-1215950,1216255,V,1215954,1216255,IGHV3-40*01,IGHV3-49*02,pseudo,pseudo,No,Yes,Digger is shorter by 4 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+1215950,1216255,V,1215950,1216255,IGHV3-40*01,IGHV3-49*02,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 ,,V,1219700,1220011,,IGHV4-127*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: CA, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): A-T----"
-1223081,1223383,V,1223094,1223383,IGHV3-39*01,IGHV3-39*04,pseudo,pseudo,No,Yes,Digger is shorter by 13 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+1223081,1223383,V,1223081,1223383,IGHV3-39*01,IGHV3-39*04,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 1234755,1235056,V,1234755,1235056,IGHV3-38*01,IGHV3-38*01,functional,Functional,Yes,Yes,Yes,Yes,
 1250596,1250891,V,1250596,1250891,IGHV3-37*01,IGHV3-37*01,functional,Functional,Yes,Yes,Yes,Yes,
 1253724,1254025,V,1253724,1254025,IGHV(II)-36*01,IGHV4-122*03,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: CT, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 1259949,1260241,V,1259949,1260241,IGHV3-35*01,IGHV3-35*01,functional,Functional,Yes,Yes,Yes,Yes,
 1276599,1276894,V,1276599,1276894,IGHV3-34*01,IGHV3-34*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,1280719,1281003,,IGHV1-138*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
-1281859,1282156,V,1281859,1282154,IGHV(II)-33*01,IGHV4-122*03,pseudo,pseudo,No,Yes,Digger is shorter by 2 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+1281859,1282156,V,1281855,1282154,IGHV(II)-33*01,IGHV4-122*03,pseudo,pseudo,No,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 1289028,1289320,V,1289028,1289320,IGHV3-32*01,IGHV3-32*01,functional,Functional,Yes,Yes,Yes,Yes,
 1291812,1292109,V,1291811,1292109,IGHV(II)-31*01,IGHV4-122*02,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: CC, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 1298609,1298910,V,1298609,1298910,IGHV3-30*01,IGHV3-30*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -209,7 +208,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,1315468,1315755,,IGHV3-162*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: AC, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): T------"
 1318019,1318314,V,1318019,1318314,IGHV3-28*01,IGHV3-28*01,functional,Functional,Yes,Yes,Yes,Yes,
 1322835,1323131,V,1322835,1323131,IGHV3-27*01,IGHV3-168*02,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): -CA----"
-1324518,1324813,V,1324517,1324797,IGHV(II)-26*01,IGHV4-122*02,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CG, Bad ACCEPTOR-SPLICE: CC, Stop codon in leader, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): A------"
+1324518,1324813,V,1324516,1324797,IGHV(II)-26*01,IGHV4-122*02,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): A------"
 1338256,1338550,V,1338251,1338544,IGHV(III)-25*01,IGHV3-110*03,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TA, Bad ACCEPTOR-SPLICE: TG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): T-G----"
 1348168,1348460,V,1348168,1348460,IGHV3-24*01,IGHV3-119*04,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): TC-----"
 1348644,1348937,V,1348644,1348937,IGHV3-23*01,IGHV3-46*03,pseudo,pseudo,No,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
@@ -225,19 +224,20 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1411654,1411946,V,1411654,1411946,IGHV3-14*01,IGHV3-14*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, V-NONAMER not found"
 1422114,1422413,V,1422114,1422413,IGHV3-13*01,IGHV3-13*01,functional,Functional,Yes,Yes,Yes,Yes,
 1432197,1432486,V,1432197,1432486,IGHV3-12*01,IGHV3-12*01,functional,Functional,Yes,Yes,Yes,Yes,
-1439844,1440107,V,1439841,1440122,IGHV(III)-11*01,IGHV1S18*01,pseudo,pseudo,No,Yes,Digger is longer by 18 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: AA, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): -TA----"
-,,V,1445353,1445643,,IGHV3-48*04,,pseudo,No,No,No,No,"Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: TT, Sequence truncated before second cysteine, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): T------"
+,,V,1439814,1440105,,IGHV1-111*03,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+1439844,1440107,V,,,IGHV(III)-11*01,,pseudo,,No,No,No,No,
+,,V,1445356,1445674,,IGHV3-18*01,,pseudo,No,No,No,No,"Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: CA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
 1447097,1447397,V,1447097,1447397,IGHV2-10*01,IGHV2-10*01,ORF,ORF,Yes,Yes,Yes,Yes,Conserved Trp not found
-,,V,1461173,1461468,,IGHV4-76*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: CT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+,,V,1461170,1461468,,IGHV4-76*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: TC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 1461248,1461468,V,,,IGHV(II)-9*01,,pseudo,,No,No,No,No,
 1471210,1471507,V,1471210,1471507,IGHV3-8*01,IGHV3-8*01,functional,Functional,Yes,Yes,Yes,Yes,
-1475191,1475477,V,1475182,1475477,IGHV3-7*01,IGHV3-46*01,pseudo,pseudo,No,Yes,Digger is longer by 9 nt,No,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: TG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): -CA----"
+1475191,1475477,V,1475181,1475477,IGHV3-7*01,IGHV3-46*01,pseudo,pseudo,No,Yes,Digger is longer by 10 nt,No,"Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): -CA----"
 1476884,1477183,V,1476885,1477183,IGHV(II)-6*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Digger is shorter by 1 nt,No,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
 1484248,1484543,V,1484248,1484543,IGHV3-5*01,IGHV3-5*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
 1516726,1517016,V,1516726,1517016,IGHV(II)-4*01,IGHV4-127*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
-1558654,1558942,V,1558649,1558942,IGHV4-3*01,IGHV4-57*04,pseudo,pseudo,No,Yes,Digger is longer by 5 nt,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: TC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+1558654,1558942,V,1558646,1558942,IGHV4-3*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Digger is longer by 8 nt,No,"Bad DONOR-SPLICE: TG, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 1582396,1582632,V,1582396,1582673,IGHV(II)-2*01,IGHV4S32*01,pseudo,ORF,No,No,Digger is longer by 41 nt,Yes,"Sequence truncated before second cysteine, V-HEPTAMER has variation at strongly conserved residue(s): TG-----"
-,,J,1586615,1586668,,IGHJ2*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): --G---G--, J-HEPTAMER has variation at strongly conserved residue(s): T------, J-TRP not found"
+,,J,1586615,1586645,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): T------, J-TRP not found"
 1587253,1587557,V,1587253,1587557,IGHV6-1*01,IGHV6-1*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,J,1589637,1589686,,IGHJ5-2*01,,pseudo,No,No,No,No,"J-NONAMER has variation at strongly conserved residue(s): --C---G--, J-HEPTAMER has variation at strongly conserved residue(s): ---CT--, Donor splice not found"
 1612302,1612318,D,1612302,1612318,IGHD1-1*01,IGHD1-1*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -248,7 +248,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1621906,1621926,D,1621906,1621926,IGHD6-6*01,IGHD6-31*01,functional,Functional,No,Yes,Yes,Yes,
 1622409,1622425,D,1622409,1622425,IGHD1-7*01,IGHD1-20*01,functional,Functional,No,Yes,Yes,Yes,
 1625037,1625067,D,1625037,1625067,IGHD2-8*01,IGHD2-8*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,J,1625120,1625151,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -C----G--, J-HEPTAMER has variation at strongly conserved residue(s): A---C--, J-TRP not found"
+,,J,1625120,1625150,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): A---C--, J-TRP not found"
 1627491,1627524,D,1627491,1627524,IGHD3-9*01,IGHD3-9*01,functional,Functional,Yes,Yes,Yes,Yes,
 1628631,1628645,D,1628631,1628645,IGHD4-11*01,IGHD4-11*01,functional,ORF,Yes,No,Yes,Yes,"5' 5'D-HEPTAMER has variation at strongly conserved residue(s): ----A--, 3' 3'D-HEPTAMER has variation at strongly conserved residue(s): --A----"
 1629600,1629619,D,1629600,1629619,IGHD5-12*01,IGHD5-12*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -277,16 +277,17 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1668733,1668748,D,1668733,1668748,IGHD4-35*01,IGHD4-35*01,functional,Functional,Yes,Yes,Yes,Yes,
 1669685,1669704,D,1669685,1669704,IGHD5-36*01,IGHD5-36*01,functional,Functional,Yes,Yes,Yes,Yes,
 1671561,1671581,D,1671561,1671581,IGHD6-37*01,IGHD6-37*01,functional,Functional,Yes,Yes,Yes,Yes,
-1672047,1672063,D,1672047,1672050,IGHD1-38*01,,functional,ORF,No,No,Digger is shorter by 13 nt,Yes,"5' 5'D-HEPTAMER has variation at strongly conserved residue(s): -----CA, 3' 3'D-NONAMER has variation at strongly conserved residue(s): -A-------"
-,,J,1673744,1673802,,IGHJ1*01,,pseudo,No,No,No,No,"J-NONAMER has variation at strongly conserved residue(s): -------C-, J-HEPTAMER has variation at strongly conserved residue(s): ---CC--, J-TRP not found"
+1672047,1672063,D,1672047,1672063,IGHD1-38*01,IGHD1-38*01,functional,ORF,Yes,No,Yes,Yes,5' 5' 5'D-HEPTAMER has variation at strongly conserved residue(s): -----CA
+,,J,1673744,1673774,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER has variation at strongly conserved residue(s): -------C-, J-HEPTAMER has variation at strongly conserved residue(s): ---CC--, J-TRP not found"
 1674710,1674740,D,1674710,1674740,IGHD2-39*01,IGHD2-39*01,functional,Functional,Yes,Yes,Yes,Yes,
 1676986,1677022,D,1676986,1677022,IGHD3-40*01,IGHD3-40*01,functional,Functional,Yes,Yes,Yes,Yes,
 1678577,1678599,D,,,IGHD5-42*01,,functional,,No,No,No,No,
 1680903,1680920,D,1680903,1680920,IGHD6-43*01,IGHD6-43*01,functional,Functional,Yes,Yes,Yes,Yes,
 1681408,1681427,D,1681408,1681427,IGHD1-44*01,IGHD1-44*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,J,1686558,1686599,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): --A---GA-, J-HEPTAMER has variation at strongly conserved residue(s): T---C--, Donor splice not found"
+,,J,1686558,1686599,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): T---C--, Donor splice not found"
 1702723,1702771,J,,,IGHJ1P*01,,pseudo,,No,No,No,No,
 1702839,1702849,D,1702839,1702849,IGHD7-45*01,IGHD7-45*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,J,1702903,1702933,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): G------, J-TRP not found"
 1702941,1702992,J,1702941,1702992,IGHJ1*02,IGHJ1*02,functional,Functional,Yes,Yes,Yes,Yes,
 1703148,1703200,J,1703148,1703200,IGHJ2*01,IGHJ2*01,functional,ORF,Yes,No,Yes,Yes,J-HEPTAMER has variation at strongly conserved residue(s): G------
 1703663,1703712,J,1703663,1703712,IGHJ3*01,IGHJ3*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -294,6 +295,6 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1704394,1704444,J,1704394,1704444,IGHJ5-1*02,IGHJ5-1*02,functional,Functional,Yes,Yes,Yes,Yes,
 1704796,1704846,J,1704796,1704846,IGHJ5-2*02,IGHJ5-2*02,functional,Functional,Yes,Yes,Yes,Yes,
 1705425,1705478,J,1705425,1705478,IGHJ6*01,IGHJ6*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,J,1795916,1795945,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -CC---G--, J-TRP not found"
+,,J,1795916,1795946,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 ,,J,1956389,1956422,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER has variation at strongly conserved residue(s): --C------, J-HEPTAMER has variation at strongly conserved residue(s): -----AC, Donor splice not found"
-,,J,1958418,1958480,,IGHJ1*02,,pseudo,No,No,No,No,"J-NONAMER not found, J-NONAMER has variation at strongly conserved residue(s): -ACG--GA-, J-HEPTAMER has variation at strongly conserved residue(s): ---G-A-, J-TRP not found"
+,,J,1958418,1958448,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): ---G-A-, J-TRP not found"

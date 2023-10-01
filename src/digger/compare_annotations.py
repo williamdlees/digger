@@ -19,6 +19,8 @@ def get_parser():
     parser.add_argument('-nc', help='include sequences for leader and rss', action='store_true')
     parser.add_argument('--filter_annot', help='filter IMGT annotations by sense (forward or reverse)')
     parser.add_argument('--comp_name', help='name to use for comparison (default IMGT)')
+    parser.add_argument('--target_locus', help='Only consider IMGT matches to the target locus (used for TRA/TRD)')
+
     return parser
 
 
@@ -61,24 +63,39 @@ def main():
         c_start = 'start_rev'
         c_end = 'end_rev'
 
-    results = create_results(c_end, c_start, candidate, output + '.csv', reference, args.nc, args.filter_annot)
-    plot_results(results, output + '.jpg', args.comp_name if args.comp_name else 'IMGT')
-    report_results(results, output + '.txt', args.comp_name if args.comp_name else 'IMGT')
+    results = create_results(c_end, c_start, candidate, output + '.csv', reference, args.nc, args.filter_annot, args.target_locus)
+    plot_results(results, output + '.jpg', args.comp_name if args.comp_name else 'IMGT', args.target_locus)
+    report_results(results, output + '.txt', args.comp_name if args.comp_name else 'IMGT', args.target_locus)
 
 
-def plot_results(results, plotfile, comp_name):
+def plot_results(results, plotfile, comp_name, target_locus):
     fig = plt.figure(figsize=(10, 10))
 
     i = 0
     for chain in 'V', 'D', 'J':
-        imgt_starts = set([r['imgt_start'] for r in results if r['type'] == chain and r['imgt_start'] and r['imgt_func'] in ['functional']])
-        digger_starts = set([r['digger_start'] for r in results if r['type'] == chain and r['digger_start'] and r['digger_func'].lower() in ['functional']])
+        # eliminate false positives where digger identifies a match that IMGT assigns to another locus
+        imgt_starts = set([r['imgt_start'] for r in results if r['type'] == chain and r['imgt_start'] and r['imgt_func'] in ['functional'] and (not target_locus or r['imgt_allele'][:3] == target_locus)])
+        digger_starts = set([r['digger_start'] for r in results if r['type'] == chain and r['digger_start'] and r['digger_func'].lower() in ['functional'] and (not target_locus or r['imgt_allele'][:3] == target_locus)])
+
+        # if there is a start in digger with no exact match in imgt, but there is a match within 10nt, adjust the two to be
+        # identical - this way we count overlapping functional sequences with minor length differences as matches
+
+        for digger_start in digger_starts:
+            if digger_start not in imgt_starts:
+                for imgt_start in list(imgt_starts):
+                    if near(imgt_start, digger_start, 10):
+                        imgt_starts.add(digger_start)
+                        imgt_starts.remove(imgt_start)
+                        break
 
         if len(imgt_starts) > 0 or len(digger_starts) > 0:
             fig.add_subplot(2, 2, i + 1)
             venn2_unweighted([imgt_starts, digger_starts], (comp_name, 'digger'))
             plt.title(f'{chain} - Functional genes identified')
             i += 1
+
+        print(imgt_starts-digger_starts)
+        print(digger_starts-imgt_starts)
 
     plt.savefig(plotfile)
     plt.close()
@@ -92,21 +109,29 @@ def report_result_set(result_set, chain, fo):
         fo.write(f"{start},{end}  imgt_match: {result['imgt_allele']}  imgt_func: {result['imgt_func']} digger_match: {result['digger_allele']}  digger_func: {result['digger_func'].lower()}  notes: {result['digger_notes']}\n")
 
 
-def report_results(results, reportfile, comp_name):
+def report_results(results, reportfile, comp_name, target_locus):
     with open(reportfile, 'w') as fo:
         for chain in 'V', 'D', 'J':
             fo.write(f"\n\ntype: {chain}\n")
             fo.write(f'Functional sequences reported by digger but not by {comp_name}:\n')
-            report_result_set([r for r in results if r['digger_func'].lower() == 'functional' and r['imgt_func'].lower() != 'functional' and r['type'] == chain], chain, fo)
+            # eliminate false positives where digger identifies a match that IMGT assigns to another locus
+            report_result_set([r for r in results if r['digger_func'].lower() == 'functional' and r['imgt_func'].lower() != 'functional' and r['type'] == chain and (not target_locus or r['imgt_allele'][:3] == target_locus)], chain, fo)
 
             fo.write(f'\nFunctional sequences reported by {comp_name} but not by digger:\n')
-            report_result_set([r for r in results if r['digger_func'].lower() != 'functional' and r['imgt_func'].lower() == 'functional' and r['type'] == chain], chain, fo)
+            report_result_set([r for r in results \
+                               if r['digger_func'].lower() != 'functional' 
+                                and r['imgt_func'].lower() == 'functional' 
+                                and r['type'] == chain
+                                and (not target_locus or r['imgt_allele'][:3] == target_locus)
+                              ], 
+                              chain, fo
+                            )
 
             fo.write(f'\nFunctional sequences reported by both {comp_name} and digger but with different sequences:\n')
             report_result_set([r for r in results if r['digger_func'].lower() == 'functional' and r['imgt_func'].lower() == 'functional' and r['seq_matches'] == 'N' and r['type'] == chain], chain, fo)
 
 
-def create_results(c_end, c_start, candidate, output, reference, show_non_coding, filter_annot):
+def create_results(c_end, c_start, candidate, output, reference, show_non_coding, filter_annot, target_locus):
     with open(reference, 'r') as ref_i, open(candidate, 'r') as cand_i, open(output, 'w', newline='') as fo:
         results = []
 
@@ -126,6 +151,9 @@ def create_results(c_end, c_start, candidate, output, reference, show_non_coding
         for row in ref_reader:
             if filter_annot and row['sense'] != filter_annot:
                 continue
+
+            #if target_locus and target_locus not in row['allele']:
+            #    continue
 
             try:
                 row['start'] = int(row['start'])
@@ -174,13 +202,13 @@ def create_results(c_end, c_start, candidate, output, reference, show_non_coding
                 func_matches = 'Yes' if ref_row['functional'].lower() == cand_row['functional'].lower() else 'No'
 
                 chain = ''
-                if 'V' in cand_row['gene_type']:
+                if cand_row['gene_type'][3] == 'V':
                     ref_region = 'v-region'
                     chain = 'V'
-                elif 'D' in cand_row['gene_type']:
+                elif cand_row['gene_type'][3] == 'D':
                     ref_region = 'd-region'
                     chain = 'D'
-                elif 'J' in cand_row['gene_type']:
+                elif cand_row['gene_type'][3] == 'J':
                     ref_region = 'j-region'
                     chain = 'J'
 
@@ -230,11 +258,11 @@ def create_results(c_end, c_start, candidate, output, reference, show_non_coding
 
             elif ref_row is None or (cand_row is not None and cand_row[c_start] < ref_row['start']):
                 chain = ''
-                if 'V' in cand_row['gene_type']:
+                if cand_row['gene_type'][3] == 'V':
                     chain = 'V'
-                elif 'D' in cand_row['gene_type']:
+                elif cand_row['gene_type'][3] == 'D':
                     chain = 'D'
-                elif 'J' in cand_row['gene_type']:
+                elif cand_row['gene_type'][3] == 'J':
                     chain = 'J'
 
                 res = {

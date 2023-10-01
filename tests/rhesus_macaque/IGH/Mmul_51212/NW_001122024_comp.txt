@@ -4,7 +4,7 @@ type: V
 Functional sequences reported by digger but not by IMGT:
 
 Functional sequences reported by IMGT but not by digger:
-1,296  imgt_match: IGHV1-156*01  imgt_func: functional digger_match:   digger_func:   notes: 
+1,296  imgt_match: IGHV1-156*01  imgt_func: functional digger_match: IGHV1-156*01  digger_func: orf  notes: RSS not found
 
 Functional sequences reported by both IMGT and digger but with different sequences:
 

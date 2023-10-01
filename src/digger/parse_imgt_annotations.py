@@ -271,8 +271,8 @@ def main():
     sequences = {}
     args = get_parser().parse_args()
 
-    if args.locus not in ['IGH', 'IGK', 'IGL']:
-        print('error: locus must me IGH, IGK or IGL')
+    if args.locus not in ['IGH', 'IGK', 'IGL', 'TRA', 'TRB', 'TRD', 'TRG']:
+        print('error: locus must be one of IGH, IGK, IGL, TRA, TRB, TRD, TRG')
         exit(0)
 
     if 'http' in args.imgt_url:

@@ -1,0 +1,146 @@
+imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
+,,J,644,674,,TRDJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+,,V,8567,8886,,TRDV1*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: GA, Bad ACCEPTOR-SPLICE: TG, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+10390,10664,V,,,TRAV1-1*01,,functional,,No,No,No,No,
+31409,31683,V,,,TRAV1-2*03,,functional,,No,No,No,No,
+100678,100940,V,,,TRAV2*01,,functional,,No,No,No,No,
+112133,112418,J,112145,112175,TRAV3*01,TRDJ1*01,functional,pseudo,No,No,Digger is longer by 31 nt,No,"J-NONAMER not found, J-TRP not found"
+124803,125079,V,,,TRAV4*01,,functional,,No,No,No,No,
+137526,137802,V,,,TRAV5*01,,functional,,No,No,No,No,
+156898,157177,V,,,TRAV6*07,,functional,,No,No,No,No,
+,,J,169414,169444,,TRDJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+171327,171600,V,171318,171600,TRAV7*01,TRDV1*01,functional,pseudo,No,No,Digger is longer by 9 nt,No,"Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TC, Stop codon in leader, First cysteine not found, Conserved Trp not found"
+179707,179991,V,,,TRAVA*02,,pseudo,,No,No,No,No,
+185700,185983,V,,,TRAV8-1*01,,functional,,No,No,No,No,
+199794,200074,V,,,TRAV9-1*01,,functional,,No,No,No,No,
+213893,214172,V,,,TRAV10*02,,functional,,No,No,No,No,
+217892,218168,V,,,TRAV11*01,,pseudo,,No,No,No,No,
+229598,229871,V,,,TRAV12-1*01,,functional,,No,No,No,No,
+235035,235318,V,,,TRAV8-2*03,,functional,,No,No,No,No,
+240820,241103,V,,,TRAV8-3*01,,functional,,No,No,No,No,
+,,V,249009,249287,,TRDV1*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
+249840,250109,V,,,TRAVB*02,,pseudo,,No,No,No,No,
+,,J,254186,254216,,TRDJ4*01,,pseudo,No,No,No,No,J-TRP not found
+257183,257462,V,,,TRAV13-1*01,,functional,,No,No,No,No,
+262868,263151,V,262868,263151,TRAV14-1*02,TRDV1*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+266577,266856,V,,,TRAV11-1*01,,pseudo,,No,No,No,No,
+276323,276599,V,,,TRAV12-2*01,,functional,,No,No,No,No,
+282844,283127,V,,,TRAV8-4*01,,functional,,No,No,No,No,
+291339,0,V,,,TRAV8-5*01,,pseudo,,No,No,No,No,
+306574,306853,V,306571,306853,TRAV13-2*01,TRDV1*01,functional,ORF,No,No,Digger is longer by 3 nt,No,First cysteine not found
+312459,312748,V,312459,312748,TRAV14/DV4*01,TRDV1*01,functional,ORF,No,No,Yes,Yes,Second cysteine not found
+329474,329754,V,,,TRAV9-2*02,,functional,,No,No,No,No,
+338469,338751,V,,,TRAV15*01,,pseudo,,No,No,No,No,
+353882,354158,V,,,TRAV12-3*01,,functional,,No,No,No,No,
+366934,367217,V,,,TRAV8-6*01,,functional,,No,No,No,No,
+378764,379035,V,,,TRAV16*01,,functional,,No,No,No,No,
+385989,386265,V,,,TRAV17*01,,functional,,No,No,No,No,
+391493,391770,V,,,TRAV18*01,,functional,,No,No,No,No,
+395989,396278,V,395989,396278,TRAV19*01,TRDV1*01,functional,pseudo,No,No,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TA, Stop codon in leader, Second cysteine not found"
+422022,422309,V,422022,422309,TRAVC*01,TRDV1*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+428977,429250,V,,,TRAV20*02,,functional,,No,No,No,No,
+440875,441153,V,,,TRAV21*01,,functional,,No,No,No,No,
+454128,454413,V,,,TRAV8-6-1*01,,pseudo,,No,No,No,No,
+459035,459305,V,,,TRAV22*01,,functional,,No,No,No,No,
+474779,475058,V,,,TRAV23/DV6*05,,functional,,No,No,No,No,
+484430,484716,V,484430,484716,TRDV1*01,TRDV1*01,functional,Functional,Yes,Yes,Yes,Yes,
+493667,493943,V,493655,493943,TRAV24*01,TRDV3*01,functional,pseudo,No,No,Digger is longer by 12 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: TT, First cysteine not found, Conserved Trp not found"
+500856,501128,V,,,TRAV25*01,,functional,,No,No,No,No,
+512106,512382,V,,,TRAV26-1*02,,functional,,No,No,No,No,
+520842,521125,V,,,TRAV8-7*02,,pseudo,,No,No,No,No,
+536457,536730,V,,,TRAV27*03,,functional,,No,No,No,No,
+543467,543735,V,,,TRAV28*02,,pseudo,,No,No,No,No,
+,,J,545415,545445,,TRDJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+,,J,551207,551237,,TRDJ4*01,,pseudo,No,No,No,No,J-TRP not found
+551688,551967,V,,,TRAV29/DV5*04,,functional,,No,No,No,No,
+556812,557085,V,,,TRAV30*05,,functional,,No,No,No,No,
+565676,565961,V,,,TRAV31*02,,pseudo,,No,No,No,No,
+573879,574154,V,,,TRAV32*01,,pseudo,,No,No,No,No,
+578533,578810,V,578533,578810,TRAV33*01,TRDV1*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: GA, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+,,J,585153,585183,,TRDJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+591190,591465,V,,,TRAV26-2*01,,functional,,No,No,No,No,
+,,J,593077,593107,,TRDJ4*01,,pseudo,No,No,No,No,J-TRP not found
+595950,596226,V,,,TRAV34*01,,functional,,No,No,No,No,
+610297,610572,V,,,TRAV35*03,,pseudo,,No,No,No,No,
+615075,615351,V,,,TRAV36/DV7*05,,functional,,No,No,No,No,
+,,J,623915,623945,,TRDJ1*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+654083,654361,V,,,TRAV37*01,,pseudo,,No,No,No,No,
+660371,660660,V,660371,660660,TRAV38-1*01,TRDV1*01,functional,pseudo,No,No,Yes,Yes,"Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AA, Stop codon in leader, Second cysteine not found"
+669557,669845,V,669557,669845,TRAV38-2/DV8*01,TRDV1*01,functional,pseudo,No,No,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: AA, Stop codon in leader, Second cysteine not found"
+692374,692650,V,,,TRAV39*01,,functional,,No,No,No,No,
+702754,703016,V,,,TRAV40*01,,functional,,No,No,No,No,
+708519,708788,V,,,TRAV41*01,,functional,,No,No,No,No,
+785753,786019,V,,,TRAV46*01,,pseudo,,No,No,No,No,
+,,J,810686,810716,,TRDJ1*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+810852,811139,V,810852,811139,TRDV2*03,TRDV2*03,functional,Functional,Yes,Yes,Yes,Yes,
+826644,826651,D,,,TRDD1*01,,functional,,No,No,No,No,
+827104,827112,D,827104,827112,TRDD2*01,,functional,Functional,No,Yes,Yes,Yes,
+,,D,827114,827122,,,,Functional,No,No,No,No,Gene reversed
+837210,837222,D,837210,837220,TRDD3*01,,functional,Functional,No,Yes,Digger is shorter by 2 nt,Yes,
+838186,838236,J,838186,838236,TRDJ1*01,TRDJ1*01,functional,Functional,Yes,Yes,Yes,Yes,
+843346,843393,J,843346,843393,TRDJ4*01,TRDJ4*01,functional,Functional,Yes,Yes,Yes,Yes,
+844786,844839,J,844786,844839,TRDJ2*01,TRDJ2*01,functional,Functional,Yes,Yes,Yes,Yes,
+847195,847253,J,847195,847253,TRDJ3*01,TRDJ3*01,functional,Functional,Yes,Yes,Yes,Yes,
+857138,857427,V,,,TRDV3*01,,functional,,No,No,No,No,
+863413,863472,J,,,TRAJ61*01,,ORF,,No,No,No,No,
+864403,864459,J,,,TRAJ60*01,,pseudo,,No,No,No,No,
+864650,864709,J,,,TRAJ59*01,,ORF,,No,No,No,No,
+865804,865866,J,865804,865866,TRAJ58*01,TRDJ2*01,ORF,Functional,No,No,Yes,Yes,
+866969,867031,J,866969,867031,TRAJ57*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+867618,867679,J,867618,867679,TRAJ56*01,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+869794,869850,J,,,TRAJ55*01,,pseudo,,No,No,No,No,
+870384,870443,J,870384,870443,TRAJ54*01,TRDJ1*01,functional,Functional,No,Yes,Yes,Yes,
+871101,871166,J,871101,871166,TRAJ53*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+874325,874393,J,,,TRAJ52*01,,functional,,No,No,No,No,
+,,J,874349,874393,,TRDJ1*01,,Functional,No,No,No,No,J-NONAMER not found
+875280,875342,J,875298,875328,TRAJ51*01,TRDJ4*01,pseudo,pseudo,No,Yes,Digger is shorter by 32 nt,No,"J-NONAMER not found, J-TRP not found"
+876690,876749,J,,,TRAJ50*01,,functional,,No,No,No,No,
+877585,877640,J,,,TRAJ49*01,,functional,,No,No,No,No,
+878588,878650,J,,,TRAJ48*01,,functional,,No,No,No,No,
+880948,881004,J,880948,881004,TRAJ47*01,TRDJ1*01,functional,Functional,No,Yes,Yes,Yes,
+881500,881562,J,,,TRAJ46*01,,functional,,No,No,No,No,
+882022,882087,J,882024,882087,TRAJ45*01,TRDJ3*01,functional,Functional,No,Yes,Digger is shorter by 2 nt,No,J-NONAMER not found
+882918,882980,J,882918,882980,TRAJ44*01,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+884010,884063,J,884010,884063,TRAJ43*01,TRDJ1*01,functional,Functional,No,Yes,Yes,Yes,
+884984,885049,J,884984,885049,TRAJ42*01,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+885754,885815,J,885754,885815,TRAJ41*01,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+887786,887846,J,887786,887846,TRAJ40*01,TRDJ1*01,functional,Functional,No,Yes,Yes,Yes,
+889698,889760,J,889698,889760,TRAJ39*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+890328,890389,J,,,TRAJ38*01,,functional,,No,No,No,No,
+891847,891908,J,891847,891908,TRAJ37*02,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+893207,893265,J,893207,893265,TRAJ36*01,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+894741,894799,J,,,TRAJ35*01,,functional,,No,No,No,No,
+895763,895820,J,895763,895820,TRAJ34*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+896699,896755,J,,,TRAJ33*01,,functional,,No,No,No,No,
+897438,897503,J,897438,897503,TRAJ32*02,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+899065,899121,J,,,TRAJ31*01,,functional,,No,No,No,No,
+900949,901005,J,900949,901005,TRAJ30*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+902036,902095,J,902036,902095,TRAJ29*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+903720,903785,J,,,TRAJ28*01,,functional,,No,No,No,No,
+904370,904428,J,,,TRAJ27*01,,functional,,No,No,No,No,
+906543,906602,J,,,TRAJ26*01,,functional,,No,No,No,No,
+906909,906968,J,,,TRAJ25*01,,ORF,,No,No,No,No,
+908066,908128,J,,,TRAJ24*03,,functional,,No,No,No,No,
+908513,908575,J,,,TRAJ23*01,,functional,,No,No,No,No,
+910137,910199,J,910137,910199,TRAJ22*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+911697,911751,J,911697,911751,TRAJ21*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+912422,912478,J,912422,912478,TRAJ20*01,TRDJ1*01,functional,Functional,No,Yes,Yes,Yes,
+913360,913419,J,913360,913419,TRAJ19*01,TRDJ2*01,ORF,Functional,No,No,Yes,Yes,J-NONAMER not found
+913747,913812,J,913747,913812,TRAJ18*01,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+914941,915003,J,914941,915003,TRAJ17*01,TRDJ1*01,functional,Functional,No,Yes,Yes,Yes,
+916624,916683,J,,,TRAJ16*02,,functional,,No,No,No,No,
+917726,917785,J,917726,917785,TRAJ15*01,TRDJ2*01,functional,Functional,No,Yes,Yes,Yes,
+918424,918475,J,,,TRAJ14*01,,functional,,No,No,No,No,
+919173,919235,J,919173,919235,TRAJ13*02,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+920036,920095,J,,,TRAJ12*01,,functional,,No,No,No,No,
+920599,920658,J,,,TRAJ11*01,,functional,,No,No,No,No,
+921594,921657,J,921594,921657,TRAJ10*01,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+923651,923711,J,,,TRAJ9*01,,functional,,No,No,No,No,
+924242,924301,J,,,TRAJ8*02,,pseudo,,No,No,No,No,
+925719,925777,J,,,TRAJ7*01,,functional,,No,No,No,No,
+927170,927231,J,927170,927231,TRAJ6*01,TRDJ3*01,functional,Functional,No,Yes,Yes,Yes,
+928344,928403,J,,,TRAJ5*01,,functional,,No,No,No,No,
+930296,930358,J,,,TRAJ4*01,,functional,,No,No,No,No,
+931276,931337,J,,,TRAJ3*01,,functional,,No,No,No,No,
+932168,932233,J,932168,932233,TRAJ2*01,TRDJ3*01,ORF,Functional,No,No,Yes,Yes,
+933134,933195,J,933130,933195,TRAJ1*01,TRDJ3*01,ORF,Functional,No,No,Digger is longer by 4 nt,No,J-NONAMER not found

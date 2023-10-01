@@ -266,7 +266,7 @@ def find_compound_motif(assembly, conserved_motif_seqs, left_motif, right_motif,
                     res.append(MotifResult(assembly, left_result, right_result))
 
         # put in a dummy if we missed the lower likelihood motif
-        if left_results and not right_results:
+        if left_results and not res:
             best_left = sorted(left_results, key=attrgetter('likelihood'), reverse=True)[0]
             res.append(MotifResult(assembly, best_left, SingleMotifResult(assembly, conserved_motif_seqs, right_motif, max(best_left.start + len(best_left.seq) + min_gap, 1), 0), notes=[f'{right_motif.name} not found']))
     else:
@@ -288,7 +288,7 @@ def find_compound_motif(assembly, conserved_motif_seqs, left_motif, right_motif,
                     res.append(MotifResult(assembly, left_result, right_result))
 
         # put in a dummy if we missed the lower likelihood motif
-        if right_results and not left_results:
+        if right_results and not res:
             best_right = sorted(right_results, key=attrgetter('likelihood'), reverse=True)[0]
             res.append(MotifResult(assembly, SingleMotifResult(assembly, conserved_motif_seqs, left_motif, best_right.start, 0), best_right, notes=[f'{left_motif.name} not found']))
 

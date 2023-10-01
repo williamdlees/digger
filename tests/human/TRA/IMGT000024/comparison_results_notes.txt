@@ -1,0 +1,46 @@
+
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+520842,521125  imgt_match: TRAV8-7*02  imgt_func: pseudo digger_match: TRAV8-7*02  digger_func: functional  notes: 
+..IMGT reports pseudogene due to the insertion of a 6-nucleotide insertion ggagga in the V-HEPTAMER motif (D. Scaviner, M-P. Lefranc, 11/01/2002).
+.. This insertion is not seen in this assembly sequence (the observation pre-dates the assembly)
+
+Functional sequences reported by IMGT but not by digger:
+124803,125079  imgt_match: TRAV4*01  imgt_func: functional digger_match: TRAV4*01  digger_func: orf  notes: V-NONAMER not found
+..the V-NONAMER CCGTTTTCC does not pass digger's likelihood threshold
+
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+864403,864459  imgt_match: TRAJ60*01  imgt_func: pseudo digger_match: TRAJ60*01  digger_func: functional  notes: 
+865804,865866  imgt_match: TRAJ58*01  imgt_func: ORF digger_match: TRAJ58*01  digger_func: functional  notes: 
+869794,869850  imgt_match: TRAJ55*01  imgt_func: pseudo digger_match: TRAJ55*01  digger_func: functional  notes: 
+...IMGT reports these sequences as having stop codons in the J-REGION. Digger allows stop codons before the W/FGXG motif as these may be trimmed during junction formation
+
+913360,913419  imgt_match: TRAJ19*01  imgt_func: ORF digger_match: TRAJ19*01  digger_func: functional  notes: J-NONAMER not found
+...IMGT reports this sequence as having an unexpected J-SPACER length
+
+906909,906968  imgt_match: TRAJ25*01  imgt_func: ORF digger_match: TRAJ25*01  digger_func: functional  notes: 
+932168,932233  imgt_match: TRAJ2*01  imgt_func: ORF digger_match: TRAJ2*01  digger_func: functional  notes: 
+933134,933195  imgt_match: TRAJ1*01  imgt_func: ORF digger_match: TRAJ1*01  digger_func: functional  notes: J-NONAMER not found
+..IMGT reports these sequences as having non-canonical heptamers. 
+
+Functional sequences reported by IMGT but not by digger:
+894741,894799  imgt_match: TRAJ35*01  imgt_func: functional digger_match: TRAJ35*01  digger_func: pseudo  notes: J-TRP not found
+..IMGT reports noncanonical J-MOTIF: CGXG instead of FGXG, however this J-GENE has been found rearranged and expressed
+916624,916683  imgt_match: TRAJ16*02  imgt_func: functional digger_match: TRAJ16*01  digger_func: pseudo  notes: J-TRP not found
+..IMGT reports noncanonical J-MOTIF: FAXG instead FGXG however Ala and Gly are both very small amino acids, this change does not pose a structural problem
+
+Functional sequences reported by both IMGT and digger but with different sequences:

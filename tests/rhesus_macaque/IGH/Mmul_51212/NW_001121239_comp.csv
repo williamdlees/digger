@@ -1,54 +1,54 @@
 imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
-1783,1813,D,1769,1813,IGHD2-15*01,IGHD2-15*01,functional,Functional,Yes,Yes,Digger is longer by 14 nt,No,Gene reversed
-,,J,2774,2810,,IGHJ4*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-TRP not found"
-4492,4508,D,4492,4508,IGHD1-14*01,IGHD1-14*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-4993,5010,D,4981,5010,IGHD6-13*01,IGHD2-2*01,functional,Functional,No,Yes,Digger is longer by 12 nt,No,Gene reversed
-6847,6866,D,6847,6866,IGHD5-12*01,IGHD5-12*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-8963,8996,D,8963,8996,IGHD3-9*01,IGHD3-9*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-11698,11728,D,11698,11728,IGHD2-8*01,IGHD2-8*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-,,J,12538,12584,,IGHJ2*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-TRP not found"
-14635,14651,D,14635,14651,IGHD1-7*02,IGHD1-7*02,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-15134,15154,D,15134,15154,IGHD6-6*01,IGHD6-31*01,functional,Functional,No,Yes,Yes,Yes,Gene reversed
-20437,20467,D,20437,20467,IGHD2-2*01,IGHD2-2*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-23163,23179,D,23163,23179,IGHD1-1-1*01,IGHD1-1-1*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-25110,25126,D,25110,25126,IGHD1-1*01,IGHD1-1*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-,,D,28432,28465,,IGHD3-9*01,,Functional,No,No,No,No,Gene reversed
-,,J,47461,47523,,IGHJ6*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, Donor splice not found"
-49592,49896,V,49592,49896,IGHV6-1*01,IGHV6-1*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-,,J,50481,50528,,IGHJ5-1*01,,pseudo,No,No,No,No,"Gene reversed, J-NONAMER not found, J-TRP not found"
-,,V,54281,54551,,IGHV2-174*02,,ORF,No,No,No,No,"Gene reversed, Sequence truncated before second cysteine"
+1783,1813,D,1783,1813,IGHD2-15*01,IGHD2-15*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,J,2780,2810,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+4492,4508,D,4492,4508,IGHD1-14*01,IGHD1-14*01,functional,Functional,Yes,Yes,Yes,Yes,
+4993,5010,D,4993,5010,IGHD6-13*01,IGHD6-13*01,functional,Functional,Yes,Yes,Yes,Yes,
+6847,6866,D,6847,6866,IGHD5-12*01,IGHD5-12*01,functional,Functional,Yes,Yes,Yes,Yes,
+8963,8996,D,8963,8996,IGHD3-9*01,IGHD3-9*01,functional,Functional,Yes,Yes,Yes,Yes,
+11698,11728,D,11698,11728,IGHD2-8*01,IGHD2-8*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,J,12554,12584,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+14635,14651,D,14635,14651,IGHD1-7*02,IGHD1-7*02,functional,Functional,Yes,Yes,Yes,Yes,
+15134,15154,D,15134,15154,IGHD6-6*01,IGHD6-31*01,functional,Functional,No,Yes,Yes,Yes,
+20437,20467,D,20437,20467,IGHD2-2*01,IGHD2-2*01,functional,Functional,Yes,Yes,Yes,Yes,
+23163,23179,D,23163,23179,IGHD1-1-1*01,IGHD1-1-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+25110,25126,D,25110,25126,IGHD1-1*01,IGHD1-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,D,28432,28465,,IGHD3-9*01,,Functional,No,No,No,No,
+,,J,47461,47523,,IGHJ6*01,,pseudo,No,No,No,No,"J-NONAMER not found, Donor splice not found"
+49592,49896,V,49592,49896,IGHV6-1*01,IGHV6-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,J,50498,50528,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+,,V,54281,54558,,IGHV4S32*01,,ORF,No,No,No,No,Sequence truncated before second cysteine
 54322,54558,V,,,IGHV(II)-2*02,,pseudo,,No,No,No,No,
-,,D,55880,55901,,IGHD5-12*01,,Functional,No,No,No,No,Gene reversed
-71793,72081,V,71793,72081,IGHV4-3*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: AT, Stop codon in V-REGION before 2nd cysteine"
-,,D,89041,89077,,IGHD3-40*01,,Functional,No,No,No,No,Gene reversed
-113785,114075,V,113785,114075,IGHV(II)-4*01,IGHV4-127*01,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
-146169,146464,V,146169,146464,IGHV3-5*01,IGHV3-5*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Gene reversed, Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
-153530,153829,V,153530,153832,IGHV(II)-6*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Digger is longer by 3 nt,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
-155236,155532,V,155236,155522,IGHV3-7*01,IGHV3-46*03,pseudo,pseudo,No,Yes,Digger is shorter by 10 nt,Yes,"Gene reversed, Bad ACCEPTOR-SPLICE: TG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
-159206,159503,V,159206,159503,IGHV3-8*01,IGHV3-8*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-169256,169476,V,169256,169560,IGHV(II)-9*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Digger is longer by 84 nt,Yes,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine"
-183351,183651,V,183351,183651,IGHV2-10*01,IGHV2-10*01,ORF,ORF,Yes,Yes,Yes,Yes,"Gene reversed, Conserved Trp not found"
-,,V,184977,185295,,IGHV3-18*01,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: CA, Stop codon in V-REGION before 2nd cysteine"
-,,V,185008,185298,,IGHV3-48*04,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TT, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found"
-194500,194763,V,194498,194753,IGHV(III)-11*01,IGHV1S18*01,pseudo,pseudo,No,Yes,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: CC, Bad ACCEPTOR-SPLICE: GT, Sequence truncated before second cysteine"
-,,V,194502,194793,,IGHV1-111*03,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
-201644,201933,V,201646,201933,IGHV3-12*02,IGHV3-12*02,functional,Functional,Yes,Yes,Digger is shorter by 2 nt,No,Gene reversed
-212976,213275,V,212976,213275,IGHV3-13*01,IGHV3-13*01,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-223458,223750,V,223458,223750,IGHV3-14*01,IGHV3-14*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Gene reversed, Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
-244566,244863,V,244566,244863,IGHV(II)-15*02,IGHV4-122*02,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Bad DONOR-SPLICE: AG, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
-247716,248017,V,247716,248017,IGHV3-16*02,IGHV3-16*02,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-254457,254757,V,254457,254757,IGHV(II)-17*02,IGHV4-99*02,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
-,,V,255498,255782,,IGHV5-189*02,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
-259121,259415,V,259121,259415,IGHV3-18*02,IGHV3-18*02,ORF,pseudo,Yes,No,Yes,Yes,"Gene reversed, Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: GT"
-266097,266393,V,266097,266392,IGHV(III)-19*02,IGHV3-110*02,pseudo,pseudo,No,Yes,Digger is shorter by 1 nt,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
-278688,278983,V,278688,278983,IGHV5-20*02,IGHV5-20*02,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-283403,283698,V,283403,283698,IGHV8-21*02,IGHV3-54*02,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Bad DONOR-SPLICE: GA, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
-284619,284908,V,284619,284908,IGHV(II)-22*02,IGHV4-122*03,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: CC, Stop codon in leader, Sequence truncated before second cysteine"
-286299,286596,V,286299,286596,IGHV3-23*02,IGHV3-46*03,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Stop codon in V-REGION before 2nd cysteine"
-286804,287096,V,286804,287096,IGHV3-24*02,IGHV3-119*01,pseudo,pseudo,No,Yes,Yes,Yes,"Gene reversed, Bad DONOR-SPLICE: TA, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
-308008,308302,V,308024,308303,IGHV(II)-26*02,IGHV4-122*02,pseudo,pseudo,No,Yes,No,No,"Gene reversed, Leader missing initial ATG, Bad ACCEPTOR-SPLICE: TT, Stop codon in leader, Sequence truncated before second cysteine"
-309691,309956,V,309691,309996,IGHV3-27*02,IGHV3-102*03,pseudo,pseudo,No,Yes,Digger is longer by 40 nt,Yes,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: NN, Bad ACCEPTOR-SPLICE: NN, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine"
-314591,314886,V,314591,314886,IGHV3-28*02,IGHV3-28*02,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
-,,V,317149,317430,,IGHV3-162*02,,pseudo,No,No,No,No,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: TA, Bad ACCEPTOR-SPLICE: TA, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found"
-332639,332937,V,332639,332930,IGHV(II)-29*02,IGHV4-122*02,pseudo,pseudo,No,Yes,Digger is shorter by 7 nt,Yes,"Gene reversed, Leader missing initial ATG, Bad DONOR-SPLICE: AC, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine"
-335828,336129,V,335828,336129,IGHV3-30*02,IGHV3-30*02,functional,Functional,Yes,Yes,Yes,Yes,Gene reversed
+,,D,55880,55901,,IGHD5-12*01,,Functional,No,No,No,No,
+71793,72081,V,71793,72086,IGHV4-3*01,IGHV4-57*04,pseudo,pseudo,No,Yes,Digger is longer by 5 nt,Yes,"Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: TC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+,,D,89041,89077,,IGHD3-40*01,,Functional,No,No,No,No,
+113785,114075,V,113785,114075,IGHV(II)-4*01,IGHV4-127*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+,,V,122404,122699,,IGHV3-16*05,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, RSS not found"
+146169,146464,V,146169,146464,IGHV3-5*01,IGHV3-5*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine"
+153530,153829,V,153530,153830,IGHV(II)-6*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+155236,155532,V,155236,155532,IGHV3-7*01,IGHV3-46*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+159206,159503,V,159206,159503,IGHV3-8*01,IGHV3-8*01,functional,Functional,Yes,Yes,Yes,Yes,
+169256,169476,V,169256,169551,IGHV(II)-9*01,IGHV4-76*02,pseudo,pseudo,No,Yes,Digger is longer by 75 nt,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: CT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+183351,183651,V,183351,183651,IGHV2-10*01,IGHV2-10*01,ORF,ORF,Yes,Yes,Yes,Yes,Conserved Trp not found
+,,V,184977,185295,,IGHV3-18*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: AC, Bad ACCEPTOR-SPLICE: CA, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+,,V,194449,194766,,IGHV3-16*05,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: AC, Bad ACCEPTOR-SPLICE: AA, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found"
+194500,194763,V,,,IGHV(III)-11*01,,pseudo,,No,No,No,No,
+201644,201933,V,201646,201933,IGHV3-12*02,IGHV3-12*02,functional,Functional,Yes,Yes,Digger is shorter by 2 nt,No,
+212976,213275,V,212976,213275,IGHV3-13*01,IGHV3-13*01,functional,Functional,Yes,Yes,Yes,Yes,
+223458,223750,V,223458,223750,IGHV3-14*01,IGHV3-14*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, V-NONAMER not found"
+244566,244863,V,244566,244863,IGHV(II)-15*02,IGHV4-122*02,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+247716,248017,V,247716,248017,IGHV3-16*02,IGHV3-16*02,functional,Functional,Yes,Yes,Yes,Yes,
+254457,254757,V,254457,254758,IGHV(II)-17*02,IGHV4-99*02,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+,,V,255498,255782,,IGHV5-189*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-NONAMER not found"
+259121,259415,V,259121,259415,IGHV3-18*02,IGHV3-18*02,ORF,pseudo,Yes,No,Yes,Yes,"Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: GT"
+266097,266393,V,266097,266393,IGHV(III)-19*02,IGHV3-110*02,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+278688,278983,V,278688,278983,IGHV5-20*02,IGHV5-20*02,functional,Functional,Yes,Yes,Yes,Yes,
+283403,283698,V,283403,283698,IGHV8-21*02,IGHV3-54*02,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: GA, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+284619,284908,V,284619,284910,IGHV(II)-22*02,IGHV4-122*03,pseudo,pseudo,No,Yes,Digger is longer by 2 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+286299,286596,V,286299,286596,IGHV3-23*02,IGHV3-46*03,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+286804,287096,V,286804,287105,IGHV3-24*02,IGHV3-119*04,pseudo,pseudo,No,Yes,Digger is longer by 9 nt,Yes,"Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: TG, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+308008,308302,V,308024,308304,IGHV(II)-26*02,IGHV4-122*02,pseudo,ORF,No,No,No,No,Sequence truncated before second cysteine
+309691,309956,V,309691,309987,IGHV3-27*02,IGHV3-102*03,pseudo,pseudo,No,Yes,Digger is longer by 31 nt,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: NN, Bad ACCEPTOR-SPLICE: NN, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+314591,314886,V,314591,314886,IGHV3-28*02,IGHV3-28*02,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,317149,317430,,IGHV3-162*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: TA, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found"
+332639,332937,V,332639,332937,IGHV(II)-29*02,IGHV4-122*02,pseudo,pseudo,No,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
+335828,336129,V,335828,336129,IGHV3-30*02,IGHV3-30*02,functional,Functional,Yes,Yes,Yes,Yes,

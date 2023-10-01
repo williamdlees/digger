@@ -99,7 +99,7 @@ class DAnnotation:
                 break
 
 
-def process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches):
+def process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, D_5_RSS_SPACING, D_3_RSS_SPACING):
     """
     Process D-segment annotations.
 
@@ -137,8 +137,8 @@ def process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
     #if start == 1678577:
     #   breakpoint()
 
-    left_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs["5'D-NONAMER"], motifs["5'D-HEPTAMER"], 12, 12, 15, end=start-1)
-    right_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs["3'D-HEPTAMER"], motifs["3'D-NONAMER"], 12, 12, 15, start=end)
+    left_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs["5'D-NONAMER"], motifs["5'D-HEPTAMER"], D_5_RSS_SPACING, D_5_RSS_SPACING, 15, end=start-1)
+    right_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs["3'D-HEPTAMER"], motifs["3'D-NONAMER"], D_3_RSS_SPACING, D_3_RSS_SPACING, 15, start=end)
 
     results = []
 
@@ -381,7 +381,7 @@ class JAnnotation:
 
         :param J_TRP_MOTIF: The J-TRP motif to search for.
         :type J_TRP_MOTIF: str
-        :param J_TRP_OFFSET: The offset for the J-TRP motif.
+        :param J_TRP_OFFSET: The number of codons between the start of the J-TRP motif and the end of the J-REGION.
         :type J_TRP_OFFSET: int
         :param J_SPLICE: The J-splice sequence to search for.
         :type J_SPLICE: str
@@ -393,27 +393,56 @@ class JAnnotation:
         for i in range(0, 3):
             j_codons = self.seq[i:]
             self.aa = simple.translate(j_codons)
-            hit = find_best_match(self.aa, J_TRP_MOTIF, thresh=1.0)
+            if J_TRP_MOTIF[0] == '*':
+                hit = find_best_match(self.aa, 'F' + J_TRP_MOTIF[1:], thresh=1.0)
+                if hit < 0:
+                    hit = find_best_match(self.aa, 'W' + J_TRP_MOTIF[1:], thresh=1.0)
+            else:
+                hit = find_best_match(self.aa, J_TRP_MOTIF, thresh=1.0)
             if hit >= 0:
                 break
 
+        def check_splice(assembly, end, splice):
+            return (splice[0] != '*' and assembly[end - 1:end + 2] == splice) or (splice[0] == '*' and assembly[end:end + 2] == splice[1:])
+        
         if hit >= 0:
-            self.end = min(self.start + i + (hit + J_TRP_OFFSET)*3, len(assembly))      # include the donor splice
+            self.j_frame = i
+            self.end = min(self.start + i + (hit + J_TRP_OFFSET)*3, len(assembly))
             self.seq = self.assembly[self.start - 1:self.end]
-            if self.assembly[self.end - 1:self.end + 2] != J_SPLICE:
+            self.aa = simple.translate(self.assembly[self.start + i - 1:self.end])
+            splice_found = False
+
+            # This provides, if necesary, scope to search for a donor splice at a non-caonical position
+            # Not used at present because it is not clear whether to use it, and, if so, how far to search
+            for p in range(-3, 30, 3):
+                if self.end + p < len(assembly) and check_splice(assembly, self.end + p, J_SPLICE):
+                    self.end += p
+                    self.seq = self.assembly[self.start - 1:self.end]
+                    splice_found = True
+                    break
+            
+            if not splice_found:
                 self.notes.append('Donor splice not found')
-                self.j_frame = 0
                 self.functionality = 'pseudo'
             else:
-                self.j_frame = i
                 self.functionality = 'Functional'
+                if p != 0:
+                    self.notes.append(f'Donor splice found at non-canonical position')
+                    self.functionality = 'ORF'
                 for note in self.notes:
                     if 'conserved' in note:
                         self.functionality = 'ORF'
                         break
+
+            if self.functionality != 'pseudo':
+                if '*' in self.aa[hit:]:
+                    self.notes.append('Stop codon after J-TRP')
+                    self.functionality = 'pseudo'
         else:
             self.notes.append('J-TRP not found')
             self.j_frame = 0
+            self.end = min(self.start + (hit + J_TRP_OFFSET)*3, len(assembly))
+            self.seq = self.assembly[self.start - 1:self.end]
             self.functionality = 'pseudo'
 
 def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE, J_RSS_SPACING):
@@ -741,7 +770,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
 
         best_match, best_score, best_nt_diffs = calc_best_match_score(germlines, best, v_gene.ungapped)
 
-        #if '1-56' in best_match:
+        #if v_gene.start == 556809:
         #    breakpoint()
 
         row = {
@@ -970,16 +999,19 @@ def find_best_match(seq, pattern, thresh=0.7):
 
     return dists[scores.index(min(scores))][0]
 
+def matches(s1, s2):
+    return sum([1 for i in range(len(s1)) if s1[i] == s2[i] and s2[i] != 'X'])
+
 def find_all_matches(seq, pattern, thresh=0.7):
     dists = []
     pattern_length = len(pattern)
 
     significant_bps = len([x for x in pattern if x != 'X'])
-    min_result = ceil((1.0-thresh) * significant_bps)
+    min_result = ceil(thresh * significant_bps)
 
     for i in range(len(seq) - len(pattern)):
-        d = simple.nt_diff(seq[i:i+pattern_length], pattern)
-        if d <= min_result:
+        d = matches(seq[i:i+pattern_length], pattern)
+        if d >= min_result:
             dists.append((i, d))
 
     return dists

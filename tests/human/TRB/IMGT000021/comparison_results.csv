@@ -1,0 +1,96 @@
+imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
+,,V,4392,4702,,TRBV18*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+67832,68115,V,67829,68115,TRBV1*01,TRBV1*01,pseudo,ORF,Yes,No,Digger is longer by 3 nt,No,First cysteine not found
+69798,70087,V,69798,70087,TRBV2*01,TRBV2*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,72663,72952,,TRBV7-7*01,,pseudo,No,No,No,No,"Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: CC, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, RSS not found"
+77417,77703,V,77417,77703,TRBV3-1*01,TRBV3-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+82035,82321,V,82035,82321,TRBV4-1*01,TRBV4-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+89914,90199,V,89914,90199,TRBV5-1*01,TRBV5-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+97155,97441,V,97155,97441,TRBV6-1*01,TRBV6-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+101067,101356,V,101067,101405,TRBV7-1*01,TRBV7-1*01,ORF,ORF,Yes,Yes,Digger is longer by 49 nt,Yes,"First cysteine not found, V-HEPTAMER not found"
+,,V,103667,103953,,TRBV12-2*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TA, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+114354,114640,V,114354,114640,TRBV4-2*01,TRBV4-2*01,functional,Functional,Yes,Yes,Yes,Yes,
+118033,118319,V,118033,118319,TRBV6-2*01,TRBV6-2*01,functional,Functional,Yes,Yes,Yes,Yes,
+121724,122013,V,121724,122013,TRBV7-2*01,TRBV7-2*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,124632,124910,,TRBV12-3*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: TA, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found"
+127294,127572,V,127291,127572,TRBV8-1*02,TRBV27*01,pseudo,pseudo,No,Yes,Digger is longer by 3 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+141294,141568,V,141280,141600,TRBV5-2*01,TRBV5-3*02,pseudo,pseudo,No,Yes,Digger is longer by 46 nt,No,"Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: TA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER not found"
+149630,149916,V,149630,149916,TRBV6-4*02,TRBV6-4*02,functional,Functional,Yes,Yes,Yes,Yes,
+153207,153496,V,153207,153496,TRBV7-3*03,TRBV7-3*03,ORF,ORF,Yes,Yes,Yes,Yes,Second cysteine not found
+155032,155304,V,155021,155302,TRBV8-2*02,TRBV28*01,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: CT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+158038,158323,V,158038,158323,TRBV5-3*02,TRBV5-3*02,ORF,Functional,Yes,No,Yes,Yes,
+160782,161067,V,160782,161067,TRBV9*02,TRBV9*02,functional,Functional,Yes,Yes,Yes,Yes,
+168746,169032,V,168746,169032,TRBV10-1*02,TRBV10-1*02,functional,Functional,Yes,Yes,Yes,Yes,
+176502,176791,V,176502,176791,TRBV11-1*01,TRBV11-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,182657,182997,,TRBV19*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CC, Bad ACCEPTOR-SPLICE: CT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER not found"
+184032,184321,V,184032,184321,TRBV12-1*01,TRBV12-1*01,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
+193834,194120,V,193834,194120,TRBV10-2*02,TRBV10-2*02,functional,Functional,Yes,Yes,Yes,Yes,
+202760,203049,V,202760,203049,TRBV11-2*03,TRBV11-2*03,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,208294,208615,,TRBV23-1*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER not found"
+209691,209980,V,209691,209980,TRBV12-2*01,TRBV12-2*01,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
+219817,220103,V,219817,220103,TRBV6-5*01,TRBV6-5*01,functional,Functional,Yes,Yes,Yes,Yes,
+224001,224290,V,224001,224290,TRBV7-4*01,TRBV7-4*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,229265,229554,,TRBV3-2*03,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, RSS not found"
+231951,232236,V,231951,232236,TRBV5-4*01,TRBV5-4*01,functional,Functional,Yes,Yes,Yes,Yes,
+238382,238668,V,238382,238668,TRBV6-6*02,TRBV6-6*02,functional,Functional,Yes,Yes,Yes,Yes,
+242935,243223,V,242935,243223,TRBV7-5*02,TRBV7-4*01,pseudo,ORF,No,No,Yes,Yes,Second cysteine not found
+251389,251674,V,251389,251674,TRBV5-5*01,TRBV5-5*01,functional,Functional,Yes,Yes,Yes,Yes,
+256664,256950,V,256664,256950,TRBV6-7*01,TRBV6-7*01,ORF,ORF,Yes,Yes,Yes,Yes,Conserved Trp not found
+261039,261328,V,261039,261328,TRBV7-6*01,TRBV7-6*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,266222,266511,,TRBV12-4*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, RSS not found"
+268904,269189,V,268904,269189,TRBV5-6*01,TRBV5-6*01,functional,Functional,Yes,Yes,Yes,Yes,
+276182,276465,V,276182,276465,TRBV6-8*01,TRBV6-8*01,functional,Functional,Yes,Yes,Yes,Yes,
+280493,280782,V,280493,280782,TRBV7-7*01,TRBV7-7*01,functional,Functional,Yes,Yes,Yes,Yes,
+288926,289211,V,288926,289211,TRBV5-7*01,TRBV5-7*01,ORF,ORF,Yes,Yes,Yes,Yes,Conserved Trp not found
+,,V,290636,290973,,TRBV10-2*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER not found"
+298128,298417,V,298128,298417,TRBV7-9*01,TRBV7-9*01,functional,Functional,Yes,Yes,Yes,Yes,
+304661,304947,V,304661,304947,TRBV13*01,TRBV13*01,functional,Functional,Yes,Yes,Yes,Yes,
+313054,313340,V,313054,313340,TRBV10-3*01,TRBV10-3*01,functional,Functional,Yes,Yes,Yes,Yes,
+323684,323973,V,323684,323973,TRBV11-3*01,TRBV11-3*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,327990,328310,,TRBV11-1*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-HEPTAMER not found"
+329297,329586,V,329297,329586,TRBV12-3*01,TRBV12-3*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,331298,331613,,TRBV16*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-HEPTAMER not found"
+332611,332900,V,332611,332900,TRBV12-4*01,TRBV12-4*01,functional,Functional,Yes,Yes,Yes,Yes,
+349793,350082,V,349793,350082,TRBV12-5*01,TRBV12-5*01,functional,Functional,Yes,Yes,Yes,Yes,
+356725,357014,V,356725,357014,TRBV14*01,TRBV14*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,J,361262,361289,,,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+361842,362128,V,361842,362128,TRBV15*02,TRBV15*02,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,364805,365149,,TRBV21-1*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER not found"
+366835,367124,V,366835,367124,TRBV16*01,TRBV16*01,functional,Functional,Yes,Yes,Yes,Yes,
+370729,371015,V,370729,371015,TRBV17*02,TRBV17*02,ORF,ORF,Yes,Yes,Yes,Yes,Second cysteine not found
+384781,385070,V,384781,385070,TRBV18*01,TRBV18*01,functional,Functional,Yes,Yes,Yes,Yes,
+387901,388187,V,387901,388187,TRBV19*01,TRBV19*01,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,392908,393224,,TRBV24-1*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+395762,396054,V,395762,396054,TRBV20-1*02,TRBV20-1*01,functional,Functional,No,Yes,Yes,Yes,
+405750,406039,V,405750,406039,TRBV21-1*02,TRBV21-1*02,pseudo,Functional,Yes,No,Yes,Yes,
+410564,410851,V,410566,410882,TRBV22-1*01,TRBV19*01,pseudo,pseudo,No,Yes,No,No,"Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: CC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER not found"
+414833,415122,V,414833,415122,TRBV23-1*01,TRBV23-1*01,ORF,Functional,Yes,No,Yes,Yes,
+,,J,424675,424702,,,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+425581,425868,V,425581,425868,TRBV24-1*02,TRBV24-1*02,functional,Functional,Yes,Yes,Yes,Yes,
+439613,439899,V,439613,439899,TRBV25-1*01,TRBV25-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+450263,450524,V,450263,450561,TRBVA*02,TRBV24-1*02,pseudo,pseudo,No,Yes,Digger is longer by 37 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
+464552,464838,V,464552,464838,TRBV26*01,TRBV26*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+480228,480579,V,480213,480510,TRBVB*02,TRBV28*01,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CT, Bad ACCEPTOR-SPLICE: CA, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+484230,484516,V,484230,484516,TRBV27*01,TRBV27*01,functional,Functional,Yes,Yes,Yes,Yes,
+485567,485655,V,,,TRBVC*01,,pseudo,,No,No,No,No,
+,,V,485942,486228,,TRBV28*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+,,J,487440,487467,,TRBJ2-7*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
+489529,489815,V,489529,489815,TRBV28*01,TRBV28*01,functional,Functional,Yes,Yes,Yes,Yes,
+509260,509549,V,509260,509549,TRBV29-1*01,TRBV29-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+554868,554879,D,554868,554879,TRBD1*01,TRBD1*01,functional,Functional,Yes,Yes,Yes,Yes,
+555535,555582,J,555535,555582,TRBJ1-1*01,TRBJ1-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+555672,555719,J,555672,555719,TRBJ1-2*01,TRBJ1-2*01,functional,Functional,Yes,Yes,Yes,Yes,
+556285,556334,J,556285,556334,TRBJ1-3*01,TRBJ1-3*01,functional,Functional,Yes,Yes,Yes,Yes,
+556880,556930,J,556880,556930,TRBJ1-4*01,TRBJ1-4*01,functional,Functional,Yes,Yes,Yes,Yes,
+557153,557202,J,557153,557202,TRBJ1-5*01,TRBJ1-5*01,functional,Functional,Yes,Yes,Yes,Yes,
+557643,557695,J,557643,557695,TRBJ1-6*01,TRBJ1-6*01,functional,Functional,Yes,Yes,Yes,Yes,
+564360,564375,D,564360,564375,TRBD2*02,TRBD2*02,functional,Functional,Yes,Yes,Yes,Yes,
+565020,565069,J,565020,565069,TRBJ2-1*01,TRBJ2-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+565215,565265,J,565215,565265,TRBJ2-2*01,TRBJ2-2*01,functional,Functional,Yes,Yes,Yes,Yes,
+565352,565397,J,565352,565379,TRBJ2-2P*01,TRBJ2-2P*01,ORF,pseudo,Yes,No,Digger is shorter by 18 nt,Yes,"J-NONAMER not found, J-TRP not found"
+565502,565550,J,565502,565550,TRBJ2-3*01,TRBJ2-3*01,functional,Functional,Yes,Yes,Yes,Yes,
+565653,565702,J,565653,565702,TRBJ2-4*01,TRBJ2-4*01,functional,Functional,Yes,Yes,Yes,Yes,
+565774,565821,J,565774,565821,TRBJ2-5*01,TRBJ2-5*01,functional,Functional,Yes,Yes,Yes,Yes,
+565894,565946,J,565894,565946,TRBJ2-6*01,TRBJ2-6*01,functional,Functional,Yes,Yes,Yes,Yes,
+566111,566157,J,566111,566157,TRBJ2-7*01,TRBJ2-7*01,functional,Functional,Yes,Yes,Yes,Yes,
+581241,581524,V,,,TRBV30*01,,functional,,No,No,No,No,

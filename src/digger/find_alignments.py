@@ -15,11 +15,11 @@ from receptor_utils import simple_bio_seq as simple
 try:
     from search_motifs import find_compound_motif, MotifResult, SingleMotifResult
     from parse_genes import process_v, process_d, process_j, process_c
-    from dig_utils import reverse_coords
+    from dig_utils import reverse_coords, set_motif_params
 except Exception as e:
     from digger.search_motifs import find_compound_motif, MotifResult, SingleMotifResult
     from digger.parse_genes import process_v, process_d, process_j, process_c
-    from digger.dig_utils import reverse_coords
+    from digger.dig_utils import reverse_coords, set_motif_params
 
 try:
     from motif import Motif
@@ -120,6 +120,13 @@ def strings_to_num(row, fields):
         else:
             row[field] = int(row[field])
     return row
+
+
+def update_note(base, note):
+    if base['notes'] and note not in base['notes']:
+        base['notes'] = ','.join(base['notes'].split(',') + [note])
+    else:
+        base['notes'] = note
 
 
 def process_file(this_blast_file, writer, write_parsing_errors):
@@ -243,7 +250,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
             elif 'J' in gene_type:
                 rows = process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE, J_RSS_SPACING)
             elif 'D' in gene_type:
-                rows = process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches)
+                rows = process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, D_5_RSS_SPACING, D_3_RSS_SPACING)
             elif 'C' in gene_type:
                 rows = process_c(assembly, assembly_rc, germlines, start, end, best, matches)
             else:
@@ -273,11 +280,51 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                         #if row['start'] > row['end']:
                         #    breakpoint()
 
-                        # if this row overlaps with one already stored in results, keep the one that is longer provided it is functional and there are no 'not found' elements
+                        # if this row overlaps with one already stored in results, keep the one that is functional
+                        # if both are functional, keep the one that most closely matches a reference, if we have reference sets
+                        # Otherwise keep the longer sequence
+
                         if row['start'] < row['end'] and (result['start'] <= row['start'] <= result['end'] or result['start'] <= row['end'] <= result['end']):
-                            if row['functional'] == 'Functional' \
-                                    and (row_length > result_length or result['functional'] != 'Functional')\
-                                    and ('not found' in results[k]['notes'] or 'not found' not in row['notes']):
+                            replace = False
+
+                            #if row['start'] == 556809 or row['start'] == 556812:
+                            #    breakpoint()
+
+                            if row['functional'] != 'Functional' and result['functional'] == 'Functional':
+                                replace = False
+                            elif row['functional'] == 'Functional' and result['functional'] != 'Functional':
+                                replace = True
+                            elif row['functional'] != 'Functional' and result['functional'] != 'Functional':
+                                replace = row_length > result_length
+                            else:
+                                # if we're comparing against one or more references, use the one with the best score
+
+                                if reference_sets:
+                                    if reference_sets[0]['name'] + '_score' not in result:
+                                        calc_matched_refs(result)
+                                    calc_matched_refs(row)
+
+                                    max_score = 0
+                                    for ref in reference_sets:
+                                        if result[ref['name'] + '_score'] > max_score:
+                                            max_score = result[ref['name'] + '_score']
+                                            replace = False
+                                        if row[ref['name'] + '_score'] > max_score:
+                                            max_score = row[ref['name'] + '_score']
+                                            replace = True
+                                else:
+                                    replace = row_length > result_length
+
+                                '''
+                                base = row if replace else result
+                                alt = result if replace else row
+                                if result['start'] != row['start']:
+                                    update_note(base, f'alternate start: {alt["start"]}')
+                                if result['end'] != row['end']:
+                                    update_note(base, f'alternate end: {alt["end"]}')
+                                '''
+
+                            if replace:
                                 del(results[k])
                             else:
                                 add_rec = False
@@ -310,7 +357,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
 
 
 def main():
-    global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, J_RSS_SPACING, V_RSS_SPACING, reference_sets, conserved_motif_seqs
+    global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, J_RSS_SPACING, V_RSS_SPACING, D_5_RSS_SPACING, D_3_RSS_SPACING, vreference_sets, conserved_motif_seqs
     global v_gapped_ref
 
     args = get_parser().parse_args()
@@ -327,28 +374,14 @@ def main():
             print("Error - sense must be 'forward' or 'reverse'")
             exit(0)
 
-    if locus in ['IGK']:
-        J_TRP_MOTIF = 'FGXG'
-        J_TRP_OFFSET = 10
-        J_SPLICE = 'CGT'
-    elif locus in ['IGL']:
-        J_TRP_MOTIF = 'FGXG'
-        J_TRP_OFFSET = 10
-        J_SPLICE = 'GGT'
-    else:
-        J_TRP_MOTIF = 'WGXG'
-        J_TRP_OFFSET = 11
-        J_SPLICE = 'GGT'
-
-    if locus not in ['IGK']:
-        V_RSS_SPACING = 23
-    else:
-        V_RSS_SPACING = 12
-
-    if locus not in ['IGL']:
-        J_RSS_SPACING = 23
-    else:
-        J_RSS_SPACING = 12
+    motif_params = set_motif_params(locus)
+    J_TRP_MOTIF = motif_params['J_TRP_MOTIF']
+    J_TRP_OFFSET = motif_params['J_TRP_OFFSET']
+    J_SPLICE = motif_params['J_SPLICE']
+    V_RSS_SPACING = motif_params['V_RSS_SPACING']
+    J_RSS_SPACING = motif_params['J_RSS_SPACING']
+    D_5_RSS_SPACING = motif_params['D_5_RSS_SPACING']
+    D_3_RSS_SPACING = motif_params['D_3_RSS_SPACING']
 
     if not args.motif_dir and not args.species:
         print('Error - please specify either -motif_dir or -species')
@@ -370,7 +403,7 @@ def main():
         with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
             motifs[motif_name] = Motif(motif_name, stream=fi)
 
-    if locus in ['IGH', 'TRB', 'TRG']:
+    if locus in ['IGH', 'TRB', 'TRD']:
         for motif_name in ["5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER"]:
             with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
                 motifs[motif_name] = Motif(motif_name, stream=fi)
