@@ -499,6 +499,9 @@ def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
     result = (JAnnotation(assembly, j_rs.end + 1, end, j_rs))
     result.annotate(assembly, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE)
 
+    if result.functionality == 'Functional' and 'not found' in ', '.join(j_rs.notes):
+        result.functionality = 'ORF'
+
     best_match, best_score, best_nt_diffs = calc_best_match_score(germlines, best, result.seq)
 
     row = {
