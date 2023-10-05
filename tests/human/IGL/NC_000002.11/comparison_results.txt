@@ -1,25 +1,25 @@
 
 
 type: V
-Functional sequences reported by digger but not by IMGT:
+Functional sequences reported by digger but not by Watson et al.:
 301443,301741  imgt_match: IGLV1-50*01  imgt_func: ORF digger_match: IGLV1-50*01  digger_func: functional  notes: 
 
-Functional sequences reported by IMGT but not by digger:
+Functional sequences reported by Watson et al. but not by digger:
 
-Functional sequences reported by both IMGT and digger but with different sequences:
+Functional sequences reported by both Watson et al. and digger but with different sequences:
 
 
 type: D
-Functional sequences reported by digger but not by IMGT:
+Functional sequences reported by digger but not by Watson et al.:
 
-Functional sequences reported by IMGT but not by digger:
+Functional sequences reported by Watson et al. but not by digger:
 
-Functional sequences reported by both IMGT and digger but with different sequences:
+Functional sequences reported by both Watson et al. and digger but with different sequences:
 
 
 type: J
-Functional sequences reported by digger but not by IMGT:
+Functional sequences reported by digger but not by Watson et al.:
 
-Functional sequences reported by IMGT but not by digger:
+Functional sequences reported by Watson et al. but not by digger:
 
-Functional sequences reported by both IMGT and digger but with different sequences:
+Functional sequences reported by both Watson et al. and digger but with different sequences:

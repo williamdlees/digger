@@ -8,5 +8,6 @@ digger ../NC_000002.12.fasta -locus IGK -sense reverse -v_ref Homo_sapiens_IGKV.
 
 compare_annotations NC_000002.12.csv ../watson_features.csv forward ../comparison_results_rev --filter forward --comp_name "Watson et al."
 compare_annotations NC_000002.12_reverse.csv ../watson_features.csv forward ../comparison_results_fw --filter reverse --comp_name "Watson et al."
-
+cp NC_000002.12.csv  ..
+cp NC_000002.12_reverse.csv  ..
 cd ..

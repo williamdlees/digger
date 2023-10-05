@@ -105,8 +105,7 @@
 Please refer to <a class="reference internal" href="../examples/human_igh.html#human-igh"><span class="std std-ref">Annotating the human IGH locus</span></a> for example usage.</p>
 <p><p>Compare digger results to an IMGT annotation</p>
 </p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">compare_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">nc</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">filter_annot</span> <span class="n">FILTER_ANNOT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">comp_name</span> <span class="n">COMP_NAME</span><span class="p">]</span>
-                           <span class="n">digger_results</span> <span class="n">annotation_file</span> <span class="n">sense</span> <span class="n">outfile</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">compare_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">nc</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">filter_annot</span> <span class="n">FILTER_ANNOT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">comp_name</span> <span class="n">COMP_NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">target_locus</span> <span class="n">TARGET_LOCUS</span><span class="p">]</span> <span class="n">digger_results</span> <span class="n">annotation_file</span> <span class="n">sense</span> <span class="n">outfile</span>
 </pre></div>
 </div>
 <section id="positional-arguments">
@@ -138,6 +137,9 @@ Please refer to <a class="reference internal" href="../examples/human_igh.html#h
 </dd>
 <dt><kbd>--comp_name</kbd></dt>
 <dd><p>name to use for comparison (default IMGT)</p>
+</dd>
+<dt><kbd>--target_locus</kbd></dt>
+<dd><p>Only consider IMGT matches to the target locus (used for TRA/TRD)</p>
 </dd>
 </dl>
 </section>

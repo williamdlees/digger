@@ -9,5 +9,6 @@ parse_imgt_annotations --save_sequence IMGT000062.fasta "https://www.imgt.org/li
 digger IMGT000062.fasta -locus IGL -v_ref Macaca_mulatta_IGLV.fasta -v_ref_gapped Macaca_mulatta_IGLV_gapped_fixed.fasta -j_ref Macaca_mulatta_IGLJ.fasta -ref imgt,Macaca_mulatta_IGLVJ.fasta -sense forward -species rhesus_macaque IMGT000062.csv
 
 compare_annotations IMGT000062.csv IMGT000062_genes.csv forward ../rhemac10_IGL_digger_annotation_compared_to_imgt.csv
+cp IMGT000065.csv ..
 
 cd ..

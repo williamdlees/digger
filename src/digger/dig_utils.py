@@ -34,8 +34,8 @@ def find_target_sequence(assembly, target_seq, mode='local'):
     return best_alignment.aligned[0][0][0], alignments[0].aligned[0][-1][-1], best_alignment.score
 
 # Fetch a sequence from genbank given the accession number
-def get_genbank_sequence(acc):
-    Entrez.email = 'william@lees.org.uk'
+def get_genbank_sequence(acc, email):
+    Entrez.email = email
     handle = Entrez.efetch(db='nucleotide', id=acc, rettype='fasta', retmode='text')
     patch = None
 
@@ -196,7 +196,7 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
         rows = process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start+1, end, best, matches,
                          motif_params['J_TRP_MOTIF'], motif_params['J_TRP_OFFSET'], motif_params['J_SPLICE'], motif_params['J_RSS_SPACING'])
     elif gene_type == 'D':
-        rows = process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start+1, end, best, matches)
+        rows = process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start+1, end, best, matches, motif_params['D_5_RSS_SPACING'], motif_params['D_3_RSS_SPACING'])
     elif gene_type == 'C':
         rows = process_c(assembly, assembly_rc, germlines, start, end, best, matches)
 
@@ -373,7 +373,7 @@ def set_motif_params(locus):
         J_TRP_OFFSET = 10
         J_SPLICE = 'GGT'
     elif locus in 'TRA':
-        J_TRP_MOTIF = '*GXG'
+        J_TRP_MOTIF = ['FGXG', 'WGXG', 'CGXG', 'FAXG']
         J_TRP_OFFSET = 11
         J_SPLICE = '*GT'
     elif locus in 'TRD':
@@ -381,7 +381,7 @@ def set_motif_params(locus):
         J_TRP_OFFSET = 11
         J_SPLICE = '*GT'
     elif locus in 'TRG':
-        J_TRP_MOTIF = '*GXG'
+        J_TRP_MOTIF = ['FGXG', 'WGXG', 'CGXG', 'FAXG']
         J_TRP_OFFSET = 10
         J_SPLICE = '*GT'
     else:

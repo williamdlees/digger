@@ -8,4 +8,6 @@ parse_imgt_annotations --save_sequence IMGT000021.fasta "https://www.imgt.org/li
 
 digger IMGT000021.fasta -v_ref Homo_sapiens_TRBV.fasta -locus TRB -d_ref Homo_sapiens_TRBD.fasta -j_ref Homo_sapiens_TRBJ.fasta -v_ref_gapped Homo_sapiens_TRBV_gapped.fasta -ref imgt,Homo_sapiens_TRBVDJ.fasta -species Human IMGT000021.csv
 compare_annotations IMGT000021.csv IMGT000021_genes.csv forward ../comparison_results
+cp IMGT000021.csv ..
+
 cd ..

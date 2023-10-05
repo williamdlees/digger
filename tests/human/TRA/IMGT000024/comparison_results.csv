@@ -128,7 +128,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 890328,890389,J,890328,890389,TRAJ38*01,TRAJ38*01,functional,Functional,Yes,Yes,Yes,Yes,
 891847,891908,J,891847,891908,TRAJ37*02,TRAJ37*02,functional,Functional,Yes,Yes,Yes,Yes,
 893207,893265,J,893207,893265,TRAJ36*01,TRAJ36*01,functional,Functional,Yes,Yes,Yes,Yes,
-894741,894799,J,894741,894771,TRAJ35*01,TRAJ35*01,functional,pseudo,Yes,No,Digger is shorter by 28 nt,Yes,J-TRP not found
+894741,894799,J,894741,894799,TRAJ35*01,TRAJ35*01,functional,Functional,Yes,Yes,Yes,Yes,
 895763,895820,J,895763,895820,TRAJ34*01,TRAJ34*01,functional,Functional,Yes,Yes,Yes,Yes,
 896699,896755,J,896699,896755,TRAJ33*01,TRAJ33*01,functional,Functional,Yes,Yes,Yes,Yes,
 897438,897503,J,897438,897503,TRAJ32*02,TRAJ32*02,functional,Functional,Yes,Yes,Yes,Yes,
@@ -147,7 +147,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 913360,913419,J,913345,913419,TRAJ19*01,TRAJ19*01,ORF,Functional,Yes,No,Digger is longer by 15 nt,No,J-NONAMER not found
 913747,913812,J,913747,913812,TRAJ18*01,TRAJ18*01,functional,Functional,Yes,Yes,Yes,Yes,
 914941,915003,J,914941,915003,TRAJ17*01,TRAJ17*01,functional,Functional,Yes,Yes,Yes,Yes,
-916624,916683,J,916624,916654,TRAJ16*02,TRAJ16*01,functional,pseudo,No,No,Digger is shorter by 29 nt,Yes,J-TRP not found
+916624,916683,J,916624,916683,TRAJ16*02,TRAJ16*02,functional,Functional,Yes,Yes,Yes,Yes,
 917726,917785,J,917726,917785,TRAJ15*01,TRAJ15*01,functional,Functional,Yes,Yes,Yes,Yes,
 918424,918475,J,918424,918475,TRAJ14*01,TRAJ14*01,functional,Functional,Yes,Yes,Yes,Yes,
 919173,919235,J,919173,919235,TRAJ13*02,TRAJ13*02,functional,Functional,Yes,Yes,Yes,Yes,

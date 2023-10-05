@@ -1,16 +1,20 @@
 Release Notes
 =============
 
-Changes in 0.6.1
-****************
+Changes in 0.6.2:
+*****************
+- require the user to supply an email address for requests to GenBank.
+
+Changes in 0.6.1:
+*****************
 - bump required version of receptor-utils
 
-Changes in 0.6.0
-****************
+Changes in 0.6.0:
+*****************
 - added support for TRA, TRB, TRD, TRG and test cases and motifs for human TR loci
 
 Changes in v 0.5.10:
-*******************
+********************
 - fixed unintended breakpoint in find_alignments which could fire under some circumstances
 
 Changes in v 0.5.9:

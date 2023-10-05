@@ -94,8 +94,8 @@ def plot_results(results, plotfile, comp_name, target_locus):
             plt.title(f'{chain} - Functional genes identified')
             i += 1
 
-        print(imgt_starts-digger_starts)
-        print(digger_starts-imgt_starts)
+        #print(imgt_starts-digger_starts)
+        #print(digger_starts-imgt_starts)
 
     plt.savefig(plotfile)
     plt.close()

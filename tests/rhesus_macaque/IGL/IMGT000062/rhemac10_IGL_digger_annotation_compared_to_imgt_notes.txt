@@ -26,5 +26,6 @@ type: J
 Functional sequences reported by digger but not by IMGT:
 
 Functional sequences reported by IMGT but not by digger:
+1272513,1272550  imgt_match: IGLJ3*01  imgt_func: functional digger_match: IGLJ2*01  digger_func: orf  notes: J-NONAMER has variation at strongly conserved residue(s): -T-----A-
 
 Functional sequences reported by both IMGT and digger but with different sequences:

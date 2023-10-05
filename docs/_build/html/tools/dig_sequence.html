@@ -119,8 +119,7 @@ Genbank), or a list of sequences or Genbank IDs specified in a CSV file.</p>
 <section id="fasta">
 <h3>fasta<a class="headerlink" href="#fasta" title="Permalink to this heading"></a></h3>
 <p>Annotate a single genomic sequence in a FASTA file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig_sequence</span> <span class="n">fasta</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">align</span> <span class="n">ALIGN</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">out_file</span> <span class="n">OUT_FILE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">debug</span><span class="p">]</span>
-                   <span class="n">target</span> <span class="n">germline_file</span> <span class="n">query_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig_sequence</span> <span class="n">fasta</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">align</span> <span class="n">ALIGN</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">out_file</span> <span class="n">OUT_FILE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">debug</span><span class="p">]</span> <span class="n">target</span> <span class="n">germline_file</span> <span class="n">query_file</span>
 </pre></div>
 </div>
 <section id="positional-arguments">
@@ -162,8 +161,7 @@ Genbank), or a list of sequences or Genbank IDs specified in a CSV file.</p>
 <section id="single">
 <h3>single<a class="headerlink" href="#single" title="Permalink to this heading"></a></h3>
 <p>Annotate a single sequence given its genbank accession number</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig_sequence</span> <span class="n">single</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">align</span> <span class="n">ALIGN</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">out_file</span> <span class="n">OUT_FILE</span><span class="p">]</span>
-                    <span class="n">target</span> <span class="n">germline_file</span> <span class="n">genbank_acc</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig_sequence</span> <span class="n">single</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">align</span> <span class="n">ALIGN</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">out_file</span> <span class="n">OUT_FILE</span><span class="p">]</span> <span class="n">target</span> <span class="n">germline_file</span> <span class="n">genbank_acc</span> <span class="n">email_addr</span>
 </pre></div>
 </div>
 <section id="positional-arguments_repeat1">
@@ -177,6 +175,9 @@ Genbank), or a list of sequences or Genbank IDs specified in a CSV file.</p>
 </dd>
 <dt><kbd>genbank_acc</kbd></dt>
 <dd><p>genbank accession number of the sequence to annotate</p>
+</dd>
+<dt><kbd>email_addr</kbd></dt>
+<dd><p>email address to provide to genbank</p>
 </dd>
 </dl>
 </section>
@@ -201,8 +202,7 @@ Genbank), or a list of sequences or Genbank IDs specified in a CSV file.</p>
 <section id="multi">
 <h3>multi<a class="headerlink" href="#multi" title="Permalink to this heading"></a></h3>
 <p>Read allele names and corresponding genbank accession numbers from a CSV file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig_sequence</span> <span class="n">multi</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">align</span> <span class="n">ALIGN</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">out_file</span> <span class="n">OUT_FILE</span><span class="p">]</span>
-                   <span class="n">locus</span> <span class="n">germline_file</span> <span class="n">query_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig_sequence</span> <span class="n">multi</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">align</span> <span class="n">ALIGN</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">out_file</span> <span class="n">OUT_FILE</span><span class="p">]</span> <span class="n">locus</span> <span class="n">germline_file</span> <span class="n">query_file</span> <span class="n">email_addr</span>
 </pre></div>
 </div>
 <section id="positional-arguments_repeat2">
@@ -216,6 +216,9 @@ Genbank), or a list of sequences or Genbank IDs specified in a CSV file.</p>
 </dd>
 <dt><kbd>query_file</kbd></dt>
 <dd><p>File containing list of targets and associated genbank accession numbers (CSV)</p>
+</dd>
+<dt><kbd>email_addr</kbd></dt>
+<dd><p>email address to provide to genbank</p>
 </dd>
 </dl>
 </section>
@@ -240,8 +243,7 @@ Genbank), or a list of sequences or Genbank IDs specified in a CSV file.</p>
 <section id="multi_seq">
 <h3>multi_seq<a class="headerlink" href="#multi_seq" title="Permalink to this heading"></a></h3>
 <p>Read allele names and genomic sequences from a CSV file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig_sequence</span> <span class="n">multi_seq</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">align</span> <span class="n">ALIGN</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">out_file</span> <span class="n">OUT_FILE</span><span class="p">]</span>
-                       <span class="n">locus</span> <span class="n">germline_file</span> <span class="n">query_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dig_sequence</span> <span class="n">multi_seq</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">align</span> <span class="n">ALIGN</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">out_file</span> <span class="n">OUT_FILE</span><span class="p">]</span> <span class="n">locus</span> <span class="n">germline_file</span> <span class="n">query_file</span>
 </pre></div>
 </div>
 <section id="positional-arguments_repeat3">

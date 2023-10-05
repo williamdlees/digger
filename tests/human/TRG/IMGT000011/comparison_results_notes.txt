@@ -8,6 +8,7 @@ Functional sequences reported by digger but not by IMGT:
 ... IMGT reports a non-canonical leader splice. Digger identifies an alternative location for L-PART1
 
 Functional sequences reported by IMGT but not by digger:
+70734,71039  imgt_match: TRGV9*01  imgt_func: functional digger_match: TRGV9*01  digger_func: pseudo  notes: Leader missing initial ATG, Bad DONOR-SPLICE: GG, Bad ACCEPTOR-SPLICE: TG, Stop codon in leader, First cysteine not found, Conserved Trp not found, V-NONAMER not found
 
 Functional sequences reported by both IMGT and digger but with different sequences:
 

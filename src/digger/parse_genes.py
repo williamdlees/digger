@@ -393,12 +393,15 @@ class JAnnotation:
         for i in range(0, 3):
             j_codons = self.seq[i:]
             self.aa = simple.translate(j_codons)
-            if J_TRP_MOTIF[0] == '*':
-                hit = find_best_match(self.aa, 'F' + J_TRP_MOTIF[1:], thresh=1.0)
-                if hit < 0:
-                    hit = find_best_match(self.aa, 'W' + J_TRP_MOTIF[1:], thresh=1.0)
-            else:
-                hit = find_best_match(self.aa, J_TRP_MOTIF, thresh=1.0)
+
+            if not isinstance(J_TRP_MOTIF, list):
+                J_TRP_MOTIF = [J_TRP_MOTIF]
+
+            for motif in J_TRP_MOTIF:
+                hit = find_best_match(self.aa, motif, thresh=1.0)
+                if hit >= 0:
+                    break
+            
             if hit >= 0:
                 break
 

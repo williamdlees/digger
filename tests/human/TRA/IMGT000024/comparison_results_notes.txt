@@ -38,9 +38,5 @@ Functional sequences reported by digger but not by IMGT:
 ..IMGT reports these sequences as having non-canonical heptamers. 
 
 Functional sequences reported by IMGT but not by digger:
-894741,894799  imgt_match: TRAJ35*01  imgt_func: functional digger_match: TRAJ35*01  digger_func: pseudo  notes: J-TRP not found
-..IMGT reports noncanonical J-MOTIF: CGXG instead of FGXG, however this J-GENE has been found rearranged and expressed
-916624,916683  imgt_match: TRAJ16*02  imgt_func: functional digger_match: TRAJ16*01  digger_func: pseudo  notes: J-TRP not found
-..IMGT reports noncanonical J-MOTIF: FAXG instead FGXG however Ala and Gly are both very small amino acids, this change does not pose a structural problem
 
 Functional sequences reported by both IMGT and digger but with different sequences:

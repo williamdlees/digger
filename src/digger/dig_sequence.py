@@ -30,6 +30,7 @@ def get_parser():
     parser_single.add_argument('target', help='Name of nominated sequence')
     parser_single.add_argument('germline_file', help='ungapped reference set containing the nominated sequence (FASTA)')
     parser_single.add_argument('genbank_acc', help='genbank accession number of the sequence to annotate')
+    parser_single.add_argument('email_addr', help='email address to provide to genbank')
     parser_single.add_argument('-align', help='gapped reference set to use for V gene alignments (required for V gene analysis')
     parser_single.add_argument('-species', help='use motifs for the specified species provided with the package')
     parser_single.add_argument('-motif_dir', help='use motif probability files present in the specified directory')
@@ -40,6 +41,7 @@ def get_parser():
     parser_multi.add_argument('locus', help='Locus of nominated sequences')
     parser_multi.add_argument('germline_file', help='ungapped reference set containing the nominated sequence (FASTA)')
     parser_multi.add_argument('query_file', help='File containing list of targets and associated genbank accession numbers (CSV)')
+    parser_multi.add_argument('email_addr', help='email address to provide to genbank')
     parser_multi.add_argument('-align', help='gapped reference set to use for V gene alignments (required for V gene analysis')
     parser_multi.add_argument('-species', help='use motifs for the specified species provided with the package')
     parser_multi.add_argument('-motif_dir', help='use motif probability files present in the specified directory')
@@ -92,7 +94,7 @@ def main_single(args):
         print('Target sequence not found in reference set')
         return
 
-    genbank_res = get_genbank_sequence(args.genbank_acc)
+    genbank_res = get_genbank_sequence(args.genbank_acc, args.email_addr)
 
     if args.genbank_acc in genbank_res:
         genbank_res = genbank_res[args.genbank_acc]
@@ -129,7 +131,7 @@ def multi_driver(args, genomic):
                     wanted_accs.append(row[1])
 
         # Fetch the sequences from genbank and process them
-        genbank_res = get_genbank_sequence(','.join(wanted_accs))
+        genbank_res = get_genbank_sequence(','.join(wanted_accs), args.email_addr)
         accession_results = {acc: row for acc, row in genbank_res.items()}
 
         # add sequences to query_list

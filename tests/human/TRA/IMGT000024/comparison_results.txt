@@ -29,7 +29,5 @@ Functional sequences reported by digger but not by IMGT:
 933134,933195  imgt_match: TRAJ1*01  imgt_func: ORF digger_match: TRAJ1*01  digger_func: functional  notes: J-NONAMER not found
 
 Functional sequences reported by IMGT but not by digger:
-894741,894799  imgt_match: TRAJ35*01  imgt_func: functional digger_match: TRAJ35*01  digger_func: pseudo  notes: J-TRP not found
-916624,916683  imgt_match: TRAJ16*02  imgt_func: functional digger_match: TRAJ16*01  digger_func: pseudo  notes: J-TRP not found
 
 Functional sequences reported by both IMGT and digger but with different sequences:
