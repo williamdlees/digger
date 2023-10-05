@@ -1,6 +1,10 @@
 Release Notes
 =============
 
+Changes in 0.6.3:
+*****************
+- add support for multiple definitions of the J motif for a locus
+
 Changes in 0.6.2:
 *****************
 - require the user to supply an email address for requests to GenBank.
