@@ -431,7 +431,6 @@ class JAnnotation:
                 self.functionality = 'Functional'
                 if p != 0:
                     self.notes.append(f'Donor splice found at non-canonical position')
-                    self.functionality = 'ORF'
                 for note in self.notes:
                     if 'conserved' in note:
                         self.functionality = 'ORF'
