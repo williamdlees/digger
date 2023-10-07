@@ -21,12 +21,11 @@ Functional sequences reported by both IMGT and digger but with different sequenc
 type: J
 Functional sequences reported by digger but not by IMGT:
 864403,864459  imgt_match: TRAJ60*01  imgt_func: pseudo digger_match: TRAJ60*01  digger_func: functional  notes: 
+864650,864709  imgt_match: TRAJ59*01  imgt_func: ORF digger_match: TRAJ59*01  digger_func: functional  notes: Donor splice found at non-canonical position
 865804,865866  imgt_match: TRAJ58*01  imgt_func: ORF digger_match: TRAJ58*01  digger_func: functional  notes: 
 869794,869850  imgt_match: TRAJ55*01  imgt_func: pseudo digger_match: TRAJ55*01  digger_func: functional  notes: 
 906909,906968  imgt_match: TRAJ25*01  imgt_func: ORF digger_match: TRAJ25*01  digger_func: functional  notes: 
-913360,913419  imgt_match: TRAJ19*01  imgt_func: ORF digger_match: TRAJ19*01  digger_func: functional  notes: J-NONAMER not found
 932168,932233  imgt_match: TRAJ2*01  imgt_func: ORF digger_match: TRAJ2*01  digger_func: functional  notes: 
-933134,933195  imgt_match: TRAJ1*01  imgt_func: ORF digger_match: TRAJ1*01  digger_func: functional  notes: J-NONAMER not found
 
 Functional sequences reported by IMGT but not by digger:
 

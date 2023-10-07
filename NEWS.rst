@@ -4,6 +4,7 @@ Release Notes
 Changes in 0.6.3:
 *****************
 - add support for multiple definitions of the J motif for a locus
+- move J-TRP and other motif definitions to a file in the motifs directory
 
 Changes in 0.6.2:
 *****************

@@ -16,6 +16,7 @@ src/digger/motif.py
 src/digger/parse_genes.py
 src/digger/parse_imgt_annotations.py
 src/digger/search_motifs.py
+src/digger/setup_motif_params.py
 src/digger/slugify.py
 src/digger/motifs/human/IGH/3'D-HEPTAMER_prob.csv
 src/digger/motifs/human/IGH/3'D-NONAMER_prob.csv

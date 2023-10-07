@@ -2,6 +2,7 @@
 import csv
 import os
 from importlib.resources import files
+import json
 
 from Bio import Align, Entrez, SeqIO
 from receptor_utils import simple_bio_seq as simple
@@ -344,7 +345,7 @@ def read_motifs(args, locus):
     for motif_name in ["J-HEPTAMER", "J-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER"]:
         with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
             motifs[motif_name] = Motif(motif_name, stream=fi)
-    if locus in ['IGH', 'TRB', 'TRG', 'TRD']:
+    if locus in ['IGH', 'TRB', 'TRD']:
         for motif_name in ["5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER"]:
             with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
                 motifs[motif_name] = Motif(motif_name, stream=fi)
@@ -352,69 +353,5 @@ def read_motifs(args, locus):
     conserved_motif_file = os.path.join(motif_dir, 'conserved_motifs.fasta')
     if os.path.isfile(conserved_motif_file):
         conserved_motif_seqs = simple.read_fasta(conserved_motif_file)
-    return conserved_motif_seqs, motifs
-
-
-def set_motif_params(locus):
-    if locus in ['IGK']:
-        J_TRP_MOTIF = 'FGXG'
-        J_TRP_OFFSET = 10
-        J_SPLICE = 'CGT'
-    elif locus in ['IGL']:
-        J_TRP_MOTIF = 'FGXG'
-        J_TRP_OFFSET = 10
-        J_SPLICE = 'GGT'
-    elif locus in 'IGH':
-        J_TRP_MOTIF = 'WGXG'
-        J_TRP_OFFSET = 11
-        J_SPLICE = 'GGT'
-    elif locus in 'TRB':
-        J_TRP_MOTIF = 'FGXG'
-        J_TRP_OFFSET = 10
-        J_SPLICE = 'GGT'
-    elif locus in 'TRA':
-        J_TRP_MOTIF = ['FGXG', 'WGXG', 'CGXG', 'FAXG']
-        J_TRP_OFFSET = 11
-        J_SPLICE = '*GT'
-    elif locus in 'TRD':
-        J_TRP_MOTIF = 'FGXG'
-        J_TRP_OFFSET = 11
-        J_SPLICE = '*GT'
-    elif locus in 'TRG':
-        J_TRP_MOTIF = ['FGXG', 'WGXG', 'CGXG', 'FAXG']
-        J_TRP_OFFSET = 10
-        J_SPLICE = '*GT'
-    else:
-        print(f"Error - no J motifs are defined for locus {locus}")
-        exit(0)
-
-    if locus in ['IGH', 'IGL', 'TRA', 'TRB', 'TRG', 'TRD']:
-        V_RSS_SPACING = 23
-    else:
-        V_RSS_SPACING = 12
-
-    if locus in ['IGH', 'IGK']:
-        J_RSS_SPACING = 23
-    else:
-        J_RSS_SPACING = 12
-
-    if locus in ['IGH']:
-        D_5_RSS_SPACING = 12
-        D_3_RSS_SPACING = 12
-    elif locus in ['TRB', 'TRD']:
-        D_5_RSS_SPACING = 12
-        D_3_RSS_SPACING = 23
-    else:
-        D_5_RSS_SPACING = 0
-        D_3_RSS_SPACING = 0
-
-    return {
-        'J_TRP_MOTIF': J_TRP_MOTIF,
-        'J_TRP_OFFSET': J_TRP_OFFSET,
-        'J_SPLICE': J_SPLICE,
-        'V_RSS_SPACING': V_RSS_SPACING,
-        'J_RSS_SPACING': J_RSS_SPACING,
-        'D_5_RSS_SPACING': D_5_RSS_SPACING,
-        'D_3_RSS_SPACING': D_3_RSS_SPACING,
-    }
-
+    motif_params = json.load(open(os.path.join(motif_dir, 'motif_params.json'), 'r'))
+    return conserved_motif_seqs, motifs, motif_params

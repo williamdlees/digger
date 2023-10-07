@@ -25,8 +25,5 @@ type: J
 Functional sequences reported by digger but not by IMGT:
 
 Functional sequences reported by IMGT but not by digger:
-111738,111797  imgt_match: TRGJP1*01  imgt_func: functional digger_match:   digger_func: pseudo  notes: J-TRP not found
-131660,131719  imgt_match: TRGJP2*01  imgt_func: functional digger_match: TRGJ1*01  digger_func: pseudo  notes: J-TRP not found
-... IMGT reports an FAKG motif in these two sequences. Digger requires the functional motif to be FGXG
 
 Functional sequences reported by both IMGT and digger but with different sequences:

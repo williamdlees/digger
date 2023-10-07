@@ -15,11 +15,11 @@ from receptor_utils import simple_bio_seq as simple
 try:
     from search_motifs import find_compound_motif, MotifResult, SingleMotifResult
     from parse_genes import process_v, process_d, process_j, process_c
-    from dig_utils import reverse_coords, set_motif_params
+    from dig_utils import reverse_coords, read_motifs
 except Exception as e:
     from digger.search_motifs import find_compound_motif, MotifResult, SingleMotifResult
     from digger.parse_genes import process_v, process_d, process_j, process_c
-    from digger.dig_utils import reverse_coords, set_motif_params
+    from digger.dig_utils import reverse_coords, read_motifs
 
 try:
     from motif import Motif
@@ -359,6 +359,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
 def main():
     global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, J_RSS_SPACING, V_RSS_SPACING, D_5_RSS_SPACING, D_3_RSS_SPACING, vreference_sets, conserved_motif_seqs
     global v_gapped_ref
+    global motifs
 
     args = get_parser().parse_args()
     assembly_file = args.assembly_file
@@ -374,7 +375,7 @@ def main():
             print("Error - sense must be 'forward' or 'reverse'")
             exit(0)
 
-    motif_params = set_motif_params(locus)
+    conserved_motif_seqs, motifs, motif_params = read_motifs(args, locus)
     J_TRP_MOTIF = motif_params['J_TRP_MOTIF']
     J_TRP_OFFSET = motif_params['J_TRP_OFFSET']
     J_SPLICE = motif_params['J_SPLICE']
@@ -383,34 +384,6 @@ def main():
     D_5_RSS_SPACING = motif_params['D_5_RSS_SPACING']
     D_3_RSS_SPACING = motif_params['D_3_RSS_SPACING']
 
-    if not args.motif_dir and not args.species:
-        print('Error - please specify either -motif_dir or -species')
-        exit(1)
-
-    if args.motif_dir and args.species:
-        print('Error - please specify either -motif_dir or -species, not both')
-        exit(1)
-
-    motif_dir = args.motif_dir
-
-    if args.species:
-        dm = files('digger')
-        motif_dir = dm.joinpath(f'motifs/{args.species}/{locus}')
-
-    print(f'Using motif files from {motif_dir}')
-
-    for motif_name in ["J-HEPTAMER", "J-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER"]:
-        with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
-            motifs[motif_name] = Motif(motif_name, stream=fi)
-
-    if locus in ['IGH', 'TRB', 'TRD']:
-        for motif_name in ["5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER"]:
-            with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
-                motifs[motif_name] = Motif(motif_name, stream=fi)
-
-    conserved_motif_file = os.path.join(motif_dir, 'conserved_motifs.fasta')
-    if os.path.isfile(conserved_motif_file):
-        conserved_motif_seqs = simple.read_fasta(conserved_motif_file)
 
     if args.ref:
         for ref in args.ref:

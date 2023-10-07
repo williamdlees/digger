@@ -13,6 +13,6 @@ digger IMGT000063.fasta -locus IGK -v_ref Macaca_mulatta_IGKV.fasta -v_ref_gappe
 compare_annotations --filter_annot forward IMGT000063_fw.csv IMGT000063_genes.csv forward ../IMGT000063_digger_annotation_compared_to_imgt_fw.csv
 compare_annotations --filter_annot reverse IMGT000063_rev.csv IMGT000063_genes.csv forward ../IMGT000063_digger_annotation_compared_to_imgt_rev.csv
 cp IMGT000063_fw.csv ..
-cp IMGT000035_rev.csv ..
+cp IMGT000063_rev.csv ..
 
 cd ..

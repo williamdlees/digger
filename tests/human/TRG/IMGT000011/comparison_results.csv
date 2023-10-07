@@ -16,10 +16,10 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 91982,92293,V,91985,92279,TRGVB*02,TRGV10*02,pseudo,pseudo,No,Yes,Digger is shorter by 17 nt,No,"Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 96132,96440,V,96132,96440,TRGV11*01,TRGV11*01,ORF,pseudo,Yes,No,Yes,Yes,"Bad DONOR-SPLICE: AG, Bad ACCEPTOR-SPLICE: TT, First cysteine not found"
 ,,V,102214,102488,,TRGV11*01,,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found"
-111738,111797,J,111738,111797,TRGJP1*01,TRGJP1*01,functional,ORF,Yes,No,Yes,Yes,Donor splice found at non-canonical position
+111738,111797,J,111738,111797,TRGJP1*01,TRGJP1*01,functional,Functional,Yes,Yes,Yes,Yes,Donor splice found at non-canonical position
 ,,V,112342,112655,,TRGV4*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: AC, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 114408,114469,J,114410,114469,TRGJP*01,TRGJP*01,functional,Functional,Yes,Yes,Digger is shorter by 2 nt,No,
 118516,118565,J,118516,118565,TRGJ1*02,TRGJ1*02,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,119676,119976,,TRGV11*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
-131660,131719,J,131660,131719,TRGJP2*01,TRGJP2*01,functional,ORF,Yes,No,Yes,Yes,Donor splice found at non-canonical position
+131660,131719,J,131660,131719,TRGJP2*01,TRGJP2*01,functional,Functional,Yes,Yes,Yes,Yes,Donor splice found at non-canonical position
 134627,134676,J,134627,134676,TRGJ2*01,TRGJ1*02,functional,Functional,No,Yes,Yes,Yes,

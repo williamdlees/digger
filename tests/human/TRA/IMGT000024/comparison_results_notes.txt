@@ -29,12 +29,8 @@ Functional sequences reported by digger but not by IMGT:
 869794,869850  imgt_match: TRAJ55*01  imgt_func: pseudo digger_match: TRAJ55*01  digger_func: functional  notes: 
 ...IMGT reports these sequences as having stop codons in the J-REGION. Digger allows stop codons before the W/FGXG motif as these may be trimmed during junction formation
 
-913360,913419  imgt_match: TRAJ19*01  imgt_func: ORF digger_match: TRAJ19*01  digger_func: functional  notes: J-NONAMER not found
-...IMGT reports this sequence as having an unexpected J-SPACER length
-
 906909,906968  imgt_match: TRAJ25*01  imgt_func: ORF digger_match: TRAJ25*01  digger_func: functional  notes: 
 932168,932233  imgt_match: TRAJ2*01  imgt_func: ORF digger_match: TRAJ2*01  digger_func: functional  notes: 
-933134,933195  imgt_match: TRAJ1*01  imgt_func: ORF digger_match: TRAJ1*01  digger_func: functional  notes: J-NONAMER not found
 ..IMGT reports these sequences as having non-canonical heptamers. 
 
 Functional sequences reported by IMGT but not by digger:

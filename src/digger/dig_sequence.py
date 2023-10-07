@@ -1,14 +1,14 @@
 # Process a single sequence, given a guide gene to look for
 # The sequence may be nominated as a fasta file, or by genbank accession number, or by a list of genbank accession numbers in a CSV file
 import argparse
-from receptor_utils import simple_bio_seq as simple
 import csv
 
-try:
-    from dig_utils import set_motif_params, read_motifs, read_vs, process_sequence, process_output, get_genbank_sequence
-except:
-    from digger.dig_utils import set_motif_params, read_motifs, read_vs, process_sequence, process_output, get_genbank_sequence
+from receptor_utils import simple_bio_seq as simple
 
+try:
+    from dig_utils import read_motifs, read_vs, process_sequence, process_output, get_genbank_sequence
+except:
+    from digger.dig_utils import read_motifs, read_vs, process_sequence, process_output, get_genbank_sequence
 
 
 def get_parser():
@@ -69,8 +69,7 @@ def main_fasta(args):
     germlines = simple.read_fasta(args.germline_file)
     target = args.target
     locus = target[:3]
-    motif_params = set_motif_params(locus)
-    conserved_motif_seqs, motifs = read_motifs(args, locus)
+    conserved_motif_seqs, motifs, motif_params = read_motifs(args, locus)
     v_gapped_ref, v_ungapped_ref = read_vs(args)
 
     assembly = simple.read_single_fasta(args.query_file)
@@ -86,8 +85,7 @@ def main_single(args):
     germlines = simple.read_fasta(args.germline_file)
     target = args.target
     locus = target[:3]
-    motif_params = set_motif_params(locus)
-    conserved_motif_seqs, motifs = read_motifs(args, locus)
+    conserved_motif_seqs, motifs, motif_params = read_motifs(args, locus)
     v_gapped_ref, v_ungapped_ref = read_vs(args)
 
     if target not in germlines:
@@ -114,8 +112,7 @@ def main_multi_seq(args):
 def multi_driver(args, genomic):
     germlines = simple.read_fasta(args.germline_file)
     locus = args.locus
-    motif_params = set_motif_params(locus)
-    conserved_motif_seqs, motifs = read_motifs(args, locus)
+    conserved_motif_seqs, motifs, motif_params = read_motifs(args, locus)
     v_gapped_ref, v_ungapped_ref = read_vs(args)
 
     query_list = {}

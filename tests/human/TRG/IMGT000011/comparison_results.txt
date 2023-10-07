@@ -23,7 +23,5 @@ type: J
 Functional sequences reported by digger but not by IMGT:
 
 Functional sequences reported by IMGT but not by digger:
-111738,111797  imgt_match: TRGJP1*01  imgt_func: functional digger_match: TRGJP1*01  digger_func: orf  notes: Donor splice found at non-canonical position
-131660,131719  imgt_match: TRGJP2*01  imgt_func: functional digger_match: TRGJP2*01  digger_func: orf  notes: Donor splice found at non-canonical position
 
 Functional sequences reported by both IMGT and digger but with different sequences:
