@@ -1,0 +1,179 @@
+Human - IGH
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+4969,5264  imgt_match: IGHV7-81*01  imgt_func: ORF digger_match: IGHV7-81*01  digger_func: functional  notes: 
+..imgt: noncanonical V-HEPTAMER: caccatg instead of cacagtg, noncanonical V-NONAMER: tcagaaatc instead of acacaaacc
+469062,469353  imgt_match: IGHV3-38*02  imgt_func: ORF digger_match: IGHV3-38*02  digger_func: functional  notes: 
+..imgt:  this gene has not been found rearranged (non-annotation difference).
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+1014594,1014646  imgt_match: IGHJ2*01  imgt_func: ORF digger_match: IGHJ2*01  digger_func: functional  notes: 
+...currently listed in the IMGT reference set as functional (but annotated as ORF/non-canonical heptamer in this assembly)
+
+
+Human - TRA
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+520842,521125  imgt_match: TRAV8-7*02  imgt_func: pseudo digger_match: TRAV8-7*02  digger_func: functional  notes: 
+..IMGT reports pseudogene due to the insertion of a 6-nucleotide insertion ggagga in the V-HEPTAMER motif (D. Scaviner, M-P. Lefranc, 11/01/2002).
+.. This insertion is not seen in this assembly sequence (the observation pre-dates the assembly)
+... (non-annotation difference)
+
+Functional sequences reported by IMGT but not by digger:
+124803,125079  imgt_match: TRAV4*01  imgt_func: functional digger_match: TRAV4*01  digger_func: orf  notes: V-NONAMER not found
+..the V-NONAMER CCGTTTTCC does not pass digger's likelihood threshold
+
+
+type: J
+Functional sequences reported by digger but not by IMGT:
+864403,864459  imgt_match: TRAJ60*01  imgt_func: pseudo digger_match: TRAJ60*01  digger_func: functional  notes: 
+864650,864709  imgt_match: TRAJ59*01  imgt_func: ORF digger_match: TRAJ59*01  digger_func: functional  notes: Donor splice found at non-canonical position
+865804,865866  imgt_match: TRAJ58*01  imgt_func: ORF digger_match: TRAJ58*01  digger_func: functional  notes: 
+869794,869850  imgt_match: TRAJ55*01  imgt_func: pseudo digger_match: TRAJ55*01  digger_func: functional  notes: 
+...IMGT reports these sequences as having stop codons in the J-REGION. Digger allows stop codons before the W/FGXG motif as these may be trimmed during junction formation
+
+906909,906968  imgt_match: TRAJ25*01  imgt_func: ORF digger_match: TRAJ25*01  digger_func: functional  notes: 
+932168,932233  imgt_match: TRAJ2*01  imgt_func: ORF digger_match: TRAJ2*01  digger_func: functional  notes: 
+..IMGT reports these sequences as having non-canonical heptamers. 
+
+
+Human - TRB
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+158038,158323  imgt_match: TRBV5-3*02  imgt_func: ORF digger_match: TRBV5-3*02  digger_func: functional  notes: 
+405750,406039  imgt_match: TRBV21-1*02  imgt_func: pseudo digger_match: TRBV21-1*02  digger_func: functional  notes: 
+414833,415122  imgt_match: TRBV23-1*01  imgt_func: ORF digger_match: TRBV23-1*01  digger_func: functional  notes: 
+... IMGT reports issues with the leader. Digger identifies leaders that are valid according to its criteria.
+
+Functional sequences reported by IMGT but not by digger:
+581241,581524  imgt_match: TRBV30*01  imgt_func: functional digger_match:   digger_func:   notes: 
+... This sequence is present in reverse orientation to other genes in the locus
+(non-annotation difference)
+
+
+Human - TRD
+
+type: V
+
+Functional sequences reported by IMGT but not by digger:
+857138,857427  imgt_match: TRDV3*01  imgt_func: functional digger_match:   digger_func:   notes: 
+.. This sequence is present in reverse orientation to other genes in the locus
+(non-annotation difference)
+
+
+type: D
+
+Functional sequences reported by IMGT but not by digger:
+826644,826651  imgt_match: TRDD1*01  imgt_func: functional digger_match:   digger_func:   notes:
+..Not identified by Digger (the D region is particularly short, at 8nt)
+
+Human - TRG
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+20174,20470  imgt_match: TRGV1*01  imgt_func: ORF digger_match: TRGV1*01  digger_func: functional  notes: 
+... IMGT reports a non-canonical nonamer. Digger identifies an alternate location for the RSS
+87938,88246  imgt_match: TRGV10*02  imgt_func: ORF digger_match: TRGV10*02  digger_func: functional  notes: 
+... IMGT reports a non-canonical leader splice. Digger identifies an alternative location for L-PART1
+
+Functional sequences reported by IMGT but not by digger:
+70734,71039  imgt_match: TRGV9*01  imgt_func: functional digger_match: TRGV9*01  digger_func: pseudo  notes: Leader missing initial ATG, Bad DONOR-SPLICE: GG, Bad ACCEPTOR-SPLICE: TG, Stop codon in leader, First cysteine not found, Conserved Trp not found, V-NONAMER not found
+
+Rhesus macaque - IGH
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+1084763,1085058  imgt_match: IGHV3-67*01  imgt_func: pseudo digger_match: IGHV3-67*01  digger_func: functional  notes: 
+...digger identifies a functional L-PART1
+1139361,1139658  imgt_match: IGHV4-57*01  imgt_func: pseudo digger_match: IGHV4-57*02  digger_func: functional  notes: 
+...digger identifies a functional gene, starting at 1139360 rather than 1139361
+
+Functional sequences reported by IMGT but not by digger:
+
+Functional sequences reported by both IMGT and digger but with different sequences:
+
+
+type: D
+Functional sequences reported by digger but not by IMGT:
+135706,135742  imgt_match:   imgt_func:  digger_match: IGHD2-27*01  digger_func: functional  notes: 
+Not reported by IMGT but this annotation is unlikely to be genuine as it is outside the D locus
+
+Functional sequences reported by IMGT but not by digger:
+1628631,1628645  imgt_match: IGHD4-11*01  imgt_func: functional digger_match: IGHD4-11*01  digger_func: orf  notes: 5' 5'D-HEPTAMER has variation at strongly conserved residue(s): ----A--, 3' 3'D-HEPTAMER has variation at strongly conserved residue(s): --A----
+...imgt notes: noncanonical 3'D-HEPTAMER:ccaagtg instead of cacagtg, noncanonical 3'D-NONAMER:gcagaaact instead of acaaaaacc, however this D-GENE has been found rearranged
+1638176,1638191  imgt_match: IGHD4-17*01  imgt_func: functional digger_match:   digger_func:   notes: 
+...imgt notes: unexpected 5'D-SPACER length: 22 nt instead of 12 nt, however this D-GENE has been found rearranged
+(non-annotation difference)
+1672047,1672063  imgt_match: IGHD1-38*01  imgt_func: functional digger_match:   digger_func: orf  notes: 5' 5'D-HEPTAMER has variation at strongly conserved residue(s): -----CA, 3' 3'D-NONAMER has variation at strongly conserved residue(s): -A-------
+...imgt notes: noncanonical 5'D-HEPTAMER:cacagca instead of cactgtg, however this D-GENE has been found rearranged
+(non-annotation difference)
+1678577,1678599  imgt_match: IGHD5-42*01  imgt_func: functional digger_match:   digger_func:   notes: 
+...not identified by digger: no RSS motifs found that exceed the likelihood threshold
+
+
+type: J
+
+Functional sequences reported by IMGT but not by digger:
+1703148,1703200  imgt_match: IGHJ2*01  imgt_func: functional digger_match: IGHJ2*01  digger_func: orf  notes: J-HEPTAMER has variation at strongly conserved residue(s): G------
+...imgt notes:  noncanonical J-HEPTAMER: ggctgtg instead of cactgtg, however this J-GENE has been found rearranged
+(non-annotation difference)
+
+
+Rhesus macaque - IGK forward
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+582014,582300  imgt_match: IGKV1-52*01  imgt_func: ORF digger_match: IGKV1-52*01  digger_func: functional  notes: 
+...imgt notes: noncanonical V-HEPTAMER: cacgctg instead of cacagtg
+...digger has a less stringent consensus check
+829837,830138  imgt_match: IGKV2-34*01  imgt_func: pseudo digger_match: IGKV2-34*01  digger_func: functional  notes: 
+...imgt notes: no INIT-CODON: Ile instead of Met, frameshift in L-PART1
+...digger identified a functional L-PART1 that met the PWM likelihood threshold
+1176743,1177041  imgt_match: IGKV7-13*01  imgt_func: pseudo digger_match: IGKV7-13*01  digger_func: functional  notes: 
+...imgt notes:  no INIT-CODON: Ile instead of Met, however IGKV7-13*01 has been found productively rearranged in transcripts obtained by phage display
+1194603,1194892  imgt_match: IGKV3-12*01  imgt_func: pseudo digger_match: IGKV3-12*01  digger_func: functional  notes: 
+...imgt notes: no L-PART1
+...digger identified a functional L-PART1 that met the PWM likelihood threshold
+
+Functional sequences reported by IMGT but not by digger:
+724925,725211  imgt_match: IGKV1-41*01  imgt_func: functional digger_match: IGKV1-41*01  digger_func: pseudo  notes: Leader missing initial ATG
+...IMGT's identified leader has a likelihood below digger's PWM likelihood threshold threshold
+
+type: J
+
+Functional sequences reported by IMGT but not by digger:
+1343426,1343463  imgt_match: IGKJ5*01  imgt_func: functional digger_match: IGKJ5*01  digger_func: orf  notes: J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): T------
+...IMGT notes: unexpected J-SPACER length: 19 nt instead of 23 nt, however this J-GENE has been found rearranged
+(non-annotation difference)
+
+Rhesus macaque - IGK reverse
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+18428,18730  imgt_match: IGKV2-103*01  imgt_func: pseudo digger_match: IGKV2-103*01  digger_func: functional  notes: Gene reversed
+...imgt notes: STOP-CODON in V-REGION: position 110. 
+...Digger allows stop codons after position 104 as they may be excised during junction formation
+
+
+Rhesus macaque - IGL
+
+type: V
+Functional sequences reported by digger but not by IMGT:
+268773,269089  imgt_match: IGLV5-99*01  imgt_func: ORF digger_match: IGLV5-99*01  digger_func: functional  notes: 
+...digger identified a functional leader that met the PWM likelihood threshold
+674097,674405  imgt_match: IGLV5-57*01  imgt_func: pseudo digger_match: IGLV5-57*01  digger_func: functional  notes: 
+...digger identified a functional leader that met the PWM likelihood threshold
+
+Functional sequences reported by IMGT but not by digger:
+992786,993082  imgt_match: IGLV2-26*01  imgt_func: functional digger_match: IGLV2-26*01  digger_func: pseudo  notes: Bad DONOR-SPLICE: GG, Bad ACCEPTOR-SPLICE: GA
+...imgt notes: noncanonical DONOR-SPLICE: ngc instead of ngt, however this V-GENE has been found rearranged
+(non-annotation difference)
+
+type: J
+
+Functional sequences reported by IMGT but not by digger:
+1272513,1272550  imgt_match: IGLJ3*01  imgt_func: functional digger_match: IGLJ2*01  digger_func: orf  notes: J-NONAMER has variation at strongly conserved residue(s): -T-----A-

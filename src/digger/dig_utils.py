@@ -333,25 +333,39 @@ def read_motifs(args, locus):
     if not args.motif_dir and not args.species:
         print('Error - please specify either -motif_dir or -species')
         exit(1)
+
     if args.motif_dir and args.species:
         print('Error - please specify either -motif_dir or -species, not both')
         exit(1)
+
     motif_dir = args.motif_dir
+
     if args.species:
-        dm = files('digger')
-        motif_dir = dm.joinpath(f'motifs/{args.species}/{locus}')
+        try:
+            dm = files('digger')
+            motif_dir = dm.joinpath(f'motifs/{args.species.lower()}/{args.locus}')
+        except TypeError:
+            path = os.path.abspath(__file__)
+            dm = os.path.dirname(path)
+            motif_dir = os.path.join(dm, f'motifs/{args.species.lower()}/{args.locus}')
+
     print(f'Using motif files from {motif_dir}')
     motifs = {}
+
     for motif_name in ["J-HEPTAMER", "J-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER"]:
         with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
             motifs[motif_name] = Motif(motif_name, stream=fi)
+
     if locus in ['IGH', 'TRB', 'TRD']:
         for motif_name in ["5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER"]:
             with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
                 motifs[motif_name] = Motif(motif_name, stream=fi)
+
     conserved_motif_seqs = {}
     conserved_motif_file = os.path.join(motif_dir, 'conserved_motifs.fasta')
+
     if os.path.isfile(conserved_motif_file):
         conserved_motif_seqs = simple.read_fasta(conserved_motif_file)
+
     motif_params = json.load(open(os.path.join(motif_dir, 'motif_params.json'), 'r'))
     return conserved_motif_seqs, motifs, motif_params

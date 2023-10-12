@@ -15,7 +15,6 @@ Functional sequences reported by digger but not by IMGT:
 216776,216821  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
 294482,294490  imgt_match:   imgt_func:  digger_match:   digger_func: functional  notes: Gene reversed
 341342,341384  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
-706735,706777  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
 731083,731093  imgt_match:   imgt_func:  digger_match: IGHD4-11*01  digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:

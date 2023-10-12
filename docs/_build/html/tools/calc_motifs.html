@@ -42,6 +42,8 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#digger"><code class="docutils literal notranslate"><span class="pre">digger</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#dig-sequence"><code class="docutils literal notranslate"><span class="pre">dig-sequence</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
 </ul>
@@ -98,15 +100,55 @@
   <section id="calc-motifs">
 <span id="id1"></span><h1>calc_motifs<a class="headerlink" href="#calc-motifs" title="Permalink to this heading"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">calc_motifs</span></code> creates motif files for RSS and leader fields, based on the features produced by <a class="reference internal" href="parse_imgt_annotations.html#parse-imgt-annotations"><span class="std std-ref">parse_imgt_annotations</span></a>. Only annotations
-of sequences marked as ‘functional’ are considered. Please refer to <a class="reference internal" href="../examples/rhesus_igh.html#rhesus-igh"><span class="std std-ref">Annotating the rhesus macaque IGH locus</span></a> for example usage of this and the other ‘individual’ commands.</p>
+of sequences marked as ‘functional’ are considered.</p>
+<p><code class="docutils literal notranslate"><span class="pre">calc_motifs</span></code> also creates a file containing definitions of other motif parameters for the locus. These are copied from the values used for
+human locus, but may be modified if necessary. The following values are included:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>J_TRP_MOTIF</p></td>
+<td><p>The J amino acid motif to search for. May be a single value, or a Python list, e.g. [“FGXG”, “WGXG”]</p></td>
+</tr>
+<tr class="row-odd"><td><p>J_TRP_OFFSET</p></td>
+<td><p>The number of codons between and including the start of the J motif and the final codon before the J-SPLICE</p></td>
+</tr>
+<tr class="row-even"><td><p>J_SPLICE</p></td>
+<td><p>The expected nt sequence of the J-SPLICE</p></td>
+</tr>
+<tr class="row-odd"><td><p>V_RSS_SPACING</p></td>
+<td><p>The expected length of the V-SPACER</p></td>
+</tr>
+<tr class="row-even"><td><p>J_RSS_SPACING</p></td>
+<td><p>The expected length of the J-SPACER</p></td>
+</tr>
+<tr class="row-odd"><td><p>D_5_RSS_SPACING</p></td>
+<td><p>The expected length of the 5’ D-SPACER (0 if this is not a heavy chain)</p></td>
+</tr>
+<tr class="row-even"><td><p>D_3_RSS_SPACING</p></td>
+<td><p>The expected length of the 3’ D-SPACER (0 if this is not a heavy chain)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Please refer to <a class="reference internal" href="../examples/rhesus_igh.html#rhesus-igh"><span class="std std-ref">Annotating the rhesus macaque IGH locus</span></a> for example usage of this and the other ‘individual’ commands.</p>
 <p><p>Given a set of gene features, create motif matrices</p>
 </p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">calc_motifs</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="n">feat_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">calc_motifs</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="n">locus</span> <span class="n">feat_file</span>
 </pre></div>
 </div>
 <section id="positional-arguments">
 <h2>Positional Arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this heading"></a></h2>
 <dl class="option-list">
+<dt><kbd>locus</kbd></dt>
+<dd><p>locus (e.g. IGH, TRA)</p>
+</dd>
 <dt><kbd>feat_file</kbd></dt>
 <dd><p>feature file, created, for example, by parse_imgt_annotations</p>
 </dd>

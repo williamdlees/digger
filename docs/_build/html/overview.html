@@ -41,11 +41,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#digger">digger</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#scope-and-features">Scope and Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pipeline">Pipeline</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#dig-sequence">dig-sequence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="news.html">Release Notes</a></li>
 </ul>
@@ -88,22 +90,37 @@
              
   <section id="overview">
 <span id="overview-label"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
+<p>There are two principal tools: <code class="docutils literal notranslate"><span class="pre">digger</span></code> itself, and <code class="docutils literal notranslate"><span class="pre">dig-sequence</span></code>. <code class="docutils literal notranslate"><span class="pre">digger</span></code> performs de-novo annotation, searching for all germline sequences that are similar
+to those in a reference set. <code class="docutils literal notranslate"><span class="pre">dig_sequence</span></code> searches for the single sequence that is most similar to a given reference sequence. Both tools use the same
+underlying code. <code class="docutils literal notranslate"><span class="pre">dig_sequence</span></code> can be useful for determining the full annotation of a genomic sequence you have identified, or for verifying a sequence
+discovered in GenBank. <code class="docutils literal notranslate"><span class="pre">digger</span></code> is slower, but performs the full annotation of a genomic sequence or assembly.</p>
+</section>
+<section id="digger">
+<h1>digger<a class="headerlink" href="#digger" title="Permalink to this heading"></a></h1>
 <section id="scope-and-features">
 <h2>Scope and Features<a class="headerlink" href="#scope-and-features" title="Permalink to this heading"></a></h2>
-<p>Digger identifies immunoglobulin receptor germline sequences in a genomic sequence or assembly. It requires two inputs: the sequence or assembly, and a set of reference genes to use as a starting point. An existing
+<p><code class="docutils literal notranslate"><span class="pre">digger</span></code> identifies immunoglobulin receptor germline sequences in a genomic sequence or assembly. It requires two inputs: the sequence or assembly, and a set of reference genes to use as a starting point. An existing
 reference set for the species under study is an ideal starting point, but if one is not available, good results can be obtained by using the reference set for another species, preferably one that is
 reasonably closely related. The package is intended to be straightforward to use, but some familiarity with command-line tools is expected.</p>
-<p>Digger starts by searching the sequence for approximate matches to sequences in the reference set. Where these are found, the match is extended to the full length of the matched sequence. A window
+<p><code class="docutils literal notranslate"><span class="pre">digger</span></code> starts by searching the sequence for approximate matches to sequences in the reference set. Where these are found, the match is extended to the full length of the matched sequence. A window
 at either end is then checked for the expected flanking sequences (e.g. leader, RSS). These are identified by means of position weight matrices (PWMs). The flanking sequences have a well-established
-‘canonical’ form that is conserved between species. Digger contains PWMs for human and rhesus macaque IG loci, and these can be used as a starting point for other species. However, as some variation
-is observed between species, Digger also contains tools for deriving tailored PWMs for a species of interest. These can be obtained from an existing annotation of the locus, or from an initial
+‘canonical’ form that is conserved between species. <code class="docutils literal notranslate"><span class="pre">digger</span></code> contains PWMs for human IG/TR and rhesus macaque IG loci, and these can be used as a starting point for other species. However, as some variation
+is observed between species, The toolkit also contains tools for deriving tailored PWMs for a species of interest. These can be obtained from an existing annotation of the locus, or from an initial
 annotation conducted with the human or rhesus PWMs. Digger’s built-in PWM’s are based on analysis of selected IMGT annotations.</p>
 </section>
 <section id="pipeline">
 <h2>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/pipeline.jpg"><img alt="_images/pipeline.jpg" src="_images/pipeline.jpg" style="width: 600px;" /></a>
 <p>A brief summary of the tools contained in the package is given below. In most cases, annotation can be performed with the <a class="reference internal" href="tools/digger.html#digger"><span class="std std-ref">digger</span></a> tool. This will call subsidiary tools as necessary. Please refer
-to the Examples section for more information.</p>
+to the Examples section for more information. The first example, <a class="reference internal" href="examples/human_igh.html#human-igh"><span class="std std-ref">Annotating the human IGH locus</span></a>, explains straightforward use. The second example, <a class="reference internal" href="examples/rhesus_igh.html#rhesus-igh"><span class="std std-ref">Annotating the rhesus macaque IGH locus</span></a>, shows how
+to generate PWMs for a locus or species that is not already covered by the package. It also shows how to call the underlying tools directly.</p>
+</section>
+</section>
+<section id="dig-sequence">
+<h1>dig-sequence<a class="headerlink" href="#dig-sequence" title="Permalink to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">dig_sequence</span></code> identifies and annotates the closest match to a single specified reference sequence. It provides three modes: one in which the sequence to search
+is provided in a FASTA file, one in which it is specified as a GenBank accession number, and a third in which multiple GenBank accession numbers to search are provided
+in a file. Its use is described in <a class="reference internal" href="tools/dig_sequence.html#dig-sequence"><span class="std std-ref">dig_sequence</span></a>.</p>
 <table class="colwidths-given docutils align-default" id="featuretable">
 <colgroup>
 <col style="width: 25%" />
@@ -138,7 +155,6 @@ to the Examples section for more information.</p>
 </tr>
 </tbody>
 </table>
-</section>
 </section>
 
 

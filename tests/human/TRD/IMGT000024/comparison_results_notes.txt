@@ -6,6 +6,7 @@ Functional sequences reported by digger but not by IMGT:
 Functional sequences reported by IMGT but not by digger:
 857138,857427  imgt_match: TRDV3*01  imgt_func: functional digger_match:   digger_func:   notes: 
 .. This sequence is present in reverse orientation to other genes in the locus
+(non-annotation difference)
 
 Functional sequences reported by both IMGT and digger but with different sequences:
 

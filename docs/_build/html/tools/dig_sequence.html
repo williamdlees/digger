@@ -42,6 +42,8 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#digger"><code class="docutils literal notranslate"><span class="pre">digger</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#dig-sequence"><code class="docutils literal notranslate"><span class="pre">dig-sequence</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
 </ul>
@@ -105,10 +107,10 @@
 <span id="id1"></span><h1>dig_sequence<a class="headerlink" href="#dig-sequence" title="Permalink to this heading"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">dig_sequence</span></code> provides targeted annotation of genomic sequences. The sequences can be as small as a single coding region,
 or as large as an entire locus. The tool will search for the sequence that best matches a specified target sequence, and
-annotate just that best match. The target sequence is specified as a sequence name in a FASTA file: typically this would
-be a germline set.</p>
+annotate just that best match</p>
 <p>Options are available to annotate a single sequence in a FASTA file, a single genbank ID (the sequence will be fetched from
-Genbank), or a list of sequences or Genbank IDs specified in a CSV file.</p>
+Genbank), or a list of sequences or Genbank IDs specified in a CSV file. For GenBank requests, an email address must be
+provided, as this is a requirement of the GenBank API.</p>
 <p><p>Annotate a genomic sequence representing the nominated receptor gene</p>
 </p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">dig_sequence</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">{</span><span class="n">fasta</span><span class="p">,</span><span class="n">single</span><span class="p">,</span><span class="n">multi</span><span class="p">,</span><span class="n">multi_seq</span><span class="p">}</span> <span class="o">...</span>

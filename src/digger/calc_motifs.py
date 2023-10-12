@@ -1,15 +1,23 @@
 # Create motif matrices from gene features
 
 import argparse
+import os
 from collections import defaultdict
 import random
+from importlib.resources import files
+from shutil import copyfile
 
-from digger.motif import Motif
+try:
+    from motif import Motif
+except:
+    from digger.motif import Motif
+
 import csv
 
 
 def get_parser():
     parser = argparse.ArgumentParser(description='Given a set of gene features, create motif matrices')
+    parser.add_argument('locus', help='locus (e.g. IGH, TRA)')
     parser.add_argument('feat_file', help='feature file, created, for example, by parse_imgt_annotations')
     return parser
 
@@ -52,6 +60,22 @@ def random_seq(length):
 
 def main():
     args = get_parser().parse_args()
+
+    accepted_loci = ['IGH', 'IGK', 'IGL', 'TRA', 'TRB', 'TRD', 'TRG']
+    if args.locus not in accepted_loci:
+        print(f"locus must be one of {', '.join(accepted_loci)}")
+        return  
+    
+    try:
+        dm = files('digger')
+        motif_dir = dm.joinpath(f'motifs/human/{args.locus}')
+    except TypeError:
+        path = os.path.abspath(__file__)
+        dm = os.path.dirname(path)
+        motif_dir = os.path.join(dm, f'motifs/human/{args.locus}')
+    
+    copyfile(f'{motif_dir}/motif_params.json', './motif_params.json')
+
     csv.field_size_limit(10000000)      # Reported UTRs can be very long sometimes
 
     with open(args.feat_file, 'r') as fi:

@@ -16,8 +16,8 @@ cat NW_001157919.fasta NW_001122023.fasta NW_001122024.fasta NW_001121239.fasta 
 
 mkdir motifs
 cd motifs
-parse_imgt_annotations "http://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000064" IMGT000064_genes.csv IGH
-calc_motifs IMGT000064_genes.csv
+parse_imgt_annotations "https://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000064" IMGT000064_genes.csv IGH
+calc_motifs IGH IMGT000064_genes.csv
 cp ../../conserved_motifs.fasta .
 cd ..
 

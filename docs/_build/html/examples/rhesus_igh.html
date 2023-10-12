@@ -42,6 +42,8 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#digger">digger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#dig-sequence">dig-sequence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
 </ul>
@@ -148,7 +150,8 @@ features of functional annotations:</p>
 <span class="o">&gt;</span> <span class="n">calc_motifs</span> <span class="n">IMGT000064_genes</span><span class="o">.</span><span class="n">csv</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">calc_motifs</span></code> will create 10 motif files in the directory.</p>
+<p><code class="docutils literal notranslate"><span class="pre">calc_motifs</span></code> will create 10 motif files in the directory. Additionally, it prepares <code class="docutils literal notranslate"><span class="pre">motif_params.json</span></code>, which contains some further locus-specific motif parameters.
+These are descrbed further in <a class="reference internal" href="../tools/calc_motifs.html#calc-motifs"><span class="std std-ref">calc_motifs</span></a>.</p>
 <p>The motifs directory may optionally contain a FASTA file <code class="docutils literal notranslate"><span class="pre">conserved_motifs.fasta</span></code> defining strongly-conserved nucleotides in the RSS and leader. Only those features
 with conserved nucleotides need to be listed in the file. The names follow the filenames used for the PWMs.
 The following sequences were derived from Figure 3 of Ngoune et al. (2022) and will be used in this example:</p>

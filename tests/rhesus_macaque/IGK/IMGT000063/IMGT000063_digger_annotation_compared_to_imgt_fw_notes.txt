@@ -35,5 +35,6 @@ Functional sequences reported by digger but not by IMGT:
 Functional sequences reported by IMGT but not by digger:
 1343426,1343463  imgt_match: IGKJ5*01  imgt_func: functional digger_match: IGKJ5*01  digger_func: orf  notes: J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): T------
 ...IMGT notes: unexpected J-SPACER length: 19 nt instead of 23 nt, however this J-GENE has been found rearranged
+(non-annotation difference)
 
 Functional sequences reported by both IMGT and digger but with different sequences:

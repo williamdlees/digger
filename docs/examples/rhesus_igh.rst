@@ -62,9 +62,10 @@ features of functional annotations::
    > parse_imgt_annotations \
 	   "http://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000064" \
 	   IMGT000064_genes.csv IGH
-   > calc_motifs IMGT000064_genes.csv
+   > calc_motifs IGH IMGT000064_genes.csv
    
-``calc_motifs`` will create 10 motif files in the directory.
+``calc_motifs`` will create 10 motif files in the directory. Additionally, it prepares ``motif_params.json``, which contains some further locus-specific motif parameters.
+These are descrbed further in :ref:`calc_motifs`.
 
 The motifs directory may optionally contain a FASTA file ``conserved_motifs.fasta`` defining strongly-conserved nucleotides in the RSS and leader. Only those features 
 with conserved nucleotides need to be listed in the file. The names follow the filenames used for the PWMs.

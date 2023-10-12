@@ -4,7 +4,8 @@ Annotating the human IGH locus
 ==============================
 
 The IGHV locus in the human reference assembly GRCh38.p12 has been annotated by IMGT. In this example, we will annotate with Digger and compare results.
-The comparison, and a script to reproduce it using the steps below, can be found `in digger's Git repository <https://github.com/williamdlees/digger/tree/main/tests/human/IGH/IMGT000035>`__.
+The comparison, and a script to reproduce it using the steps below, can be found `in digger's GitHub repository <https://github.com/williamdlees/digger/tree/main/tests/human/IGH/IMGT000035>`__.
+Digger's annotation `can also be found <https://github.com/williamdlees/digger/blob/main/tests/human/IGH/IMGT000035/IMGT000035.csv>`__ in that directory.
 
 Data
 ****
@@ -54,7 +55,7 @@ passed, allowing comparison with multiple reference sets.
 
 ``-species`` tells Digger to use its internal position-weighted matrices for human loci, and ``-locus`` specifies the locus.
 
-The output file will be ``IMGT000035.csv``.
+The output file will be ``IMGT000035.csv``. A sample copy of this file will be found in the GitHub repository.
 
 Digger will summarise progress as it runs. It will call the following tools:
 
@@ -84,7 +85,7 @@ digger annotated as functional all genes so annotated by IMGT, and annotated an 
 V-genes annotated by digger as functional, one has unusual variations in the RSS, causing IMGT to annotate it as ORF. The other is annotated as ORF on the grounds that it has not been
 seen rearranged. The additional J-gene is currently annotated by IMGT in the assembly as ORF, although it is listed in the IMGT gene table as functional.
 
-There is not, at present, a clear set of accepted criteria for categorisation of functionality, and minor differences of this nature are to be expected. Over the next few years, we expect to see comparisons of genomic 
+There is not, at present, a clear set of universally accepted criteria for categorisation of functionality, and minor differences of this nature are to be expected. Over the next few years, we expect to see comparisons of genomic 
 sequencing of the loci with the expressed repertoire across multiple subjects, and this should allow a deeper understanding to develop. Overall, the comparison of digger results with the manually supervised curation
 at IMGT shows a good level of agreement. It is possible that results may change from those noted here, as they are based on downloaded data which may be revised over time.
 

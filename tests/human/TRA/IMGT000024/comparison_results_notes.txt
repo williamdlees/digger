@@ -5,6 +5,7 @@ Functional sequences reported by digger but not by IMGT:
 520842,521125  imgt_match: TRAV8-7*02  imgt_func: pseudo digger_match: TRAV8-7*02  digger_func: functional  notes: 
 ..IMGT reports pseudogene due to the insertion of a 6-nucleotide insertion ggagga in the V-HEPTAMER motif (D. Scaviner, M-P. Lefranc, 11/01/2002).
 .. This insertion is not seen in this assembly sequence (the observation pre-dates the assembly)
+... (non-annotation difference)
 
 Functional sequences reported by IMGT but not by digger:
 124803,125079  imgt_match: TRAV4*01  imgt_func: functional digger_match: TRAV4*01  digger_func: orf  notes: V-NONAMER not found
@@ -25,6 +26,7 @@ Functional sequences reported by both IMGT and digger but with different sequenc
 type: J
 Functional sequences reported by digger but not by IMGT:
 864403,864459  imgt_match: TRAJ60*01  imgt_func: pseudo digger_match: TRAJ60*01  digger_func: functional  notes: 
+864650,864709  imgt_match: TRAJ59*01  imgt_func: ORF digger_match: TRAJ59*01  digger_func: functional  notes: Donor splice found at non-canonical position
 865804,865866  imgt_match: TRAJ58*01  imgt_func: ORF digger_match: TRAJ58*01  digger_func: functional  notes: 
 869794,869850  imgt_match: TRAJ55*01  imgt_func: pseudo digger_match: TRAJ55*01  digger_func: functional  notes: 
 ...IMGT reports these sequences as having stop codons in the J-REGION. Digger allows stop codons before the W/FGXG motif as these may be trimmed during junction formation
