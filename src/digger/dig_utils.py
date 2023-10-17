@@ -343,11 +343,11 @@ def read_motifs(args, locus):
     if args.species:
         try:
             dm = files('digger')
-            motif_dir = dm.joinpath(f'motifs/{args.species.lower()}/{args.locus}')
+            motif_dir = dm.joinpath(f'motifs/{args.species.lower()}/{locus}')
         except TypeError:
             path = os.path.abspath(__file__)
             dm = os.path.dirname(path)
-            motif_dir = os.path.join(dm, f'motifs/{args.species.lower()}/{args.locus}')
+            motif_dir = os.path.join(dm, f'motifs/{args.species.lower()}/{locus}')
 
     print(f'Using motif files from {motif_dir}')
     motifs = {}
