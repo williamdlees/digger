@@ -1,6 +1,9 @@
 Release Notes
 =============
 
+Changes in 0.64
+- fix issue in dig_sequence
+
 Changes in 0.6.3:
 *****************
 - add support for multiple definitions of the J motif for a locus

@@ -1,5 +1,6 @@
 MANIFEST.in
 README.md
+license.txt
 pyproject.toml
 setup.cfg
 src/digger/__init__.py
