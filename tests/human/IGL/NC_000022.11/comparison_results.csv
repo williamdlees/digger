@@ -115,7 +115,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,824265,824581,,IGLV3-25*03,,pseudo,No,No,No,No,"Bad DONOR-SPLICE: AC, Bad ACCEPTOR-SPLICE: GA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 ,,V,830676,830985,,IGLV2-5*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 ,,V,831939,832227,,IGLV3-32*01,,pseudo,No,No,No,No,"Bad DONOR-SPLICE: AC, Bad ACCEPTOR-SPLICE: CG, First cysteine not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --T----"
-845647,845960,V,845647,845960,IGLV4-3*01,IGLV4-3*01,functional,Functional,Yes,Yes,Yes,Yes,
+845647,845960,V,845647,845960,IGLV4-3*01,IGLV4-3*01,functional,Functional,Yes,Yes,Yes,Yes,alternate end: 845931
 ,,V,847126,847418,,IGLV3-31*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: AC, Bad ACCEPTOR-SPLICE: CT, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 855033,855317,V,855033,855317,IGLV3-1*01,IGLV3-1*01,functional,Functional,Yes,Yes,Yes,Yes,
 867706,867746,J,867706,867743,IGLJ1*01,IGLJ1*01,functional,Functional,Yes,Yes,Yes,Yes,
