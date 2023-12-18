@@ -315,14 +315,12 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                                 else:
                                     replace = row_length > result_length
 
-                                '''
                                 base = row if replace else result
                                 alt = result if replace else row
                                 if result['start'] != row['start']:
                                     update_note(base, f'alternate start: {alt["start"]}')
                                 if result['end'] != row['end']:
                                     update_note(base, f'alternate end: {alt["end"]}')
-                                '''
 
                             if replace:
                                 del(results[k])
