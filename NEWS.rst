@@ -1,7 +1,13 @@
 Release Notes
 =============
 
-Changes in 0.64
+Changes in 0.6.6
+***************
+- fix crash in dig_sequence if annotating V-gene without specifying a gapped reference file
+- update the package to include missing motif files
+
+Changes in 0.6.4
+***************
 - fix issue in dig_sequence
 
 Changes in 0.6.3:

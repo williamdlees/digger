@@ -1,8 +1,8 @@
 imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
-1783,1813,D,1783,1813,IGHD2-15*01,IGHD2-15*01,functional,Functional,Yes,Yes,Yes,Yes,
+1783,1813,D,1783,1813,IGHD2-15*01,IGHD2-15*01,functional,Functional,Yes,Yes,Yes,Yes,alternate end: 339724
 ,,J,2780,2810,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 4492,4508,D,4492,4508,IGHD1-14*01,IGHD1-14*01,functional,Functional,Yes,Yes,Yes,Yes,
-4993,5010,D,4993,5010,IGHD6-13*01,IGHD6-13*01,functional,Functional,Yes,Yes,Yes,Yes,
+4993,5010,D,4993,5010,IGHD6-13*01,IGHD6-13*01,functional,Functional,Yes,Yes,Yes,Yes,alternate end: 336512
 6847,6866,D,6847,6866,IGHD5-12*01,IGHD5-12*01,functional,Functional,Yes,Yes,Yes,Yes,
 8963,8996,D,8963,8996,IGHD3-9*01,IGHD3-9*01,functional,Functional,Yes,Yes,Yes,Yes,
 11698,11728,D,11698,11728,IGHD2-8*01,IGHD2-8*01,functional,Functional,Yes,Yes,Yes,Yes,

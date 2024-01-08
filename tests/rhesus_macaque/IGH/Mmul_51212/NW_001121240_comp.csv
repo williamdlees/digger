@@ -25,7 +25,8 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 185323,185619,V,185323,185619,IGHV(III)-188*01,IGHV3-37*01,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: AA, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 204228,204521,V,204211,204521,IGHV5-189*02,IGHV5-189*02,pseudo,Functional,Yes,No,Digger is longer by 17 nt,No,
 216031,216322,V,216031,216329,IGHV(II)-190*02,IGHV4-122*03,pseudo,pseudo,No,Yes,Digger is longer by 7 nt,Yes,"Bad DONOR-SPLICE: CC, Bad ACCEPTOR-SPLICE: AC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
-218039,218335,V,218039,218335,IGHV3-191*02,IGHV3-102*03,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+218039,218335,V,,,IGHV3-191*02,,pseudo,,No,No,No,No,
+,,V,218063,218335,,IGHV3-103*02,,ORF,No,No,No,No,Sequence truncated before second cysteine
 223216,223528,V,223216,223528,IGHV4-192*02,IGHV4-57*03,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 226869,227164,V,226869,227164,IGHV7-193*02,IGHV7-193*02,functional,Functional,Yes,Yes,Yes,Yes,
 ,,D,229399,229457,,IGHD3-40*01,,Functional,No,No,No,No,
