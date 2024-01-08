@@ -243,7 +243,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1612302,1612318,D,1612302,1612318,IGHD1-1*01,IGHD1-1*01,functional,Functional,Yes,Yes,Yes,Yes,
 1614981,1615011,D,1614981,1615011,IGHD2-2*01,IGHD2-2*01,functional,Functional,Yes,Yes,Yes,Yes,
 1617426,1617456,D,1617426,1617456,IGHD3-3*01,IGHD3-3*01,functional,Functional,Yes,Yes,Yes,Yes,
-1618572,1618587,D,1618572,1618587,IGHD4-4*01,IGHD4-4*01,functional,Functional,Yes,Yes,Yes,Yes,
+1618572,1618587,D,1618572,1618587,IGHD4-4*01,IGHD4-4*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 1618574
 1619536,1619558,D,1619536,1619558,IGHD5-5*01,IGHD5-30*01,functional,Functional,No,Yes,Yes,Yes,
 1621906,1621926,D,1621906,1621926,IGHD6-6*01,IGHD6-31*01,functional,Functional,No,Yes,Yes,Yes,
 1622409,1622425,D,1622409,1622425,IGHD1-7*01,IGHD1-20*01,functional,Functional,No,Yes,Yes,Yes,
@@ -262,19 +262,19 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 1642382,1642398,D,1642382,1642398,IGHD1-20*01,IGHD1-20*01,functional,Functional,Yes,Yes,Yes,Yes,
 1645759,1645789,D,1645759,1645789,IGHD2-21*01,IGHD2-21*01,functional,Functional,Yes,Yes,Yes,Yes,
 1648143,1648164,D,1648143,1648164,IGHD3-22*01,IGHD3-22*01,functional,Functional,Yes,Yes,Yes,Yes,
-1649288,1649303,D,1649288,1649303,IGHD4-23*01,IGHD4-23*01,functional,Functional,Yes,Yes,Yes,Yes,
+1649288,1649303,D,1649288,1649303,IGHD4-23*01,IGHD4-23*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 1649290
 1650252,1650274,D,1650252,1650274,IGHD5-24*01,IGHD5-24*01,functional,Functional,Yes,Yes,Yes,Yes,
 1652563,1652583,D,1652563,1652583,IGHD6-25*01,IGHD6-25*01,functional,Functional,Yes,Yes,Yes,Yes,
 1653066,1653082,D,1653066,1653082,IGHD1-26*01,IGHD1-26*01,functional,Functional,Yes,Yes,Yes,Yes,
 1655745,1655775,D,1655745,1655775,IGHD2-27*01,IGHD2-27*01,functional,Functional,Yes,Yes,Yes,Yes,
 1658145,1658172,D,1658145,1658172,IGHD3-28*01,IGHD3-28*01,functional,Functional,Yes,Yes,Yes,Yes,
-1659292,1659310,D,1659292,1659310,IGHD4-29*01,IGHD4-29*01,functional,Functional,Yes,Yes,Yes,Yes,
+1659292,1659310,D,1659292,1659310,IGHD4-29*01,IGHD4-29*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 1659294
 1660258,1660280,D,1660258,1660280,IGHD5-30*01,IGHD5-30*01,functional,Functional,Yes,Yes,Yes,Yes,
 1662607,1662627,D,1662607,1662627,IGHD6-31*01,IGHD6-31*01,functional,Functional,Yes,Yes,Yes,Yes,
 1663109,1663125,D,1663109,1663125,IGHD1-32*01,IGHD1-32*01,functional,Functional,Yes,Yes,Yes,Yes,
 1665214,1665244,D,1665214,1665244,IGHD2-33*01,IGHD2-33*01,functional,Functional,Yes,Yes,Yes,Yes,
 1667591,1667612,D,1667591,1667612,IGHD3-34*01,IGHD3-22*02,functional,Functional,No,Yes,Yes,Yes,
-1668733,1668748,D,1668733,1668748,IGHD4-35*01,IGHD4-35*01,functional,Functional,Yes,Yes,Yes,Yes,
+1668733,1668748,D,1668733,1668748,IGHD4-35*01,IGHD4-35*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 1668735
 1669685,1669704,D,1669685,1669704,IGHD5-36*01,IGHD5-36*01,functional,Functional,Yes,Yes,Yes,Yes,
 1671561,1671581,D,1671561,1671581,IGHD6-37*01,IGHD6-37*01,functional,Functional,Yes,Yes,Yes,Yes,
 1672047,1672063,D,1672047,1672063,IGHD1-38*01,IGHD1-38*01,functional,ORF,Yes,No,Yes,Yes,5' 5' 5'D-HEPTAMER has variation at strongly conserved residue(s): -----CA
