@@ -188,7 +188,7 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
     assembly_rc = simple.reverse_complement(assembly)
 
     if gene_type == 'V':
-        if v_gapped_ref is None or len(v_gapped_ref) == 0):
+        if v_gapped_ref is None or len(v_gapped_ref) == 0:
             print('Error - please specify a gapped reference set for V gene analysis')
             exit(1)
         rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, start+1, end, best, matches, align,
