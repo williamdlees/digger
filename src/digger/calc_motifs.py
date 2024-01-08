@@ -33,22 +33,9 @@ feats_in_feat_file = {
     'L-PART2': 'l-part2',
     "V-HEPTAMER": 'v-heptamer',
     "V-NONAMER": 'v-nonamer',
+    "OCTAMER": 'octamer',   
 }
 
-'''
-feats_in_feat_file = {
-    "J-HEPTAMER": 'j_heptamer',
-    "J-NONAMER": 'j_nonamer',
-    "5'D-HEPTAMER": 'd_5_heptamer',
-    "5'D-NONAMER": 'd_5_nonamer',
-    "3'D-HEPTAMER": 'd_3_heptamer',
-    "3'D-NONAMER": 'd_3_nonamer',
-    'L-PART1': 'l_part1',
-    'L-PART2': 'l_part2',
-    "V-HEPTAMER": 'v_heptamer',
-    "V-NONAMER": 'v_nonamer',
-}
-'''
 
 def random_seq(length):
     bases = ['A', 'C', 'G', 'T']
@@ -84,7 +71,7 @@ def main():
 
         gene_num = 1
 
-        for feature_name in ["J-HEPTAMER", "J-NONAMER", "5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER"]:
+        for feature_name in ["J-HEPTAMER", "J-NONAMER", "5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER", "OCTAMER"]:
             seqs = {}
             fname = feats_in_feat_file[feature_name]
 
