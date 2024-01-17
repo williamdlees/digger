@@ -62,7 +62,7 @@ features of functional annotations::
    > parse_imgt_annotations \
 	   "http://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000064" \
 	   IMGT000064_genes.csv IGH
-   > calc_motifs IMGT000064_genes.csv
+   > calc_motifs IGH IMGT000064_genes.csv
    
 ``calc_motifs`` will create 10 motif files in the directory. Additionally, it prepares ``motif_params.json``, which contains some further locus-specific motif parameters.
 These are descrbed further in :ref:`calc_motifs`.
