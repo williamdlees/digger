@@ -16,6 +16,8 @@ if [ ! -f "IMGT000035.csv" ]; then
 	exit 1
 fi
 
+dos2unix IMGT000035.csv
+dos2unix model_IMGT000035.csv
 diff model_IMGT000035.csv IMGT000035.csv
 
 rv=$?  

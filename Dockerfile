@@ -13,10 +13,11 @@ RUN BLAST=2.15.0 \
 # Install Digger
 RUN \
   apt-get update && \
-  apt-get -y --no-install-recommends install apt-utils && \
+  apt-get -y --no-install-recommends install apt-utils dos2unix && \
   apt-get -y install vim && \
   apt-get -y install git && \  
   git clone "https://github.com/williamdlees/digger" /digger && \
   chmod +x /digger/run_docker_tests && \
+  mkdir /data && \
   pip install receptor-digger
   
