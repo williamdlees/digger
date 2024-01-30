@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Release Notes" href="news.html" />
-    <link rel="prev" title="Overview" href="overview.html" /> 
+    <link rel="prev" title="Docker Image" href="docker.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,6 +44,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#digger">digger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#dig-sequence">dig-sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker Image</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="news.html">Release Notes</a></li>
 </ul>
@@ -88,8 +89,12 @@
 <span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
 <p>The latest stable version of Digger may be downloaded from <a class="reference external" href="https://pypi.python.org/pypi/receptor-digger">PyPI</a>. Digger requires Python 3.9 or above.</p>
 <p>Development versions are available from <a class="reference external" href="https://github.com/williamdlees/digger">GitHub</a>.</p>
-<p>Digger requires <a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK279690/">BLAST</a> to be installed.
-No BLAST databases are needed: just the executable. Once BLAST has been installed, please verify by typing <cite>blastn –help</cite> at the command line: if everything is ok, it should provide
+<p>Digger requires <a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK279690/">BLAST</a> to be installed. If you use conda/anaconda on Linux or Mac we recommend installing BLAST with conda:</p>
+<blockquote>
+<div><p>&gt; conda install bioconda::blast</p>
+</div></blockquote>
+<p>Alternatively, please follow the link for installation instructions. No BLAST databases are needed: just the executable.</p>
+<p>Once BLAST has been installed, please verify by typing <cite>blastn –help</cite> at the command line: if everything is ok, it should provide
 usage instructions.</p>
 <p>If you encounter the error <code class="docutils literal notranslate"><span class="pre">Cannot</span> <span class="pre">allocate</span> <span class="pre">memory</span></code>, this is coming from BLAST makeblastdb. Please set the environment variable <code class="docutils literal notranslate"><span class="pre">BLASTDB_LMDB_MAP_SIZE=100000000</span></code>.</p>
 <p>The easiest way to install Digger itself is with pip:</p>
@@ -103,7 +108,7 @@ usage instructions.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="docker.html" class="btn btn-neutral float-left" title="Docker Image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="news.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

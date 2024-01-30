@@ -1,6 +1,11 @@
 Release Notes
 =============
 
+Changes in 0.6.7
+****************
+- better error handling and explanation in parse_imgt_annotations
+- Docker image added
+
 Changes in 0.6.6
 ****************
 - fix crash in dig_sequence if annotating V-gene without specifying a gapped reference file

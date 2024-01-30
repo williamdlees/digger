@@ -1,5 +1,7 @@
 .. _install:
 
+
+
 Installation
 ============
 
@@ -7,8 +9,13 @@ The latest stable version of Digger may be downloaded from `PyPI <https://pypi.p
 
 Development versions are available from `GitHub <https://github.com/williamdlees/digger>`__.
 
-Digger requires `BLAST <https://www.ncbi.nlm.nih.gov/books/NBK279690/>`__ to be installed.
-No BLAST databases are needed: just the executable. Once BLAST has been installed, please verify by typing `blastn --help` at the command line: if everything is ok, it should provide
+Digger requires `BLAST <https://www.ncbi.nlm.nih.gov/books/NBK279690/>`__ to be installed. If you use conda/anaconda on Linux or Mac we recommend installing BLAST with conda:
+
+    > conda install bioconda::blast
+
+Alternatively, please follow the link for installation instructions. No BLAST databases are needed: just the executable. 
+
+Once BLAST has been installed, please verify by typing `blastn --help` at the command line: if everything is ok, it should provide
 usage instructions.
 
 If you encounter the error ``Cannot allocate memory``, this is coming from BLAST makeblastdb. Please set the environment variable ``BLASTDB_LMDB_MAP_SIZE=100000000``. 

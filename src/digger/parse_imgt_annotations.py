@@ -276,12 +276,17 @@ def main():
         exit(0)
 
     if 'http' in args.imgt_url:
-        with urllib.request.urlopen(args.imgt_url) as fi:
-            imgt_text = html.unescape(fi.read().decode('utf-8'))
+        try:
+            with urllib.request.urlopen(args.imgt_url) as fi:
+                imgt_text = html.unescape(fi.read().decode('utf-8'))
 
-            if args.save_download:
-                with open(args.save_download, 'w') as fo:
-                    fo.write(imgt_text)
+                if args.save_download:
+                    with open(args.save_download, 'w') as fo:
+                        fo.write(imgt_text)
+        except urllib.error.URLError as e:
+            print(f'Error downloading data: {e.reason}')
+            print('Please check the URL in a browser. If it is reachable, please try this command again. Otherwise it is likely that the URL is incorrect or the server is down.')
+            exit(0)
     else:
         with open(args.imgt_url, 'r') as fi:
             imgt_text = fi.read()
@@ -358,6 +363,8 @@ def main():
                 writer.writerow(parsed_gene)
     else:
         print("No annotation records found.")
+        print('Please check the URL in a browser and verify that the page contains an IMGT-annotated assembly.')
+
 
 
 if __name__ == "__main__":

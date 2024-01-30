@@ -10,7 +10,6 @@ Functional sequences reported by both IMGT and digger but with different sequenc
 
 type: D
 Functional sequences reported by digger but not by IMGT:
-381,383  imgt_match:   imgt_func:  digger_match:   digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:
 

@@ -11,7 +11,8 @@ ORF, or pseudogene following IMGT practce.
   :maxdepth: 1
   :caption: Getting Started
 
-  overview	
+  overview
+  docker	
   install
   news
   

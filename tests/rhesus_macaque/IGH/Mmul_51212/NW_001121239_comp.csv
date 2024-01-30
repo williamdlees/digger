@@ -12,7 +12,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 20437,20467,D,20437,20467,IGHD2-2*01,IGHD2-2*01,functional,Functional,Yes,Yes,Yes,Yes,
 23163,23179,D,23163,23179,IGHD1-1-1*01,IGHD1-1-1*01,functional,Functional,Yes,Yes,Yes,Yes,
 25110,25126,D,25110,25126,IGHD1-1*01,IGHD1-1*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,D,28432,28465,,IGHD3-9*01,,Functional,No,No,No,No,alternate end: 313051
+,,D,28432,28465,,IGHD3-9*01,,Functional,No,No,No,No,
 ,,J,47461,47523,,IGHJ6*01,,pseudo,No,No,No,No,"J-NONAMER not found, Donor splice not found"
 49592,49896,V,49592,49896,IGHV6-1*01,IGHV6-1*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,J,50498,50528,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"

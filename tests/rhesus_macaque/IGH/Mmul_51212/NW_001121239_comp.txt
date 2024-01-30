@@ -10,7 +10,7 @@ Functional sequences reported by both IMGT and digger but with different sequenc
 
 type: D
 Functional sequences reported by digger but not by IMGT:
-28432,28465  imgt_match:   imgt_func:  digger_match: IGHD3-9*01  digger_func: functional  notes: alternate end: 313051
+28432,28465  imgt_match:   imgt_func:  digger_match: IGHD3-9*01  digger_func: functional  notes: 
 55880,55901  imgt_match:   imgt_func:  digger_match: IGHD5-12*01  digger_func: functional  notes: alternate start: 285612
 89041,89077  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
 
