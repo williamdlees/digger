@@ -17,5 +17,6 @@ RUN \
   apt-get -y install vim && \
   apt-get -y install git && \  
   git clone "https://github.com/williamdlees/digger" /digger && \
+  chmod +x /digger/run_docker_tests && \
   pip install receptor-digger
   
