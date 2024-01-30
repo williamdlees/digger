@@ -10,6 +10,6 @@ at_coords IMGT000035.fasta 1 15000 >>IMGT000035_trunc.fasta
 
 digger IMGT000035_trunc.fasta -keepwf -v_ref Homo_sapiens_IGHV.fasta -d_ref Homo_sapiens_IGHD.fasta -j_ref Homo_sapiens_IGHJ.fasta -v_ref_gapped Homo_sapiens_IGHV_gapped.fasta -ref imgt,Homo_sapiens_IGHVDJ.fasta -species human IMGT000035.csv
 
-cp IMGT000035_trunc.csv ..
+cp IMGT000035.csv ..
 
 cd ..
