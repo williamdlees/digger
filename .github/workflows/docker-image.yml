@@ -30,7 +30,7 @@ jobs:
         with:
           context: .
           load: true
-          tags: ogrdbstats:test
+          tags: digger:test
       - name: Test
         run: |
           docker run --rm digger:test run_docker_tests
