@@ -31,6 +31,9 @@ jobs:
           context: .
           load: true
           tags: ogrdbstats:test
+      - name: Test
+        run: |
+          docker run --rm digger:test run_docker_tests
       - name: Build and push
         uses: docker/build-push-action@v4
         with:

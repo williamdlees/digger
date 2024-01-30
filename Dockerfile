@@ -4,7 +4,7 @@ MAINTAINER William Lees william@lees.org.uk
 
 # Install BLAST+ executables
 RUN BLAST=2.15.0 \
-    && wget -q --show-progress --no-check-certificate \
+    && wget -q --no-check-certificate \
        ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.15.0/ncbi-blast-2.15.0+-x64-linux.tar.gz \
     && tar -zxf ncbi-blast-${BLAST}+-x64-linux.tar.gz \
     && mv ncbi-blast-${BLAST}+/bin/* /usr/local/bin \
