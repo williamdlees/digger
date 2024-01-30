@@ -33,7 +33,7 @@ jobs:
           tags: digger:test
       - name: Test
         run: |
-          docker run --rm digger:test run_docker_tests
+          docker run --rm digger:test /digger/run_docker_tests
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
