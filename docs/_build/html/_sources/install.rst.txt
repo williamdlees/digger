@@ -20,6 +20,8 @@ usage instructions.
 
 If you encounter the error ``Cannot allocate memory``, this is coming from BLAST makeblastdb. Please set the environment variable ``BLASTDB_LMDB_MAP_SIZE=100000000``. 
 
+If you encounter the error ``Error while loading shared libraries: libnsl.so.1``, the shared library ``libnsl.so.1`` needs to be installed. The precise instructions to do so are platform specific, but you should be able to obtain guidance through a Google search. 
+
 
 The easiest way to install Digger itself is with pip::
 

@@ -97,6 +97,7 @@
 <p>Once BLAST has been installed, please verify by typing <cite>blastn –help</cite> at the command line: if everything is ok, it should provide
 usage instructions.</p>
 <p>If you encounter the error <code class="docutils literal notranslate"><span class="pre">Cannot</span> <span class="pre">allocate</span> <span class="pre">memory</span></code>, this is coming from BLAST makeblastdb. Please set the environment variable <code class="docutils literal notranslate"><span class="pre">BLASTDB_LMDB_MAP_SIZE=100000000</span></code>.</p>
+<p>If you encounter the error <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">shared</span> <span class="pre">libraries:</span> <span class="pre">libnsl.so.1</span></code>, the shared library <code class="docutils literal notranslate"><span class="pre">libnsl.so.1</span></code> needs to be installed. The precise instructions to do so are platform specific, but you should be able to obtain guidance through a Google search.</p>
 <p>The easiest way to install Digger itself is with pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">receptor</span><span class="o">-</span><span class="n">digger</span> <span class="o">--</span><span class="n">user</span>
 </pre></div>
