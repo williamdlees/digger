@@ -1,0 +1,1 @@
+This is a deliberately truncated version of IMGT000035 intended to be used to test Docker builds
