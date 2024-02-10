@@ -13,10 +13,22 @@ Digger requires `BLAST <https://www.ncbi.nlm.nih.gov/books/NBK279690/>`__ to be 
 
     > conda install bioconda::blast
 
-Alternatively, please follow the link for installation instructions. No BLAST databases are needed: just the executable. 
+Alternatively, please follow the link for installation instructions and see the note below. No BLAST databases are needed: just the executable. 
 
-Once BLAST has been installed, please verify by typing `blastn --help` at the command line: if everything is ok, it should provide
-usage instructions.
+The installation instructions at NCBI ask you to browse to the link `https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ <https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/>`__. Browsers
+are ceasing support for FTP, and you may find that your browser won't open the page. The easiest approach in this case is to use `curl <https://curl.se/>`__ to download the file. curl is included
+in all Windows 10 and 11 installations.
+
+    > curl https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/
+
+will list the latest versions available for download. For Windows, for example, you will see a filename similar to ncbi-blast-2.12.0+-win64.exe.
+
+    > curl https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.12.0+-win64.exe -o ncbi-blast-2.12.0+-win64.exe 
+    
+will download the file to your current directory. You will need to modify the filename to reflect the listed version.
+
+Once BLAST has been installed, following NCBI's instructions, please verify by typing ``blastn -help`` at the command line: if everything is ok, it should provide
+usage instructions. On Windows you will need to open a new command window to run the command.
 
 If you encounter the error ``Cannot allocate memory``, this is coming from BLAST makeblastdb. Please set the environment variable ``BLASTDB_LMDB_MAP_SIZE=100000000``. 
 

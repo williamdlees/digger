@@ -93,9 +93,20 @@
 <blockquote>
 <div><p>&gt; conda install bioconda::blast</p>
 </div></blockquote>
-<p>Alternatively, please follow the link for installation instructions. No BLAST databases are needed: just the executable.</p>
-<p>Once BLAST has been installed, please verify by typing <cite>blastn –help</cite> at the command line: if everything is ok, it should provide
-usage instructions.</p>
+<p>Alternatively, please follow the link for installation instructions and see the note below. No BLAST databases are needed: just the executable.</p>
+<p>The installation instructions at NCBI ask you to browse to the link <a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/">https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/</a>. Browsers
+are ceasing support for FTP, and you may find that your browser won’t open the page. The easiest approach in this case is to use <a class="reference external" href="https://curl.se/">curl</a> to download the file. curl is included
+in all Windows 10 and 11 installations.</p>
+<blockquote>
+<div><p>&gt; curl <a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/">https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/</a></p>
+</div></blockquote>
+<p>will list the latest versions available for download. For Windows, for example, you will see a filename similar to ncbi-blast-2.12.0+-win64.exe.</p>
+<blockquote>
+<div><p>&gt; curl <a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.12.0+-win64.exe">https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.12.0+-win64.exe</a> -o ncbi-blast-2.12.0+-win64.exe</p>
+</div></blockquote>
+<p>will download the file to your current directory. You will need to modify the filename to reflect the listed version.</p>
+<p>Once BLAST has been installed, following NCBI’s instructions, please verify by typing <code class="docutils literal notranslate"><span class="pre">blastn</span> <span class="pre">-help</span></code> at the command line: if everything is ok, it should provide
+usage instructions. On Windows you will need to open a new command window to run the command.</p>
 <p>If you encounter the error <code class="docutils literal notranslate"><span class="pre">Cannot</span> <span class="pre">allocate</span> <span class="pre">memory</span></code>, this is coming from BLAST makeblastdb. Please set the environment variable <code class="docutils literal notranslate"><span class="pre">BLASTDB_LMDB_MAP_SIZE=100000000</span></code>.</p>
 <p>If you encounter the error <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">shared</span> <span class="pre">libraries:</span> <span class="pre">libnsl.so.1</span></code>, the shared library <code class="docutils literal notranslate"><span class="pre">libnsl.so.1</span></code> needs to be installed. The precise instructions to do so are platform specific, but you should be able to obtain guidance through a Google search.</p>
 <p>The easiest way to install Digger itself is with pip:</p>
