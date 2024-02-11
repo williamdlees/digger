@@ -77,6 +77,16 @@ src/digger/motifs/human/TRD/L-PART2_prob.csv
 src/digger/motifs/human/TRD/V-HEPTAMER_prob.csv
 src/digger/motifs/human/TRD/V-NONAMER_prob.csv
 src/digger/motifs/human/TRD/motif_params.json
+src/digger/motifs/human/TRG/3'D-HEPTAMER_prob.csv
+src/digger/motifs/human/TRG/3'D-NONAMER_prob.csv
+src/digger/motifs/human/TRG/5'D-HEPTAMER_prob.csv
+src/digger/motifs/human/TRG/5'D-NONAMER_prob.csv
+src/digger/motifs/human/TRG/J-HEPTAMER_prob.csv
+src/digger/motifs/human/TRG/J-NONAMER_prob.csv
+src/digger/motifs/human/TRG/L-PART1_prob.csv
+src/digger/motifs/human/TRG/L-PART2_prob.csv
+src/digger/motifs/human/TRG/V-HEPTAMER_prob.csv
+src/digger/motifs/human/TRG/V-NONAMER_prob.csv
 src/digger/motifs/human/TRG/motif_params.json
 src/digger/motifs/rhesus_macaque/IGH/3'D-HEPTAMER_prob.csv
 src/digger/motifs/rhesus_macaque/IGH/3'D-NONAMER_prob.csv
