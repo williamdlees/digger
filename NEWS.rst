@@ -3,6 +3,10 @@ Release Notes
 
 Changes in 0.6.7
 ****************
+- finclude motif files for TRG
+
+Changes in 0.6.7
+****************
 - better error handling and explanation in parse_imgt_annotations
 - Docker image added
 
