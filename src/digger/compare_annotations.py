@@ -137,7 +137,7 @@ def create_results(c_end, c_start, candidate, output, reference, show_non_coding
 
         if show_non_coding:
             headers = ['imgt_start', 'imgt_end', 'type', 'digger_start', 'digger_end', 'imgt_allele', 'digger_allele', 'imgt_func', 'digger_func', 'call_matches',
-                       'func_matches', 'seq_matches', 'start_matches', 'digger_notes', 'imgt_l_part1', 'digger_l_part1', 'imgt_l_part2', 'digger_l_part2',
+                       'func_matches', 'seq_matches', 'start_matches', 'l_part1_matches', 'l_part2_matches', 'heptamer_matches', 'nonamer_matches', 'digger_notes', 'imgt_l_part1', 'digger_l_part1', 'imgt_l_part2', 'digger_l_part2',
                        'imgt_heptamer', 'digger_heptamer', 'imgt_nonamer', 'digger_nonamer']
         else:
             headers = ['imgt_start', 'imgt_end', 'type', 'digger_start', 'digger_end', 'imgt_allele', 'digger_allele', 'imgt_func', 'digger_func', 'call_matches',
@@ -241,15 +241,22 @@ def create_results(c_end, c_start, candidate, output, reference, show_non_coding
                 }
 
                 if show_non_coding:
-                    res += {
-                        'imgt_l_part1': ref_row['l-part1'],
-                        'digger_l_part1': cand_row['l_part1'],
-                        'imgt_l_part2': ref_row['l-part2'],
-                        'digger_l_part2': cand_row['l_part2'],
-                        'imgt_heptamer': ref_row['v-heptamer'],
-                        'imgt_nonamer': ref_row['v-nonamer'],
-                        'digger_heptamer': cand_row['v_heptamer'],
-                        'digger_nonamer': cand_row['v_nonamer'],
+                    res |= {
+                        'imgt_l_part1': ref_row['l-part1'].upper(),
+                        'digger_l_part1': cand_row['l_part1'].upper(),
+                        'imgt_l_part2': ref_row['l-part2'].upper(),
+                        'digger_l_part2': cand_row['l_part2'].upper(),
+                        'imgt_heptamer': ref_row['v-heptamer'].upper(),
+                        'digger_heptamer': cand_row['v_heptamer'].upper(),
+                        'imgt_nonamer': ref_row['v-nonamer'].upper(),
+                        'digger_nonamer': cand_row['v_nonamer'].upper(),
+                    }
+
+                    res |= {
+                        'l_part1_matches': 'Yes' if res['imgt_l_part1'] == res['digger_l_part1'] else 'No',
+                        'l_part2_matches': 'Yes' if res['imgt_l_part2'] == res['digger_l_part2'] else 'No',
+                        'heptamer_matches': 'Yes' if res['imgt_heptamer'] == res['digger_heptamer'] else 'No',
+                        'nonamer_matches': 'Yes' if res['imgt_nonamer'] == res['digger_nonamer'] else 'No',
                     }
 
                 results.append(res)

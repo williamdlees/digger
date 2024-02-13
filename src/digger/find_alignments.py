@@ -66,6 +66,7 @@ assembly_rc = ''
 assembly_length = 0
 motifs = {}
 conserved_motif_seqs = {}
+motif_params = {}
 
 
 
@@ -123,8 +124,9 @@ def strings_to_num(row, fields):
 
 
 def update_note(base, note):
-    if base['notes'] and note not in base['notes']:
-        base['notes'] = ','.join(base['notes'].split(',') + [note])
+    if base['notes']:
+        if note not in base['notes']:
+            base['notes'] = ','.join(base['notes'].split(',') + [note])
     else:
         base['notes'] = note
 
@@ -246,7 +248,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                 # don't process obviously very truncated records
                 if abs(end - start) < 250 or start < 1 or end > assembly_length:
                     continue
-                rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, start, end, best, matches, args.align, V_RSS_SPACING, v_parsing_errors)
+                rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, motif_params, start, end, best, matches, args.align, V_RSS_SPACING, v_parsing_errors)
             elif 'J' in gene_type:
                 rows = process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE, J_RSS_SPACING)
             elif 'D' in gene_type:
@@ -277,25 +279,20 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                         else:
                             result_length = result['start'] - result['end'] + 1
 
-                        #if row['start'] > row['end']:
-                        #    breakpoint()
-
                         # if this row overlaps with one already stored in results, keep the one that is functional
-                        # if both are functional, keep the one that most closely matches a reference, if we have reference sets
+                        # if both are functional or both nonfunctional, keep the one that most closely matches a reference, if we have reference sets
                         # Otherwise keep the longer sequence
 
                         if row['start'] < row['end'] and (result['start'] <= row['start'] <= result['end'] or result['start'] <= row['end'] <= result['end']):
-                            replace = False
-
-                            #if row['start'] == 556809 or row['start'] == 556812:
+                            #if row['start'] == 5087:
                             #    breakpoint()
+
+                            replace = False
 
                             if row['functional'] != 'Functional' and result['functional'] == 'Functional':
                                 replace = False
                             elif row['functional'] == 'Functional' and result['functional'] != 'Functional':
                                 replace = True
-                            elif row['functional'] != 'Functional' and result['functional'] != 'Functional':
-                                replace = row_length > result_length
                             else:
                                 # if we're comparing against one or more references, use the one with the best score
 
@@ -317,10 +314,12 @@ def process_file(this_blast_file, writer, write_parsing_errors):
 
                                 base = row if replace else result
                                 alt = result if replace else row
-                                if result['start'] != row['start']:
-                                    update_note(base, f'alternate start: {alt["start"]}')
-                                if result['end'] != row['end']:
-                                    update_note(base, f'alternate end: {alt["end"]}')
+
+                                if row['functional'] == 'Functional' and result['functional'] == 'Functional':
+                                    if result['start'] != row['start']:
+                                        update_note(base, f'alternate start: {alt["start"]}')
+                                    if result['end'] != row['end']:
+                                        update_note(base, f'alternate end: {alt["end"]}')
 
                             if replace:
                                 del(results[k])
@@ -358,6 +357,7 @@ def main():
     global args, assembly, assembly_length, germlines, locus, manual_sense, J_TRP_MOTIF, J_TRP_OFFSET,  J_SPLICE, J_RSS_SPACING, V_RSS_SPACING, D_5_RSS_SPACING, D_3_RSS_SPACING, vreference_sets, conserved_motif_seqs
     global v_gapped_ref
     global motifs
+    global motif_params
 
     args = get_parser().parse_args()
     assembly_file = args.assembly_file
@@ -405,10 +405,11 @@ def main():
             fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_diffs'])
 
         fieldnames.extend(
-            ['functional', 'notes', 'likelihood', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer',
+            ['functional', 'notes', 'likelihood', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer',
             'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
             '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
-            'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev'])
+            'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev', 'octamer_start', 'octamer_start_rev', 'octamer_end', 'octamer_end_rev',
+         'tata_box_start', 'tata_box_start_rev', 'tata_box_end', 'tata_box_end_rev',])
 
         fieldnames.extend(['matches', 'blast_match', 'blast_score', 'blast_nt_diffs', 'evalue'])
 

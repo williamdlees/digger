@@ -1,6 +1,7 @@
 from collections import defaultdict
 from math import ceil
 from operator import attrgetter
+from dataclasses import dataclass
 
 from Bio.Align import PairwiseAligner
 from receptor_utils import simple_bio_seq as simple
@@ -8,10 +9,10 @@ from receptor_utils.number_v import gap_sequence, number_ighv, gap_nt_from_aa
 
 try:
     from motif import Motif
-    from search_motifs import find_compound_motif, MotifResult, SingleMotifResult
+    from search_motifs import find_compound_motif, MotifResult, SingleMotifResult, find_single_motif
 except:
     from digger.motif import Motif
-    from digger.search_motifs import find_compound_motif, MotifResult, SingleMotifResult
+    from digger.search_motifs import find_compound_motif, MotifResult, SingleMotifResult, find_single_motif
 
 
 class DAnnotation:
@@ -622,11 +623,122 @@ class VAnnotation:
             self.functionality = 'Functional'
 
 
+def is_tata_box(assembly, start):
+    # Returns True if the 5nt sequence at start matches the criteria for a TATA box
+    # Our working criteria are: 1) 2 or more Ts, 2) 2 or more As, 3) no more than 1 G or C
+
+    seq = assembly[start-1:start+4]
+    return seq.count('T') >= 2 and seq.count('A') >= 2 and (seq.count('G') + seq.count('C')) <= 1
+
+
+def find_tata_box(assembly, start, end):
+    # Returns the start and end of the first TATA box in the range start-end, or None if none found
+
+    boxes = []
+
+    for i in range(end-4, start, -1):
+        if i > 0 and is_tata_box(assembly, i):
+            # see whether we can extend with As or Ts at either end
+
+            t_end = i + 4
+            while i > 0 and assembly[i - 2] == 'A' or assembly[i - 2] == 'T':
+                i -= 1
+
+            while assembly[t_end] == 'A' or assembly[t_end] == 'T':
+                t_end += 1
+
+            # determine a score based on length and number of As and Ts
+            score = t_end - i - 0.5 * (assembly[i-1:t_end].count('G') + assembly[i-1:t_end].count('C'))
+            boxes.append((i, t_end, score, assembly[i-1:t_end]))
+
+    if len(boxes) > 0:
+        return boxes
+    else:
+        return None
+
+
+# Fake a motif class that can be passed to SingleMotifResult
+@dataclass
+class FakeMotif:
+    name: str
+    consensus: str
+
+
+def annotate_promoter_motifs(assembly, leaders, motifs, motif_params):
+    """
+    Annotate motifs in the UTR, where definitions exist for this locus
+
+    :param assembly: The assembly sequence.
+    :type assembly: str
+    :param leaders: List of leaders.
+    :type leaders: list
+    :param motifs: Dictionary containing motifs.
+    :type motifs: dict
+    :type motif_params: dict
+    :param start: The starting position of the V-segment search (1-based).
+
+    :return: None (motifs are updated in place)
+    :rtype: None
+
+    .. note::
+        leader.octamer is a SingleMotifResult. If the octamer is not found, it will have a atart and likelihood of 0
+        if no OCTAMER is defined for the locus, leader.octamer will be None
+    """
+
+    for leader in leaders:
+        tata_boxes = []
+        leader.tata_box = None
+        leader.octamer = None
+
+        #if leader.left.startswith('ATGGAG'):
+        #    breakpoint()
+
+        if "TATA_BOX_WINDOW" in motif_params:
+            tata_boxes = find_tata_box(assembly, leader.start - motif_params['TATA_BOX_WINDOW'][1], leader.start - motif_params['TATA_BOX_WINDOW'][0])
+
+        if "OCTAMER" in motifs:
+            if "OCTAMER_WINDOW" not in motif_params:
+                print("Error: OCTAMER is defined but OCTAMER_WINDOW is not specified")
+                exit(1)
+
+            if "TATA_BOX_WINDOW" in motif_params:
+                if tata_boxes:
+                    oct_box_pairs = []
+                    for box in tata_boxes:
+                        win_start = max(box[0] - motif_params['OCTAMER_WINDOW'][1], 0)
+                        win_end = max(box[0] - motif_params['OCTAMER_WINDOW'][0], 0)
+                        if win_end > 0: 
+                            octs = find_single_motif(assembly, {}, motifs['OCTAMER'], win_start, win_end)
+                            for oct in octs:
+                                oct_box_pairs.append((oct, box))
+
+                    if len(oct_box_pairs) > 0:
+                        best_oct_likelihood = sorted(oct_box_pairs, key=lambda x: x[0].likelihood, reverse=True)[0][0].likelihood
+                        best_pair = sorted([x for x in oct_box_pairs if x[0].likelihood == best_oct_likelihood], key=lambda x: x[1][2], reverse=True)[0]
+                        leader.octamer = best_pair[0]
+                        leader.tata_box = SingleMotifResult(assembly, {}, FakeMotif("TATA_BOX", best_pair[1][3]), best_pair[1][0], best_pair[1][2])
+
+            if leader.tata_box is None and leader.octamer is None:      # either we didn't find an octamer/tata box, or there's no tata box window defined for this locus
+                if leader.start - motif_params['OCTAMER_WINDOW'][0] > 0:
+                    min_start = max(leader.start - motif_params['OCTAMER_WINDOW'][1], 0)
+                    max_start = max(leader.start - motif_params['OCTAMER_WINDOW'][0], 0)
+
+                    if "TATA_BOX_WINDOW" in motif_params:
+                        min_start = max(min_start - motif_params['TATA_BOX_WINDOW'][1], 0)
+                        max_start = max(max_start - motif_params['TATA_BOX_WINDOW'][0], 0)
+
+                    octamers = find_single_motif(assembly, {}, motifs['OCTAMER'], min_start, max_start)
+                    if octamers:
+                        leader.octamer = sorted(octamers, key=lambda x: x.likelihood, reverse=True)[0]
+                    else:
+                        leader.octamer = SingleMotifResult(assembly, {}, motifs['OCTAMER'], 0, 0)
+
+
 # assembly is now forward-sense
 # want to find all possible leaders within a range, with their probs
 # then find all possible rss within range
 # evaluate every combination - joint prob and functionality
-def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, start, end, best, matches, align, V_RSS_SPACING, v_parsing_errors):
+def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, motif_params, start, end, best, matches, align, V_RSS_SPACING, v_parsing_errors):
     """
      Process V-segment annotations.
 
@@ -642,8 +754,10 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
      :type v_ungapped_ref: str
      :param conserved_motif_seqs: Dictionary containing conserved motif sequences.
      :type conserved_motif_seqs: dict
-     :param motifs: Dictionary containing motifs.
+     :param motifs: Dictionary containing PWM motifs.
      :type motifs: dict
+     :param motifs: Dictionary containing motif parameters.
+     :type motif_params: dict
      :param start: The starting position of the V-segment search (1-based).
      :type start: int
      :param end: The ending position of the V-segment search (1-based).
@@ -672,7 +786,30 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
          - `calc_best_match_score`: Function for calculating the best match score.
          - `check_seq`: Function for checking a sequence.
    """
-    leaders = find_compound_motif(assembly, conserved_motif_seqs, motifs['L-PART1'], motifs['L-PART2'], 10, 800, 8, end=start-1, right_force=start-len(motifs['L-PART2'].consensus))
+    leaders = []
+
+    for l1_motif in motifs['L-PART1']:
+        for l2_motif in motifs['L-PART2']:
+            cands = find_compound_motif(assembly, conserved_motif_seqs, l1_motif, l2_motif, 10, 800, 8, end=start-1, right_force=start-len(l2_motif.consensus))
+            cands = [c for c in cands if l1_motif.check_logo(c.left)]
+
+            in_frame = []
+            for cand in cands:
+                if 'X' not in simple.translate(cand.left + cand.right):
+                    in_frame.append(cand)
+
+            #if len(in_frame) > 0:
+            #    lvals = [i.likelihood for i in in_frame]
+            #    leaders.append(in_frame[lvals.index(max(lvals))])
+            leaders.extend(in_frame)
+
+    # narrow down to leaders that have a methionine start and canonical junction, relax criteria if nothing found
+    good_leaders = [c for c in leaders if c.left[:3] == 'ATG' and c.left[-2:] in ['GT', 'CT'] and assembly[c.end - len(c.right) - 2:c.end - len(c.right)] == 'AG']
+
+    if not good_leaders:
+        good_leaders = [c for c in leaders if c.left[:3] == 'ATG']
+
+    leaders = good_leaders
 
     # restrain length to between 270 and 320 nt, allow a window anywhere within that range
     rights = find_compound_motif(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], motifs['V-NONAMER'], V_RSS_SPACING-1, V_RSS_SPACING, 25, start=start+295)
@@ -682,8 +819,8 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
     if rights and not leaders:
         leaders.append(
             MotifResult(assembly,
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['L-PART1'], start-len(motifs['L-PART1'].consensus)-10-len(motifs['L-PART2'].consensus), 0.1),
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['L-PART2'], start-len(motifs['L-PART2'].consensus), 0.1),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['L-PART1'][0], start-len(motifs['L-PART1'][0].consensus)-10-len(motifs['L-PART2'][0].consensus), 0),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['L-PART2'][0], start-len(motifs['L-PART2'][0].consensus), 0),
                    ['Leader not found'])
         )
 
@@ -698,6 +835,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
         )
 
     best_rights = find_best_rss(rights)
+    annotate_promoter_motifs(assembly, leaders, motifs, motif_params)
     best_leaders = find_best_leaders(assembly, leaders)
 
     max_likelihood_rec = None
@@ -775,9 +913,6 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
 
         best_match, best_score, best_nt_diffs = calc_best_match_score(germlines, best, v_gene.ungapped)
 
-        #if v_gene.start == 556809:
-        #    breakpoint()
-
         row = {
             'start': v_gene.start,
             'end': v_gene.end,
@@ -788,10 +923,12 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
             'blast_match': best_match,
             'blast_score': best_score,
             'blast_nt_diffs': best_nt_diffs,
-            'l_part1': leader.left,
-            'l_part2': leader.right,
-            'v_heptamer': rss.left,
-            'v_nonamer': rss.right,
+            'octamer': leader.octamer.seq if leader.octamer is not None else '',
+            'tata_box': leader.tata_box.seq if leader.tata_box is not None else '',
+            'l_part1': leader.left if 'Leader not found' not in leader.notes else '',
+            'l_part2': leader.right if 'Leader not found' not in leader.notes else '',
+            'v_heptamer': rss.left if 'RSS not found' not in rss.notes else '',
+            'v_nonamer': rss.right if 'RSS not found' not in rss.notes else '',
             'functional': v_gene.functionality,
             'notes': ', '.join(leader.notes + v_gene.notes + rss.notes),
             'v-gene_aligned_aa': v_gene.gapped_aa,
@@ -799,6 +936,9 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
             'seq_gapped': v_gene.gapped,
             'likelihood': v_gene.likelihood,
         }
+
+        #if row['start'] == 5087:
+        #    breakpoint()
 
         row['3_rss_start'] = rss.start
         row['3_rss_start_rev'] = len(assembly) - rss.end + 1
@@ -812,6 +952,30 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
         row['l_part2_start'] = leader.end - len(leader.right) + 1
         row['l_part2_end'] = leader.end
         row['l_part2_start_rev'], row['l_part2_end_rev'] = len(assembly) - row['l_part2_end'] + 1, len(assembly) - row['l_part2_start'] + 1
+
+        if row['octamer'] is not None:
+            if leader.octamer and leader.octamer.likelihood > 0:
+                row['octamer_start'] = leader.octamer.start
+                row['octamer_end'] = leader.octamer.end
+                row['octamer_start_rev'] = len(assembly) - row['octamer_end'] + 1
+                row['octamer_end_rev'] = len(assembly) - row['octamer_start'] + 1
+            else:
+                row['octamer_start'] = ''
+                row['octamer_end'] = ''
+                row['octamer_start_rev'] = ''
+                row['octamer_end_rev'] = ''
+
+        if row['tata_box'] is not None:
+            if leader.tata_box and leader.tata_box.likelihood > 0:
+                row['tata_box_start'] = leader.tata_box.start
+                row['tata_box_end'] = leader.tata_box.end
+                row['tata_box_start_rev'] = len(assembly) - row['tata_box_end'] + 1
+                row['tata_box_end_rev'] = len(assembly) - row['tata_box_start'] + 1
+            else:
+                row['tata_box_start'] = ''
+                row['tata_box_end'] = ''
+                row['tata_box_start_rev'] = ''
+                row['tata_box_end_rev'] = ''
 
         row['aa'] = simple.translate(v_gene.ungapped)
 
@@ -854,7 +1018,7 @@ def check_seq(assembly, assembly_rc, seq, start, end, name, rev):
 
 
 # find the best leader PART1 for each PART2 starting position:
-# if PART2 is in-frame: the in-frame PART1 giving best likelihood
+# if PART2 is in-frame: the in-frame PART1 that is nearest to PART2
 # otherwise, the PART1 giving best likelihood regardless of frame
 def find_best_leaders(assembly, leaders):
     def spread(n, inc=1):
@@ -880,6 +1044,16 @@ def find_best_leaders(assembly, leaders):
         leader_choices[leader.end].append(leader)
 
     best_leaders = {}
+
+    for position, choices in leader_choices.items():
+        lvalues = [c.likelihood for c in choices]
+        ind = lvalues.index(max(lvalues))
+        best_leaders[position] = choices[ind]
+
+    return best_leaders
+
+
+
     for position, choices in leader_choices.items():
         good_leaders = []
         bad_leaders = []
@@ -888,7 +1062,7 @@ def find_best_leaders(assembly, leaders):
             if choice.left:
                 bad_start = choice.left[:3] != 'ATG'
 
-                #if position == 742228 and choice.start == 742085:
+                #if choice.left.startswith('ATGGAGTCATTCCTGGGAGGTGTTTTGCTGATTTTGTGGC'):
                 #    breakpoint()
 
                 for i in spread(16):
@@ -940,11 +1114,24 @@ def find_best_leaders(assembly, leaders):
                 good_leaders.append(choice)
 
         if good_leaders:
-            best_leaders[position] = sorted(good_leaders, key=attrgetter('likelihood'), reverse=True)[0]
+            # if any have octamers identified, choose the highest likelihood of those
+            with_octs = [x for x in good_leaders if x.octamer and x.octamer.likelihood > 0]
+            if with_octs:
+                good_leaders = with_octs
+
+            # pick the closest leader to the right unless there is an extreme difference in likelihoods
+            best_leader_pos = sorted(good_leaders, key=attrgetter('start'), reverse=True)[0]
+            best_leader_lik = sorted(good_leaders, key=attrgetter('likelihood'), reverse=True)[0]
+            lik_ratio = best_leader_lik.likelihood / best_leader_pos.likelihood
+
+            if lik_ratio > 1.0e+20:
+                best_leaders[position] = best_leader_lik
+            else:
+                best_leaders[position] = best_leader_pos
         else:
-            bad_leaders.sort(key=attrgetter('likelihood'), reverse=True)
+            bad_leaders.sort(key=attrgetter('start'), reverse=True)
             for leader in bad_leaders:
-                l2p = simple.translate(leader.right[2:])
+                l12p = simple.translate(leader.right[2:])
                 if not ('X' in l12p or '*' in l12p):
                     best_leaders[position] = leader
                     break
@@ -1027,7 +1214,7 @@ def find_coords(rec, keyword):
     coords = []
 
     for k in rec.keys():
-        if keyword in k and 'rev' not in k:
+        if keyword in k and 'rev' not in k and rec[k] != '':
             coords.append(int(rec[k]))
 
     return coords

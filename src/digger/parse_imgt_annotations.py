@@ -46,9 +46,12 @@ def find_seq(line, extra=0):
     (start, end) = find_range(line)
 
     if start is None:
-        return None
+        return '', sense
 
-    seq = assembly[start-1:end+extra]
+    if complement:
+        seq = assembly[start-1-extra:end]
+    else:
+        seq = assembly[start-1:end+extra]
 
     if complement:
         seq = simple.reverse_complement(seq)
@@ -68,15 +71,16 @@ def process_V(imgt_annots, parsed_genes, accession):
     row = {'accessions': accession, 'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None, 'sense': '', 'v-donor-splice': None, 'v-acceptor-splice': None}
 
     for line in imgt_annots:
-        if 'FT   V-REGION' in line:
-            in_v_region = True
-
+        if 'FT   V-GENE ' in line:
             if parsing_gene:
                 # We have a partially parsed truncated gene
                 for el in ['utr', 'l-part1', 'l-part2', 'v-heptamer', 'v-nonamer', 'v-region']:
                     row[el] = str(row[el]) if row[el] is not None else ''
                 parsed_genes.append(row)
                 row = {'accessions': accession, 'utr': None, 'l-part1': None, 'l-part2': None, 'v-heptamer': None, 'v-nonamer': None, 'v-region': None}
+
+        elif 'FT   V-REGION' in line:
+            in_v_region = True
 
             parsing_gene = True
             row['v-region'], row['sense'] = find_seq(line.replace('<', '').replace('>', ''))

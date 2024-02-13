@@ -4,7 +4,7 @@ include src/digger/motifs/human/IGL/*.csv
 include src/digger/motifs/human/TRA/*.csv
 include src/digger/motifs/human/TRB/*.csv
 include src/digger/motifs/human/TRD/*.csv
-include src/digger/motifs/human/TRD/*.csv
+include src/digger/motifs/human/TRG/*.csv
 include src/digger/motifs/rhesus_macaque/IGH/*.csv
 include src/digger/motifs/rhesus_macaque/IGK/*.csv
 include src/digger/motifs/rhesus_macaque/IGL/*.csv

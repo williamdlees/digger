@@ -6,13 +6,17 @@ from collections import defaultdict
 import random
 from importlib.resources import files
 from shutil import copyfile
+import csv
+import statistics
+from Bio.Cluster import distancematrix, kcluster, treecluster
+import numpy as np
+from receptor_utils import simple_bio_seq as simple
 
 try:
     from motif import Motif
 except:
     from digger.motif import Motif
 
-import csv
 
 
 def get_parser():
@@ -43,6 +47,40 @@ def random_seq(length):
     for i in range(length):
         ret += bases[random.randrange(4)]
     return ret
+
+
+def hamming_distance(s1, s2):
+    return sum(c1 != c2 for c1, c2 in zip(s1, s2))
+
+
+def distance_matrix(seqs):
+    n = len(seqs)
+    d = np.zeros((n, n))
+    for i in range(n):
+        for j in range(i+1, n):
+            d[i, j] = hamming_distance(seqs[i], seqs[j])
+            d[j, i] = d[i, j]
+    return d
+
+
+def aa_consensus(aas):
+    consensus = list(aas[0])
+    for i in range(1, len(aas)):
+        row = aas[i]
+        for j in range(len(consensus)):
+            if consensus[j] != row[j]:
+                consensus[j] = '-'
+    return ''.join(consensus)
+
+
+def aa_logo(aas):
+    consensus = [list(a) for a in list(aas[0])]
+    for i in range(1, len(aas)):
+        row = aas[i]
+        for j in range(len(consensus)):
+            if row[j] not in consensus[j]:
+                consensus[j].append(row[j])
+    return consensus
 
 
 def main():
@@ -92,34 +130,93 @@ def main():
 
             seqs = all_seqs
 
+            if feature_name == 'L-PART1':
+                seqs = [s for s in seqs if s.startswith('ATG')]
+
             if len(seqs) == 0:
                 continue
 
-            lengths = defaultdict(int)
-            for seq in seqs:
-                lengths[len(seq)] += 1
-            max_count = max(lengths.values())
-            maj_length = 0
-            for k, v in lengths.items():
-                if v == max_count:
-                    maj_length = k
-                    break
+            lengths = [len(s) for s in seqs]    
 
-            seqs = [list(s) for s in seqs if len(s) == maj_length]
-            matrix = Motif(feature_name, seqs)
-            print('%s    %s    %0.4f    %s    %0.2f' % (feature_name, matrix.consensus, matrix.consensus_prob, matrix.conserved_consensus, matrix.calc_prob(matrix.conserved_consensus)))
+            # for L-PART1, only consider sequences that start with ATG
 
-            probs = []
-            length = len(matrix.consensus)
-            for i in range(10000):
-                probs.append(matrix.calc_prob(random_seq(length))/matrix.consensus_prob)
+            # determine the lengths of all sequences for this motif
 
-            probs.sort()
-            matrix.likelihood_threshold = probs[int(len(probs)*0.95)]
-            print('5pc cutoff: %.2E' % matrix.likelihood_threshold)
+            maj_length = int(statistics.mode(lengths))
 
-            with open(feature_name + '_prob.csv', 'w', newline='') as fo:
-                matrix.write_prob_matrix(fo)
+            # for all except L-PART1 and L-PART2, only consider sequences of the most common length
+
+            res = []
+            if feature_name in ['L-PART1', 'L-PART2']:
+                lengths = list(set(lengths))
+            else:
+                lengths = [maj_length]
+
+            # see whether we should split any length into multiple groups
+
+            for length in lengths:
+                lseqs = list(set([s for s in seqs if len(s) == length]))
+                if feature_name == 'L-PART1':
+                    logo = aa_logo([simple.translate(l) for l in lseqs])
+                else:
+                    logo = None
+
+                if len(lseqs) > 2 and feature_name in ['L-PART1', 'L-PART2']:
+                    dm = distance_matrix(lseqs)
+                    for nk in range(1, 5):
+                        if nk > 1:
+                            clusterid, error, nfound = kcluster(dm, nclusters=nk)
+                            #tree = treecluster(None, distancematrix=dm)
+                            #clusterid = tree.cut(nk)
+
+                            # split sequences into clusters by clusterid
+                            clusters = defaultdict(list)
+                            for i, c in enumerate(clusterid):
+                                clusters[c].append(lseqs[i])
+                        else:
+                            clusters = {0: lseqs}
+                        
+                        # calculate the maximum distance within each cluster
+                        dists = []
+                        for c in clusters:
+                            mdm = distance_matrix(clusters[c])
+                            #print(f'cluster {c} has {len(clusters[c])} sequences max dist {np.amax(mdm)}')
+                            dists.append(np.amax(mdm))
+
+                        if max(dists) <= 12:
+                            break
+
+                    for k, v in clusters.items():
+                        res.append((v, logo))
+                else:
+                    res.append((lseqs, logo))
+
+            cl_ind = 1
+            for seqs, logo in res:
+                if not len(seqs):
+                    continue 
+
+                matrix = Motif(feature_name, seqs)
+                print('%s    %s    %0.4f    %s    %0.2f' % (feature_name, matrix.consensus, matrix.consensus_prob, matrix.conserved_consensus, matrix.calc_prob(matrix.conserved_consensus)))
+
+                probs = []
+                length = len(matrix.consensus)
+                for i in range(10000):
+                    probs.append(matrix.calc_prob(random_seq(length))/matrix.consensus_prob)
+
+                probs.sort()
+                matrix.likelihood_threshold = probs[int(len(probs)*0.95)]
+                print('5pc cutoff: %.2E' % matrix.likelihood_threshold)
+
+                if feature_name in ['L-PART1', 'L-PART2']:
+                    fn = feature_name + '_' + str(cl_ind) + '_' + str(len(seqs[0]))
+                    cl_ind += 1
+                else:
+                    fn = feature_name
+
+                with open(fn + '_prob.csv', 'w', newline='') as fo:
+                    matrix.logo = logo
+                    matrix.write_prob_matrix(fo)
 
 
 if __name__ == "__main__":

@@ -52,7 +52,7 @@ class SingleMotifResult:
             self.seq = assembly[position - 1:position - 1 + len(motif.consensus)]
             self.check_motif_consensus(conserved_motif_seqs)
         else:
-            self.seq = ''
+            self.seq = assembly[position - 1:position - 1 + len(motif.consensus)]
 
 
     # check residues that are strongly conserved across all loci

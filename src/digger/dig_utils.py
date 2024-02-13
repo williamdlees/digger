@@ -191,7 +191,7 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
         if v_gapped_ref is None or len(v_gapped_ref) == 0:
             print('Error - please specify a gapped reference set for V gene analysis')
             exit(1)
-        rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, start+1, end, best, matches, align,
+        rows = process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, conserved_motif_seqs, motifs, motif_params, start+1, end, best, matches, align,
                          motif_params['V_RSS_SPACING'], v_parsing_errors)
     elif gene_type == 'J':
         rows = process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start+1, end, best, matches,
@@ -290,7 +290,7 @@ def print_result(row):
             row['genbank_seq'] = f'length: {len(row["genbank_seq"])}nt'
         print(f'{field}: {row[field] if field in row else ""}')
 
-    for field in ['l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer', 'notes']:
+    for field in ['tata_box', 'octamer', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer', 'notes']:
         if field in row and row[field]:
             print(f'{field}: {row[field]}')
 
@@ -301,11 +301,12 @@ def process_output(args, rows):
     fieldnames = ['target_allele', 'genbank_acc', 'patch', 'alignment_score', 'nt_diff', 'snps', 'start', 'end', 'start_rev', 'end_rev', 'sense', 'gene_type',
                   'gene_start', 'gene_end', 'gene_start_rev', 'gene_end_rev']
     fieldnames.extend(
-        ['functional', 'notes', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer',
+        ['functional', 'notes', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer',
          'd_5_heptamer', 'd_5_nonamer',
          'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
          '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
-         'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev'])
+         'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev', 'octamer_start', 'octamer_start_rev', 'octamer_end', 'octamer_end_rev',
+         'tata_box_start', 'tata_box_start_rev', 'tata_box_end', 'tata_box_end_rev',])
     if args.out_file:
         with open(args.out_file, 'w', newline='\n') as fo:
             writer = csv.DictWriter(fo, fieldnames=fieldnames, extrasaction='ignore')
@@ -352,9 +353,28 @@ def read_motifs(args, locus):
     print(f'Using motif files from {motif_dir}')
     motifs = {}
 
-    for motif_name in ["J-HEPTAMER", "J-NONAMER", 'L-PART1', 'L-PART2', "V-HEPTAMER", "V-NONAMER"]:
+    for motif_name in ["J-HEPTAMER", "J-NONAMER", "V-HEPTAMER", "V-NONAMER"]:
         with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
             motifs[motif_name] = Motif(motif_name, stream=fi)
+
+    motifs['L-PART1'] = []
+    motif_name = 'L-PART1'
+    for fn in os.listdir(motif_dir):
+        if os.path.isfile(os.path.join(motif_dir, fn)) and fn.startswith('L-PART1'):
+            with open(os.path.join(motif_dir, fn), 'r') as fi:
+                motifs['L-PART1'].append(Motif(motif_name, stream=fi))
+
+    motifs['L-PART2'] = []
+    motif_name = 'L-PART2'
+    for fn in os.listdir(motif_dir):
+        if os.path.isfile(os.path.join(motif_dir, fn)) and fn.startswith('L-PART2'):
+            with open(os.path.join(motif_dir, fn), 'r') as fi:
+                motifs['L-PART2'].append(Motif(motif_name, stream=fi))
+
+    for motif_name in ["OCTAMER"]:
+        if os.path.isfile(os.path.join(motif_dir, motif_name + '_prob.csv')):
+            with open(os.path.join(motif_dir, motif_name + '_prob.csv'), 'r') as fi:
+                motifs[motif_name] = Motif(motif_name, stream=fi)
 
     if locus in ['IGH', 'TRB', 'TRD']:
         for motif_name in ["5'D-HEPTAMER", "5'D-NONAMER", "3'D-HEPTAMER", "3'D-NONAMER"]:

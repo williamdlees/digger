@@ -1,6 +1,8 @@
 # A class to manage and use motif matrices
 
 import csv
+import json
+from receptor_utils import simple_bio_seq as simple
 
 
 class Motif:
@@ -11,6 +13,7 @@ class Motif:
         self.conserved_consensus = None
         self.consensus_prob = None
         self.likelihood_threshold = None
+        self.logo = None
 
         if seqs is not None:
             self.calc_prob_matrix(seqs)
@@ -46,6 +49,9 @@ class Motif:
 
     def write_prob_matrix(self, fo):
         fo.write('%.6E\n' % self.likelihood_threshold)
+        if self.logo:
+            fo.write(f'Logo: {json.dumps(self.logo)}\n')
+
         writer = csv.writer(fo)
         writer.writerow(['A', 'C', 'G', 'T'])
         for row in self.matrix:
@@ -53,6 +59,14 @@ class Motif:
 
     def read_prob_matrix(self, fi):
         self.likelihood_threshold = float(fi.readline().replace('\n', ''))
+        pos = fi.tell()
+        logo = fi.readline().replace('\n', '')
+
+        if logo and 'Logo: ' in logo:
+            self.logo = json.loads(logo.split('Logo: ')[1])
+        else:
+            fi.seek(pos)
+
         reader = csv.DictReader(fi)
         self.matrix = list(reader)
         for row in self.matrix:
@@ -103,3 +117,24 @@ class Motif:
                 res += '-'
 
         return non_conserved, res
+
+    def check_logo(self, seq):
+        if self.logo is None:
+            return True
+        
+        seq = simple.translate(seq)
+        
+        if len(seq) != len(self.logo):
+            return None
+
+        ex_count = 0
+        for i, base in enumerate(seq):
+            if base not in self.logo[i]:
+                ex_count += 1
+
+        #print(ex_count)
+
+        #if ex_count == 5:
+        #    breakpoint()
+
+        return ex_count < 3

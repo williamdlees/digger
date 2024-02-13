@@ -1,25 +1,23 @@
-imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
-20174,20470,V,20174,20457,TRGV1*01,TRGV1*01,ORF,Functional,Yes,No,Digger is shorter by 13 nt,Yes,
-24893,25192,V,24893,25192,TRGV2*03,TRGV2*03,functional,Functional,Yes,Yes,Yes,Yes,
-29245,29544,V,29245,29544,TRGV3*01,TRGV3*01,functional,Functional,Yes,Yes,Yes,Yes,
-34042,34341,V,34042,34341,TRGV4*02,TRGV4*02,functional,Functional,Yes,Yes,Yes,Yes,
-38402,38701,V,38402,38701,TRGV5*01,TRGV5*01,functional,Functional,Yes,Yes,Yes,Yes,
-42727,43026,V,42727,43026,TRGV5P*02,TRGV5P*02,pseudo,pseudo,Yes,Yes,Yes,Yes,"Bad DONOR-SPLICE: CC, Bad ACCEPTOR-SPLICE: CC, Stop codon in leader, V-NONAMER not found"
-47058,47356,V,47058,47356,TRGV6*01,TRGV8*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found, V-NONAMER not found"
-52717,53015,V,52717,53015,TRGV7*01,TRGV3*01,pseudo,ORF,No,No,Yes,Yes,Second cysteine not found
-57414,57713,V,57414,57713,TRGV8*01,TRGV8*01,functional,Functional,Yes,Yes,Yes,Yes,
-65326,65610,V,65320,65596,TRGVA*01,TRGVA*01,pseudo,pseudo,Yes,Yes,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
-70734,71039,V,70731,71039,TRGV9*01,TRGV9*01,functional,pseudo,Yes,No,Digger is longer by 3 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: GG, Bad ACCEPTOR-SPLICE: TG, Stop codon in leader, First cysteine not found, Conserved Trp not found, V-NONAMER not found"
-,,V,80466,80768,,TRGV10*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
-,,J,86609,86648,,TRGJ1*02,,pseudo,No,No,No,No,"J-NONAMER not found, Donor splice not found"
-87938,88246,V,87938,88245,TRGV10*02,TRGV10*02,ORF,Functional,Yes,No,Digger is shorter by 1 nt,Yes,
-91982,92293,V,91985,92279,TRGVB*02,TRGV10*02,pseudo,pseudo,No,Yes,Digger is shorter by 17 nt,No,"Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
-96132,96440,V,96132,96440,TRGV11*01,TRGV11*01,ORF,pseudo,Yes,No,Yes,Yes,"Bad DONOR-SPLICE: AG, Bad ACCEPTOR-SPLICE: TT, First cysteine not found"
-,,V,102214,102488,,TRGV11*01,,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found"
-111738,111797,J,111738,111797,TRGJP1*01,TRGJP1*01,functional,Functional,Yes,Yes,Yes,Yes,Donor splice found at non-canonical position
-,,V,112342,112655,,TRGV4*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: AC, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
-114408,114469,J,114410,114469,TRGJP*01,TRGJP*01,functional,Functional,Yes,Yes,Digger is shorter by 2 nt,No,
-118516,118565,J,118516,118565,TRGJ1*02,TRGJ1*02,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,119676,119976,,TRGV11*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
-131660,131719,J,131660,131719,TRGJP2*01,TRGJP2*01,functional,Functional,Yes,Yes,Yes,Yes,Donor splice found at non-canonical position
-134627,134676,J,134627,134676,TRGJ2*01,TRGJ1*02,functional,Functional,No,Yes,Yes,Yes,
+imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,l_part1_matches,l_part2_matches,heptamer_matches,nonamer_matches,digger_notes,imgt_l_part1,digger_l_part1,imgt_l_part2,digger_l_part2,imgt_heptamer,digger_heptamer,imgt_nonamer,digger_nonamer
+20174,20470,V,20174,20470,TRGV1*01,TRGV1*01,ORF,ORF,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,V-NONAMER not found,ATGCGGTGGGCCCTAGCGGTGCTTCTAGCTTTCCTGTCTCCTGGT,ATGCGGTGGGCCCTAGCGGTGCTTCTAGCTTTCCTGTCTCCTGGT,CCAGTCAGATA,CCAGTCAGATA,CACAGTG,CACAGTG,GTGGTTGCT,TGTGGTTGC
+24893,25192,V,24893,25192,TRGV2*03,TRGV2*03,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,ATGCAGTGGGCCCTAGCGGTGCTTCTAGCTTTCCTGTCTCCTGGT,ATGCAGTGGGCCCTAGCGGTGCTTCTAGCTTTCCTGTCTCCTGGT,CCAGTCAGAAA,CCAGTCAGAAA,CACAGTG,CACAGTG,CTGAAAATC,CTGAAAATC
+29245,29544,V,29245,29544,TRGV3*01,TRGV3*01,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,ATGCGGTGGGCCCTACTGGTGCTTCTAGCTTTCCTGTCTCCTGGT,ATGCGGTGGGCCCTACTGGTGCTTCTAGCTTTCCTGTCTCCTGGT,CCAGTCAGAAA,CCAGTCAGAAA,CACAGTG,CACAGTG,CTGAAAATC,CTGAAAATC
+34042,34341,V,34042,34341,TRGV4*02,TRGV4*02,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,ATGCAGTGGGCCCTAGCGGTGCTTCTAGCTTTCCTGTCTCCTGGT,ATGCAGTGGGCCCTAGCGGTGCTTCTAGCTTTCCTGTCTCCTGGT,CCAGTCAGAAA,CCAGTCAGAAA,CACAGTG,CACAGTG,CTGAAAACC,CTGAAAACC
+38402,38701,V,38402,38701,TRGV5*01,TRGV5*01,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,ATGCGGTGGGCCCTACTGGTGCTTCTAGCTTTCCTGTCTCCTGGT,ATGCGGTGGGCCCTACTGGTGCTTCTAGCTTTCCTGTCTCCTGGT,CCAGTCAGAAA,CCAGTCAGAAA,CACAGTG,CACAGTG,CTGAAAATC,CTGAAAATC
+42727,43026,V,42727,43026,TRGV5P*02,TRGV5P*02,pseudo,Functional,Yes,No,Yes,Yes,Yes,Yes,Yes,Yes,,ATGCGGTGAGCCCTAGCGGTGCTTCTAGCTTTCCTGTATCCTGGT,ATGCGGTGAGCCCTAGCGGTGCTTCTAGCTTTCCTGTATCCTGGT,CCAGTCAGAAA,CCAGTCAGAAA,CACAGTG,CACAGTG,CTGAACATC,CTGAACATC
+47058,47356,V,47058,47356,TRGV6*01,TRGV8*01,pseudo,pseudo,No,Yes,Yes,Yes,Yes,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found",ATGTGGTGGGCCCTAGCCCTGCTTCTAGCTTTCCTGTCTCTTGGT,ATGTGGTGGGCCCTAGCCCTGCTTCTAGCTTTCCTGTCTCTTGGT,CCAGTCAGATA,CCAGTCAGATA,CAGAGTG,CAGAGTG,CTGAATATC,CTGAATATC
+52717,53015,V,52717,53015,TRGV7*01,TRGV3*01,pseudo,ORF,No,No,Yes,Yes,Yes,Yes,Yes,Yes,Second cysteine not found,ATGCGGTGGGCCCCAGCCCTGCTTCTAGCTTTCCTGCCTCTTGGT,ATGCGGTGGGCCCCAGCCCTGCTTCTAGCTTTCCTGCCTCTTGGT,CCAGTCAGAAA,CCAGTCAGAAA,CACAGTG,CACAGTG,CTGAAAATC,CTGAAAATC
+57414,57713,V,57414,57713,TRGV8*01,TRGV8*01,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,ATGCTGTTGGCTCTAGCTCTGCTTCTAGCTTTCCTGCCTCCTGGT,ATGCTGTTGGCTCTAGCTCTGCTTCTAGCTTTCCTGCCTCCTGGT,CCAGTCAGAAA,CCAGTCAGAAA,CACAGTG,CACAGTG,CTGAAAATC,CTGAAAATC
+65326,65610,V,65326,65610,TRGVA*01,TRGVA*01,pseudo,pseudo,Yes,Yes,Yes,Yes,No,No,Yes,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, V-NONAMER not found",ATGGTGGGCTGCCCTGCCTTCCTTTGGGTCATCCTGTTTCCAGGT,,CTGGCTGGTGG,,CGCAGCC,CGCAGCC,CAAAAGGAC,ACAAAAGGA
+70734,71039,V,70734,71039,TRGV9*01,TRGV9*01,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,ATGCTGTCACTGCTCCACACATCAACGCTGGCAGTCCTTGGGGCTCGT,ATGCTGTCACTGCTCCACACATCAACGCTGGCAGTCCTTGGGGCTCGT,TGTGTGTATATGGT,TGTGTGTATATGGT,CACAGCA,CACAGCA,TCAATAAAT,TCAATAAAT
+,,V,80466,80783,,TRGV10*01,,pseudo,No,No,No,No,,,,,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found",,,,,,,,
+87938,88246,V,87938,88245,TRGV10*02,TRGV10*02,ORF,ORF,Yes,Yes,Digger is shorter by 1 nt,Yes,No,No,No,No,Leader not found,ATGTCACTGCTGGAAGCATTTGCCTTCTCCTCCTGGGCTCCT,,TTGGACTTGGA,,ACCATAC,CACCATA,CAAAATCCC,CACAAAATC
+91982,92293,V,91990,92293,TRGVB*02,TRGV10*02,pseudo,pseudo,No,Yes,Digger is shorter by 8 nt,No,No,No,Yes,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-NONAMER not found",ATGTGATCTGCCCTCCTTGGCCTCCCAAAGTACTGTGATTACAGT,,TTAAA,,CACAGCA,CACAGCA,ACAACCTCT,AACAACCTC
+96132,96440,V,96132,96440,TRGV11*01,TRGV11*01,ORF,ORF,Yes,Yes,Yes,Yes,No,No,Yes,No,"Leader not found, First cysteine not found",ATGCCACTGGTAGTAGCTGTTATCTTCTTCTCCCTCTGGGTTTGT,,TTGCA,,CACAGTG,CACAGTG,,CACAGAAAC
+,,V,102214,102488,,TRGV11*01,,ORF,No,No,No,No,,,,,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found",,,,,,,,
+111738,111797,J,111738,111797,TRGJP1*01,TRGJP1*01,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Donor splice found at non-canonical position,,,,,,,,
+114408,114469,J,114408,114469,TRGJP*01,TRGJP*01,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,,,,,,,
+118516,118565,J,118516,118565,TRGJ1*02,TRGJ1*02,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,,,,,,,
+,,V,119676,119976,,TRGV11*01,,pseudo,No,No,No,No,,,,,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found",,,,,,,,
+131660,131719,J,131660,131719,TRGJP2*01,TRGJP2*01,functional,Functional,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Donor splice found at non-canonical position,,,,,,,,
+134627,134676,J,134627,134676,TRGJ2*01,TRGJ1*02,functional,Functional,No,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,,,,,,,

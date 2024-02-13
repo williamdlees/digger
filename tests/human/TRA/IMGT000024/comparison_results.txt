@@ -5,6 +5,7 @@ Functional sequences reported by digger but not by IMGT:
 520842,521125  imgt_match: TRAV8-7*02  imgt_func: pseudo digger_match: TRAV8-7*02  digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:
+100678,100940  imgt_match: TRAV2*01  imgt_func: functional digger_match:   digger_func:   notes: 
 124803,125079  imgt_match: TRAV4*01  imgt_func: functional digger_match: TRAV4*01  digger_func: orf  notes: V-NONAMER not found
 
 Functional sequences reported by both IMGT and digger but with different sequences:

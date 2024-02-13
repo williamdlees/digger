@@ -3,6 +3,7 @@
 type: V
 Functional sequences reported by digger but not by Watson et al.:
 1164541,1164827  imgt_match: IGKV6D-21*02  imgt_func: ORF digger_match: IGKV6D-21*02  digger_func: functional  notes: 
+1195699,1196000  imgt_match:   imgt_func:  digger_match: IGKV2D-18*01  digger_func: functional  notes: 
 1212594,1212880  imgt_match: IGKV6D-41*01  imgt_func: ORF digger_match: IGKV6D-41*01  digger_func: functional  notes: 
 1264891,1265192  imgt_match:   imgt_func:  digger_match: IGKV2D-29*01  digger_func: functional  notes: 
 1333035,1333321  imgt_match: IGKV1D-42*02  imgt_func: ORF digger_match: IGKV1D-42*02  digger_func: functional  notes: 
