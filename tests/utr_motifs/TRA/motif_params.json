@@ -1,0 +1,14 @@
+{
+    "J_TRP_MOTIF": [
+        "FGXG",
+        "WGXG",
+        "CGXG",
+        "FAXG"
+    ],
+    "J_TRP_OFFSET": 11,
+    "J_SPLICE": "*GT",
+    "V_RSS_SPACING": 23,
+    "J_RSS_SPACING": 12,
+    "D_5_RSS_SPACING": 0,
+    "D_3_RSS_SPACING": 0
+}

@@ -1,0 +1,4 @@
+SPECIES=Homo sapiens (human)
+CONFIGURATION_TYPE=germline
+FUNCTIONALITY=functional, ORF
+CHAIN_TYPE=IG-Heavy
