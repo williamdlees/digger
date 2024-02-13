@@ -89,8 +89,8 @@ def main():
     accepted_loci = ['IGH', 'IGK', 'IGL', 'TRA', 'TRB', 'TRD', 'TRG']
     if args.locus not in accepted_loci:
         print(f"locus must be one of {', '.join(accepted_loci)}")
-        return  
-    
+        return
+
     try:
         dm = files('digger')
         motif_dir = dm.joinpath(f'motifs/human/{args.locus}')
@@ -98,7 +98,7 @@ def main():
         path = os.path.abspath(__file__)
         dm = os.path.dirname(path)
         motif_dir = os.path.join(dm, f'motifs/human/{args.locus}')
-    
+
     copyfile(f'{motif_dir}/motif_params.json', './motif_params.json')
 
     csv.field_size_limit(10000000)      # Reported UTRs can be very long sometimes

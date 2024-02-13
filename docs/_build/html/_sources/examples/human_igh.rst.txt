@@ -14,7 +14,7 @@ The locus and IMGT annotations can be downloaded and parsed with :ref:`parse_img
 
    > parse_imgt_annotations \
        --save_sequence IMGT000035.fasta \
-	   "http://www.imgt.org/ligmdb/view?format=IMGT&id=IMGT000035" \
+	   "http://www.imgt.org/ligmdb/view?format=IMGT&id=BK063799" \
 	   IMGT000035_genes.csv \
 	   IGH 
 

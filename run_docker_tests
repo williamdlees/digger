@@ -1,0 +1,31 @@
+#!/bin/bash
+
+cd /digger/tests/human/IGH/verify
+
+bash -x run_digger.bat
+
+rv=$?  
+if [[ $rv != 0 ]]  
+then    
+    echo "Test failed."  
+    exit 1	
+fi
+
+if [ ! -f "IMGT000035.csv" ]; then
+    echo "Output not created."
+	exit 1
+fi
+
+dos2unix IMGT000035.csv
+dos2unix model_IMGT000035.csv
+diff model_IMGT000035.csv IMGT000035.csv
+
+rv=$?  
+if [[ $rv != 0 ]]  
+then    
+    echo "Output does not match expected content"  
+    exit 1	
+fi
+
+echo "Test passed."
+exit 0

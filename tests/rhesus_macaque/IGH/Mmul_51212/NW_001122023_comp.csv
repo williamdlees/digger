@@ -103,11 +103,19 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 716267,716562,V,716267,716562,IGHV3-37*02,IGHV3-37*02,functional,Functional,Yes,Yes,Yes,Yes,
 719396,719710,V,719402,719710,IGHV(II)-36*02,IGHV4-122*02,pseudo,ORF,No,No,Digger is shorter by 6 nt,No,"Leader not found, First cysteine not found, Second cysteine not found"
 725608,725900,V,725608,725900,IGHV3-35*02,IGHV3-35*02,functional,Functional,Yes,Yes,Yes,Yes,
+<<<<<<< HEAD
 ,,D,731083,731093,,IGHD4-11*01,,Functional,No,No,No,No,
 742229,742524,V,742229,742524,IGHV3-34*02,IGHV3-34*02,functional,ORF,Yes,No,Yes,Yes,Leader not found
 ,,V,746020,746303,,IGHV7S6*02,,ORF,No,No,No,No,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found"
 747133,747430,V,747135,747428,IGHV(II)-33*01,IGHV4-122*02,pseudo,pseudo,No,Yes,Digger is shorter by 4 nt,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 ,,V,751259,751542,,IGHV7S6*02,,ORF,No,No,No,No,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found"
 752372,752669,V,752374,752667,IGHV(II)-33D*01,IGHV4-122*02,pseudo,pseudo,No,Yes,Digger is shorter by 4 nt,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+=======
+742229,742524,V,742229,742524,IGHV3-34*02,IGHV3-34*02,functional,Functional,Yes,Yes,Yes,Yes,
+,,V,746020,746303,,IGHV7S6*02,,ORF,No,No,No,No,"Sequence truncated before second cysteine, V-NONAMER not found"
+747133,747430,V,747129,747428,IGHV(II)-33*01,IGHV4-122*03,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+,,V,751259,751542,,IGHV7S6*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: NN, Bad ACCEPTOR-SPLICE: GT, Stop codon in leader, Sequence truncated before second cysteine, V-NONAMER not found"
+752372,752669,V,752368,752667,IGHV(II)-33D*01,IGHV4-122*03,pseudo,pseudo,No,Yes,No,No,"Leader missing initial ATG, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+>>>>>>> main
 759522,759814,V,759522,759814,IGHV3-32*02,IGHV3-32*02,functional,Functional,Yes,Yes,Yes,Yes,
 762650,762947,V,762653,762947,IGHV(II)-31*02,IGHV4-122*03,pseudo,ORF,No,No,Digger is shorter by 3 nt,No,"Leader not found, First cysteine not found, Conserved Trp not found, Second cysteine not found"

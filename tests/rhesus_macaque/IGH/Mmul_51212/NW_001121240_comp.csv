@@ -8,8 +8,12 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 53863,54163,V,53863,54163,IGHV2-174*02,IGHV2-174*02,functional,Functional,Yes,Yes,Yes,Yes,
 61020,61309,V,61020,61309,IGHV3-175*02,IGHV3-175*02,functional,Functional,Yes,Yes,Yes,Yes,alternate end: 199152
 69832,70127,V,69832,70127,IGHV3-176*02,IGHV3-176*02,functional,Functional,Yes,Yes,Yes,Yes,
+<<<<<<< HEAD
 76048,76344,V,76048,76339,IGHV(II)-177*02,IGHV4-122*03,pseudo,pseudo,No,Yes,Digger is shorter by 5 nt,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found"
 ,,D,76826,76857,,IGHD2-33*01,,Functional,No,No,No,No,
+=======
+76048,76344,V,76048,76344,IGHV(II)-177*02,IGHV4-122*03,pseudo,ORF,No,No,Yes,Yes,"Conserved Trp not found, Second cysteine not found"
+>>>>>>> main
 81515,81810,V,81515,81810,IGHV3-178*02,IGHV3-178*02,functional,Functional,Yes,Yes,Yes,Yes,
 84644,84936,V,84657,84937,IGHV(III)-179*02,IGHV3-110*03,pseudo,ORF,No,No,No,No,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found"
 ,,D,86928,86958,,IGHD3-40*01,,Functional,No,No,No,No,
@@ -24,12 +28,21 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 167845,168140,V,167847,168135,IGHV(II)-185*01,IGHV4-122*02,pseudo,pseudo,No,Yes,Digger is shorter by 7 nt,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 ,,D,169717,169753,,IGHD2-27*01,,Functional,No,No,No,No,
 170925,171226,V,170925,171226,IGHV3-186*02,IGHV3-186*02,functional,Functional,Yes,Yes,Yes,Yes,
+<<<<<<< HEAD
 180178,180469,V,180178,180469,IGHV3-187*02,IGHV3-100*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 185323,185619,V,185323,185619,IGHV(III)-188*01,IGHV3-37*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 204228,204521,V,,,IGHV5-189*02,,pseudo,,No,No,No,No,
 ,,V,204250,204521,,IGHV5-189*02,,ORF,No,No,No,No,Sequence truncated before second cysteine
 216031,216322,V,216031,216323,IGHV(II)-190*02,IGHV4-122*02,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 218039,218335,V,218039,218335,IGHV3-191*02,IGHV3-102*03,pseudo,pseudo,No,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+=======
+180178,180469,V,180178,180469,IGHV3-187*02,IGHV3-100*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader missing initial ATG, Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: GT, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+185323,185619,V,185323,185619,IGHV(III)-188*01,IGHV3-37*01,pseudo,pseudo,No,Yes,Yes,Yes,"Bad DONOR-SPLICE: GC, Bad ACCEPTOR-SPLICE: AA, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
+204228,204521,V,204211,204521,IGHV5-189*02,IGHV5-189*02,pseudo,Functional,Yes,No,Digger is longer by 17 nt,No,
+,,D,208311,208354,,IGHD3-40*01,,Functional,No,No,No,No,
+216031,216322,V,216031,216329,IGHV(II)-190*02,IGHV4-122*03,pseudo,pseudo,No,Yes,Digger is longer by 7 nt,Yes,"Bad DONOR-SPLICE: CC, Bad ACCEPTOR-SPLICE: AC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+218039,218335,V,218039,218335,IGHV3-191*02,IGHV3-102*03,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+>>>>>>> main
 223216,223528,V,223216,223528,IGHV4-192*02,IGHV4-57*03,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 226869,227164,V,226869,227164,IGHV7-193*02,IGHV7-193*02,functional,Functional,Yes,Yes,Yes,Yes,
 ,,D,229399,229457,,IGHD3-40*01,,Functional,No,No,No,No,
