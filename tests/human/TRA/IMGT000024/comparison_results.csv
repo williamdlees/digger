@@ -1,27 +1,27 @@
 imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
-10390,10664,V,10390,10664,TRAV1-1*01,TRAV1-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+10390,10664,V,10390,10664,TRAV1-1*01,TRAV1-1*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 10387
 ,,V,24686,24959,,TRAV27*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, RSS not found"
-31409,31683,V,31409,31683,TRAV1-2*03,TRAV1-2*03,functional,Functional,Yes,Yes,Yes,Yes,
+31409,31683,V,31409,31683,TRAV1-2*03,TRAV1-2*03,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 31406
 ,,J,48387,48417,,,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 ,,J,91386,91416,,TRAJ49*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 100678,100940,V,100678,100969,TRAV2*01,TRAV2*02,functional,Functional,No,Yes,Digger is longer by 29 nt,Yes,
 112133,112418,V,112133,112418,TRAV3*01,TRAV3*01,functional,Functional,Yes,Yes,Yes,Yes,
 124803,125079,V,124803,125079,TRAV4*01,TRAV4*01,functional,ORF,Yes,No,Yes,Yes,V-NONAMER not found
 ,,V,126145,126460,,TRAV9-2*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
-137526,137802,V,137526,137802,TRAV5*01,TRAV5*01,functional,Functional,Yes,Yes,Yes,Yes,
+137526,137802,V,137526,137802,TRAV5*01,TRAV5*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 137523
 156898,157177,V,156898,157177,TRAV6*07,TRAV6*07,functional,Functional,Yes,Yes,Yes,Yes,
 171327,171600,V,171327,171600,TRAV7*01,TRAV7*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,173345,173649,,TRAV8-6*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 179707,179991,V,179706,179991,TRAVA*02,TRAV9-2*02,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-NONAMER not found"
 185700,185983,V,185700,185983,TRAV8-1*01,TRAV8-1*01,functional,Functional,Yes,Yes,Yes,Yes,
-199794,200074,V,199794,200074,TRAV9-1*01,TRAV9-1*01,functional,Functional,Yes,Yes,Yes,Yes,
-213893,214172,V,213893,214172,TRAV10*02,TRAV10*02,functional,Functional,Yes,Yes,Yes,Yes,
+199794,200074,V,199794,200074,TRAV9-1*01,TRAV9-1*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 199797
+213893,214172,V,213893,214172,TRAV10*02,TRAV10*02,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 213896
 217892,218168,V,217892,218190,TRAV11*01,TRAV11*01,pseudo,ORF,Yes,No,Digger is longer by 22 nt,Yes,V-NONAMER not found
 229598,229871,V,229598,229871,TRAV12-1*01,TRAV12-1*01,functional,Functional,Yes,Yes,Yes,Yes,
 235035,235318,V,235035,235318,TRAV8-2*03,TRAV8-2*03,functional,Functional,Yes,Yes,Yes,Yes,
 240820,241103,V,240820,241103,TRAV8-3*01,TRAV8-3*01,functional,Functional,Yes,Yes,Yes,Yes,
 249840,250109,V,249824,250109,TRAVB*02,TRAV22*01,pseudo,pseudo,No,Yes,Digger is longer by 16 nt,No,"Bad ACCEPTOR-SPLICE: AC, First cysteine not found, Conserved Trp not found"
-257183,257462,V,257183,257462,TRAV13-1*01,TRAV13-1*01,functional,Functional,Yes,Yes,Yes,Yes,
+257183,257462,V,257183,257462,TRAV13-1*01,TRAV13-1*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 257186
 262868,263151,V,262868,263151,TRAV14-1*02,TRAV14/DV4*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 266577,266856,V,266577,266856,TRAV11-1*01,TRAV11*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, V-NONAMER not found"
 276323,276599,V,276323,276599,TRAV12-2*01,TRAV12-2*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -29,22 +29,22 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 282844,283127,V,282844,283127,TRAV8-4*01,TRAV8-4*01,functional,Functional,Yes,Yes,Yes,Yes,
 291339,0,V,291339,291624,TRAV8-5*01,TRAV8-3*01,pseudo,pseudo,No,Yes,Digger is longer by 202 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 ,,V,292412,292695,,TRAV8-3*01,,pseudo,No,No,No,No,"Bad DONOR-SPLICE: TC, Bad ACCEPTOR-SPLICE: CT, First cysteine not found"
-306574,306853,V,306574,306853,TRAV13-2*01,TRAV13-2*01,functional,Functional,Yes,Yes,Yes,Yes,
+306574,306853,V,306574,306853,TRAV13-2*01,TRAV13-2*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 306577
 312459,312748,V,312459,312748,TRAV14/DV4*01,TRAV14/DV4*01,functional,Functional,Yes,Yes,Yes,Yes,
-329474,329754,V,329474,329754,TRAV9-2*02,TRAV9-2*02,functional,Functional,Yes,Yes,Yes,Yes,
+329474,329754,V,329474,329754,TRAV9-2*02,TRAV9-2*02,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 329477
 338469,338751,V,338473,338751,TRAV15*01,TRAV11*01,pseudo,pseudo,No,Yes,Digger is shorter by 4 nt,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found"
 353882,354158,V,353882,354158,TRAV12-3*01,TRAV12-3*01,functional,Functional,Yes,Yes,Yes,Yes,
 366934,367217,V,366934,367217,TRAV8-6*01,TRAV8-6*01,functional,Functional,Yes,Yes,Yes,Yes,
 378764,379035,V,378764,379035,TRAV16*01,TRAV16*01,functional,Functional,Yes,Yes,Yes,Yes,
-385989,386265,V,385989,386265,TRAV17*01,TRAV17*01,functional,Functional,Yes,Yes,Yes,Yes,
-391493,391770,V,391493,391770,TRAV18*01,TRAV18*01,functional,Functional,Yes,Yes,Yes,Yes,
+385989,386265,V,385989,386265,TRAV17*01,TRAV17*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 385992
+391493,391770,V,391493,391770,TRAV18*01,TRAV18*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 391496
 ,,J,392723,392753,,TRAJ14*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 395989,396278,V,395989,396278,TRAV19*01,TRAV19*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,420606,420894,,TRAV19*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: AA, Bad ACCEPTOR-SPLICE: GA, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 422022,422309,V,422020,422309,TRAVC*01,TRAV19*01,pseudo,pseudo,No,Yes,Digger is longer by 2 nt,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found"
 428977,429250,V,428977,429250,TRAV20*02,TRAV20*02,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,438302,438578,,TRAV26-1*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: TT, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found, RSS not found"
-440875,441153,V,440875,441153,TRAV21*01,TRAV21*01,functional,Functional,Yes,Yes,Yes,Yes,
+440875,441153,V,440875,441153,TRAV21*01,TRAV21*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 440878
 ,,J,453005,453035,,,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 454128,454413,V,454128,454411,TRAV8-6-1*01,TRAV8-4*05,pseudo,pseudo,No,Yes,Digger is shorter by 2 nt,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 459035,459305,V,459035,459305,TRAV22*01,TRAV22*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -55,22 +55,22 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 484430,484716,V,484430,484716,TRDV1*01,TRAV19*01,functional,ORF,No,No,Yes,Yes,Second cysteine not found
 ,,J,485584,485614,,TRAJ14*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 493667,493943,V,493667,493943,TRAV24*01,TRAV24*01,functional,Functional,Yes,Yes,Yes,Yes,
-500856,501128,V,500856,501128,TRAV25*01,TRAV25*01,functional,Functional,Yes,Yes,Yes,Yes,
+500856,501128,V,500856,501128,TRAV25*01,TRAV25*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 500859
 512106,512382,V,512106,512382,TRAV26-1*02,TRAV26-1*02,functional,Functional,Yes,Yes,Yes,Yes,
 520842,521125,V,520842,521131,TRAV8-7*02,TRAV8-7*02,pseudo,Functional,Yes,No,Digger is longer by 6 nt,Yes,
 ,,V,528985,529286,,TRAV14/DV4*02,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: AC, Bad ACCEPTOR-SPLICE: AT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-NONAMER not found"
-536457,536730,V,536457,536730,TRAV27*03,TRAV27*03,functional,Functional,Yes,Yes,Yes,Yes,
+536457,536730,V,536457,536730,TRAV27*03,TRAV27*03,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 536460
 ,,V,541853,542157,,TRAV39*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: CC, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 543467,543735,V,543450,543735,TRAV28*02,TRAV22*01,pseudo,pseudo,No,Yes,Digger is longer by 17 nt,No,"Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 ,,V,544007,544286,,TRAV24*01,,pseudo,No,No,No,No,"Bad DONOR-SPLICE: AT, Bad ACCEPTOR-SPLICE: TT, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found"
 551688,551967,V,551688,551967,TRAV29/DV5*04,TRAV29/DV5*04,functional,Functional,Yes,Yes,Yes,Yes,
-556812,557085,V,556812,557085,TRAV30*05,TRAV30*05,functional,Functional,Yes,Yes,Yes,Yes,
+556812,557085,V,556812,557085,TRAV30*05,TRAV30*05,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 556809
 565676,565961,V,565673,565961,TRAV31*02,TRAV38-1*01,pseudo,pseudo,No,Yes,Digger is longer by 3 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CC, Bad ACCEPTOR-SPLICE: GA, Stop codon in leader, Second cysteine not found"
 ,,V,567658,567946,,TRAV23/DV6*03,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 573879,574154,V,573869,574154,TRAV32*01,TRAV13-1*01,pseudo,pseudo,No,Yes,Digger is longer by 10 nt,No,"Bad DONOR-SPLICE: AG, Bad ACCEPTOR-SPLICE: AC, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 578533,578810,V,578521,578810,TRAV33*01,TRAV19*01,pseudo,pseudo,No,Yes,Digger is longer by 12 nt,No,"Leader missing initial ATG, Bad DONOR-SPLICE: CA, Bad ACCEPTOR-SPLICE: TT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 591190,591465,V,591190,591465,TRAV26-2*01,TRAV26-2*01,functional,Functional,Yes,Yes,Yes,Yes,
-595950,596226,V,595950,596226,TRAV34*01,TRAV34*01,functional,Functional,Yes,Yes,Yes,Yes,
+595950,596226,V,595950,596226,TRAV34*01,TRAV34*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 595953
 610297,610572,V,610297,610572,TRAV35*03,TRAV35*03,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
 ,,V,613288,613586,,TRAV25*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 615075,615351,V,615075,615351,TRAV36/DV7*05,TRAV36/DV7*05,functional,Functional,Yes,Yes,Yes,Yes,
@@ -83,10 +83,10 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,660001,660289,,TRAV14/DV4*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 660371,660660,V,660371,660660,TRAV38-1*01,TRAV38-1*01,functional,Functional,Yes,Yes,Yes,Yes,
 669557,669845,V,669557,669845,TRAV38-2/DV8*01,TRAV38-2/DV8*01,functional,Functional,Yes,Yes,Yes,Yes,
-692374,692650,V,692374,692650,TRAV39*01,TRAV39*01,functional,Functional,Yes,Yes,Yes,Yes,
+692374,692650,V,692374,692650,TRAV39*01,TRAV39*01,functional,Functional,Yes,Yes,Yes,Yes,alternate start: 692377
 ,,V,697948,698254,,TRAV10*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 ,,V,700191,700471,,TRAV9-2*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
-702754,703016,V,702754,703016,TRAV40*01,TRAV40*01,functional,Functional,Yes,Yes,Yes,Yes,
+702754,703016,V,702754,703016,TRAV40*01,TRAV40*01,functional,Functional,Yes,Yes,Yes,Yes,alternate end: 703061
 708519,708788,V,708519,708788,TRAV41*01,TRAV41*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,726835,727106,,TRAV38-1*02,,ORF,No,No,No,No,Sequence truncated before second cysteine
 ,,V,761394,761673,,TRAV23/DV6*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"

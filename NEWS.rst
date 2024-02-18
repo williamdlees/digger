@@ -1,9 +1,18 @@
 Release Notes
 =============
 
+Changes in 0.6.9
+****************
+- bump dependency on receptor-utils to fix an issue with naming of D novel alleles
+
+Changes in 0.6.8
+****************
+- improve documentation, add additional examples in tests, add Dockerised version
+- include TRG motif files in the package
+
 Changes in 0.6.7
 ****************
-- finclude motif files for TRG
+- include motif files for TRG
 
 Changes in 0.6.7
 ****************

@@ -74,9 +74,9 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,J,810686,810716,,TRDJ1*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 810852,811139,V,810852,811139,TRDV2*03,TRDV2*03,functional,Functional,Yes,Yes,Yes,Yes,
 826644,826651,D,,,TRDD1*01,,functional,,No,No,No,No,
-827104,827112,D,827104,827112,TRDD2*01,,functional,Functional,No,Yes,Yes,Yes,
+827104,827112,D,827104,827112,TRDD2*01,,functional,Functional,No,Yes,Yes,Yes,alternate end: 827114
 ,,D,827114,827122,,,,Functional,No,No,No,No,Gene reversed
-837210,837222,D,837210,837220,TRDD3*01,,functional,Functional,No,Yes,Digger is shorter by 2 nt,Yes,
+837210,837222,D,837210,837220,TRDD3*01,,functional,Functional,No,Yes,Digger is shorter by 2 nt,Yes,alternate end: 837222
 838186,838236,J,838186,838236,TRDJ1*01,TRDJ1*01,functional,Functional,Yes,Yes,Yes,Yes,
 843346,843393,J,843346,843393,TRDJ4*01,TRDJ4*01,functional,Functional,Yes,Yes,Yes,Yes,
 844786,844839,J,844786,844839,TRDJ2*01,TRDJ2*01,functional,Functional,Yes,Yes,Yes,Yes,
