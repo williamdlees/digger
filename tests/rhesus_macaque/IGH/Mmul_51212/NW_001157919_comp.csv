@@ -1,8 +1,4 @@
 imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_func,digger_func,call_matches,func_matches,seq_matches,start_matches,digger_notes
-<<<<<<< HEAD
 ,,V,275,571,,IGHV3-5*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
-=======
-,,V,275,571,,IGHV3-5*01,,pseudo,No,No,No,No,"Leader missing initial ATG, Bad DONOR-SPLICE: GG, Bad ACCEPTOR-SPLICE: AT, Stop codon in leader, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
->>>>>>> main
 1049,1350,V,1049,1350,IGHV3-16*01,IGHV3-16*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,J,1971,2001,,IGHJ4*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"

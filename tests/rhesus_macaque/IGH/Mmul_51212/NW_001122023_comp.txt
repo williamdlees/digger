@@ -15,12 +15,9 @@ Functional sequences reported by digger but not by IMGT:
 178295,178305  imgt_match:   imgt_func:  digger_match: IGHD7-45*01  digger_func: functional  notes: alternate end: 178303,alternate end: 178306,alternate end: 178307,alternate end: 178308,alternate end: 178309,alternate end: 178310,alternate end: 178311,alternate end: 178312,alternate end: 178313,alternate end: 178314,alternate end: 178315,alternate end: 178316,alternate end: 178317,alternate end: 178318,alternate end: 178319
 294482,294490  imgt_match:   imgt_func:  digger_match:   digger_func: functional  notes: Gene reversed
 341342,341384  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
-<<<<<<< HEAD
 436639,436690  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
+675267,675324  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
 731083,731093  imgt_match:   imgt_func:  digger_match: IGHD4-11*01  digger_func: functional  notes: 
-=======
-706735,706777  imgt_match:   imgt_func:  digger_match: IGHD3-40*01  digger_func: functional  notes: 
->>>>>>> main
 
 Functional sequences reported by IMGT but not by digger:
 

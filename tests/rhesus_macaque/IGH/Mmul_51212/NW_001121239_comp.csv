@@ -26,7 +26,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 159206,159503,V,159206,159503,IGHV3-8*01,IGHV3-8*01,functional,Functional,Yes,Yes,Yes,Yes,
 169256,169476,V,169256,169551,IGHV(II)-9*01,IGHV4-76*02,pseudo,pseudo,No,Yes,Digger is longer by 75 nt,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 183351,183651,V,183351,183651,IGHV2-10*01,IGHV2-10*01,ORF,ORF,Yes,Yes,Yes,Yes,Conserved Trp not found
-,,V,185016,185298,,IGHV3-48*04,,ORF,No,No,No,No,"Leader not found, Sequence truncated before second cysteine"
+,,V,184990,185289,,IGHV3-18*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 ,,V,194450,194766,,IGHV3-16*05,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine"
 194500,194763,V,,,IGHV(III)-11*01,,pseudo,,No,No,No,No,
 201644,201933,V,201644,201933,IGHV3-12*02,IGHV3-12*02,functional,Functional,Yes,Yes,Yes,Yes,
