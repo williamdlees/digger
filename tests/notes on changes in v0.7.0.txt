@@ -1,0 +1,37 @@
+IGH
+
+714347,714642  imgt_match: IGHV3-16*02  imgt_func: ORF digger_match: IGHV3-16*02  digger_func: functional  notes: 
+...imgt: noncanonical V-HEPTAMER: tcctgtg instead of cacagtg
+because of changes in the training sequence, tcctgtg no longer passes digger's threshold for a heptamer
+however as this sequence is found rearranged, we should probably add tcctgtg to the list of valid heptamers and adjust the pwms accordingly.
+
+TRA
+Functional sequences reported by IMGT but not by digger:
+100678,100940  imgt_match: TRAV2*01  imgt_func: functional digger_match:   digger_func:   notes: 
+...correct starting position not found: 100657 instead of 100678
+...the correct l_part1 ttgcagaaagc narrowly fails the likelihood threshold mainly as a result of the starting T as opposed to consensus G
+
+
+TRB 
+ok - 1 discrepancy removed now
+
+TRD
+ok - no changes
+
+TRG
+42727,43026  imgt_match: TRGV5P*02  imgt_func: pseudo digger_match: TRGV5P*02  digger_func: functional  notes: 
+...stop codon in L-PART1 is missed by digger
+2 other discrepancies removed now
+
+rh IGH
+707072,707367  imgt_match: IGHV3-117*01  imgt_func: pseudo digger_match: IGHV3-117*01  digger_func: functional  notes: 
+... IMGT reports no leader found, Digger identifies a leader
+1376375,1376669  imgt_match: IGHV3-18*01  imgt_func: ORF digger_match: IGHV3-18*01  digger_func: functional
+...imgt: non-canonical donor splice. 
+...digger finds a different leader
+
+rh IGK fw
+3 discrepancies removed
+
+rh IGL 
+2 discrepancies removed

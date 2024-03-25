@@ -6,6 +6,8 @@ Functional sequences reported by digger but not by IMGT:
 ..imgt: noncanonical V-HEPTAMER: caccatg instead of cacagtg, noncanonical V-NONAMER: tcagaaatc instead of acacaaacc
 469062,469353  imgt_match: IGHV3-38*02  imgt_func: ORF digger_match: IGHV3-38*02  digger_func: functional  notes: 
 ..imgt:  this gene has not been found rearranged (non-annotation difference).
+714347,714642  imgt_match: IGHV3-16*02  imgt_func: ORF digger_match: IGHV3-16*02  digger_func: functional  notes: 
+..imgt: noncanonical V-HEPTAMER: tcctgtg instead of cacagtg
 
 Functional sequences reported by IMGT but not by digger:
 

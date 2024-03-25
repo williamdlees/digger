@@ -8,6 +8,9 @@ Functional sequences reported by digger but not by IMGT:
 ... (non-annotation difference)
 
 Functional sequences reported by IMGT but not by digger:
+100678,100940  imgt_match: TRAV2*01  imgt_func: functional digger_match:   digger_func:   notes: 
+..digger reports ORF, different starting position
+
 124803,125079  imgt_match: TRAV4*01  imgt_func: functional digger_match: TRAV4*01  digger_func: orf  notes: V-NONAMER not found
 ..the V-NONAMER CCGTTTTCC does not pass digger's likelihood threshold
 
