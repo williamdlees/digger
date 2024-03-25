@@ -1,6 +1,13 @@
 Release Notes
 =============
 
+Changes in 0.7.0
+****************
+- modify motif handling to allow multiple motifs in those cases where the length can be variable
+- add variable length motifs for l-part1 and l-part2
+- motifs are now based on the analysis in tests/utr
+- add identification of TATA_BOX and OCTAMER in promoter regions
+
 Changes in 0.6.9
 ****************
 - bump dependency on receptor-utils to fix an issue with naming of D novel alleles
