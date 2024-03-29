@@ -3,7 +3,7 @@
 digger
 ======
 
-``digger`` annotates a single reference assembly, using BLAST to search the assembly for potential germline sequences. It requires an initial reference set
+``digger`` annotates the sequences contained in a FASTA file, using BLAST to search for potential germline sequences. It requires an initial reference set
 for BLAST to use: this could come from a similar species, or a former annotation.
 Please refer to :ref:`human_igh` for example usage.
 

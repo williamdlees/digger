@@ -44,7 +44,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#digger">digger</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#dig-sequence">dig-sequence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Docker Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -100,12 +101,13 @@
              
   <section id="digger">
 <span id="id1"></span><h1>digger<a class="headerlink" href="#digger" title="Permalink to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">digger</span></code> annotates a single reference assembly, using BLAST to search the assembly for potential germline sequences. It requires an initial reference set
+<p><code class="docutils literal notranslate"><span class="pre">digger</span></code> annotates the sequences contained in a FASTA file, using BLAST to search for potential germline sequences. It requires an initial reference set
 for BLAST to use: this could come from a similar species, or a former annotation.
 Please refer to <a class="reference internal" href="../examples/human_igh.html#human-igh"><span class="std std-ref">Annotating the human IGH locus</span></a> for example usage.</p>
-<p><p>Find functional and nonfunctional genes in a single assembly sequence</p>
+<p><p>Find functional and nonfunctional genes in an assembly sequence or contigs</p>
 </p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">digger</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">locus</span> <span class="n">LOCUS</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v_ref</span> <span class="n">V_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d_ref</span> <span class="n">D_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">j_ref</span> <span class="n">J_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v_ref_gapped</span> <span class="n">V_REF_GAPPED</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">ref_comp</span> <span class="n">REF_COMP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">sense</span> <span class="n">SENSE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">keepwf</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">digger</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">motif_dir</span> <span class="n">MOTIF_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">locus</span> <span class="n">LOCUS</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v_ref</span> <span class="n">V_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d_ref</span> <span class="n">D_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">j_ref</span> <span class="n">J_REF</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v_ref_gapped</span> <span class="n">V_REF_GAPPED</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">-</span><span class="n">ref_comp</span> <span class="n">REF_COMP</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">sense</span> <span class="n">SENSE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">keepwf</span><span class="p">]</span>
               <span class="n">assembly_file</span> <span class="n">output_file</span>
 </pre></div>
 </div>
@@ -113,7 +115,7 @@ Please refer to <a class="reference internal" href="../examples/human_igh.html#h
 <h2>Positional Arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this heading"></a></h2>
 <dl class="option-list">
 <dt><kbd>assembly_file</kbd></dt>
-<dd><p>assembly sequence to search</p>
+<dd><p>File containing one or more sequences to search</p>
 </dd>
 <dt><kbd>output_file</kbd></dt>
 <dd><p>output file (csv)</p>

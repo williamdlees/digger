@@ -1,6 +1,11 @@
 Release Notes
 =============
 
+Changes in 0.7.1
+****************
+- digger will now copy reference set files to the work directory if necessary, as blast's makedb requires the files to be local.
+- digger can now handle multiple sequences (e.g. contigs) in the assembly file.
+
 Changes in 0.7.0
 ****************
 - modify motif handling to allow multiple motifs in those cases where the length can be variable

@@ -9,8 +9,7 @@ In this example we will see how to:
 * Use the underlying commands that digger calls, and understand how they might be useful when annotating multiple contigs or scaffolds
 
 IMGT has identified scaffolds in the 2006 rhesus macaque reference assembly, Mmul_051212, which lie within the IGH locus. Here we will bring them together in a single file and annotate them with motifs derived from the current reference assembly, rhemac10 (Mmul_10).
-While this example is somewhat artificial, in that the scaffolds could equally well be handled individually using the digger command, the approach is useful where the number of sequences to be processed
-is large. The example also serves to show how the individual commands in the package can be used. This provides some additional flexibility, for example in tuning the blast searches, and also illustrates how they work together.
+While this example is somewhat artificial, in that the scaffolds could equally well be annotated using the single digger command, the example  serves to show how the individual commands in the package can be used. This provides some additional flexibility, for example in tuning the blast searches, and also illustrates how they work together.
 The comparison with IMGT's annotation of Mmul_051212, and a script to reproduce this example using the steps below, can be found `in digger's Git repository <https://github.com/williamdlees/digger/tree/main/tests/rhesus_macaque/IGH/Mmul_51212>`__.
 
 Data
@@ -170,9 +169,6 @@ Comparing the output to the study's annotation
 
 Scaffold-by-scaffold comparisons are provided in `Github <https://github.com/williamdlees/digger/tree/main/tests/rhesus_macaque/IGH/Mmul_051212>`__.
 and an overall comparison is provided `here <https://github.com/williamdlees/digger/tree/main/tests/rhesus_macaque/IGH/Mmul_051212/comparison_notes.txt>`__.
-One sequence, in NW_001121240, is annotated as functional by digger but not by IMGT, who report no V-RS. Digger identifies a different start co-ordinate for the V-REGION, 
-and finds a potentially functional RSS. Two V-sequences are identified as functional by IMGT but not by digger; one of thes has Ns in the leader, while the other 
-lies at the extreme 5' end of the scaffold and the RSS is not fully represented: these issues caused digger not to annotate the sequences as functional.
 
 Digger identified a total of 13 potentially functional D-genes not annotated by IMGT, across four of the five scaffolds, while IMGT annotated D-genes only in NW_001121239. The macaque IGHD genes are known 
 to occupy a small, distinct, region towards the 3' end of the IGH locus. It would therefore be reasonable to expect them to be located in a single scaffold, and to be 

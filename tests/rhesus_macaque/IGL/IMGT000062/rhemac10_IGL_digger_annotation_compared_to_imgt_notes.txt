@@ -4,13 +4,6 @@ type: V
 Functional sequences reported by digger but not by IMGT:
 268773,269089  imgt_match: IGLV5-99*01  imgt_func: ORF digger_match: IGLV5-99*01  digger_func: functional  notes: 
 ...digger identified a functional leader that met the PWM likelihood threshold
-674097,674405  imgt_match: IGLV5-57*01  imgt_func: pseudo digger_match: IGLV5-57*01  digger_func: functional  notes: 
-...digger identified a functional leader that met the PWM likelihood threshold
-
-Functional sequences reported by IMGT but not by digger:
-992786,993082  imgt_match: IGLV2-26*01  imgt_func: functional digger_match: IGLV2-26*01  digger_func: pseudo  notes: Bad DONOR-SPLICE: GG, Bad ACCEPTOR-SPLICE: GA
-...imgt notes: noncanonical DONOR-SPLICE: ngc instead of ngt, however this V-GENE has been found rearranged
-(non-annotation difference)
 
 Functional sequences reported by both IMGT and digger but with different sequences:
 

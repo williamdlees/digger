@@ -8,9 +8,9 @@
 
 import argparse
 import os.path
+import shutil
 import subprocess
 from receptor_utils import simple_bio_seq as simple
-import pathlib
 import glob
 try:
     from slugify import slugify
@@ -19,8 +19,8 @@ except:
 
 
 def get_parser():
-    parser = argparse.ArgumentParser(description='Find functional and nonfunctional genes in a single assembly sequence')
-    parser.add_argument('assembly_file', help='assembly sequence to search')
+    parser = argparse.ArgumentParser(description='Find functional and nonfunctional genes in an assembly sequence or contigs')
+    parser.add_argument('assembly_file', help='File containing one or more sequences to search')
     parser.add_argument('-species', help='use motifs for the specified species provided with the package')
     parser.add_argument('-motif_dir', help='pathname to directory containing motif probability files')
     parser.add_argument('-locus', help='locus (default is IGH)')
@@ -38,11 +38,15 @@ def get_parser():
 # A function to remove intermediate files
 
 def remove_working_files():
-    for fn in ['full_germline_set.fasta', 'assembly.fasta', 'assembly_rc.fasta', 'blast_results_assembly.csv']:
+    for fn in ['full_germline_set.fasta', 'assembly.fasta', 'assembly_rc.fasta']:
         if os.path.isfile(fn):
             os.remove(fn)
 
     for fn in glob.glob('assembly*.out'):
+        if os.path.isfile(fn):
+            os.remove(fn)
+
+    for fn in glob.glob('blast_results*.csv'):
         if os.path.isfile(fn):
             os.remove(fn)
 
@@ -55,7 +59,7 @@ def remove_working_files():
 def main():
     args = get_parser().parse_args()
 
-    cwd = pathlib.Path().resolve()
+    cwd = os.getcwd()
     remove_working_files()
 
     if os.path.isfile(args.output_file):
@@ -76,7 +80,6 @@ def main():
         print('Error - please specify either -motif_dir or -species, not both')
         quit()
 
-
     if args.motif_dir and not os.path.isdir(args.motif_dir):
         print(f"{args.motif_dir} - directory not found")
         exit(1)
@@ -86,6 +89,11 @@ def main():
         if fn and not os.path.isfile(fn):
             print(f"{fn} - file not found")
             exit(1)
+
+        # copy the file to current directory if it is not there already
+        if fn:
+            if os.path.normpath(os.path.normcase(os.path.abspath(os.path.dirname(fn)))) != os.path.normpath(os.path.normcase(cwd)):
+                shutil.copy(fn, cwd)
 
         if fn:
             full_germline_set |= simple.read_fasta(fn)
@@ -99,19 +107,9 @@ def main():
                 print(f"{fn} - file not found")
                 exit(1)
 
-    if not(args.v_ref or args.d_ref or args.j_ref):
+    if not (args.v_ref or args.d_ref or args.j_ref):
         print('Please specify at least one starting point reference set')
         exit(1)
-
-    assembly_contents = simple.read_fasta(args.assembly_file)
-
-    if len(assembly_contents) != 1:
-        print('The assembly file must contain exactly one sequence.')
-        exit(1)
-
-    simple.write_fasta('assembly.fasta', {list(assembly_contents.keys())[0]: list(assembly_contents.values())[0]})
-    assembly_name = slugify(list(assembly_contents.keys())[0])
-    assembly_length = len(list(assembly_contents.values())[0])
 
     locus = 'IGH'
 
@@ -127,7 +125,7 @@ def main():
         if fn:
             cmd = [
                     'makeblastdb',
-                    '-in', f'{fn}',
+                    '-in', f'{os.path.basename(fn)}',
                     '-dbtype', 'nucl',
             ]
             print(f"\n-- executing {' '.join(cmd)}\n")
@@ -139,6 +137,9 @@ def main():
 
     # Run blast and process output
 
+    assembly_contents = simple.read_fasta(args.assembly_file)
+    assembly_contents = {slugify(k): v for k, v in assembly_contents.items()}
+    simple.write_fasta('assembly.fasta', assembly_contents)
     first_time = True
 
     for fn, gene_type in [(args.v_ref, 'V'), (args.d_ref, 'D'), (args.j_ref, 'J')]:
@@ -155,7 +156,7 @@ def main():
 
             cmd = [
                 'blastn',
-                '-db', f'{fn}',
+                '-db', f'{os.path.basename(fn)}',
                 '-query', 'assembly.fasta',
                 '-out', f"assembly_{gene_type}.out",
                 '-outfmt', '7',
@@ -186,7 +187,7 @@ def main():
             print(f"\n-- executing {' '.join(cmd)}\n")
             process = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
-    if not os.path.isfile(f'blast_results_{assembly_name}.csv'):
+    if not glob.glob('blast_results*.csv'):
         print('Blast results not converted to csv - quitting')
         exit(1)
 
@@ -197,7 +198,7 @@ def main():
             'find_alignments',
             'full_germline_set.fasta',
             'assembly.fasta',
-            f'blast_results_{assembly_name}.csv',
+            'blast_results_*.csv',
             '-motif_dir',  f'{args.motif_dir}',
             '-locus', locus,
             ]
@@ -206,7 +207,7 @@ def main():
             'find_alignments',
             'full_germline_set.fasta',
             'assembly.fasta',
-            f'blast_results_{assembly_name}.csv',
+            'blast_results_*.csv',
             '-species', f'{args.species}',
             '-locus', locus,
             ]
@@ -226,7 +227,6 @@ def main():
     print(f"\n-- executing {' '.join(cmd)}\n")
     process = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     print(process.stdout.decode("utf-8"))
-    reverse_sense = 'Using reverse' in process.stdout.decode("utf-8")
 
     if not os.path.isfile(args.output_file):
         print(f'Result file {args.output_file} was not produced by find_alignments.py')

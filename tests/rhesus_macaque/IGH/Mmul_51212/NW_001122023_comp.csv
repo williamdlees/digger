@@ -8,7 +8,6 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 38601,38896,V,38601,38896,IGHV1S2*01,IGHV1S2*01,functional,Functional,Yes,Yes,Yes,Yes,
 41504,41805,V,41504,41805,IGHV3S3*01,IGHV3S3*01,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
 48238,48533,V,48238,48533,IGHV3S4*01,IGHV3S4*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,D,52106,52112,,,,Functional,No,No,No,No,Gene reversed
 55693,55993,V,55693,55993,IGHV2S1*01,IGHV2-161*02,functional,Functional,No,Yes,Yes,Yes,
 64979,65274,V,64979,65274,IGHV4S2*01,IGHV4S2*01,functional,Functional,Yes,Yes,Yes,Yes,
 78793,79051,V,78793,79078,IGHV2S2*01,IGHV2-10*02,pseudo,ORF,No,No,Digger is longer by 27 nt,Yes,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found"
@@ -51,7 +50,6 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,D,341342,341384,,IGHD3-40*01,,Functional,No,No,No,No,
 346090,346536,V,,,IGHV4-92*02,,pseudo,,No,No,No,No,
 ,,V,346238,346536,,IGHV4-57*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
-,,D,367870,367921,,IGHD3-40*01,,Functional,No,No,No,No,
 370555,370854,V,370555,370854,IGHV1-90*01,IGHV1-151*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 379799,380094,V,379799,380094,IGHV1-89*01,IGHV1-89*01,pseudo,pseudo,Yes,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
 383582,383874,V,383582,383869,IGHV(III)-88*02,IGHV3-100*02,pseudo,pseudo,No,Yes,Digger is shorter by 5 nt,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"

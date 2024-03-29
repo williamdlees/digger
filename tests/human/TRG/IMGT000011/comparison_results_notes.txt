@@ -2,13 +2,8 @@
 
 type: V
 Functional sequences reported by digger but not by IMGT:
-20174,20470  imgt_match: TRGV1*01  imgt_func: ORF digger_match: TRGV1*01  digger_func: functional  notes: 
-... IMGT reports a non-canonical nonamer. Digger identifies an alternate location for the RSS
-87938,88246  imgt_match: TRGV10*02  imgt_func: ORF digger_match: TRGV10*02  digger_func: functional  notes: 
-... IMGT reports a non-canonical leader splice. Digger identifies an alternative location for L-PART1
-
-Functional sequences reported by IMGT but not by digger:
-70734,71039  imgt_match: TRGV9*01  imgt_func: functional digger_match: TRGV9*01  digger_func: pseudo  notes: Leader missing initial ATG, Bad DONOR-SPLICE: GG, Bad ACCEPTOR-SPLICE: TG, Stop codon in leader, First cysteine not found, Conserved Trp not found, V-NONAMER not found
+42727,43026  imgt_match: TRGV5P*02  imgt_func: pseudo digger_match: TRGV5P*02  digger_func: functional  notes: 
+imgt report stop codong in L-PART1: disagreement in identifying L-PART1
 
 Functional sequences reported by both IMGT and digger but with different sequences:
 
