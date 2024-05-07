@@ -1,6 +1,10 @@
 Release Notes
 =============
 
+Changes in 0.7.2
+****************
+- digger will default to using the starting set of reference genes for comparison, if no sets are specified with -ref_comp.
+
 Changes in 0.7.1
 ****************
 - digger will now copy reference set files to the work directory if necessary, as blast's makedb requires the files to be local.

@@ -240,7 +240,7 @@ def process_file(this_blast_file, writer, write_parsing_errors):
 
             start = best['q start']
 
-            #print('processing match to %s at %d' % (best['subject'], best['q start']))
+            # print('processing match to %s at %d' % (best['subject'], best['q start']))
 
             add_rows = True
 
@@ -284,9 +284,6 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                         # Otherwise keep the longer sequence
 
                         if row['start'] < row['end'] and (result['start'] <= row['start'] <= result['end'] or result['start'] <= row['end'] <= result['end']):
-                            #if row['start'] == 5087:
-                            #    breakpoint()
-
                             replace = False
 
                             if row['functional'] != 'Functional' and result['functional'] == 'Functional':

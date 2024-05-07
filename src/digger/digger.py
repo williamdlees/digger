@@ -67,6 +67,10 @@ def main():
 
     # check arguments
 
+    if not (args.v_ref or args.d_ref or args.j_ref):
+        print('Please specify at least one starting point reference set')
+        exit(1)
+
     for fn in [args.assembly_file, args.v_ref]:
         if not os.path.isfile(fn):
             print(f"{fn} - file not found")
@@ -106,10 +110,6 @@ def main():
             if not os.path.isfile(fn):
                 print(f"{fn} - file not found")
                 exit(1)
-
-    if not (args.v_ref or args.d_ref or args.j_ref):
-        print('Please specify at least one starting point reference set')
-        exit(1)
 
     locus = 'IGH'
 
@@ -215,6 +215,8 @@ def main():
     if args.ref_comp:
         for ref_arg in args.ref_comp:
             cmd.extend(['-ref', ref_arg])
+    else:
+        cmd.extend(['-ref', 'ref,full_germline_set.fasta'])
 
     if args.sense:
         cmd.extend(['-sense', args.sense])

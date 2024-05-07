@@ -14,7 +14,6 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 84644,84936,V,84657,84937,IGHV(III)-179*02,IGHV3-110*03,pseudo,ORF,No,No,No,No,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found"
 ,,D,86928,86958,,IGHD3-40*01,,Functional,No,No,No,No,
 88177,88472,V,88177,88472,IGHV1-180*01,IGHV1-180*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,D,88270,88270,,,,Functional,No,No,No,No,
 94729,95023,V,94743,95024,IGHV(III)-181*02,IGHV3-110*02,pseudo,ORF,No,No,No,No,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found"
 ,,J,125297,125327,,IGHJ3*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 135381,135677,V,135381,135677,IGHV3-182*02,IGHV3-182*05,pseudo,pseudo,No,Yes,Yes,Yes,Stop codon in V-REGION before 2nd cysteine
