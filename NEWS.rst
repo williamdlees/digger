@@ -1,6 +1,10 @@
 Release Notes
 =============
 
+Changes in 0.7.3
+================
+- fix crash in compare_annotations.py
+
 Changes in 0.7.2
 ****************
 - digger will default to using the starting set of reference genes for comparison, if no sets are specified with -ref_comp.
