@@ -1,6 +1,6 @@
 #!/bin/bash
-exit 0
-cd /digger/tests/human/IGH/verify
+
+cd /tests/human/IGH/verify
 
 bash -x run_digger.bat
 
