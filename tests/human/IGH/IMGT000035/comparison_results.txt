@@ -21,7 +21,6 @@ Functional sequences reported by both IMGT and digger but with different sequenc
 
 type: J
 Functional sequences reported by digger but not by IMGT:
-1014594,1014646  imgt_match: IGHJ2*01  imgt_func: ORF digger_match: IGHJ2*01  digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:
 

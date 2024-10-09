@@ -20,7 +20,6 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 71793,72081,V,71793,72081,IGHV4-3*01,IGHV4-57*04,pseudo,pseudo,No,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 ,,D,89041,89077,,IGHD3-40*01,,Functional,No,No,No,No,
 113785,114075,V,113785,114075,IGHV(II)-4*01,IGHV4-127*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
-,,V,122415,122699,,IGHV3-16*05,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found"
 146169,146464,V,146169,146464,IGHV3-5*01,IGHV3-5*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine"
 153530,153829,V,153530,153827,IGHV(II)-6*01,IGHV4-122*01,pseudo,pseudo,No,Yes,Digger is shorter by 2 nt,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 155236,155532,V,155236,155532,IGHV3-7*01,IGHV3-46*01,pseudo,pseudo,No,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"

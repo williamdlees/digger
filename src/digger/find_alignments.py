@@ -235,6 +235,11 @@ def process_file(this_blast_file, writer, write_parsing_errors):
 
             if locus + 'C' not in best['subject']:
                 gene_type = locus + best['subject'].split(locus)[1][0]
+                if gene_type[3] not in ['V', 'D', 'J', 'C']:
+                    gene_type = locus + best['subject'][len(locus)+1]    # handle salmonid-like names of the form TRB3V4-1
+                if gene_type[3] not in ['V', 'D', 'J', 'C']:
+                    print(f"Gene type {gene_type} not recognised in allele name {best['subject']}")
+                    continue
             else:
                 gene_type = locus + 'C'
 

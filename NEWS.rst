@@ -3,6 +3,10 @@ Release Notes
 
 Changes in 0.7.3
 ================
+- fix problem with salmonid names, e.g. TRB3V
+
+Changes in 0.7.3
+================
 - fix crash in compare_annotations.py
 
 Changes in 0.7.2

@@ -73,7 +73,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 562393,562688,V,562393,562688,IGHV7S8*01,IGHV7S8*01,pseudo,pseudo,Yes,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine"
 565617,565915,V,565617,565915,IGHV4-65*02,IGHV4-65*02,functional,Functional,Yes,Yes,Yes,Yes,
 573735,574030,V,573735,574014,IGHV(I)-64*02,IGHV1-89*03,pseudo,ORF,No,No,Digger is shorter by 16 nt,Yes,"Leader not found, Sequence truncated before second cysteine"
-577341,577637,V,577342,577643,IGHV(III)-63*02,IGHV3-16*05,pseudo,pseudo,No,Yes,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
+577341,577637,V,,,IGHV(III)-63*02,,pseudo,,No,No,No,No,
 580810,581102,V,580810,581102,IGHV3-62*02,IGHV3-162*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 586916,587189,V,586916,587187,IGHV(III)-61*02,IGHV3-102*03,pseudo,ORF,No,No,Digger is shorter by 2 nt,Yes,"Leader not found, Sequence truncated before second cysteine"
 589872,590165,V,589871,590150,IGHV(III)-60*02,IGHV3-46*05,pseudo,ORF,No,No,No,No,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found"
@@ -97,7 +97,6 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 665463,665758,V,665462,665758,IGHV(III)-42*02,IGHV3-37*04,pseudo,pseudo,No,Yes,Digger is longer by 1 nt,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 669160,669449,V,669160,669449,IGHV3-41*02,IGHV3-100*01,pseudo,pseudo,No,Yes,Yes,Yes,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 672989,673293,V,672989,673293,IGHV3-40*02,IGHV3-49*02,pseudo,pseudo,No,Yes,Yes,Yes,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
-,,D,675267,675324,,IGHD3-40*01,,Functional,No,No,No,No,
 ,,V,676735,677013,,IGHV4-57*03,,ORF,No,No,No,No,"Leader not found, Sequence truncated before second cysteine, V-NONAMER not found"
 680139,680418,V,680139,680418,IGHV3-39*02,IGHV3-39*04,pseudo,ORF,No,No,Yes,Yes,"Leader not found, Sequence truncated before second cysteine"
 700553,700854,V,700553,700854,IGHV3-38*02,IGHV3-38*02,functional,Functional,Yes,Yes,Yes,Yes,
