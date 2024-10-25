@@ -40,3 +40,9 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Citation
+========
+If you use Digger in your research, please cite the following paper:
+Digger: directed annotation of immunoglobulin and T cell receptor V, D and J gene sequences and assemblies.
+Bioinformatics, 2024. `DOI: 10.1093/bioinformatics/btae144 <https://doi.org/10.1093/bioinformatics/btae144>`_.
