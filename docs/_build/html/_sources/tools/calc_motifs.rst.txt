@@ -18,6 +18,9 @@ human locus, but may be modified if necessary. The following values are included
 
 Please refer to :ref:`rhesus_igh` for example usage of this and the other 'individual' commands.
 
+When calc_motifs runs, it provides a summary of the sequences it has processed. Please check these for sanity: for example check that the consensus 
+heptamer is 7nt long, and so on. Errors in the motif table will impact annotation.
+
 .. argparse::
    :filename: ../src/digger/calc_motifs.py
    :func: get_parser

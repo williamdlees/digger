@@ -47,6 +47,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-5">Changes in 0.7.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-4">Changes in 0.7.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-3">Changes in 0.7.3</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
@@ -139,6 +142,8 @@ human locus, but may be modified if necessary. The following values are included
 </tbody>
 </table>
 <p>Please refer to <a class="reference internal" href="../examples/rhesus_igh.html#rhesus-igh"><span class="std std-ref">Annotating the rhesus macaque IGH locus</span></a> for example usage of this and the other ‘individual’ commands.</p>
+<p>When calc_motifs runs, it provides a summary of the sequences it has processed. Please check these for sanity: for example check that the consensus
+heptamer is 7nt long, and so on. Errors in the motif table will impact annotation.</p>
 <p><p>Given a set of gene features, create motif matrices</p>
 </p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">calc_motifs</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="n">locus</span> <span class="n">feat_file</span>

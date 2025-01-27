@@ -13,7 +13,9 @@ Please refer to :ref:`human_igh` for example usage.
    :prog: digger
 
 
-At least one file containing reference genes must be provided. You can, for example, supply ``v_ref``, ``d_ref`` and ``j_ref``, or just ``v_ref``. Digger will annotate whatever genes are discovered with the corresponding set(s). 
+At least one file containing reference genes must be provided. You can, for example, supply ``v_ref``, ``d_ref`` and ``j_ref``, or just ``v_ref``. 
+These reference files should just contain the sequence of the core coding region (in IMGT terminology, the V-, D- or J- REGION). They should not
+include the V leader sequence, or any RSS. Digger will annotate whatever genes are discovered with the corresponding set(s). 
 In practice, the sets do not have to be that good a match: BLAST will identify partial matches, and Digger's logic will extend the match to a full gene, including canonical RSS and leader (using the ``motif`` folder).
 
 Digger requires a set of postion-weighted matrices, to identify RSS and leader. It is also possible to specify conserved locations of motifs. This `motif` data should be stored in a ``motif`` folder. Motifs for
