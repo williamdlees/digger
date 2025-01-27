@@ -1,7 +1,11 @@
 Release Notes
 =============
 
-Changes in 0.7.3
+Changes in 0.7.5
+================
+- further salmonid name fix
+
+Changes in 0.7.4
 ================
 - fix problem with salmonid names, e.g. TRB3V
 

@@ -133,7 +133,11 @@ def main():
             if feature_name == 'L-PART1':
                 seqs = [s for s in seqs if s.startswith('ATG')]
 
+            print(f'Processing {len(seqs)} sequences for motif {feature_name}')
+
             if len(seqs) == 0:
+                if feature_name != 'OCTAMER':
+                    print(f'WARNING: no sequences found for {feature_name}. Digger will not function correctly without representative sequences for this feature.')
                 continue
 
             lengths = [len(s) for s in seqs]    

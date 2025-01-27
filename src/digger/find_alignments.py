@@ -78,6 +78,7 @@ aligner_global = PairwiseAligner(
     mismatch_score = 0
 )
 
+
 def calc_matched_refs(row):
     for ref in reference_sets:
         row[ref['name'] + '_match'] = ''
@@ -86,7 +87,9 @@ def calc_matched_refs(row):
         best_ref_seq = ''
 
         for ref_name, ref_seq in ref['seqs'].items():
-            if row['gene_type'] in ref_name:
+            ref_gene_type = determine_gene_type(ref_name, locus)
+ 
+            if row['gene_type'] in ref_gene_type:
                 if row['seq'] and ref_seq:
                     alignment = aligner_global.align(row['seq'], ref_seq)[0]
                     score = alignment.score
@@ -129,6 +132,19 @@ def update_note(base, note):
             base['notes'] = ','.join(base['notes'].split(',') + [note])
     else:
         base['notes'] = note
+
+
+def determine_gene_type(name, locus):
+    if locus + 'C' not in name:
+        gene_type = locus + name.split(locus)[1][0]
+        if gene_type[3] not in ['V', 'D', 'J', 'C']:
+            gene_type = locus + name[len(locus)+1]    # handle salmonid-like names of the form TRB3V4-1
+        if gene_type[3] not in ['V', 'D', 'J', 'C']:
+            print(f"Gene type {gene_type} not recognised in allele name {name}")
+            return None
+    else:
+        gene_type = locus + 'C'
+    return gene_type
 
 
 def process_file(this_blast_file, writer, write_parsing_errors):
@@ -233,19 +249,11 @@ def process_file(this_blast_file, writer, write_parsing_errors):
                 print(f"Locus {locus} not found in allele name {best['subject']} - was it specified correctly?")
                 quit(1)
 
-            if locus + 'C' not in best['subject']:
-                gene_type = locus + best['subject'].split(locus)[1][0]
-                if gene_type[3] not in ['V', 'D', 'J', 'C']:
-                    gene_type = locus + best['subject'][len(locus)+1]    # handle salmonid-like names of the form TRB3V4-1
-                if gene_type[3] not in ['V', 'D', 'J', 'C']:
-                    print(f"Gene type {gene_type} not recognised in allele name {best['subject']}")
-                    continue
-            else:
-                gene_type = locus + 'C'
+            gene_type = determine_gene_type(best['subject'], locus)
+            if gene_type is None:
+                continue
 
             start = best['q start']
-
-            # print('processing match to %s at %d' % (best['subject'], best['q start']))
 
             add_rows = True
 
@@ -384,7 +392,6 @@ def main():
     D_5_RSS_SPACING = motif_params['D_5_RSS_SPACING']
     D_3_RSS_SPACING = motif_params['D_3_RSS_SPACING']
 
-
     if args.ref:
         for ref in args.ref:
             if ',' in ref:
@@ -406,12 +413,13 @@ def main():
         for ref in reference_sets:
             fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_diffs'])
 
-        fieldnames.extend(
-            ['functional', 'notes', 'likelihood', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer',
-            'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
-            '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
-            'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev', 'octamer_start', 'octamer_start_rev', 'octamer_end', 'octamer_end_rev',
-         'tata_box_start', 'tata_box_start_rev', 'tata_box_end', 'tata_box_end_rev',])
+        fieldnames.extend([
+            'functional', 'notes', 'likelihood', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 
+            'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer', 'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', 
+            '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev', '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 
+            'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev', 'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev', 
+            'octamer_start', 'octamer_start_rev', 'octamer_end', 'octamer_end_rev', 'tata_box_start', 'tata_box_start_rev', 'tata_box_end', 'tata_box_end_rev'
+        ])
 
         fieldnames.extend(['matches', 'blast_match', 'blast_score', 'blast_nt_diffs', 'evalue'])
 
