@@ -1,6 +1,10 @@
 Release Notes
 =============
 
+Changes in 0.7.6
+================
+- fix problem in handling multiple contigs
+
 Changes in 0.7.5
 ================
 - further salmonid name fix

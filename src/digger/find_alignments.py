@@ -157,7 +157,6 @@ def process_file(this_blast_file, writer, write_parsing_errors):
     assembly_rc = simple.reverse_complement(assembly)
 
     with open(this_blast_file, 'r') as fi:
-        print('Processing %s' % this_blast_file)
         this_contig_name = None
         forward_gene_alignments = defaultdict(list)
         reverse_gene_alignments = defaultdict(list)
@@ -429,6 +428,7 @@ def main():
         if '*' not in blast_file:
             assembly = simple.read_single_fasta(assembly_file)
             assembly_length = len(assembly)
+            print(f'Processing {blast_file} with assembly {assembly_file}')
             process_file(blast_file, writer, args.debug)
         else:
             assemblies = {}
@@ -440,12 +440,13 @@ def main():
                 assembly = None
                 for assembly_name in assemblies.keys():
                     s_name = slugify(assembly_name.split(' ')[0].replace('\n', '').replace('|', '')) + '.csv'
-                    if s_name in blast_file_name or suffix in assembly_name:
+                    if s_name in blast_file_name or suffix == assembly_name:
                         assembly = assemblies[assembly_name]
                         assembly_length = len(assembly)
                         break
 
                 if assembly is not None:
+                    print(f'Processing {blast_file_name} with assembly {assembly_name}')
                     process_file(blast_file_name, writer, args.debug)
                 else:
                     print('no corresponding assembly found for output file %s' % blast_file_name)
