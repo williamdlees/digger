@@ -3,10 +3,13 @@
 type: V
 Functional sequences reported by digger but not by IMGT:
 4969,5264  imgt_match: IGHV7-81*01  imgt_func: ORF digger_match: IGHV7-81*01  digger_func: functional  notes: 
+151390,151682  imgt_match: IGHV3-69-1*01  imgt_func: pseudo digger_match: IGHV3-69-1*01  digger_func: functional  notes: 
+360974,361266  imgt_match: IGHV3-47*01  imgt_func: pseudo digger_match: IGHV3-47*01  digger_func: functional  notes: 
 469062,469353  imgt_match: IGHV3-38*02  imgt_func: ORF digger_match: IGHV3-38*02  digger_func: functional  notes: 
 714347,714642  imgt_match: IGHV3-16*02  imgt_func: ORF digger_match: IGHV3-16*02  digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:
+257193,257488  imgt_match: IGHV1-58*01  imgt_func: functional digger_match: IGHV1-58*01  digger_func: orf  notes: Donor splice not found
 
 Functional sequences reported by both IMGT and digger but with different sequences:
 

@@ -1,6 +1,13 @@
 Release Notes
 =============
 
+Changes in 0.7.7
+================
+- The donor splice (GT) is no longer included in the annotation of L-PART1. This is a break in custom with IMGT, who typically include the GT in the L-PART1 annotation. 
+However, this means that L-PART1 and L-PART2 now exactly match the exon, which we feel is important for clarity. To enable the donor splice to be examined more easily,
+Digger now explicitly annotates the V intron.
+- Fix erroneous 'failed coordinate check' messages which were emitted where an annotated region extends beyond the assembly boundaries.
+
 Changes in 0.7.6
 ================
 - fix problem in handling multiple contigs

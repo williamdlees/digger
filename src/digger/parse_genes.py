@@ -809,7 +809,16 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
     if not good_leaders:
         good_leaders = [c for c in leaders if c.left[:3] == 'ATG']
 
-    leaders = good_leaders
+        for c in good_leaders:
+            if c.left[-2:] not in ['GT', 'CT']:
+                c.notes.append('Donor splice not found')
+            if assembly[c.end - len(c.right) - 2:c.end - len(c.right)] != 'AG':
+                c.notes.append('Acceptor splice not found')
+    else:
+        leaders = good_leaders
+        for c in good_leaders:
+            c.gap = c.left[-2:] + c.gap
+            c.left = c.left[:-2]
 
     # restrain length to between 270 and 320 nt, allow a window anywhere within that range
     rights = find_compound_motif(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], motifs['V-NONAMER'], V_RSS_SPACING-1, V_RSS_SPACING, 25, start=start+295)
@@ -926,6 +935,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
             'octamer': leader.octamer.seq if leader.octamer is not None else '',
             'tata_box': leader.tata_box.seq if leader.tata_box is not None else '',
             'l_part1': leader.left if 'Leader not found' not in leader.notes else '',
+            'v_intron': leader.gap if 'Leader not found' not in leader.notes else '',
             'l_part2': leader.right if 'Leader not found' not in leader.notes else '',
             'v_heptamer': rss.left if 'RSS not found' not in rss.notes else '',
             'v_nonamer': rss.right if 'RSS not found' not in rss.notes else '',
@@ -1009,12 +1019,11 @@ def check_seq(assembly, assembly_rc, seq, start, end, name, rev):
         end, start = start, end
 
     if not rev:
-        if seq != assembly[start-1:end]:
+        if seq != assembly[start-1:end] and start > 0 and end <= len(assembly):
             print(f'Error: sequence {name} ({start}, {end}) failed co-ordinate check.')
     else:
-        if simple.reverse_complement(seq) != assembly_rc[start-1:end]:
+        if simple.reverse_complement(seq) != assembly_rc[start-1:end] and start > 0 and end <= len(assembly):
             print(f'Error: reverse sequence {name} ({start}, {end}) failed co-ordinate check.')
-
 
 
 # find the best leader PART1 for each PART2 starting position:

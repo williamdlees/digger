@@ -413,7 +413,7 @@ def main():
             fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_diffs'])
 
         fieldnames.extend([
-            'functional', 'notes', 'likelihood', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 
+            'functional', 'notes', 'likelihood', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'v_intron', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 
             'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer', 'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', 
             '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev', '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 
             'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev', 'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev', 
