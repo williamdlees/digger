@@ -12,7 +12,7 @@ Changes in 0.7.6
 ================
 - fix problem in handling multiple contigs
 
-Changes in 0.7.5
+Changes in 0.7.5acti
 ================
 - further salmonid name fix
 
