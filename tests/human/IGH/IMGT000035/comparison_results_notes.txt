@@ -10,6 +10,8 @@ Functional sequences reported by digger but not by IMGT:
 ..imgt: noncanonical V-HEPTAMER: tcctgtg instead of cacagtg
 
 Functional sequences reported by IMGT but not by digger:
+257193,257488  imgt_match: IGHV1-58*01  imgt_func: functional digger_match: IGHV1-58*01  digger_func: orf  notes: Donor splice not found
+...imgt:  	noncanonical DONOR-SPLICE: nat instead of ngt, noncanonical V-NONAMER: tcagaaacg instead of acacaaacc, however this V-GENE has been seen rearranged in vivo (non-annotation difference)
 
 Functional sequences reported by both IMGT and digger but with different sequences:
 
@@ -24,8 +26,6 @@ Functional sequences reported by both IMGT and digger but with different sequenc
 
 type: J
 Functional sequences reported by digger but not by IMGT:
-1014594,1014646  imgt_match: IGHJ2*01  imgt_func: ORF digger_match: IGHJ2*01  digger_func: functional  notes: 
-...currently listed in the IMGT reference set as functional (but annotated as ORF/non-canonical heptamer in this assembly)
 
 Functional sequences reported by IMGT but not by digger:
 

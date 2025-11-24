@@ -7,6 +7,7 @@
   <title>calc_motifs &mdash; Digger 0.5.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -47,6 +48,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-8-0">Changes in 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-7">Changes in 0.7.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-6">Changes in 0.7.6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-5">Changes in 0.7.5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-4">Changes in 0.7.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-3">Changes in 0.7.3</a></li>
@@ -127,17 +131,17 @@ human locus, but may be modified if necessary. The following values are included
 <tr class="row-even"><td><p>J_SPLICE</p></td>
 <td><p>The expected nt sequence of the J-SPLICE</p></td>
 </tr>
-<tr class="row-odd"><td><p>V_RSS_SPACING</p></td>
-<td><p>The expected length of the V-SPACER</p></td>
+<tr class="row-odd"><td><p>[MIN, MAX]_V_RSS_SPACING</p></td>
+<td><p>The expected min and max length of the V-SPACER</p></td>
 </tr>
-<tr class="row-even"><td><p>J_RSS_SPACING</p></td>
-<td><p>The expected length of the J-SPACER</p></td>
+<tr class="row-even"><td><p>[MIN, MAX]_J_RSS_SPACING</p></td>
+<td><p>The expected min and max length of the J-SPACER</p></td>
 </tr>
-<tr class="row-odd"><td><p>D_5_RSS_SPACING</p></td>
-<td><p>The expected length of the 5’ D-SPACER (0 if this is not a heavy chain)</p></td>
+<tr class="row-odd"><td><p>[MIN, MAX]_D_5_RSS_SPACING</p></td>
+<td><p>The expected min and max length of the 5’ D-SPACER (0 if this is not a heavy chain)</p></td>
 </tr>
-<tr class="row-even"><td><p>D_3_RSS_SPACING</p></td>
-<td><p>The expected length of the 3’ D-SPACER (0 if this is not a heavy chain)</p></td>
+<tr class="row-even"><td><p>[MIN, MAX]_D_3_RSS_SPACING</p></td>
+<td><p>The expected min and max length of the 3’ D-SPACER (0 if this is not a heavy chain)</p></td>
 </tr>
 </tbody>
 </table>

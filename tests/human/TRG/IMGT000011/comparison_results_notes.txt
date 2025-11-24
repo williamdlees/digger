@@ -3,7 +3,7 @@
 type: V
 Functional sequences reported by digger but not by IMGT:
 42727,43026  imgt_match: TRGV5P*02  imgt_func: pseudo digger_match: TRGV5P*02  digger_func: functional  notes: 
-imgt report stop codong in L-PART1: disagreement in identifying L-PART1
+imgt report stop codon in L-PART1: disagreement in identifying L-PART1
 
 Functional sequences reported by both IMGT and digger but with different sequences:
 

@@ -2,7 +2,7 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,186,478,,IGLV1-44*04,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 5099,5397,V,5099,5397,IGLV4-69*01,IGLV4-69*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,6838,7130,,IGLV1-50*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
-,,V,12734,13009,,IGLV1-50*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
+,,V,12734,13009,,IGLV1-67-1*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 ,,V,17545,17828,,IGLV10-54*04,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found, V-NONAMER not found"
 ,,V,20189,20482,,IGLV6-57*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found"
 ,,V,32415,32730,,IGLV5-48*01,,ORF,No,No,No,No,"Leader not found, Conserved Trp not found, Second cysteine not found"
@@ -16,13 +16,13 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,62692,62977,,IGLV2-11*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found"
 ,,V,71840,72141,,IGLV9-49*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --T----"
 72842,73137,V,72842,73137,IGLV8-61*01,IGLV8-61*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,76392,76676,,IGLV2-11*02,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found, V-NONAMER not found"
+,,V,76392,76676,,IGLV2-11*02,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 ,,V,80402,80699,,IGLV2-5*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 ,,V,85813,86099,,IGLV5-37*03,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 ,,V,131320,131599,,IGLV7-46*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 136308,136606,V,136308,136606,IGLV4-60*02,IGLV4-60*02,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,137501,137794,,IGLV2-33*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --T----"
-,,V,140632,140901,,IGLV1-62*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
+,,V,140632,140901,,IGLV1-62*02,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --G----"
 ,,V,142276,142565,,IGLV7-46*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): T------"
 ,,V,153089,153383,,IGLV5-48*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 ,,V,156508,156819,,IGLV4-3*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
@@ -51,11 +51,11 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 354977,355272,V,354977,355272,IGLV1-44*01,IGLV1-44*01,functional,Functional,Yes,Yes,Yes,Yes,
 369121,369414,V,369121,369414,IGLV7-43*01,IGLV7-43*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,371121,371413,,IGLV2-11*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
-,,V,372675,372958,,IGLV1-40*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
+,,V,372675,372958,,IGLV1-40*01,,pseudo,No,No,No,No,"Acceptor splice not found, Leader does not start with ATG, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 ,,V,378365,378646,,IGLV1-41*02,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 ,,J,378945,378972,,IGLJ1*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-HEPTAMER has variation at strongly conserved residue(s): ------C, J-TRP not found"
 383909,384207,V,383909,384207,IGLV1-40*01,IGLV1-40*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,399911,400203,,IGLV2-14*03,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+,,V,399911,400203,,IGLV2-14*03,,pseudo,No,No,No,No,"Donor splice not found, Acceptor splice not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 401649,401960,V,401649,401960,IGLV5-37*01,IGLV5-37*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,402785,403068,,IGLV1-40*03,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 406095,406390,V,406095,406390,IGLV1-36*01,IGLV1-36*01,functional,Functional,Yes,Yes,Yes,Yes,
@@ -73,14 +73,14 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 ,,V,592842,593136,,IGLV3-1*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 ,,J,616577,616604,,IGLJ2*01,,pseudo,No,No,No,No,"J-NONAMER not found, J-TRP not found"
 ,,V,635223,635502,,IGLV3-9*01,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
-,,V,638572,638856,,IGLV2-14*05,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+,,V,638572,638856,,IGLV2-14*05,,pseudo,No,No,No,No,"Acceptor splice not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 ,,V,639426,639729,,IGLV3-31*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
 642450,642733,V,642450,642733,IGLV3-27*01,IGLV3-27*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,647274,647562,,IGLV3-19*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 ,,V,653033,653308,,IGLV2-8*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
 660917,661206,V,660917,661206,IGLV3-25*03,IGLV3-25*03,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,663652,663923,,IGLV3-1*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): A------"
-,,V,668712,668995,,IGLV3-21*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+,,V,668712,668995,,IGLV3-21*01,,pseudo,No,No,No,No,"Leader does not start with ATG, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 672050,672346,V,672050,672346,IGLV2-23*03,IGLV2-23*03,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,674677,674952,,IGLV2-8*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
 ,,V,675411,675700,,IGLV3-19*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
@@ -91,27 +91,28 @@ imgt_start,imgt_end,type,digger_start,digger_end,imgt_allele,digger_allele,imgt_
 694791,695080,V,694791,695080,IGLV3-19*01,IGLV3-19*01,functional,Functional,Yes,Yes,Yes,Yes,
 708718,709014,V,708718,709014,IGLV2-18*01,IGLV2-18*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,712836,713116,,IGLV3-19*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
-,,V,718150,718427,,IGLV2-23*02,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
+,,V,718150,718427,,IGLV2-23*02,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): --A----"
 721557,721846,V,721557,721846,IGLV3-16*01,IGLV3-16*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,724302,724573,,IGLV3-1*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): A------"
-,,V,729478,729762,,IGLV3-21*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+,,V,729478,729762,,IGLV3-21*01,,pseudo,No,No,No,No,"Acceptor splice not found, Leader does not start with ATG, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 732840,733136,V,732840,733136,IGLV2-14*01,IGLV2-14*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,736216,736499,,IGLV3-13*01,,Functional,No,No,No,No,
 ,,V,741072,741386,,IGLV2-11*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): G------"
 746218,746507,V,746218,746507,IGLV3-12*02,IGLV3-12*02,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,748314,748610,,IGLV2-11*01,,ORF,No,No,No,No,"Leader not found, First cysteine not found, Conserved Trp not found"
 766632,766928,V,766632,766928,IGLV2-11*01,IGLV2-11*01,functional,Functional,Yes,Yes,Yes,Yes,
-,,V,777001,777287,,IGLV4-3*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
+,,V,777001,777287,,IGLV4-10-1*01,,pseudo,No,No,No,No,"Leader does not start with ATG, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
 785917,786206,V,785917,786206,IGLV3-10*01,IGLV3-10*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,788595,788890,,IGLV3-21*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Conserved Trp not found, Second cysteine not found"
 793393,793677,V,793393,793677,IGLV3-9*01,IGLV3-9*01,functional,Functional,Yes,Yes,Yes,Yes,
 796918,797214,V,796918,797214,IGLV2-8*01,IGLV2-8*01,functional,Functional,Yes,Yes,Yes,Yes,
 ,,V,803760,804068,,IGLV3-9*02,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found"
-,,V,808777,809061,,IGLV4-3*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+,,V,808777,809061,,IGLV4-7-1*01,,pseudo,No,No,No,No,"Leader does not start with ATG, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 ,,V,812526,812813,,IGLV3-31*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found"
-,,V,824298,824581,,IGLV3-25*03,,pseudo,No,No,No,No,"Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
+,,V,824298,824581,,IGLV3-25*03,,pseudo,No,No,No,No,"Acceptor splice not found, Stop codon in V-REGION before 2nd cysteine, Second cysteine not found"
 ,,V,830688,830985,,IGLV2-5*01,,pseudo,No,No,No,No,Stop codon in V-REGION before 2nd cysteine
 ,,V,831948,832227,,IGLV3-32*01,,ORF,No,No,No,No,"Second cysteine not found, V-HEPTAMER has variation at strongly conserved residue(s): --T----"
+,,V,843930,844228,,IGLV1-50*01,,pseudo,No,No,No,No,"Leader not found, Stop codon in V-REGION before 2nd cysteine, First cysteine not found, Conserved Trp not found, Second cysteine not found, V-NONAMER not found, V-HEPTAMER has variation at strongly conserved residue(s): T------"
 845647,845960,V,845647,845960,IGLV4-3*01,IGLV4-3*01,functional,Functional,Yes,Yes,Yes,Yes,alternate end: 845931
 ,,V,847135,847418,,IGLV3-31*01,,ORF,No,No,No,No,"Leader not found, Conserved Trp not found, Second cysteine not found"
 855033,855317,V,855033,855317,IGLV3-1*01,IGLV3-1*01,functional,Functional,Yes,Yes,Yes,Yes,

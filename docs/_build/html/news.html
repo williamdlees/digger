@@ -7,6 +7,7 @@
   <title>Release Notes &mdash; Digger 0.5.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -47,6 +48,9 @@
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#changes-in-0-8-0">Changes in 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#changes-in-0-7-7">Changes in 0.7.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#changes-in-0-7-6">Changes in 0.7.6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#changes-in-0-7-5">Changes in 0.7.5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#changes-in-0-7-4">Changes in 0.7.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#changes-in-0-7-3">Changes in 0.7.3</a><ul>
@@ -116,6 +120,33 @@
              
   <section id="release-notes">
 <span id="news"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading"></a></h1>
+</section>
+<section id="changes-in-0-8-0">
+<h1>Changes in 0.8.0<a class="headerlink" href="#changes-in-0-8-0" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p>Breaking change: the motif file ‘motif_params.json’ now takes minimum and maximum RSS spacings for V, D and J RSS, to allow tuning/experimantation.
+If you have a custom motif_params.json file, you will need to update it to the new format. Note that, by default, Digger has always provided 1nt
+of flexibility in V and J RSS spacing, eg 22-23, 11-12. This was previously built into the code, but now needs to be specified in the motif_params.json file.
+For examples of the new format, see <a class="reference external" href="https://github.com/williamdlees/digger/tree/main/src/digger/motifs">github</a>.</p></li>
+<li><p>Added new annotation columns: exon1, exon1_start, exon1_start_rev, exon1_end, exon1_end_rev and corresponding columns for exon 2</p></li>
+<li><p>Revised annotation of L-PART1 to match IMGT convention (see <a class="reference internal" href="tools/annotation.html#leader-annotation"><span class="std std-ref">V Leader Annotation</span></a> for details).</p></li>
+<li><p>Breaking change: REMOVED coordinate columns for l-part1, l-part2 - see above for why.</p></li>
+</ul>
+</section>
+<section id="changes-in-0-7-7">
+<h1>Changes in 0.7.7<a class="headerlink" href="#changes-in-0-7-7" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p>The donor splice (GT) is no longer included in the annotation of L-PART1. This is a break in custom with IMGT, who typically include the GT in the L-PART1 annotation.
+However, this means that L-PART1 and L-PART2 now exactly match the exon, which we feel is important for clarity. To enable the donor splice to be examined more easily,
+Digger now explicitly annotates the V intron.</p></li>
+<li><p>Fix erroneous ‘failed coordinate check’ messages which were emitted where an annotated region extends beyond the assembly boundaries.</p></li>
+</ul>
+</section>
+<section id="changes-in-0-7-6">
+<h1>Changes in 0.7.6<a class="headerlink" href="#changes-in-0-7-6" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p>fix problem in handling multiple contigs</p></li>
+</ul>
 </section>
 <section id="changes-in-0-7-5">
 <h1>Changes in 0.7.5<a class="headerlink" href="#changes-in-0-7-5" title="Permalink to this heading"></a></h1>

@@ -6,21 +6,34 @@ start_rev	start co-ord in the reverse-primed sequence
 end_rev	end co-ord in the reverse-primed sequence
 sense	sense (relative to the input sequence)
 gene_type	gene type (e.g. IGHV)
-gene_start start co-ord of the entire gene including flanking regions
-gene_end end co-ord of the entire gene including flanking regions
-gene_start start co-ord of the entire gene including flanking regions in the reverse-primed sequence
-gene_end end co-ord of the entire gene including flanking regions in the reverse-primed sequence
+gene_start	start co-ord of the entire gene including flanking regions
+gene_end	end co-ord of the entire gene including flanking regions
+gene_start	start co-ord of the entire gene including flanking regions in the reverse-primed sequence
+gene_end	end co-ord of the entire gene including flanking regions in the reverse-primed sequence
 likelihood	likelihood that the RSS is that of a functional gene (compared to a random sequence)
-l_part1	leader part 1 equence
+l_part1	leader part 1 sequence
 l_part2	leader part 2 sequence
+exon1	exon 1 sequence
+exon2	exon 2 sequence
+donor-splice	donor splice site sequence
+acceptor-splice	acceptor splice site sequence
+v_intron	v-intron sequence
 v_heptamer	v-heptamer sequence
+v_spacer	v-spacer sequence
+v_spacer_len	length of the v-spacer
 v_nonamer	v-nonamer sequence
 j_heptamer	j-heptamer sequence
+j_spacer	j-spacer sequence
+j_spacer_len	length of the j-spacer
 j_nonamer	j-nonamer sequence
 j_frame	coding frame of the first nucleotide of the j region (0, 1 or 2)
 d_3_heptamer	3-prime d-heptamer sequence
+d_3_spacer	3-prime d-spacer sequence
+d_3_spacer_len	length of the 3-prime d-spacer
 d_3_nonamer	3-prime d-nonamer sequence
 d_5_heptamer	5-prime d-heptamer sequence
+d_5_spacer	5-prime d-spacer sequence
+d_5_spacer_len	length of the 5-prime d-spacer
 d_5_nonamer	5-prime d-nonamer sequence
 functional	functionality (see below)
 notes	annotation notes

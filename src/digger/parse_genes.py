@@ -42,10 +42,14 @@ class DAnnotation:
     :vartype functionality: str
     :ivar d_5_nonamer: The 5' nonamer sequence of the D-segment.
     :vartype d_5_nonamer: str
+    :ivar d_5_spacer: The 5' spacer sequence of the D-segment.
+    :vartype d_5_spacer: str
     :ivar d_5_heptamer: The 5' heptamer sequence of the D-segment.
     :vartype d_5_heptamer: str
     :ivar d_3_nonamer: The 3' nonamer sequence of the D-segment.
     :vartype d_3_nonamer: str
+    :ivar d_3_spacer: The 3' spacer sequence of the D-segment.
+    :vartype d_3_spacer: str
     :ivar d_3_heptamer: The 3' heptamer sequence of the D-segment.
     :vartype d_3_heptamer: str
     :ivar d_5_rss_start: The starting position of the 5' RSS of the D-segment.
@@ -77,8 +81,10 @@ class DAnnotation:
         self.notes.extend(right_motif.notes)
         self.functionality = None
         self.d_5_nonamer = left_motif.left
+        self.d_5_spacer = left_motif.gap
         self.d_5_heptamer = left_motif.right
         self.d_3_nonamer = right_motif.right
+        self.d_3_spacer = right_motif.gap
         self.d_3_heptamer = right_motif.left
         self.d_5_rss_start = left_motif.start
         self.d_5_rss_end = left_motif.end
@@ -122,6 +128,10 @@ def process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
     :type best: dict
     :param matches: List of matches.
     :type matches: list
+    :param D_5_RSS_SPACING: The spacing between 5' D-segment RSS motifs.
+    :type D_5_RSS_SPACING: list of int
+    :param D_3_RSS_SPACING: The spacing between 3' D-segment RSS motifs.
+    :type D_3_RSS_SPACING: list of int
 
     :return: List of processed D-segment annotations.
     :rtype: list of dict
@@ -138,8 +148,8 @@ def process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
     #if start == 1678577:
     #   breakpoint()
 
-    left_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs["5'D-NONAMER"], motifs["5'D-HEPTAMER"], D_5_RSS_SPACING, D_5_RSS_SPACING, 15, end=start-1)
-    right_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs["3'D-HEPTAMER"], motifs["3'D-NONAMER"], D_3_RSS_SPACING, D_3_RSS_SPACING, 15, start=end)
+    left_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs["5'D-NONAMER"], motifs["5'D-HEPTAMER"], D_5_RSS_SPACING[0], D_5_RSS_SPACING[1], 15, end=start-1)
+    right_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs["3'D-HEPTAMER"], motifs["3'D-NONAMER"], D_3_RSS_SPACING[0], D_3_RSS_SPACING[1], 15, start=end)
 
     results = []
 
@@ -168,8 +178,12 @@ def process_d(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
             'notes': ', '.join(result.notes),
             'seq': result.seq,
             'd_3_heptamer': result.d_3_heptamer,
+            'd_3_spacer': result.d_3_spacer,
+            'd_3_spacer_len': len(result.d_3_spacer),
             'd_3_nonamer': result.d_3_nonamer,
             'd_5_heptamer': result.d_5_heptamer,
+            'd_5_spacer': result.d_5_spacer,
+            'd_5_spacer_len': len(result.d_5_spacer),
             'd_5_nonamer': result.d_5_nonamer,
             'likelihood': result.likelihood,
         }
@@ -313,6 +327,7 @@ def process_c(assembly, assembly_rc, germlines, start, end, best, matches):
 
     return[row]
 
+
 class JAnnotation:
     """
     Represents an annotation for a J-segment.
@@ -344,6 +359,8 @@ class JAnnotation:
     :vartype j_frame: int
     :ivar nonamer: The nonamer sequence of the J-segment.
     :vartype nonamer: str
+    :ivar spacer: The spacer sequence of the J-segment.
+    :vartype spacer: str
     :ivar heptamer: The heptamer sequence of the J-segment.
     :vartype heptamer: str
     :ivar rss_start: The start position of the RSS associated with the J-segment.
@@ -371,6 +388,7 @@ class JAnnotation:
         self.functionality = None
         self.j_frame = None
         self.nonamer = motif.left
+        self.spacer = motif.gap
         self.heptamer = motif.right
         self.rss_start = motif.start
         self.rss_end = motif.end
@@ -448,6 +466,7 @@ class JAnnotation:
             self.seq = self.assembly[self.start - 1:self.end]
             self.functionality = 'pseudo'
 
+
 def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, start, end, best, matches, J_TRP_MOTIF, J_TRP_OFFSET, J_SPLICE, J_RSS_SPACING):
     """
     Process J-segment annotations.
@@ -470,6 +489,15 @@ def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
     :type best: dict
     :param matches: List of matches.
     :type matches: list
+    :param J_TRP_MOTIF: The J-TRP motif to search for.
+    :type J_TRP_MOTIF: str
+    :param J_TRP_OFFSET: The number of codons between the start of the J-TRP motif and the end of the J-REGION.
+    :type J_TRP_OFFSET: int
+    :param J_SPLICE: The J-splice sequence to search for.
+    :type J_SPLICE: str
+    :param J_RSS_SPACING: The spacing between J-segment RSS motifs.
+    :type J_RSS_SPACING: list of int
+
 
     :return: List of processed J-segment annotations.
     :rtype: list of dict
@@ -484,7 +512,7 @@ def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
         - `check_seq`: Function for checking a sequence.
 
     """
-    j_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs['J-NONAMER'], motifs['J-HEPTAMER'], J_RSS_SPACING-1, J_RSS_SPACING, 15, end=start-1)
+    j_rss = find_compound_motif(assembly, conserved_motif_seqs, motifs['J-NONAMER'], motifs['J-HEPTAMER'], J_RSS_SPACING[0], J_RSS_SPACING[1], 15, end=start-1)
 
     if len(j_rss) == 0:
         return []
@@ -518,6 +546,8 @@ def process_j(assembly, assembly_rc, germlines, conserved_motif_seqs, motifs, st
         'notes': ', '.join(result.notes),
         'seq': result.seq,
         'j_heptamer': result.heptamer,
+        'j_spacer': result.spacer,
+        'j_spacer_len': len(result.spacer),
         'j_nonamer': result.nonamer,
         'j_frame': result.j_frame,
         'aa': result.aa,
@@ -769,7 +799,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
      :param align: Flag indicating whether sequence alignment should be performed.
      :type align: bool
      :param V_RSS_SPACING: The spacing between V-segment RSS motifs.
-     :type V_RSS_SPACING: int
+     :type V_RSS_SPACING: list of int
      :param v_parsing_errors: Dictionary for storing V-segment parsing errors.
      :type v_parsing_errors: dict
 
@@ -814,14 +844,24 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
                 c.notes.append('Donor splice not found')
             if assembly[c.end - len(c.right) - 2:c.end - len(c.right)] != 'AG':
                 c.notes.append('Acceptor splice not found')
-    else:
+
+    if good_leaders:
         leaders = good_leaders
         for c in good_leaders:
             c.gap = c.left[-2:] + c.gap
             c.left = c.left[:-2]
 
+    else:
+        for leader in leaders:
+            if leader.left[-2:] not in ['GT', 'CT']:
+                leader.notes.append('Donor splice not found')
+            leader.gap = leader.left[-2:] + leader.gap
+            leader.left = leader.left[:-2]
+            if assembly[leader.end - len(leader.right) - 2:leader.end - len(leader.right)] != 'AG':
+                leader.notes.append('Acceptor splice not found')
+
     # restrain length to between 270 and 320 nt, allow a window anywhere within that range
-    rights = find_compound_motif(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], motifs['V-NONAMER'], V_RSS_SPACING-1, V_RSS_SPACING, 25, start=start+295)
+    rights = find_compound_motif(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], motifs['V-NONAMER'], V_RSS_SPACING[0], V_RSS_SPACING[1], 25, start=start+295)
 
     # put in a dummy leader if we found an RSS but no leader
 
@@ -839,7 +879,7 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
         rights.append(
             MotifResult(assembly,
                    SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-HEPTAMER'], min(end+1, len(assembly)), 0),
-                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-NONAMER'], min(end+V_RSS_SPACING+1, len(assembly)), 0),
+                   SingleMotifResult(assembly, conserved_motif_seqs, motifs['V-NONAMER'], min(end+V_RSS_SPACING[0]+1, len(assembly)), 0),
                    ['RSS not found'])
         )
 
@@ -903,6 +943,12 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
 
     rows = []
 
+    # Check for ATG in leader
+    for leader, _, _ in results:
+        if 'Leader not found' not in leader.notes:
+            if leader.left[:3] != 'ATG':
+                leader.notes.append('Leader does not start with ATG')
+
     for leader, v_gene, rss in results:
         # Mark the gene as non-functional if there is a problem in the leader or RSS.
 
@@ -922,6 +968,25 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
 
         best_match, best_score, best_nt_diffs = calc_best_match_score(germlines, best, v_gene.ungapped)
 
+        # determine l-part1 and l-part2 by 'borrowing' spare nucleotides from the left and adding to the right
+        # in order to make both leader parts a whole number of codons - see table at https://www.imgt.org/IMGTeducation/Aide-memoire/_UK/splicing/
+        # which shows the nucleotides in green being borrowed
+
+        if 'Leader not found' not in leader.notes:
+            donor_splice = leader.left[-1:] + leader.gap[:2]
+            acceptor_splice = leader.gap[-3:] + leader.right[:2]
+            l_part1 = leader.left
+            l_part2 = leader.right
+            n_borrowed = len(leader.left) % 3
+            if n_borrowed > 0:
+                l_part1 = leader.left[:-n_borrowed]
+                l_part2 = leader.left[-n_borrowed:] + leader.right
+        else:
+            l_part1 = ''
+            l_part2 = ''
+            donor_splice = ''
+            acceptor_splice = ''
+
         row = {
             'start': v_gene.start,
             'end': v_gene.end,
@@ -934,10 +999,16 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
             'blast_nt_diffs': best_nt_diffs,
             'octamer': leader.octamer.seq if leader.octamer is not None else '',
             'tata_box': leader.tata_box.seq if leader.tata_box is not None else '',
-            'l_part1': leader.left if 'Leader not found' not in leader.notes else '',
+            'l_part1': l_part1,
+            'donor-splice': donor_splice,
+            'acceptor-splice': acceptor_splice,
+            'exon1': leader.left if 'Leader not found' not in leader.notes else '',
+            'exon2': leader.right + v_gene.ungapped if 'Leader not found' not in leader.notes else '',
             'v_intron': leader.gap if 'Leader not found' not in leader.notes else '',
-            'l_part2': leader.right if 'Leader not found' not in leader.notes else '',
+            'l_part2': l_part2,
             'v_heptamer': rss.left if 'RSS not found' not in rss.notes else '',
+            'v_spacer': rss.gap if 'RSS not found' not in rss.notes else '',
+            'v_spacer_len': len(rss.gap) if 'RSS not found' not in rss.notes else 0,
             'v_nonamer': rss.right if 'RSS not found' not in rss.notes else '',
             'functional': v_gene.functionality,
             'notes': ', '.join(leader.notes + v_gene.notes + rss.notes),
@@ -955,13 +1026,13 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
         row['3_rss_end'] = rss.end
         row['3_rss_end_rev'] = len(assembly) - rss.start + 1
 
-        row['l_part1_start'] = leader.start
-        row['l_part1_end'] = leader.start + len(leader.left) - 1
-        row['l_part1_start_rev'], row['l_part1_end_rev'] = len(assembly) - row['l_part1_end'] + 1, len(assembly) - row['l_part1_start'] + 1
+        row['exon1_start'] = leader.start
+        row['exon1_end'] = leader.start + len(leader.left) - 1
+        row['exon1_start_rev'], row['exon1_end_rev'] = len(assembly) - row['exon1_end'] + 1, len(assembly) - row['exon1_start'] + 1
 
-        row['l_part2_start'] = leader.end - len(leader.right) + 1
-        row['l_part2_end'] = leader.end
-        row['l_part2_start_rev'], row['l_part2_end_rev'] = len(assembly) - row['l_part2_end'] + 1, len(assembly) - row['l_part2_start'] + 1
+        row['exon2_start'] = leader.end - len(leader.right) + 1
+        row['exon2_end'] = leader.end + len(v_gene.ungapped)
+        row['exon2_start_rev'], row['exon2_end_rev'] = len(assembly) - row['exon2_end'] + 1, len(assembly) - row['exon2_start'] + 1
 
         if row['octamer'] is not None:
             if leader.octamer and leader.octamer.likelihood > 0:
@@ -999,10 +1070,10 @@ def process_v(assembly, assembly_rc, germlines, v_gapped_ref, v_ungapped_ref, co
         check_seq(assembly, assembly_rc, row['v_heptamer'], row['3_rss_start'], row['3_rss_start'] + 6, 'v_heptamer', False)
         check_seq(assembly, assembly_rc, row['v_nonamer'], row['3_rss_end'], row['3_rss_end'] - 8, 'v_nonamer', False)
         check_seq(assembly, assembly_rc, assembly[row['3_rss_start'] - 1:row['3_rss_end']], row['3_rss_start_rev'], row['3_rss_end_rev'], '3_rss', True)
-        check_seq(assembly, assembly_rc, row['l_part1'], row['l_part1_start'], row['l_part1_end'], 'l_part1', False)
-        check_seq(assembly, assembly_rc, assembly[row['l_part1_start'] - 1:row['l_part1_end']], row['l_part1_start_rev'], row['l_part1_end_rev'], 'l_part1', True)
-        check_seq(assembly, assembly_rc, row['l_part2'], row['l_part2_start'], row['l_part2_end'], 'l_part2', False)
-        check_seq(assembly, assembly_rc, assembly[row['l_part2_start'] - 1:row['l_part2_end']], row['l_part2_start_rev'], row['l_part2_end_rev'], 'l_part1', True)
+        check_seq(assembly, assembly_rc, row['exon1'], row['exon1_start'], row['exon1_end'], 'exon1', False)
+        check_seq(assembly, assembly_rc, assembly[row['exon1_start'] - 1:row['exon1_end']], row['exon1_start_rev'], row['exon1_end_rev'], 'exon1', True)
+        check_seq(assembly, assembly_rc, row['exon2'], row['exon2_start'], row['exon2_end'], 'exon2', False)
+        check_seq(assembly, assembly_rc, assembly[row['exon2_start'] - 1:row['exon2_end']], row['exon2_start_rev'], row['exon2_end_rev'], 'exon2', True)
         remove_notfound_coords(row)
 
     return rows
@@ -1060,8 +1131,6 @@ def find_best_leaders(assembly, leaders):
         best_leaders[position] = choices[ind]
 
     return best_leaders
-
-
 
     for position, choices in leader_choices.items():
         good_leaders = []
@@ -1164,11 +1233,11 @@ def find_best_rss(rights):
 
 
 aligner_global = PairwiseAligner(
-    mode = 'global',
-    open_gap_score = -1,
-    extend_gap_score = -1,
-    match_score = 1,
-    mismatch_score = 0
+    mode='global',
+    open_gap_score=-1,
+    extend_gap_score=-1,
+    match_score=1,
+    mismatch_score=0
 )
 
 
@@ -1200,8 +1269,10 @@ def find_best_match(seq, pattern, thresh=0.7):
 
     return dists[scores.index(min(scores))][0]
 
+
 def matches(s1, s2):
     return sum([1 for i in range(len(s1)) if s1[i] == s2[i] and s2[i] != 'X'])
+
 
 def find_all_matches(seq, pattern, thresh=0.7):
     dists = []

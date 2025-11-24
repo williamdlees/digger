@@ -7,6 +7,7 @@
   <title>Anotation format &mdash; Digger 0.5.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -46,6 +47,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-8-0">Changes in 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-7">Changes in 0.7.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-6">Changes in 0.7.6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-5">Changes in 0.7.5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-4">Changes in 0.7.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-3">Changes in 0.7.3</a></li>
@@ -63,6 +67,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Anotation format</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#columns-in-the-annotation-file">Columns in the Annotation File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functionality">Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v-leader-annotation">V Leader Annotation</a></li>
 </ul>
 </li>
 </ul>
@@ -129,133 +134,172 @@
 <tr class="row-even"><td><p>gene_type</p></td>
 <td><p>gene type (e.g. IGHV)</p></td>
 </tr>
-<tr class="row-odd"><td><p>gene_start start co-ord of the entire gene including flanking regions</p></td>
-<td></td>
+<tr class="row-odd"><td><p>gene_start</p></td>
+<td><p>start co-ord of the entire gene including flanking regions</p></td>
 </tr>
-<tr class="row-even"><td><p>gene_end end co-ord of the entire gene including flanking regions</p></td>
-<td></td>
+<tr class="row-even"><td><p>gene_end</p></td>
+<td><p>end co-ord of the entire gene including flanking regions</p></td>
 </tr>
-<tr class="row-odd"><td><p>gene_start start co-ord of the entire gene including flanking regions in the reverse-primed sequence</p></td>
-<td></td>
+<tr class="row-odd"><td><p>gene_start</p></td>
+<td><p>start co-ord of the entire gene including flanking regions in the reverse-primed sequence</p></td>
 </tr>
-<tr class="row-even"><td><p>gene_end end co-ord of the entire gene including flanking regions in the reverse-primed sequence</p></td>
-<td></td>
+<tr class="row-even"><td><p>gene_end</p></td>
+<td><p>end co-ord of the entire gene including flanking regions in the reverse-primed sequence</p></td>
 </tr>
 <tr class="row-odd"><td><p>likelihood</p></td>
 <td><p>likelihood that the RSS is that of a functional gene (compared to a random sequence)</p></td>
 </tr>
 <tr class="row-even"><td><p>l_part1</p></td>
-<td><p>leader part 1 equence</p></td>
+<td><p>leader part 1 sequence</p></td>
 </tr>
 <tr class="row-odd"><td><p>l_part2</p></td>
 <td><p>leader part 2 sequence</p></td>
 </tr>
-<tr class="row-even"><td><p>v_heptamer</p></td>
+<tr class="row-even"><td><p>exon1</p></td>
+<td><p>exon 1 sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>exon2</p></td>
+<td><p>exon 2 sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>donor-splice</p></td>
+<td><p>donor splice site sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>acceptor-splice</p></td>
+<td><p>acceptor splice site sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>v_intron</p></td>
+<td><p>v-intron sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_heptamer</p></td>
 <td><p>v-heptamer sequence</p></td>
 </tr>
-<tr class="row-odd"><td><p>v_nonamer</p></td>
+<tr class="row-even"><td><p>v_spacer</p></td>
+<td><p>v-spacer sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_spacer_len</p></td>
+<td><p>length of the v-spacer</p></td>
+</tr>
+<tr class="row-even"><td><p>v_nonamer</p></td>
 <td><p>v-nonamer sequence</p></td>
 </tr>
-<tr class="row-even"><td><p>j_heptamer</p></td>
+<tr class="row-odd"><td><p>j_heptamer</p></td>
 <td><p>j-heptamer sequence</p></td>
 </tr>
-<tr class="row-odd"><td><p>j_nonamer</p></td>
+<tr class="row-even"><td><p>j_spacer</p></td>
+<td><p>j-spacer sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>j_spacer_len</p></td>
+<td><p>length of the j-spacer</p></td>
+</tr>
+<tr class="row-even"><td><p>j_nonamer</p></td>
 <td><p>j-nonamer sequence</p></td>
 </tr>
-<tr class="row-even"><td><p>j_frame</p></td>
+<tr class="row-odd"><td><p>j_frame</p></td>
 <td><p>coding frame of the first nucleotide of the j region (0, 1 or 2)</p></td>
 </tr>
-<tr class="row-odd"><td><p>d_3_heptamer</p></td>
+<tr class="row-even"><td><p>d_3_heptamer</p></td>
 <td><p>3-prime d-heptamer sequence</p></td>
 </tr>
-<tr class="row-even"><td><p>d_3_nonamer</p></td>
+<tr class="row-odd"><td><p>d_3_spacer</p></td>
+<td><p>3-prime d-spacer sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>d_3_spacer_len</p></td>
+<td><p>length of the 3-prime d-spacer</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_3_nonamer</p></td>
 <td><p>3-prime d-nonamer sequence</p></td>
 </tr>
-<tr class="row-odd"><td><p>d_5_heptamer</p></td>
+<tr class="row-even"><td><p>d_5_heptamer</p></td>
 <td><p>5-prime d-heptamer sequence</p></td>
 </tr>
-<tr class="row-even"><td><p>d_5_nonamer</p></td>
+<tr class="row-odd"><td><p>d_5_spacer</p></td>
+<td><p>5-prime d-spacer sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>d_5_spacer_len</p></td>
+<td><p>length of the 5-prime d-spacer</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_5_nonamer</p></td>
 <td><p>5-prime d-nonamer sequence</p></td>
 </tr>
-<tr class="row-odd"><td><p>functional</p></td>
+<tr class="row-even"><td><p>functional</p></td>
 <td><p>functionality (see below)</p></td>
 </tr>
-<tr class="row-even"><td><p>notes</p></td>
+<tr class="row-odd"><td><p>notes</p></td>
 <td><p>annotation notes</p></td>
 </tr>
-<tr class="row-odd"><td><p>aa</p></td>
+<tr class="row-even"><td><p>aa</p></td>
 <td><p>amino acid translation of the coding region</p></td>
 </tr>
-<tr class="row-even"><td><p>v-gene_aligned_aa</p></td>
+<tr class="row-odd"><td><p>v-gene_aligned_aa</p></td>
 <td><p>IMGT-gapped amino acid translation of the coding sequence (for V-genes)</p></td>
 </tr>
-<tr class="row-odd"><td><p>seq</p></td>
+<tr class="row-even"><td><p>seq</p></td>
 <td><p>sequence of the coding region</p></td>
 </tr>
-<tr class="row-even"><td><p>seq_gapped</p></td>
+<tr class="row-odd"><td><p>seq_gapped</p></td>
 <td><p>IMGT-gapped sequence of the coding region (V-genes only)</p></td>
 </tr>
-<tr class="row-odd"><td><p>5_rss_start</p></td>
+<tr class="row-even"><td><p>5_rss_start</p></td>
 <td><p>co-ordinates of the 5-prime RSS</p></td>
 </tr>
-<tr class="row-even"><td><p>5_rss_start_rev</p></td>
+<tr class="row-odd"><td><p>5_rss_start_rev</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>5_rss_end</p></td>
+<tr class="row-even"><td><p>5_rss_end</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>5_rss_end_rev</p></td>
+<tr class="row-odd"><td><p>5_rss_end_rev</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>3_rss_start</p></td>
+<tr class="row-even"><td><p>3_rss_start</p></td>
 <td><p>co-ordinates of the 3-prime RSS</p></td>
 </tr>
-<tr class="row-even"><td><p>3_rss_start_rev</p></td>
+<tr class="row-odd"><td><p>3_rss_start_rev</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>3_rss_end</p></td>
+<tr class="row-even"><td><p>3_rss_end</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>3_rss_end_rev</p></td>
+<tr class="row-odd"><td><p>3_rss_end_rev</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>l_part1_start</p></td>
+<tr class="row-even"><td><p>l_part1_start</p></td>
 <td><p>co-ordinates of the leader part 1</p></td>
 </tr>
-<tr class="row-even"><td><p>l_part1_start_rev</p></td>
+<tr class="row-odd"><td><p>l_part1_start_rev</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>l_part1_end</p></td>
+<tr class="row-even"><td><p>l_part1_end</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>l_part1_end_rev</p></td>
+<tr class="row-odd"><td><p>l_part1_end_rev</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>l_part2_start</p></td>
+<tr class="row-even"><td><p>l_part2_start</p></td>
 <td><p>co-ordinates of the leader part 2</p></td>
 </tr>
-<tr class="row-even"><td><p>l_part2_start_rev</p></td>
+<tr class="row-odd"><td><p>l_part2_start_rev</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>l_part2_end</p></td>
+<tr class="row-even"><td><p>l_part2_end</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>l_part2_end_rev</p></td>
+<tr class="row-odd"><td><p>l_part2_end_rev</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>matches</p></td>
+<tr class="row-even"><td><p>matches</p></td>
 <td><p>number of matches to this start/end region that were produced in the BLAST analysis</p></td>
 </tr>
-<tr class="row-even"><td><p>blast_match</p></td>
+<tr class="row-odd"><td><p>blast_match</p></td>
 <td><p>gene in the reference file with the highest match score in this start/end region</p></td>
 </tr>
-<tr class="row-odd"><td><p>blast_score</p></td>
+<tr class="row-even"><td><p>blast_score</p></td>
 <td><p>the highest BLAST match score in this start/end region</p></td>
 </tr>
-<tr class="row-even"><td><p>blast_nt_diffs</p></td>
+<tr class="row-odd"><td><p>blast_nt_diffs</p></td>
 <td><p>the number of nucleotides differing from the most highly scoring reference sequence in this BLAST match</p></td>
 </tr>
-<tr class="row-odd"><td><p>evalue</p></td>
+<tr class="row-even"><td><p>evalue</p></td>
 <td><p>evalue of the most highly scoring BLAST match in this start/end region</p></td>
 </tr>
 </tbody>
@@ -291,7 +335,7 @@
 <ul class="simple">
 <li><p>RSS and leader meet or exceed position-weighted matrix threshold</p></li>
 <li><p>Highly-conserved nucleotides agree with the definition for the locus, if a definition has been specified</p></li>
-<li><p>If a V-gene, leader starts with ATG, and spliced leader has no stop codons</p></li>
+<li><p>If a V-gene, leader starts with ATG, donor splice ends GT or CT, acceptor splice ends AG, and spliced leader has no stop codons</p></li>
 <li><p>If a V-gene, coding region has no stop codons before the cysteine at IMGT position 104</p></li>
 <li><p>If a V-gene, conserved nucleotides are at the expected locations</p></li>
 <li><p>If a J-gene, donor splice is as expected and coding region has no stop codons</p></li>
@@ -306,6 +350,17 @@
 <li><p>Coding region contains stop codon(s)</p></li>
 <li><p>Leader does not start with ATG</p></li>
 </ul>
+</section>
+<section id="v-leader-annotation">
+<span id="leader-annotation"></span><h2>V Leader Annotation<a class="headerlink" href="#v-leader-annotation" title="Permalink to this heading"></a></h2>
+<p>Exons 1 and 2 are annotated in accordance with the customary genomic annotation regarding splice sites. At first glance, it may be thought that the L-PART1 sequence
+should be the same as the EXON1 sequence, and the L-PART2 sequence the same as the 5’ end of the EXON2 sequence. However IMGT define L-PART1 and L-PART2 in a
+manner that requires each to occupy an entire number of codons. To achieve this, any extra nucleotides at the end of EXON1 that do not make up a complete codon
+are assigned to L-PART2. The approach is documented <a class="reference external" href="https://www.imgt.org/IMGTeducation/Aide-memoire/_UK/splicing">here</a>. In the table on that page, the first
+row, in which a single nucleotide is transferred to L-PART2, is the case normally encountered in V-genes.</p>
+<p>It should be clear from the above that L-PART1 and L-PART2 are not usually separated by the V-INTRON, as is often depicted in the literature.</p>
+<p>We provide coordinates for EXON1 and EXON2 but not for L-PART1 and L-PART2, as the latter do not have simple ‘start’ and ‘end’ coordinates in the genomic sequence.
+They are best thought of as protein-based features.</p>
 </section>
 </section>
 

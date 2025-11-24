@@ -2,8 +2,6 @@
 
 type: V
 Functional sequences reported by digger but not by IMGT:
-158038,158323  imgt_match: TRBV5-3*02  imgt_func: ORF digger_match: TRBV5-3*02  digger_func: functional  notes: 
-405750,406039  imgt_match: TRBV21-1*02  imgt_func: pseudo digger_match: TRBV21-1*02  digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:
 581241,581524  imgt_match: TRBV30*01  imgt_func: functional digger_match:   digger_func:   notes: 

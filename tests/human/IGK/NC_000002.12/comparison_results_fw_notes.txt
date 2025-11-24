@@ -9,14 +9,6 @@ type: V
 Functional sequences reported by digger but not by Watson et al.:
 57718,58016  imgt_match:   imgt_func:  digger_match: IGKV7-3*01  digger_func: functional  notes: 
 ...Annotated by IMGT as IGKV7-3*01 (P) (Genbank X12682) (no start codon)
-74289,74590  imgt_match:   imgt_func:  digger_match: IGKV2-4*01  digger_func: functional  notes: Gene reversed
-...Annotated by IMGT as IGKV2-4*01 (P) (Genbank X72814)
-121106,121395  imgt_match: IGKV3-7*04  imgt_func: ORF digger_match: IGKV3-7*04  digger_func: functional  notes: 
-...Annotated by IMGT as IGKV3-7*04 (P)
-220659,220960  imgt_match:   imgt_func:  digger_match: IGKV2D-29*01  digger_func: functional  notes: Gene reversed
-...Annotated by IMGT as IGKV2-14*01 (P) (Genbank X27811)
-271344,271645  imgt_match:   imgt_func:  digger_match: IGKV2-18*01  digger_func: functional  notes: 
-...Annotated by IMGT as IGKV3-7*04 (ORF)
 302389,302675  imgt_match: IGKV6-21*01  imgt_func: ORF digger_match: IGKV6-21*01  digger_func: functional  notes: Gene reversed
 ...Marked as ORF in Watson et al. but currently classified in the IMGT system IMGT as functional
 

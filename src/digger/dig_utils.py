@@ -285,14 +285,17 @@ def process_sequence(assembly, genbank_acc, patch, target, germlines, v_gapped_r
 
 
 def print_result(row):
-    for field in ['target_allele', 'genbank_acc', 'genbank_seq', 'gene_seq', 'seq', 'alignment_score', 'nt_diff', 'snps', 'start', 'end', 'sense', 'functional', 'notes']:
+    fields = ['target_allele', 'genbank_acc', 'genbank_seq', 'gene_seq', 'seq', 'alignment_score', 'nt_diff', 'snps', 'start', 'end', 'sense', 'functional', 'notes']
+    max_field_len = max([len(field) for field in fields])
+    for field in fields:
         if field == 'genbank_seq' and len(row['genbank_seq']) > 750:
             row['genbank_seq'] = f'length: {len(row["genbank_seq"])}nt'
-        print(f'{field}: {row[field] if field in row else ""}')
-
-    for field in ['tata_box', 'octamer', 'l_part1', 'l_part2', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer', 'notes']:
+        print(f'{field:<{max_field_len}}: {row[field] if field in row else ""}')
+    for field in ['tata_box', 'octamer', 'l_part1', 'l_part2', 'exon1', 'donor-splice', 'v_intron', 'acceptor-splice', 'exon2', 'v_heptamer', 'v_spacer', 'v_spacer_len',
+                  'v_nonamer', 'j_heptamer', 'j_spacer', 'j_spacer_len', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_spacer', 'd_3_spacer_len', 'd_3_nonamer', 
+                  'd_5_heptamer', 'd_5_spacer', 'd_5_spacer_len', 'd_5_nonamer', 'notes']:
         if field in row and row[field]:
-            print(f'{field}: {row[field]}')
+            print(f'{field:<{max_field_len}}: {row[field]}')
 
     print('\n\n')
 
@@ -301,11 +304,12 @@ def process_output(args, rows):
     fieldnames = ['target_allele', 'genbank_acc', 'patch', 'alignment_score', 'nt_diff', 'snps', 'start', 'end', 'start_rev', 'end_rev', 'sense', 'gene_type',
                   'gene_start', 'gene_end', 'gene_start_rev', 'gene_end_rev']
     fieldnames.extend(
-        ['functional', 'notes', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'v_intron', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_nonamer',
-         'd_5_heptamer', 'd_5_nonamer',
+        ['functional', 'notes', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'exon1', 'donor-splice', 'acceptor-splice', 'exon2', 'v_intron', 'v_heptamer', 
+         'v_spacer', 'v_spacer_len', 'v_nonamer', 'j_heptamer', 'j_spacer', 'j_spacer_len', 'j_nonamer', 'j_frame', 'd_3_heptamer', 'd_3_spacer', 'd_3_spacer_len', 
+         'd_3_nonamer','d_5_heptamer', 'd_5_spacer', 'd_5_spacer_len', 'd_5_nonamer',
          'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev',
-         '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev',
-         'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev', 'octamer_start', 'octamer_start_rev', 'octamer_end', 'octamer_end_rev',
+         '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 'exon1_start', 'exon1_start_rev', 'exon1_end', 'exon1_end_rev',
+         'exon2_start', 'exon2_start_rev', 'exon2_end', 'exon2_end_rev', 'octamer_start', 'octamer_start_rev', 'octamer_end', 'octamer_end_rev',
          'tata_box_start', 'tata_box_start_rev', 'tata_box_end', 'tata_box_end_rev',])
     if args.out_file:
         with open(args.out_file, 'w', newline='\n') as fo:
@@ -388,4 +392,42 @@ def read_motifs(args, locus):
         conserved_motif_seqs = simple.read_fasta(conserved_motif_file)
 
     motif_params = json.load(open(os.path.join(motif_dir, 'motif_params.json'), 'r'))
+
+    spacing_errors = False
+
+    if 'V_RSS_SPACING' in motif_params:
+        motif_params['V_RSS_SPACING'] = motif_params['V_RSS_SPACING'], motif_params['V_RSS_SPACING']
+    elif 'MIN_V_RSS_SPACING' in motif_params and 'MAX_V_RSS_SPACING' in motif_params and motif_params['MIN_V_RSS_SPACING'] <= motif_params['MAX_V_RSS_SPACING']:
+        motif_params['V_RSS_SPACING'] = motif_params['MIN_V_RSS_SPACING'], motif_params['MAX_V_RSS_SPACING']
+    else:
+        spacing_errors = True
+        print('Error: V_RSS_SPACING or MIN_V_RSS_SPACING and MAX_V_RSS_SPACING must be defined in motif parameters')
+    
+    if 'J_RSS_SPACING' in motif_params:
+        motif_params['J_RSS_SPACING'] = motif_params['J_RSS_SPACING']-1, motif_params['J_RSS_SPACING']      # allow some latitude
+    elif 'MIN_J_RSS_SPACING' in motif_params and 'MAX_J_RSS_SPACING' in motif_params and motif_params['MIN_J_RSS_SPACING'] <= motif_params['MAX_J_RSS_SPACING']:
+        motif_params['J_RSS_SPACING'] = motif_params['MIN_J_RSS_SPACING'], motif_params['MAX_J_RSS_SPACING']
+    else:
+        spacing_errors = True
+        print('Error: J_RSS_SPACING or MIN_J_RSS_SPACING and MAX_J_RSS_SPACING must be defined in motif parameters')
+
+    if 'D_5_RSS_SPACING' in motif_params:
+        motif_params['D_5_RSS_SPACING'] = motif_params['D_5_RSS_SPACING'], motif_params['D_5_RSS_SPACING']
+    elif 'MIN_D_5_RSS_SPACING' in motif_params and 'MAX_D_5_RSS_SPACING' in motif_params and motif_params['MIN_D_5_RSS_SPACING'] <= motif_params['MAX_D_5_RSS_SPACING']:
+        motif_params['D_5_RSS_SPACING'] = motif_params['MIN_D_5_RSS_SPACING'], motif_params['MAX_D_5_RSS_SPACING']
+    else:
+        spacing_errors = True
+        print('Error: D_5_RSS_SPACING or MIN_D_5_RSS_SPACING and MAX_D_5_RSS_SPACING must be defined in motif parameters')
+
+    if 'D_3_RSS_SPACING' in motif_params:
+        motif_params['D_3_RSS_SPACING'] = motif_params['D_3_RSS_SPACING'], motif_params['D_3_RSS_SPACING']
+    elif 'MIN_D_3_RSS_SPACING' in motif_params and 'MAX_D_3_RSS_SPACING' in motif_params and motif_params['MIN_D_3_RSS_SPACING'] <= motif_params['MAX_D_3_RSS_SPACING']:
+        motif_params['D_3_RSS_SPACING'] = motif_params['MIN_D_3_RSS_SPACING'], motif_params['MAX_D_3_RSS_SPACING']
+    else:
+        spacing_errors = True
+        print('Error: D_3_RSS_SPACING or MIN_D_3_RSS_SPACING and MAX_D_3_RSS_SPACING must be defined in motif parameters')
+
+    if spacing_errors:
+        exit(0)
+
     return conserved_motif_seqs, motifs, motif_params

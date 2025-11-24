@@ -1,18 +1,28 @@
 Release Notes
 =============
 
+Changes in 0.8.0
+================
+- Breaking change: the motif file 'motif_params.json' now takes minimum and maximum RSS spacings for V, D and J RSS, to allow tuning/experimantation. 
+  If you have a custom motif_params.json file, you will need to update it to the new format. Note that, by default, Digger has always provided 1nt
+  of flexibility in V and J RSS spacing, eg 22-23, 11-12. This was previously built into the code, but now needs to be specified in the motif_params.json file.
+  For examples of the new format, see `github <https://github.com/williamdlees/digger/tree/main/src/digger/motifs>`_.
+- Added new annotation columns: exon1, exon1_start, exon1_start_rev, exon1_end, exon1_end_rev and corresponding columns for exon 2
+- Revised annotation of L-PART1 to match IMGT convention (see :ref:`leader_annotation` for details). 
+- Breaking change: REMOVED coordinate columns for l-part1, l-part2 - see above for why.
+
 Changes in 0.7.7
 ================
 - The donor splice (GT) is no longer included in the annotation of L-PART1. This is a break in custom with IMGT, who typically include the GT in the L-PART1 annotation. 
-However, this means that L-PART1 and L-PART2 now exactly match the exon, which we feel is important for clarity. To enable the donor splice to be examined more easily,
-Digger now explicitly annotates the V intron.
+  However, this means that L-PART1 and L-PART2 now exactly match the exon, which we feel is important for clarity. To enable the donor splice to be examined more easily,
+  Digger now explicitly annotates the V intron.
 - Fix erroneous 'failed coordinate check' messages which were emitted where an annotated region extends beyond the assembly boundaries.
 
 Changes in 0.7.6
 ================
 - fix problem in handling multiple contigs
 
-Changes in 0.7.5acti
+Changes in 0.7.5
 ================
 - further salmonid name fix
 

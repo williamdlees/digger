@@ -164,11 +164,11 @@ def multi_driver(args, genomic):
                     if row['start'] != 'NA' and 'assembly_offset' in req:
                         row['sense'] = req['sense']
                         if req['sense'] == '+':
-                            for el in ['start', 'end', 'gene_start', 'gene_end', 'l_part1_start', 'l_part1_end', 'l_part2_start', 'l_part2_end', '3_rss_start', '3_rss_end', '5_rss_start', '5_rss_end']:
+                            for el in ['start', 'end', 'gene_start', 'gene_end', 'exon1_start', 'exon1_end', 'exon2_start', 'exon2_end', '3_rss_start', '3_rss_end', '5_rss_start', '5_rss_end']:
                                 if el in row:
                                     row[el] += int(req['assembly_offset'])
                         else:
-                            for el in ['start', 'end', 'gene_start', 'gene_end', 'l_part1_start', 'l_part1_end', 'l_part2_start', 'l_part2_end', '3_rss_start', '3_rss_end', '5_rss_start', '5_rss_end']:
+                            for el in ['start', 'end', 'gene_start', 'gene_end', 'exon1_start', 'exon1_end', 'exon2_start', 'exon2_end', '3_rss_start', '3_rss_end', '5_rss_start', '5_rss_end']:
                                 if el in row:
                                     row[el] = int(req['assembly_length']) - row[el] + 1
 

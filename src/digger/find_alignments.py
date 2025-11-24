@@ -56,8 +56,10 @@ manual_sense = None
 J_TRP_MOTIF = None
 J_TRP_OFFSET = None
 J_SPLICE = None
-V_RSS_SPACING = None
-J_RSS_SPACING = None
+J_RSS_SPACING = (0, 0)
+V_RSS_SPACING = (0, 0)
+D_5_RSS_SPACING = (0, 0)
+D_3_RSS_SPACING = (0, 0)
 reference_sets = []
 v_gapped_ref = {}
 v_ungapped_ref = {}
@@ -69,13 +71,12 @@ conserved_motif_seqs = {}
 motif_params = {}
 
 
-
 aligner_global = PairwiseAligner(
-    mode = 'global',
-    open_gap_score = -1,
-    extend_gap_score = -1,
-    match_score = 1,
-    mismatch_score = 0
+    mode='global',
+    open_gap_score=-1,
+    extend_gap_score=-1,
+    match_score=1,
+    mismatch_score=0
 )
 
 
@@ -386,8 +387,8 @@ def main():
     J_TRP_MOTIF = motif_params['J_TRP_MOTIF']
     J_TRP_OFFSET = motif_params['J_TRP_OFFSET']
     J_SPLICE = motif_params['J_SPLICE']
-    V_RSS_SPACING = motif_params['V_RSS_SPACING']
     J_RSS_SPACING = motif_params['J_RSS_SPACING']
+    V_RSS_SPACING = motif_params['V_RSS_SPACING']
     D_5_RSS_SPACING = motif_params['D_5_RSS_SPACING']
     D_3_RSS_SPACING = motif_params['D_3_RSS_SPACING']
 
@@ -413,10 +414,10 @@ def main():
             fieldnames.extend([ref['name'] + '_match', ref['name'] + '_score', ref['name'] + '_nt_diffs'])
 
         fieldnames.extend([
-            'functional', 'notes', 'likelihood', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'v_intron', 'v_heptamer', 'v_nonamer', 'j_heptamer', 'j_nonamer', 'j_frame', 
-            'd_3_heptamer', 'd_3_nonamer', 'd_5_heptamer', 'd_5_nonamer', 'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped', 
+            'functional', 'notes', 'likelihood', 'tata_box', 'octamer', 'l_part1', 'l_part2', 'exon1', 'donor-splice', 'acceptor-splice', 'exon2', 'v_intron', 'v_heptamer', 'v_spacer', 'v_spacer_len', 'v_nonamer', 'j_heptamer', 'j_spacer', 'j_spacer_len', 'j_nonamer', 'j_frame', 
+            'd_3_heptamer', 'd_3_nonamer', 'd_3_spacer', 'd_3_spacer_len', 'd_5_heptamer', 'd_5_nonamer', 'd_5_spacer', 'd_5_spacer_len', 'aa', 'v-gene_aligned_aa', 'gene_seq', 'seq', 'seq_gapped',
             '5_rss_start', '5_rss_start_rev', '5_rss_end', '5_rss_end_rev', '3_rss_start', '3_rss_start_rev', '3_rss_end', '3_rss_end_rev', 
-            'l_part1_start', 'l_part1_start_rev', 'l_part1_end', 'l_part1_end_rev', 'l_part2_start', 'l_part2_start_rev', 'l_part2_end', 'l_part2_end_rev', 
+            'exon1_start', 'exon1_start_rev', 'exon1_end', 'exon1_end_rev', 'exon2_start', 'exon2_start_rev', 'exon2_end', 'exon2_end_rev', 
             'octamer_start', 'octamer_start_rev', 'octamer_end', 'octamer_end_rev', 'tata_box_start', 'tata_box_start_rev', 'tata_box_end', 'tata_box_end_rev'
         ])
 

@@ -125,10 +125,14 @@ class MotifResult:
 
         self.left = left_motif.seq
         if self.start and right_motif.start:
-            self.gap = assembly[self.start + len(self.left):right_motif.start - 1]
+            self.gap = assembly[self.start + len(self.left) - 1:right_motif.start - 1]
         else:
             self.gap = ''
         self.right = right_motif.seq
+
+        if self.gap and len(right_motif.seq) + len(left_motif.seq) + len(self.gap) != self.end - self.start + 1:
+            print(f'Gap length calculation error in MotifResult: start {self.start}')
+
         self.likelihood = left_motif.likelihood * right_motif.likelihood
         if notes:
             self.notes = [n for n in notes]
@@ -181,8 +185,6 @@ def find_single_motif(assembly, conserved_motif_seqs, motif, min_start, max_star
                 res.append(SingleMotifResult(assembly, conserved_motif_seqs, motif, p, likelihood))
 
     return res
-
-
 
 
 # Find compound motifs - ie heptamer plus nonamer, or l-part1 and l-part2.

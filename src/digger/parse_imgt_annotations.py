@@ -280,6 +280,7 @@ def main():
         exit(0)
 
     if 'http' in args.imgt_url:
+        print('Warning: IMGT bots policy may block automated downloads. If you have trouble downloading, please download the file manually from a browser and provide the filename as input instead of the URL (see the documentation for instructions).')
         try:
             with urllib.request.urlopen(args.imgt_url) as fi:
                 imgt_text = html.unescape(fi.read().decode('utf-8'))

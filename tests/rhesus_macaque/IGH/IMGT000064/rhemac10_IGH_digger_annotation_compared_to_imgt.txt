@@ -2,10 +2,6 @@
 
 type: V
 Functional sequences reported by digger but not by IMGT:
-707072,707367  imgt_match: IGHV3-117*01  imgt_func: pseudo digger_match: IGHV3-117*01  digger_func: functional  notes: 
-1084763,1085058  imgt_match: IGHV3-67*01  imgt_func: pseudo digger_match: IGHV3-67*01  digger_func: functional  notes: 
-1139361,1139658  imgt_match: IGHV4-57*01  imgt_func: pseudo digger_match: IGHV4-57*04  digger_func: functional  notes: 
-1376375,1376669  imgt_match: IGHV3-18*01  imgt_func: ORF digger_match: IGHV3-18*01  digger_func: functional  notes: 
 
 Functional sequences reported by IMGT but not by digger:
 235627,235925  imgt_match: IGHV3-176*01  imgt_func: functional digger_match: IGHV3-176*01  digger_func: orf  notes: First cysteine not found

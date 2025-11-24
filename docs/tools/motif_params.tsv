@@ -2,7 +2,7 @@ Parameter	Definition
 J_TRP_MOTIF	The J amino acid motif to search for. May be a single value, or a Python list, e.g. ["FGXG", "WGXG"]
 J_TRP_OFFSET	The number of codons between and including the start of the J motif and the final codon before the J-SPLICE
 J_SPLICE	The expected nt sequence of the J-SPLICE
-V_RSS_SPACING	The expected length of the V-SPACER
-J_RSS_SPACING	The expected length of the J-SPACER
-D_5_RSS_SPACING	The expected length of the 5' D-SPACER (0 if this is not a heavy chain)
-D_3_RSS_SPACING	The expected length of the 3' D-SPACER (0 if this is not a heavy chain)
+[MIN, MAX]_V_RSS_SPACING	The expected min and max length of the V-SPACER
+[MIN, MAX]_J_RSS_SPACING	The expected min and max length of the J-SPACER
+[MIN, MAX]_D_5_RSS_SPACING	The expected min and max length of the 5' D-SPACER (0 if this is not a heavy chain)
+[MIN, MAX]_D_3_RSS_SPACING	The expected min and max length of the 3' D-SPACER (0 if this is not a heavy chain)

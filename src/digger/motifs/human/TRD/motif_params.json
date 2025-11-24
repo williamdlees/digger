@@ -2,8 +2,10 @@
     "J_TRP_MOTIF": "FGXG",
     "J_TRP_OFFSET": 11,
     "J_SPLICE": "*GT",
-    "V_RSS_SPACING": 23,
-    "J_RSS_SPACING": 12,
+    "MIN_V_RSS_SPACING": 22,
+    "MAX_V_RSS_SPACING": 23,
+    "MIN_J_RSS_SPACING": 11,
+    "MAX_J_RSS_SPACING": 12,
     "D_5_RSS_SPACING": 12,
     "D_3_RSS_SPACING": 23
 }

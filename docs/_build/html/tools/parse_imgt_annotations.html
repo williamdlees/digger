@@ -7,6 +7,7 @@
   <title>parse_imgt_annotations &mdash; Digger 0.5.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -47,6 +48,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../docker.html">Docker Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-8-0">Changes in 0.8.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-7">Changes in 0.7.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-6">Changes in 0.7.6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-5">Changes in 0.7.5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-4">Changes in 0.7.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html#changes-in-0-7-3">Changes in 0.7.3</a></li>
@@ -107,6 +111,15 @@
 <p><code class="docutils literal notranslate"><span class="pre">parse_imgt_annotations</span></code> downloads an IMGT annotation file or or uses a file already downloaded. It parses the file to provide a list of annotated features.
 Optionally it will also store the file downloaded, and create a FASTA file containing the annotated assembly.
 Please refer to <a class="reference internal" href="../examples/human_igh.html#human-igh"><span class="std std-ref">Annotating the human IGH locus</span></a> for example usage.</p>
+<p>As of writing, IMGT has implemented a ‘bot checker’ mecchanism which means that automated downloads of annotation files are blocked. Unless this is modified in
+the future, you will need to download the annotation file manually from IMGT, and provide it to this tool using the <code class="docutils literal notranslate"><span class="pre">-input_file</span></code> argument. To do this:</p>
+<ol class="arabic simple">
+<li><p>Browse to the URL <cite>https://www.imgt.org/ligmdb/view.action?format=IMGT&amp;id=&lt;id&gt;</cite> where <code class="docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code> is the IMGT identifier of the sequence you wish to download annotations
+for. For example, for the rhesus macaque IGH sequence with IMGT ID IMGT000064, the URL is <cite>https://www.imgt.org/ligmdb/view.action?format=IMGT&amp;id=IMGT000064</cite>.</p></li>
+<li><p>Check that you are on the IMGT View (see the list of near the top of the page, and click IMGT if necessary).</p></li>
+<li><p>Press the Download button under the list of views (if you do not see the download button, check step 2).</p></li>
+</ol>
+<p>Now proceed to run the <code class="docutils literal notranslate"><span class="pre">parse_imgt_annotations</span></code> tool with the <code class="docutils literal notranslate"><span class="pre">-input_file</span></code> argument set to the path of the file you just downloaded.</p>
 <p><p>Given a set of IMGT annotations, build a CSV file containing gene names and co-ordinates</p>
 </p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">parse_imgt_annotations</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_download</span> <span class="n">SAVE_DOWNLOAD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_sequence</span> <span class="n">SAVE_SEQUENCE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">save_imgt_annots</span> <span class="n">SAVE_IMGT_ANNOTS</span><span class="p">]</span> <span class="n">imgt_url</span> <span class="n">outfile</span> <span class="n">locus</span>
