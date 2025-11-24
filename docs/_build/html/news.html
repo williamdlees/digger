@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#changes-in-0-8-1">CHanges in 0.8.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#changes-in-0-8-0">Changes in 0.8.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#changes-in-0-7-7">Changes in 0.7.7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#changes-in-0-7-6">Changes in 0.7.6</a></li>
@@ -121,14 +122,22 @@
   <section id="release-notes">
 <span id="news"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading"></a></h1>
 </section>
+<section id="changes-in-0-8-1">
+<h1>CHanges in 0.8.1<a class="headerlink" href="#changes-in-0-8-1" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p>Revised motif tables to fully implement the new Max/Min values for RSS spacers</p></li>
+</ul>
+</section>
 <section id="changes-in-0-8-0">
 <h1>Changes in 0.8.0<a class="headerlink" href="#changes-in-0-8-0" title="Permalink to this heading"></a></h1>
 <ul class="simple">
-<li><p>Breaking change: the motif file ‘motif_params.json’ now takes minimum and maximum RSS spacings for V, D and J RSS, to allow tuning/experimantation.
+<li><p>Breaking change: the motif file ‘motif_params.json’ now takes minimum and maximum RSS spacings for V, D and J RSS, to allow tuning/exploration.
 If you have a custom motif_params.json file, you will need to update it to the new format. Note that, by default, Digger has always provided 1nt
 of flexibility in V and J RSS spacing, eg 22-23, 11-12. This was previously built into the code, but now needs to be specified in the motif_params.json file.
 For examples of the new format, see <a class="reference external" href="https://github.com/williamdlees/digger/tree/main/src/digger/motifs">github</a>.</p></li>
-<li><p>Added new annotation columns: exon1, exon1_start, exon1_start_rev, exon1_end, exon1_end_rev and corresponding columns for exon 2</p></li>
+<li><p>Added new exon annotation columns: exon1, exon1_start, exon1_start_rev, exon1_end, exon1_end_rev and corresponding columns for exon 2</p></li>
+<li><p>Added new RSS annotation columns: v_spacer, v_spacer_length, j_spacer, j_spacer_length, d_3_spacer, d_3_spacer_length, d_5_spacer, d_5_spacer_length</p></li>
+<li><p>Added new leader splice columns: donor-splice, acceptor-splice</p></li>
 <li><p>Revised annotation of L-PART1 to match IMGT convention (see <a class="reference internal" href="tools/annotation.html#leader-annotation"><span class="std std-ref">V Leader Annotation</span></a> for details).</p></li>
 <li><p>Breaking change: REMOVED coordinate columns for l-part1, l-part2 - see above for why.</p></li>
 </ul>

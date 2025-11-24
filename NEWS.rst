@@ -1,13 +1,19 @@
 Release Notes
 =============
 
+CHanges in 0.8.1
+================
+- Revised motif tables to fully implement the new Max/Min values for RSS spacers
+
 Changes in 0.8.0
 ================
-- Breaking change: the motif file 'motif_params.json' now takes minimum and maximum RSS spacings for V, D and J RSS, to allow tuning/experimantation. 
+- Breaking change: the motif file 'motif_params.json' now takes minimum and maximum RSS spacings for V, D and J RSS, to allow tuning/exploration. 
   If you have a custom motif_params.json file, you will need to update it to the new format. Note that, by default, Digger has always provided 1nt
   of flexibility in V and J RSS spacing, eg 22-23, 11-12. This was previously built into the code, but now needs to be specified in the motif_params.json file.
   For examples of the new format, see `github <https://github.com/williamdlees/digger/tree/main/src/digger/motifs>`_.
-- Added new annotation columns: exon1, exon1_start, exon1_start_rev, exon1_end, exon1_end_rev and corresponding columns for exon 2
+- Added new exon annotation columns: exon1, exon1_start, exon1_start_rev, exon1_end, exon1_end_rev and corresponding columns for exon 2
+- Added new RSS annotation columns: v_spacer, v_spacer_length, j_spacer, j_spacer_length, d_3_spacer, d_3_spacer_length, d_5_spacer, d_5_spacer_length
+- Added new leader splice columns: donor-splice, acceptor-splice
 - Revised annotation of L-PART1 to match IMGT convention (see :ref:`leader_annotation` for details). 
 - Breaking change: REMOVED coordinate columns for l-part1, l-part2 - see above for why.
 
