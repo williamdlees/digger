@@ -1,6 +1,10 @@
 Release Notes
 =============
 
+CHanges in 0.8.2
+================
+- Fix typo in RH IGH motif params (reported by Luke Herbert)
+
 CHanges in 0.8.1
 ================
 - Revised motif tables to fully implement the new Max/Min values for RSS spacers
